@@ -1,10 +1,12 @@
 import React from 'react';
+import  './App.sass'
+import RHeader from './components/header/header'
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>My first app</h1>
-    </div>
+    <main>
+      <RHeader></RHeader>
+    </main>
   );
 }
 

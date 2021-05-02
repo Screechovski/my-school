@@ -1,11 +1,15 @@
 import React from 'react';
+import RNav from './../nav/nav';
+import './header.sass';
 
-export default () => {
+const rHeader = () => {
     return (
-        <header>
-            <div className="container">
-                
+        <header className="header">
+            <div className="container header__container">
+                <div className="header__logo">MY-shCOOL</div>
+                <RNav></RNav>
             </div>
         </header>
     )
 }
+export default rHeader;
