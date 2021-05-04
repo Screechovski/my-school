@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './nav_link.module.sass';
+import css from './navLink.module.sass';
 
 const navLink = (props) => {
     return (

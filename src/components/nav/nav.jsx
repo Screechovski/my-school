@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLink from './../nav_link/nav_link';
+import NavLink from '../navLink/navLink';
 // import { Button } from 'react-bootstrap';
 import css from './nav.module.sass';
 
