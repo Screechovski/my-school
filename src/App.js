@@ -1,5 +1,7 @@
 import React from 'react';
-import  './App.sass'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import  './bootstrap.settings.scss';
+import  './App.sass';
 import RHeader from './components/header/header'
 
 const App = () => {

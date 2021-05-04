@@ -1,15 +1,17 @@
 import React from 'react';
-import './nav.sass';
+import NavLink from './../nav_link/nav_link';
+// import { Button } from 'react-bootstrap';
+import css from './nav.module.sass';
 
 const navLins = ['Главная','О школе','Новости','Направления','Педагоги', 'Разное'];
 
 const nav = () => {
     return (
-        <nav className="nav">
-            <ul className="nav__list">
+        <nav className={css.nav}>
+            <ul className={css.nav__list}>
                 {navLins.map((item,index)=>{
-                    return <li className="nav__item" key={index}>
-                        <a className="nav__link" href={"#" + index}>{item}</a>
+                    return <li className={css.nav__item} key={index}>
+                        <NavLink linkUrl={"#" + index} linkText={item} />
                     </li>
                 })}
             </ul>
