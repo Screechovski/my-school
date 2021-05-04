@@ -1,12 +1,13 @@
 import React from 'react';
 import RNav from './../nav/nav';
-import './header.sass';
+import RLogo from './../logo/logo';
+import css from './header.module.sass';
 
 const rHeader = () => {
     return (
-        <header className="header">
-            <div className="container header__container">
-                <div className="header__logo">MY-shCOOL</div>
+        <header className={css.header}>
+            <div className={css.header__container + " r-container"}>
+                <RLogo type="medium"></RLogo>
                 <RNav></RNav>
             </div>
         </header>
