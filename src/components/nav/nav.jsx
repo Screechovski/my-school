@@ -3,7 +3,7 @@ import NavLink from '../navLink/navLink';
 // import { Button } from 'react-bootstrap';
 import css from './nav.module.sass';
 
-const navLins = ['Главная','О школе','Новости','Направления','Педагоги', 'Разное'];
+const navLins = ['Главная','О школе','Новости','Предметы','Педагоги', 'Разное'];
 
 const nav = () => {
     return (
