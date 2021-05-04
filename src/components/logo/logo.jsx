@@ -21,7 +21,9 @@ const logo = (props) => {
     }
 
     return (
-        <i className={cssLine}>MY-shCOOL</i>
+        <a href="/" className={cssLine}>
+            <i>MY-shCOOL</i>
+        </a>
     );
 }
 

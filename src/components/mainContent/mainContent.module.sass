@@ -1,16 +1,13 @@
-.sidebar
+.main-content
     background-color: #ffffff
     box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.14)
     padding: 15px
-    display: flex
-    flex-direction: column
     border-radius: 15px
     &__title
         font-size: 26px
         color: #303030
         margin-bottom: 1em
-    &__list
-    &__item
-        &:not(:last-child)
-            margin-bottom: 15px
-        
+    &--subjects
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        gap: 20px
