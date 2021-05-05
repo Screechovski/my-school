@@ -4,7 +4,7 @@ import RSidebar from './components/sidebar/sidebar';
 import RNewsCard from './components/newsCard/newsCard';
 import RFooter from './components/footer/footer';
 import tmpPostData from './tmpPostData';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PageIndex from './views/index';
 import PageSubjects from './views/subjects';
 import PageAbout from './views/about';
@@ -32,13 +32,26 @@ const App = () => {
               />
             })}/>
 
-            <Route path="/index" component={PageIndex}/>
-            <Route path="/about" component={PageAbout}/>
-            <Route path="/news" component={PageNews}/>
-            <Route path="/subjects" component={PageSubjects}/>
-            <Route path="/educators" component={PageEducators}/>
-            <Route path="/miscellanea" component={PageMiscellanea}/>
-
+            <Switch>
+              <Route exact path="/" >  
+                <PageIndex /> 
+              </Route>
+              <Route path="/about" > 
+              <PageAbout />
+               </Route>
+              <Route path="/news" >  
+                <PageNews /> 
+              </Route>
+              <Route path="/subjects" >  
+                <PageSubjects /> 
+              </Route>
+              <Route path="/educators" > 
+                <PageEducators /> 
+              </Route>
+              <Route path="/miscellanea" > 
+                <PageMiscellanea /> 
+              </Route>
+            </Switch>
 
 
           </div>          

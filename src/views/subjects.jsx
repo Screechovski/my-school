@@ -5,14 +5,21 @@ import tmpSubjectsData from './../tmpSubjectsData';
 import tmpSubjectsIconsData from './../tmpSubjectIconsData.js';
 
 const subjects = () => {
-    return (
-        <RMain parentClass="page-body__content" title="Предметы" typeContent="subjects" slot={tmpSubjectsData.map((elem,index)=>{
-            return <RSubjectCard
-                key={index}
+    const subjectsElements = tmpSubjectsData.map((elem,index)=>{
+        return (
+            <RSubjectCard
+                to={"/subjects/" + elem.href}
+                key={elem.id} 
                 title={elem.title}
                 image={tmpSubjectsIconsData[index]}
             />
-        })}/>
+        );
+        
+        
+    })
+
+    return (
+        <RMain parentClass="page-body__content" title="Предметы" typeContent="subjects" slot={subjectsElements}/>
     )
 }
 
