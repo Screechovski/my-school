@@ -1,0 +1,35 @@
+.educator-card
+    background-color: #ffffff
+    padding: 10px
+    border-radius: 10px
+    box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.14)
+    cursor: pointer
+    display: flex
+    align-items: stretch
+    transition: box-shadow .1s, transform .2s
+    &:hover
+        box-shadow: 1px 1px 15px 0px rgba(0,0,0,0.2)
+        transform: scale(1.05)
+    &__image
+        height: 70px
+        width: 70px
+        border-radius: 10px
+    &__image-wrap
+        margin-right: 15px
+    &__body
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+    &__title
+        font-size: 18px
+        color: #303030
+        line-height: 1.2em
+        mb
+    &__profession
+        font-size: 13px
+        color: #5e5e5e
+    &__mail
+        color: var(--main-link-color)
+        text-decoration: none
+        &:hover
+            text-decoration: underline

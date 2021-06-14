@@ -4,7 +4,7 @@ import css from './nav.module.sass';
 
 const navLins = [{
     value: 'Главная',
-    path: '/index'
+    path: '/'
 },{
     value: 'О школе',
     path: '/about'
