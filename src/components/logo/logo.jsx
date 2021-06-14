@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import css from './logo.module.sass';
 
 
@@ -21,9 +22,9 @@ const logo = (props) => {
     }
 
     return (
-        <a href="/" className={cssLine}>
+        <NavLink to="/" className={cssLine}>
             <i>MY-shCOOL</i>
-        </a>
+        </NavLink>
     );
 }
 

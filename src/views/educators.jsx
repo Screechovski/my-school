@@ -1,56 +1,31 @@
 import React from 'react';
 import RMain from './../components/mainContent/mainContent';
 import ReducatorCard from './../components/educatorCard/educatorCard';
-
-let educatorsData = [
-    {
-        id: 0,
-        name: 'Тарасов Макар Мэлсович'
-    },
-    {
-        id: 1,
-        name: 'Жукова Верона Семёновна'
-    },
-    {
-        id: 2,
-        name: 'Тетерин Касьян Лаврентьевич'
-    },
-    {
-        id: 3,
-        name: 'Кириллова Залина Богдановна'
-    },
-    {
-        id: 4,
-        name: 'Веселов Дмитрий Никитевич'
-    },
-    {
-        id: 5,
-        name: 'Васильева Дина Феликсовна'
-    },
-    {
-        id: 6,
-        name: 'Якушев Виктор Иринеевич'
-    },
-    {
-        id: 7,
-        name: 'Никонова Индира Аркадьевна'
-    },
-    {
-        id: 8,
-        name: 'Ильин Гордей Проклович'
-    },
-    {
-        id: 9,
-        name: 'Аксёнова Ярослава Фроловна'
-    }
-]
+import RSidebar from './../components/sidebar/sidebar';
+import RNewsCard from './../components/newsCard/newsCard';   
+import state from './../state';
 
 const educators = () => {
-    const educatorsElemts = educatorsData.map(elem => <ReducatorCard key={elem.id} name={elem.name} />)
+    const educatorsElemts = state.getEducator().map(elem => <ReducatorCard key={elem.id} name={elem.name} />)
+
+    const sidebarNews = state.getPost().slice(0,4).map((elem,index)=>{
+        return <RNewsCard
+            key={elem.id}
+            id={elem.id}
+            title={elem.title}
+            text={elem.body}
+            linkUrl={'#' + index}
+            date={elem.date}
+        />
+    });
     
 
     return (
-        <RMain parentClass="page-body__content" title="Педагоги" typeContent="educators" slot={educatorsElemts}/>
+        <div className="r-container page-body__r-container">     
+            <RSidebar parentClass="page-body__sidebar" title="Новости" slot={sidebarNews}/>
+            
+            <RMain parentClass="page-body__content" title="Педагоги" typeContent="educators" slot={educatorsElemts}/>
+        </div>
     )
 }
 
