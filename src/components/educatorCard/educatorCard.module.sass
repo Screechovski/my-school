@@ -7,6 +7,7 @@
     display: flex
     align-items: stretch
     transition: box-shadow .1s, transform .2s
+    position: relative
     &:hover
         box-shadow: 1px 1px 15px 0px rgba(0,0,0,0.2)
         transform: scale(1.05)
@@ -24,12 +25,20 @@
         font-size: 18px
         color: #303030
         line-height: 1.2em
-        mb
     &__profession
         font-size: 13px
         color: #5e5e5e
     &__mail
         color: var(--main-link-color)
         text-decoration: none
+        position: relative
+        z-index: 3
         &:hover
             text-decoration: underline
+    &__main-link
+        position: absolute
+        z-index: 1
+        height: 100%
+        width: 100%
+        top: 0
+        lef: 0
