@@ -1,12 +1,17 @@
+//react
 import React from 'react';
-import css from './subjectCard.module.sass';
 import { NavLink } from 'react-router-dom';
+//css
+import css from './subjectCard.module.sass';
+//state   
+import state from './../../state';
 
 const subjectCard = (props) => {
+    const subject = state.getSubject(props.id);
     return (
-        <NavLink to={props.to} className={css['subject-card']}>
-            <img className={css['subject-card__icon']} src={props.image} alt=""/>
-            <span className={css['subject-card__title']}>{props.title}</span>
+        <NavLink to={"/subjects-inner/"+props.id} className={css['subject-card']}>
+            <img className={css['subject-card__icon']} src={subject.image} alt=""/>
+            <span className={css['subject-card__title']}>{subject.title}</span>
         </NavLink>
     );
 }

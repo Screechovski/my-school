@@ -9,29 +9,20 @@ const subjects = () => {
     const subjectsElements = state.getSubject().map((elem,index)=>{
         return (
             <RSubjectCard
-                to={"/subjects/?id=" + elem.id}
+                id={elem.id}
                 key={elem.id} 
                 title={elem.title}
-                image={state.getSubjectIcon(elem.id)}
+                image={elem.image}
             />
         );
     })
-    const sidebarNews = state.getPost().slice(0,4).map((elem,index)=>{
-        return <RNewsCard
-            key={elem.id}
-            id={elem.id}
-            title={elem.title}
-            text={elem.body}
-            linkUrl={'#' + index}
-            date={elem.date}
-        />
-    });
+    const sidebarNews = state.getPost().slice(0,4).map(elem => <RNewsCard key={elem.id} id={elem.id}/>);
 
     return (
         <div className="r-container page-body__r-container">        
             <RSidebar parentClass="page-body__sidebar" title="Новости" slot={sidebarNews}/>
 
-            <RMain parentClass="page-body__content" title="Предметы" typeContent="subjects" slot={subjectsElements}/>
+            <RMain parentClass="page-body__content page-body__content--sidebar" title="Предметы" typeContent="subjects" slot={subjectsElements}/>
         </div>
 
     )

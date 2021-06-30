@@ -1,421 +1,431 @@
-import img0 from './images/writing-tool.svg';
-import img1 from './images/reading.svg';
-import img2 from './images/carpenter.svg';
-import img3 from './images/planet-earth.svg';
-import img4 from './images/calculating.svg';
-import img5 from './images/singing.svg';
-import img6 from './images/paint.svg';
-import img7 from './images/kremlin.svg';
-import img8 from './images/fitness.svg';
-import img9 from './images/house.svg';
-import img10 from './images/church.svg';
-import img11 from './images/foreign-language.svg';
-import img12 from './images/overpopulation.svg';
-import img13 from './images/history.svg';
-import img14 from './images/history_writing.svg';
-import img15 from './images/library.svg';
-import img16 from './images/life-jacket.svg';
-import img17 from './images/project-management.svg';
-import img18 from './images/world-map.svg';
-import img19 from './images/biology.svg';
-import img20 from './images/computer.svg';
-import img21 from './images/communities.svg';
-import img22 from './images/divider.svg';
-import img23 from './images/algebra.svg';
-import img24 from './images/shapes.svg';
-import img25 from './images/relativity.svg';
-import img26 from './images/chemistry.svg';
-import img27 from './images/economic.svg';
-import img28 from './images/justice.svg';
-import img29 from './images/yin-yang.svg';
-import img30 from './images/eco.svg';
-import img31 from './images/astronomy.svg';
+import img0 from './images/subjects/writing-tool.svg';
+import img1 from './images/subjects/reading.svg';
+import img2 from './images/subjects/carpenter.svg';
+import img3 from './images/subjects/planet-earth.svg';
+import img4 from './images/subjects/calculating.svg';
+import img5 from './images/subjects/singing.svg';
+import img6 from './images/subjects/paint.svg';
+import img7 from './images/subjects/kremlin.svg';
+import img8 from './images/subjects/fitness.svg';
+import img9 from './images/subjects/house.svg';
+import img10 from './images/subjects/church.svg';
+import img11 from './images/subjects/foreign-language.svg';
+import img12 from './images/subjects/overpopulation.svg';
+import img13 from './images/subjects/history.svg';
+import img14 from './images/subjects/history_writing.svg';
+import img15 from './images/subjects/library.svg';
+import img16 from './images/subjects/life-jacket.svg';
+import img17 from './images/subjects/project-management.svg';
+import img18 from './images/subjects/world-map.svg';
+import img19 from './images/subjects/biology.svg';
+import img20 from './images/subjects/computer.svg';
+import img21 from './images/subjects/communities.svg';
+import img22 from './images/subjects/divider.svg';
+import img23 from './images/subjects/algebra.svg';
+import img24 from './images/subjects/shapes.svg';
+import img25 from './images/subjects/relativity.svg';
+import img26 from './images/subjects/chemistry.svg';
+import img27 from './images/subjects/economic.svg';
+import img28 from './images/subjects/justice.svg';
+import img29 from './images/subjects/yin-yang.svg';
+import img30 from './images/subjects/eco.svg';
+import img31 from './images/subjects/astronomy.svg';
+import m1 from './images/educators/m-1.jpg';
+import m2 from './images/educators/m-2.jpg';
+import m3 from './images/educators/m-3.jpg';
+import m4 from './images/educators/m-4.jpg';
+import m5 from './images/educators/m-5.jpg';
+import m6 from './images/educators/m-6.jpg';
+import m7 from './images/educators/m-7.jpg';
+import w1 from './images/educators/w-1.jpg';
+import w2 from './images/educators/w-2.jpg';
+import w3 from './images/educators/w-3.jpg';
+import w4 from './images/educators/w-4.jpg';
+import w5 from './images/educators/w-5.jpg';
+import w6 from './images/educators/w-6.jpg';
+import w7 from './images/educators/w-7.jpg';
+import w8 from './images/educators/w-8.jpg';
+import { hasInArray } from './assets';
+import statePostsGenerator from './statePostsGenerator';
+
 
 const store = {
     _state: {
         subjects: [{
             id: 0,
             title: "Чистописание",
-            href: "calligraphy"
+            href: "calligraphy",
+            image: img0,
+            years: [true,false,false,false,false,false,false,false,false,false,false]
         },
         {
             id: 1,
             title: "Чтение",
-            href: "reading"
+            href: "reading",
+            image: img1,
+            years: [true,true,true,true,false,false,false,false,false,false,false]
+
         },
         {
             id: 2,
             title: "Труд",
-            href: "work"
+            href: "work",
+            image: img2,
+            years: [true,true,true,true,false,false,false,false,false,false,false]
         },
         {
             id: 3,
             title: "Природоведение",
-            href: "natural_science"
+            href: "natural_science",
+            image: img3,
+            years: [true,true,true,true,true,false,false,false,false,false,false]
         },
         {
             id: 4,
             title: "Математика",
-            href: "mathematics"
+            href: "mathematics",
+            image: img4,
+            years: [true,true,true,true,true,true,false,false,false,false,false]
         },
         {
             id: 5,
             title: "Музыка (Пение)",
-            href: "music_(singing)"
+            href: "music_(singing)",
+            image: img5,
+            years: [true,true,true,true,true,true,true,false,false,false,false]
         },
         {
             id: 6,
             title: "Изобразительное искусство (Рисование)",
-            href: "fine_arts_(drawing)"
+            href: "fine_arts_(drawing)",
+            image: img6,
+            years: [true,true,true,true,true,true,true,true,true,true,true]
         },
         {
             id: 7,
             title: "Русский язык",
-            href: "russian_language"
+            href: "russian_language",
+            image: img7,
+            years: [true,true,true,true,true,true,true,true,true,true,true]
         },
         {
             id: 8,
             title: "Физкультура",
-            href: "physical_education"
+            href: "physical_education",
+            image: img8,
+            years: [true,true,true,true,true,true,true,true,true,true,true]
         },
         {
             id: 9,
             title: "Родной язык",
-            href: "native_language"
+            href: "native_language",
+            image: img9,
+            years: [false,true,true,true,true,true,true,true,true,true,true]
         },
         {
             id: 10,
             title: "Основы религиозных культур и светской этики",
-            href: "foundations_of_religious_cultures_and_secular_ethics"
+            href: "foundations_of_religious_cultures_and_secular_ethics",
+            image: img10,
+            years: [false,false,false,true,true,false,false,false,false,false,false]
         },
         {
             id: 11,
             title: "Иностранный язык",
-            href: "foreign_language"
+            href: "foreign_language",
+            image: img11,
+            years: [false,false,false,true,true,true,true,true,true,true,true]
         },
         {
             id: 12,
             title: "Граждановедение",
-            href: "citizenship"
+            href: "citizenship",
+            image: img12,
+            years: [false,false,false,false,true,true,true,false,false,false,false]
         },
         {
             id: 13,
             title: "Краеведение",
-            href: "local_history"
+            href: "local_history",
+            image: img13,
+            years: [false,false,false,false,true,true,true,false,false,false,false]
         },
         {
             id: 14,
             title: "История",
-            href: "history"
+            href: "history",
+            image: img14,
+            years: [false,false,false,false,true,true,true,true,true,true,true]
         },
         {
             id: 15,
             title: "Литература",
-            href: "literature"
+            href: "literature",
+            image: img15,
+            years: [false,false,false,false,true,true,true,true,true,true,true]
         },
         {
             id: 16,
             title: "Основы безопасности жизнедеятельности (ОБЖ)",
-            href: "fundamentals_of_life_safety_(obzh)"
+            href: "fundamentals_of_life_safety_(obzh)",
+            image: img16,
+            years: [false,false,false,false,true,true,true,true,true,true,true]
         },
         {
             id: 17,
             title: "Технология",
-            href: "technology"
+            href: "technology",
+            image: img17,
+            years: [false,false,false,false,true,true,true,true,true,true,true]
         },
         {
             id: 18,
             title: "География",
-            href: "geography"
+            href: "geography",
+            image: img18,
+            years: [false,false,false,false,false,true,true,true,true,true,false]
         },
         {
             id: 19,
             title: "Биология",
-            href: "biology"
+            href: "biology",
+            image: img19,
+            years: [false,false,false,false,false,true,true,true,true,true,true]
         },
         {
             id: 20,
             title: "Информатика",
-            href: "computer_science"
+            href: "computer_science",
+            image: img20,
+            years: [false,false,false,false,false,true,true,true,true,true,true]
         },
         {
             id: 21,
             title: "Обществознание",
-            href: "social_science"
+            href: "social_science",
+            image: img21,
+            years: [false,false,false,false,false,true,true,true,true,true,true]
         },
         {
             id: 22,
             title: "Черчение",
-            href: "drawing"
+            href: "drawing",
+            image: img22,
+            years: [false,false,false,false,false,false,true,true,false,false,false]
         },
         {
             id: 23,
             title: "Алгебра",
-            href: "algebra"
+            href: "algebra",
+            image: img23,
+            years: [false,false,false,false,false,false,true,true,true,true,true]
         },
         {
             id: 24,
             title: "Геометрия",
-            href: "geometry"
+            href: "geometry",
+            image: img24,
+            years: [false,false,false,false,false,false,true,true,true,true,true]
         },
         {
             id: 25,
             title: "Физика",
-            href: "physics"
+            href: "physics",
+            image: img25,
+            years: [false,false,false,false,false,false,true,true,true,true,true]
         },
         {
             id: 26,
             title: "Химия",
-            href: "chemistry"
+            href: "chemistry",
+            image: img26,
+            years: [false,false,false,false,false,false,false,true,true,true,true]
         },
         {
             id: 27,
             title: "Основы экономики",
-            href: "fundamentals_of_economics"
+            href: "fundamentals_of_economics",
+            image: img27,
+            years: [false,false,false,false,false,false,false,false,false,true,true]
         },
         {
             id: 28,
             title: "Правоведение",
-            href: "jurisprudence"
+            href: "jurisprudence",
+            image: img28,
+            years: [false,false,false,false,false,false,false,false,false,true,true]
         },
         {
             id: 29,
             title: "Философия",
-            href: "philosophy"
+            href: "philosophy",
+            image: img29,
+            years: [false,false,false,false,false,false,false,false,false,true,true]
         },
         {
             id: 30,
             title: "Экология",
-            href: "ecology"
+            href: "ecology",
+            image: img30,
+            years: [false,false,false,false,false,false,false,false,false,true,true]
         },
         {
             id: 31,
             title: "Астрономия",
-            href: "astronomy"
+            href: "astronomy",
+            image: img31,
+            years: [false,false,false,false,false,false,false,false,false,false,true]
         }],
-        subjectsIcons: [
-            img0, 
-            img1, 
-            img2, 
-            img3, 
-            img4, 
-            img5, 
-            img6, 
-            img7, 
-            img8, 
-            img9, 
-            img10, 
-            img11, 
-            img12, 
-            img13, 
-            img14, 
-            img15, 
-            img16, 
-            img17, 
-            img18, 
-            img19, 
-            img20, 
-            img21, 
-            img22, 
-            img23, 
-            img24, 
-            img25, 
-            img26, 
-            img27, 
-            img28, 
-            img29, 
-            img30, 
-            img31
-        ],
         educators: [{
-            id: 0,
-            name: 'Тарасов Макар Мэлсович'
+            id: 0,// история
+            name: 'Тарасов Макар Мэлсович',
+            educationLevel: 'высшее образование - специалитет',
+            tel: '741(48)634-12-42',
+            email: 'wuquibanabrei-6943@yopmail.com',
+            coursesTaught: [12,13,14] ,
+            image: m1
         },
         {
-            id: 1,
-            name: 'Жукова Верона Семёновна'
+            id: 1, // история
+            name: 'Зимина Гражина Александровна',
+            position: '',
+            educationLevel: '',
+            tel: '2(6714)437-0227547',
+            email: 'yeifreujocrouxa-1742@yopmail.com',
+            coursesTaught: [10,14,21,27],
+            image: w1
         },
         {
-            id: 2,
-            name: 'Тетерин Касьян Лаврентьевич'
+            id: 2,  // матем
+            name: 'Тетерин Касьян Лаврентьевич',
+            position: '',
+            educationLevel: '',
+            tel: '2(0755)860-0413371',
+            email: 'quiyarauvubra-3784@yopmail.com',
+            coursesTaught: [27,24,23,4],
+            image: m2
         },
         {
-            id: 3,
-            name: 'Кириллова Залина Богдановна'
+            id: 3,  // математ
+            name: 'Рогов Леонтий Яковлевич',
+            position: '',
+            educationLevel: '',
+            tel: '25(6398)749-4512588',
+            email: 'proiyatteyaubreu-1743@yopmail.com',
+            coursesTaught: [22,23,24,4],
+            image: m3
         },
         {
-            id: 4,
-            name: 'Веселов Дмитрий Никитевич'
+            id: 4,  // георг
+            name: 'Веселов Дмитрий Никитевич',
+            position: '',
+            educationLevel: '',
+            tel: '0(7171)150-2028991',
+            email: 'cicocrequossi-3052@yopmail.com',
+            coursesTaught: [18],
+            image: m4
         },
         {
-            id: 5,
-            name: 'Васильева Дина Феликсовна'
+            id: 5,  // фнгл
+            name: 'Васильева Дина Феликсовна',
+            position: '',
+            educationLevel: '',
+            tel: '766(51)743-6237908',
+            email: 'jonoitrerequei-6613@yopmail.com',
+            coursesTaught: [11],
+            image: w2
         },
         {
-            id: 6,
-            name: 'Якушев Виктор Иринеевич'
+            id: 6,  // обж
+            name: 'Якушев Виктор Иринеевич',
+            position: '',
+            educationLevel: '',
+            tel: '208(1084)730-7164315',
+            email: 'veuquokoineje-8739@yopmail.com',
+            coursesTaught: [16],
+            image: m5
         },
         {
-            id: 7,
-            name: 'Никонова Индира Аркадьевна'
+            id: 7,  // труд
+            name: 'Никонова Индира Аркадьевна',
+            position: '',
+            educationLevel: '',
+            tel: '9(3517)080-7016826',
+            email: 'lepugeipreque-3076@yopmail.com',
+            coursesTaught: [17],
+            image: w3
         },
         {
-            id: 8,
-            name: 'Ильин Гордей Проклович'
+            id: 8,  // физ-ра
+            name: 'Ильин Гордей Проклович',
+            position: '',
+            educationLevel: '',
+            tel: '65(051)254-4153088',
+            email: 'foiquequappotre-1359@yopmail.com',
+            coursesTaught: [8],
+            image: m6
         },
         {
-            id: 9,
-            name: 'Аксёнова Ярослава Фроловна'
+            id: 9,  // информатика
+            name: 'Аксёнова Ярослава Фроловна',
+            position: '',
+            educationLevel: '',
+            tel: '5(24)044-6373939',
+            email: 'quegeiyouddibra-3856@yopmail.com',
+            coursesTaught: [20,22],
+            image: w4
+        },
+        {
+            id: 10,  // физика
+            name: 'Кириллова Залина Богдановна',
+            position: '',
+            educationLevel: '',
+            tel: '45(571)125-5234495',
+            email: 'doinejukuffeu-5376@yopmail.com',
+            coursesTaught: [25,31],
+            image: w5
+        },
+        {
+            id: 11,  // рус
+            name: 'Лукин Ростислав Иванович',
+            position: '',
+            educationLevel: '',
+            tel: '488(2419)137-5731202',
+            email: 'yivaddagremei-8606@yopmail.com',
+            coursesTaught: [7,9,15],
+            image: m7
+        },
+        {
+            id: 12,  // рус
+            name: 'Жукова Верона Семёновна',
+            position: '',
+            educationLevel: '',
+            tel: '2(878)132-7065957',
+            email: 'puboifremacrei-8128@yopmail.com',
+            coursesTaught: [0,1,7],
+            image: w6
+        },
+        {
+            id: 13,  // химия
+            name: 'Мишина Розалия Федосеевна',
+            position: '',
+            educationLevel: '',
+            tel: '66(80)373-5038353',
+            email: 'queullefajepri-5547@yopmail.com',
+            coursesTaught: [26,30],
+            image: w7
+        },
+        {
+            id: 14,  // биология
+            name: 'Колобова Юна Авдеевна',
+            position: '',
+            educationLevel: '',
+            tel: '3(44)617-2667494',
+            email: 'nakauttabenu-2083@yopmail.com',
+            coursesTaught: [19],
+            image: w8
         }],
-        posts: [{
-            "userId": 1,
-            "date": "2021-06-10",
-            "id": 24,
-            "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-            "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-        },
-        {
-            "userId": 1,
-            "date": "2021-06-11",
-            "id": 23,
-            "title": "qui est esse",
-            "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
-        },
-        {
-            "userId": 1,
-            "date": "2021-09-07",
-            "id": 22,
-            "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-            "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
-        },
-        {
-            "userId": 1,
-            "date": "2021-10-01",
-            "id": 21,
-            "title": "eum et est occaecati",
-            "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
-        },
-        {
-            "userId": 1,
-            "date": "2021-11-24",
-            "id": 20,
-            "title": "nesciunt quas odio",
-            "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
-        }, {
-            "userId": 1,
-            "id": 1,
-            "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-            "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-        },
-        {
-            "userId": 1,
-            "id": 2,
-            "title": "qui est esse",
-            "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
-        },
-        {
-            "userId": 1,
-            "id": 3,
-            "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-            "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
-        },
-        {
-            "userId": 1,
-            "id": 4,
-            "title": "eum et est occaecati",
-            "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
-        },
-        {
-            "userId": 1,
-            "id": 5,
-            "title": "nesciunt quas odio",
-            "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
-        },
-        {
-            "userId": 1,
-            "id": 6,
-            "title": "dolorem eum magni eos aperiam quia",
-            "body": "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae"
-        },
-        {
-            "userId": 1,
-            "id": 7,
-            "title": "magnam facilis autem",
-            "body": "dolore placeat quibusdam ea quo vitae\nmagni quis enim qui quis quo nemo aut saepe\nquidem repellat excepturi ut quia\nsunt ut sequi eos ea sed quas"
-        },
-        {
-            "userId": 1,
-            "id": 8,
-            "title": "dolorem dolore est ipsam",
-            "body": "dignissimos aperiam dolorem qui eum\nfacilis quibusdam animi sint suscipit qui sint possimus cum\nquaerat magni maiores excepturi\nipsam ut commodi dolor voluptatum modi aut vitae"
-        },
-        {
-            "userId": 1,
-            "id": 9,
-            "title": "nesciunt iure omnis dolorem tempora et accusantium",
-            "body": "consectetur animi nesciunt iure dolore\nenim quia ad\nveniam autem ut quam aut nobis\net est aut quod aut provident voluptas autem voluptas"
-        },
-        {
-            "userId": 1,
-            "id": 10,
-            "title": "optio molestias id quia eum",
-            "body": "quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error"
-        },
-        {
-            "userId": 2,
-            "id": 11,
-            "title": "et ea vero quia laudantium autem",
-            "body": "delectus reiciendis molestiae occaecati non minima eveniet qui voluptatibus\naccusamus in eum beatae sit\nvel qui neque voluptates ut commodi qui incidunt\nut animi commodi"
-        },
-        {
-            "userId": 2,
-            "id": 12,
-            "title": "in quibusdam tempore odit est dolorem",
-            "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio"
-        },
-        {
-            "userId": 2,
-            "id": 13,
-            "title": "dolorum ut in voluptas mollitia et saepe quo animi",
-            "body": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam"
-        },
-        {
-            "userId": 2,
-            "id": 14,
-            "title": "voluptatem eligendi optio",
-            "body": "fuga et accusamus dolorum perferendis illo voluptas\nnon doloremque neque facere\nad qui dolorum molestiae beatae\nsed aut voluptas totam sit illum"
-        },
-        {
-            "userId": 2,
-            "id": 15,
-            "title": "eveniet quod temporibus",
-            "body": "reprehenderit quos placeat\nvelit minima officia dolores impedit repudiandae molestiae nam\nvoluptas recusandae quis delectus\nofficiis harum fugiat vitae"
-        },
-        {
-            "userId": 2,
-            "id": 16,
-            "title": "sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio",
-            "body": "suscipit nam nisi quo aperiam aut\nasperiores eos fugit maiores voluptatibus quia\nvoluptatem quis ullam qui in alias quia est\nconsequatur magni mollitia accusamus ea nisi voluptate dicta"
-        },
-        {
-            "userId": 2,
-            "id": 17,
-            "title": "fugit voluptas sed molestias voluptatem provident",
-            "body": "eos voluptas et aut odit natus earum\naspernatur fuga molestiae ullam\ndeserunt ratione qui eos\nqui nihil ratione nemo velit ut aut id quo"
-        },
-        {
-            "userId": 2,
-            "id": 18,
-            "title": "voluptate et itaque vero tempora molestiae",
-            "body": "eveniet quo quis\nlaborum totam consequatur non dolor\nut et est repudiandae\nest voluptatem vel debitis et magnam"
-        },
-        {
-            "userId": 2,
-            "id": 19,
-            "title": "adipisci placeat illum aut reiciendis qui",
-            "body": "illum quis cupiditate provident sit magnam\nea sed aut omnis\nveniam maiores ullam consequatur atque\nadipisci quo iste expedita sit quos voluptas"
-        }
-    ]
+        posts: statePostsGenerator,
     },
     getState(){
         return this._state;
@@ -423,14 +433,18 @@ const store = {
     getSubject(id = null){
         return (id === null) ?  this._state.subjects : this._state.subjects[id];
     },
-    getSubjectIcon(id = null){
-        return (id === null) ?  this._state.subjectsIcons : this._state.subjectsIcons[id];
-    },
     getEducator(id = null){
         return (id === null) ?  this._state.educators : this._state.educators[id];
     },
     getPost(id = null){
         return (id === null) ?  this._state.posts : this._state.posts[id];
+    },
+    getEducatorsBySubjectId(id = null) {
+        if (id === null) {
+            return this._state.educators;
+        } else {
+            return this._state.educators.filter(educator=>hasInArray(educator.coursesTaught, id));
+        }
     }
 }
 

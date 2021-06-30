@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika&display=swap')
+
+html
+    scrollbar-width: none
+    &::-webkit-scrollbar
+        width: 0px
+    
 body
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    // font-family: Verdana, Geneva, Tahoma, sans-serif
+    font-family: 'Andika', sans-serif !important
     font-size: 16px
     background-color: #e9eeff
     --main-link-color: #0059FF
+    scrollbar-width: none
+    &::-webkit-scrollbar
+        width: 0px
 
 .r-container
     max-width: 1700px
@@ -26,3 +37,5 @@ body
         margin-right: 30px
     &__content
         width: 100%
+        &--sidebar
+            width: calc(100% - 330px)
