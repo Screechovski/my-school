@@ -4,7 +4,7 @@ import React from 'react';
 import REducatorCard from './../educatorCard/educatorCard';
 import RSubjectsTable from './../subjectsTable/subjectsTable';
 //state
-import state from '../../state';
+import state from '../../redux/state';
 //css
 import css from './subjectsInnerContent.module.sass';
 

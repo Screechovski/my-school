@@ -52,16 +52,16 @@ const resultStateLength = getRandomInt(100);
 
 for (let postIndex = 0; postIndex < resultStateLength; postIndex++){
     let bodyLength = getRandomInt(10);
-    if (bodyLength == 0) bodyLength = 1;
+    if (bodyLength === 0) bodyLength = 1;
     let body = [];
     for (let bodyIndex = 0; bodyIndex < bodyLength; bodyIndex++){
-        if (bodyIndex == 0) {
+        if (bodyIndex === 0) {
             body.push({
                 type: "text",
                 content: text[getRandomInt(text.length)]
             })
         } else {
-            if (getRandomInt(2) == 1) {
+            if (getRandomInt(2) === 1) {
                 body.push({
                     type: "text",
                     content: text[getRandomInt(text.length)]

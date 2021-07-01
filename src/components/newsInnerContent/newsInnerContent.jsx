@@ -5,7 +5,7 @@ import css from './newsInnerContent.module.sass';
 //components
 //import RSubjectCard from './../subjectCard/subjectCard';
 //state
-import state from '../../state';
+import state from '../../redux/state';
 
 const newsInnerContent = (props) => {
     const post = state.getPost(props.newsId);

@@ -14,6 +14,7 @@ import PageEducatorsInner from './views/educators-inner';
 import PageSubjectsInner from './views/subjects-inner';
 import PageMiscellanea from './views/miscellanea';
 import PageNewsInner from './views/news-inner'
+import PageReview from './views/review'
 //css
 import  './App.sass';
 
@@ -43,6 +44,9 @@ const App = () => {
             </Route>
             <Route path="/miscellanea">
               <PageMiscellanea/>
+            </Route>
+            <Route path="/review">
+              <PageReview/>
             </Route>
 
             <Route path="/educators-inner/:educatorId" component={PageEducatorsInner}/>

@@ -6,7 +6,7 @@ import RSidebar from './../components/sidebar/sidebar';
 import RMain from './../components/mainContent/mainContent';
 import RNewsCard from './../components/newsCard/newsCard';
 //state
-import state from './../state';
+import state from './../redux/state';
 
 const newsInner = (props) => {
     const sidebarNews = state.getPost().slice(0,4).map(elem=> <RNewsCard key={elem.id} id={elem.id}/>);

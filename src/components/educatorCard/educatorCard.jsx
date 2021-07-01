@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './educatorCard.module.sass';
-import state from './../../state';
+import state from './../../redux/state';
 
 const educatorCard = (props) => {
     const currentEducator = state.getEducator(Number(props.educatorId));

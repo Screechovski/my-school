@@ -3,7 +3,7 @@ import RMain from './../components/mainContent/mainContent';
 import RSubjectCard from './../components/subjectCard/subjectCard';
 import RSidebar from './../components/sidebar/sidebar';
 import RNewsCard from './../components/newsCard/newsCard';
-import state from './../state';
+import state from './../redux/state';
 
 const subjects = () => {
     const subjectsElements = state.getSubject().map((elem,index)=>{

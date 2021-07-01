@@ -1,53 +1,53 @@
-import img0 from './images/subjects/writing-tool.svg';
-import img1 from './images/subjects/reading.svg';
-import img2 from './images/subjects/carpenter.svg';
-import img3 from './images/subjects/planet-earth.svg';
-import img4 from './images/subjects/calculating.svg';
-import img5 from './images/subjects/singing.svg';
-import img6 from './images/subjects/paint.svg';
-import img7 from './images/subjects/kremlin.svg';
-import img8 from './images/subjects/fitness.svg';
-import img9 from './images/subjects/house.svg';
-import img10 from './images/subjects/church.svg';
-import img11 from './images/subjects/foreign-language.svg';
-import img12 from './images/subjects/overpopulation.svg';
-import img13 from './images/subjects/history.svg';
-import img14 from './images/subjects/history_writing.svg';
-import img15 from './images/subjects/library.svg';
-import img16 from './images/subjects/life-jacket.svg';
-import img17 from './images/subjects/project-management.svg';
-import img18 from './images/subjects/world-map.svg';
-import img19 from './images/subjects/biology.svg';
-import img20 from './images/subjects/computer.svg';
-import img21 from './images/subjects/communities.svg';
-import img22 from './images/subjects/divider.svg';
-import img23 from './images/subjects/algebra.svg';
-import img24 from './images/subjects/shapes.svg';
-import img25 from './images/subjects/relativity.svg';
-import img26 from './images/subjects/chemistry.svg';
-import img27 from './images/subjects/economic.svg';
-import img28 from './images/subjects/justice.svg';
-import img29 from './images/subjects/yin-yang.svg';
-import img30 from './images/subjects/eco.svg';
-import img31 from './images/subjects/astronomy.svg';
-import m1 from './images/educators/m-1.jpg';
-import m2 from './images/educators/m-2.jpg';
-import m3 from './images/educators/m-3.jpg';
-import m4 from './images/educators/m-4.jpg';
-import m5 from './images/educators/m-5.jpg';
-import m6 from './images/educators/m-6.jpg';
-import m7 from './images/educators/m-7.jpg';
-import w1 from './images/educators/w-1.jpg';
-import w2 from './images/educators/w-2.jpg';
-import w3 from './images/educators/w-3.jpg';
-import w4 from './images/educators/w-4.jpg';
-import w5 from './images/educators/w-5.jpg';
-import w6 from './images/educators/w-6.jpg';
-import w7 from './images/educators/w-7.jpg';
-import w8 from './images/educators/w-8.jpg';
-import { hasInArray } from './assets';
-import statePostsGenerator from './statePostsGenerator';
-
+import img0 from './../images/subjects/writing-tool.svg';
+import img1 from './../images/subjects/reading.svg';
+import img2 from './../images/subjects/carpenter.svg';
+import img3 from './../images/subjects/planet-earth.svg';
+import img4 from './../images/subjects/calculating.svg';
+import img5 from './../images/subjects/singing.svg';
+import img6 from './../images/subjects/paint.svg';
+import img7 from './../images/subjects/kremlin.svg';
+import img8 from './../images/subjects/fitness.svg';
+import img9 from './../images/subjects/house.svg';
+import img10 from './../images/subjects/church.svg';
+import img11 from './../images/subjects/foreign-language.svg';
+import img12 from './../images/subjects/overpopulation.svg';
+import img13 from './../images/subjects/history.svg';
+import img14 from './../images/subjects/history_writing.svg';
+import img15 from './../images/subjects/library.svg';
+import img16 from './../images/subjects/life-jacket.svg';
+import img17 from './../images/subjects/project-management.svg';
+import img18 from './../images/subjects/world-map.svg';
+import img19 from './../images/subjects/biology.svg';
+import img20 from './../images/subjects/computer.svg';
+import img21 from './../images/subjects/communities.svg';
+import img22 from './../images/subjects/divider.svg';
+import img23 from './../images/subjects/algebra.svg';
+import img24 from './../images/subjects/shapes.svg';
+import img25 from './../images/subjects/relativity.svg';
+import img26 from './../images/subjects/chemistry.svg';
+import img27 from './../images/subjects/economic.svg';
+import img28 from './../images/subjects/justice.svg';
+import img29 from './../images/subjects/yin-yang.svg';
+import img30 from './../images/subjects/eco.svg';
+import img31 from './../images/subjects/astronomy.svg';
+import m1 from './../images/educators/m-1.jpg';
+import m2 from './../images/educators/m-2.jpg';
+import m3 from './../images/educators/m-3.jpg';
+import m4 from './../images/educators/m-4.jpg';
+import m5 from './../images/educators/m-5.jpg';
+import m6 from './../images/educators/m-6.jpg';
+import m7 from './../images/educators/m-7.jpg';
+import w1 from './../images/educators/w-1.jpg';
+import w2 from './../images/educators/w-2.jpg';
+import w3 from './../images/educators/w-3.jpg';
+import w4 from './../images/educators/w-4.jpg';
+import w5 from './../images/educators/w-5.jpg';
+import w6 from './../images/educators/w-6.jpg';
+import w7 from './../images/educators/w-7.jpg';
+import w8 from './../images/educators/w-8.jpg';
+import { hasInArray } from './../assets/hasInArray';
+import statePostsGenerator from './../assets/statePostsGenerator';
+import { renderEntireTree } from '../render';
 
 const store = {
     _state: {
@@ -426,6 +426,54 @@ const store = {
             image: w8
         }],
         posts: statePostsGenerator,
+        navLinks: [{
+            value: 'Главная',
+            path: '/'
+        },{
+            value: 'О школе',
+            path: '/about'
+        },{
+            value: 'Новости',
+            path: '/news'
+        },{
+            value: 'Предметы',
+            path: '/subjects'
+        },{
+            value: 'Педагоги',
+            path: '/educators'
+        }, {
+            value: 'Разное',
+            path: '/miscellanea'
+        },{
+            value: 'Отзывы',
+            path: '/review'
+        }],
+        currentUserReview: {
+            userName: "asd",
+            title: "",
+            message: ""
+        },
+        allUsersReview: [{
+            id: 0,
+            userName: "Larionov Orest",
+            title: "Maecenas ullamcorper, lectus in elementum tincidunt, nibh tortor ornare diam",
+            message: "Ut posuere dictum elit nec ornare. Curabitur id tristique velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris erat leo, laoreet et lorem non, viverra ultrices lorem. Sed viverra mollis felis et rutrum. Nam vel mi leo. Cras tempus sapien non purus maximus porta vel mattis ligula. Vivamus laoreet pharetra mi non gravida."
+        },{
+            id: 1,
+            userName: "Zaitsev Arseny",
+            title: "Aenean massa magna, aliquet id malesuada non, vulputate a leo.",
+            message: "Nam vehicula sapien orci, sit amet molestie quam consequat nec. Vivamus quam nunc, pharetra eget leo sed, rutrum ultricies risus. Nunc at elit ex. Nunc sapien purus, pulvinar ac eros ut, faucibus malesuada tellus. Duis sit amet laoreet mi. Fusce gravida eros sit amet nisi maximus, non rhoncus lectus tristique."
+        },{
+            id: 2,
+            userName: "Lobanov Venedict",
+            title: "Curabitur vitae dolor id orci semper pharetra.",
+            message: "Nullam a tortor at elit viverra maximus volutpat vel ligula. Vestibulum magna tortor, tristique at iaculis non, accumsan nec neque. Nulla nec porta sem. Duis tempus consectetur nisl consectetur malesuada. Cras sagittis ante sed aliquam cursus. Nunc dolor dolor, finibus ut pretium quis, rhoncus porttitor leo. Pellentesque ut mattis elit."
+        },{
+            id: 3,
+            userName: "Panov Alexander",
+            title: "Phasellus rutrum ornare faucibus.",
+            message: "Donec laoreet, est non fermentum efficitur, turpis quam luctus nibh, eu euismod ante tellus vel augue. Nunc dignissim massa sed rutrum sodales. Nullam non mi lacus. Quisque semper, orci et volutpat commodo, felis nisl dictum enim, quis luctus enim odio ac erat. Curabitur id dui eget libero ornare egestas."
+        }]
     },
     getState(){
         return this._state;
@@ -445,6 +493,52 @@ const store = {
         } else {
             return this._state.educators.filter(educator=>hasInArray(educator.coursesTaught, id));
         }
+    },
+    getNav(){
+        return this._state.navLinks;
+    },
+    getReview(id = null){
+        return (id === null) ?  this._state.allUsersReview : this._state.allUsersReview[id];
+    },
+    getMaxReviewId(){
+        let maxId = 0;
+        this.getReview().forEach(review=>{
+            if (review.id > maxId){
+                maxId = review.id;
+            }
+        })
+        return maxId;
+    },
+    addReview() {
+        if (this._state.currentUserReview.userName !== "") {
+            if (this._state.currentUserReview.title !== "") {
+                if (this._state.currentUserReview.message !== "") {
+                    this._state.allUsersReview.push({
+                        id: this.getMaxReviewId() + 1,
+                        ...this._state.currentUserReview
+                    })
+                    this.getCurrentReview().userName = "";
+                    this.getCurrentReview().title = "";
+                    this.getCurrentReview().message = "";
+                    renderEntireTree();
+                }
+            }
+        }
+    },
+    getCurrentReview(){
+        return this._state.currentUserReview;
+    },
+    setCurrentReviewName(word){
+        this._state.currentUserReview.userName = word;
+        renderEntireTree();
+    },
+    setCurrentReviewTitle(word){
+        this._state.currentUserReview.title = word;
+        renderEntireTree();
+    },
+    setCurrentReviewMessage(word){
+        this._state.currentUserReview.message = word;
+        renderEntireTree();
     }
 }
 

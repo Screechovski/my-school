@@ -3,7 +3,7 @@ import RMain from './../components/mainContent/mainContent';
 import REducatorCard from './../components/educatorCard/educatorCard';
 import RSidebar from './../components/sidebar/sidebar';
 import RNewsCard from './../components/newsCard/newsCard';   
-import state from './../state';
+import state from './../redux/state';
 
 const educators = () => {
     const educatorsElemts = state.getEducator().map(elem => <REducatorCard key={elem.id} educatorId={elem.id}/>);

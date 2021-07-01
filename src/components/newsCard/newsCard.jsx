@@ -6,7 +6,7 @@ import RShortText from './../shortText/shortText';
 //css
 import css from './newsCard.module.sass';
 //state   
-import state from './../../state';
+import state from './../../redux/state';
 
 
 const newsCard = (props) => {

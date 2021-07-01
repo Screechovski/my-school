@@ -6,7 +6,7 @@ import RSubjectsInnerContent from '../components/subjectsInnerContent/subjectsIn
 import RSidebar from '../components/sidebar/sidebar';
 import RNewsCard from '../components/newsCard/newsCard';
 //state
-import state from '../state';
+import state from './../redux/state';
 
 const subjects = (props) => {
     const sidebarNews = state.getPost().slice(0,4).map(elem=> <RNewsCard key={elem.id} id={elem.id}/>);

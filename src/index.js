@@ -1,14 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'css-reset-and-normalize';
+import { renderEntireTree } from './render';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+renderEntireTree();
 
 reportWebVitals();

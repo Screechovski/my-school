@@ -1,28 +1,15 @@
+//react
 import React from 'react';
+//components
 import RNavLink from '../navigationLink/navigationLink';
+//css
 import css from './nav.module.sass';
-
-const navLins = [{
-    value: 'Главная',
-    path: '/'
-},{
-    value: 'О школе',
-    path: '/about'
-},{
-    value: 'Новости',
-    path: '/news'
-},{
-    value: 'Предметы',
-    path: '/subjects'
-},{
-    value: 'Педагоги',
-    path: '/educators'
-}, {
-    value: 'Разное',
-    path: '/miscellanea'
-}];
+//state
+import state from './../../redux/state';
 
 const nav = () => {
+    const navLins = state.getNav();
+
     return (
         <nav className={css.nav}>
             <ul className={css.nav__list}>

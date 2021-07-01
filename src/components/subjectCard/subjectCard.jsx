@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 //css
 import css from './subjectCard.module.sass';
 //state   
-import state from './../../state';
+import state from './../../redux/state';
 
 const subjectCard = (props) => {
     const subject = state.getSubject(props.id);

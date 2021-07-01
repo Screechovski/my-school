@@ -3,7 +3,7 @@ import React from 'react';
 //css
 import css from './subjectsTable.module.sass'
 //state
-import state from '../../state';
+import state from '../../redux/state';
 //images
 import check from './../../images/svg/check-mark.svg';
 import cross from './../../images/svg/cross.svg';

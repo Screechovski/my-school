@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './educatorsInnerContent.module.sass';
 import RSubjectCard from './../subjectCard/subjectCard';
-import state from '../../state';
+import state from '../../redux/state';
 
 const educatorsInnerContent = (props) => {
     const educator = state.getEducator(Number(props.educatorId));
