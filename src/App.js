@@ -18,12 +18,11 @@ import PageReview from './views/review'
 //css
 import  './App.sass';
 
-
-const App = () => {
+const App = ({navLinks, news, sidebarNews, reviews, subjectsElements, educatorsElements, addReview, getCurrentReview, getPost, getEducator, getSubject, setCurrentReviewName, setCurrentReviewMessage, setCurrentReviewTitle, getEducatorsBySubjectId}) => {
   return (
     <BrowserRouter>
       <div className="page">
-        <RHeader />
+        <RHeader navLinks={navLinks}/>
 
         <section className="page__body page-body page-body--width-sidebar">
           <Switch>
@@ -31,27 +30,75 @@ const App = () => {
               <PageIndex /> 
             </Route>
             <Route path="/about" > 
-              <PageAbout />
+              <PageAbout sidebarNews={sidebarNews} />
             </Route>
             <Route path="/news" >  
-              <PageNews /> 
+              <PageNews news={news} /> 
             </Route>
             <Route path="/subjects" >  
-              <PageSubjects /> 
+              <PageSubjects sidebarNews={sidebarNews} subjectsElements={subjectsElements} /> 
             </Route>
-            <Route exact path="/educators" > 
-              <PageEducators /> 
+            <Route path="/educators" > 
+              <PageEducators sidebarNews={sidebarNews} educatorsElements={educatorsElements} /> 
             </Route>
             <Route path="/miscellanea">
-              <PageMiscellanea/>
+              <PageMiscellanea sidebarNews={sidebarNews} />
             </Route>
             <Route path="/review">
-              <PageReview/>
+              <PageReview                
+                sidebarNews={sidebarNews} 
+                reviews={reviews}
+                userName={getCurrentReview().userName}
+                title={getCurrentReview().title}
+                message={getCurrentReview().message}
+                setCurrentReviewName={setCurrentReviewName}
+                setCurrentReviewTitle={setCurrentReviewTitle}
+                setCurrentReviewMessage={setCurrentReviewMessage}
+                addReview={addReview}
+              />
+                
             </Route>
 
-            <Route path="/educators-inner/:educatorId" component={PageEducatorsInner}/>
-            <Route path="/subjects-inner/:subjectId" component={PageSubjectsInner}/>
-            <Route path="/news-inner/:newsId" component={PageNewsInner}/>
+            <Route path="/educators-inner/:educatorId" render={({match})=>
+              {
+                const educator = getEducator(Number(match.params.educatorId));
+                const coursesTaught = educator.coursesTaught.map(coursesId=>getSubject(coursesId));
+                return <PageEducatorsInner 
+                  sidebarNews={sidebarNews} 
+                  educator={educator} 
+                  coursesTaught={coursesTaught}
+                />
+              }
+            }/>
+
+            <Route path="/subjects-inner/:subjectId" render={({match})=>
+              {                
+                const {title, id} = getSubject(Number(match.params.subjectId));
+                const educators = getEducatorsBySubjectId(id);
+                
+                return <PageSubjectsInner 
+                  educators={educators} 
+                  title={title} 
+                  subjects={subjectsElements} 
+                  subjectId={match.params.subjectId} 
+                  sidebarNews={sidebarNews} 
+                />
+              }
+            }/>
+            <Route path="/news-inner/:newsId" render={({match})=>
+              {
+                const {id, mainImgUrl, title, date, body} = getPost(Number(match.prarams.newsId));
+
+                return <PageNewsInner 
+                  sidebarNews={sidebarNews}
+                  newsId={id}
+                  mainImgUrl={mainImgUrl}
+                  title={title}
+                  date={date}
+                  body={body}
+                />
+              }
+            }/>
           </Switch>   
         </section>
         

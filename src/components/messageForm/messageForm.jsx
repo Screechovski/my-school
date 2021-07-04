@@ -2,32 +2,20 @@
 import React from 'react';
 //css
 import './messageForm.sass';
-//state 
-import state from '../../redux/state';
 
 
-
-const messageForm = (props) => {
-    const currentReview = state.getCurrentReview();
-
-    const inputName = e => {
-        const etv = e.target.value;
-        e.preventDefault();
-        state.setCurrentReviewName(etv);
+const messageForm = ({userName, title, message, setCurrentReviewName, setCurrentReviewTitle, setCurrentReviewMessage, addReview}) => {
+    const handlerSetCurrentReviewName = ({target}) => {
+        setCurrentReviewName(target.value);
     }
-    const inputTitle = e => {
-        const etv = e.target.value;
-        e.preventDefault();
-        state.setCurrentReviewTitle(etv);
+    const handlerSetCurrentReviewTitle = ({target}) => {
+        setCurrentReviewTitle(target.value);
     }
-    const inputMessage = e => {
-        const etv = e.target.value;
-        e.preventDefault();
-        state.setCurrentReviewMessage(etv);
+    const handlerSetCurrentReviewMessage = ({target}) => {
+        setCurrentReviewMessage(target.value);
     }
-
-    const sendForm = () => {
-        state.addReview();
+    const handlerSendForm = () => {
+        addReview();
     }
 
     return (
@@ -36,10 +24,10 @@ const messageForm = (props) => {
                 <h3 className="message-form__headline">Ваше имя</h3>
                 <input 
                     className="message-form__input" 
-                    onChange={inputName} 
+                    onChange={handlerSetCurrentReviewName} 
                     type="text"
                     id="messageTitle"
-                    value={currentReview.userName}
+                    value={userName}
                 />
             </label>
             <label className="message-form__label" htmlFor="messageTitle">
@@ -47,9 +35,9 @@ const messageForm = (props) => {
                 <input 
                     className="message-form__input" 
                     type="text" 
-                    onChange={inputTitle}
+                    onChange={handlerSetCurrentReviewTitle}
                     id="messageTitle"
-                    value={currentReview.title}
+                    value={title}
                 />
             </label>
             <label className="message-form__label" htmlFor="messageText">
@@ -57,12 +45,12 @@ const messageForm = (props) => {
                 <textarea 
                     className="message-form__textarea" 
                     name="" 
-                    onChange={inputMessage}
+                    onChange={handlerSetCurrentReviewMessage}
                     id="messageText"
-                    value={currentReview.message}
+                    value={message}
                 ></textarea>
             </label>
-            <button className="message-form__btn" onClick={sendForm}>Отправить</button>
+            <button className="message-form__btn" onClick={handlerSendForm}>Отправить</button>
         </form>
     )
 }

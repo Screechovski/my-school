@@ -2,19 +2,15 @@
 import React from 'react';
 //css
 import './reviewCard.sass';
-//state   
-import state from './../../redux/state';
 
 
-const reviewCard = (props) => {
-    const review = state.getReview(props.reviewId);
-    
+const reviewCard = ({id, userName, title, message}) => {    
     return (
         <div className="review-card">
-            <p>{review.id}</p>
-            <p>{review.userName}</p>
-            <p>{review.title}</p>
-            <p>{review.message}</p>
+            <p>{id}</p>
+            <p>{userName}</p>
+            <p>{title}</p>
+            <p>{message}</p>
         </div>
     );
 }
