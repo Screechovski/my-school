@@ -3,7 +3,7 @@ import RLogo from './../logo/logo';
 import css from './footer.module.sass';
 
 
-const footer = (props) => {
+const footer = () => {
     return (
         <footer className={css.footer}>
             <div className={css.footer__container + " r-container"}>

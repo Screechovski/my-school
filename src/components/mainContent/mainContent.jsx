@@ -1,16 +1,16 @@
 import React from 'react';
 import css from './mainContent.module.sass';
 
-const mainContent = (props) => {
+const mainContent = ({parentClass, title, typeContent, slot}) => {
     return (
-        <main className={`${props.parentClass} ${css['main-content']}`}> 
+        <main className={`${parentClass} ${css['main-content']}`}> 
             {
-                props.title !== undefined && 
-                    <h2 className={css['main-content__title']} >{props.title}</h2>
+                title !== undefined && 
+                    <h2 className={css['main-content__title']} >{title}</h2>
             }
             {
-                props.typeContent !== undefined && 
-                    <div className={css['main-content--'+props.typeContent]} >{props.slot}</div>
+                typeContent !== undefined && 
+                    <div className={css['main-content--'+typeContent]} >{slot}</div>
             }            
         </main>
     )

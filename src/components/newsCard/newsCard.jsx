@@ -5,26 +5,22 @@ import { NavLink } from 'react-router-dom';
 import RShortText from './../shortText/shortText';
 //css
 import css from './newsCard.module.sass';
-//state   
-import state from './../../state';
 
 
-const newsCard = (props) => {
-    const post = state.getPost(props.id);
-    
+const newsCard = ({title, id, date, body, mainImgUrl}) => {    
     return (
-        <article data-id={props.id} className={css['news-card']} title={`Нажмите чтоб перейти на новость ${post.title.substring(0, 10).trim()}...`}>
-            <NavLink to={"/news-inner/"+props.id} className={css['news-card__inner']}>
+        <article data-id={id} className={css['news-card']} title={`Нажмите чтоб перейти на новость ${title.substring(0, 10).trim()}...`}>
+            <NavLink to={"/news-inner/"+id} className={css['news-card__inner']}>
                 <div className={css["news-card__image-wrap"]}>
-                    <img alt="Картинка" src={post.mainImgUrl} className={css["news-card__image"]}/>
+                    <img alt="Картинка" src={mainImgUrl} className={css["news-card__image"]}/>
                 </div>
-                <span className={css['news-card__date']}>{post.date}</span>
+                <span className={css['news-card__date']}>{date}</span>
 
                 <header>
-                    <RShortText parentClass={css['news-card__title']} tagName="h3" lineCount="2" lineHeight={1.3} text={post.title}/>
+                    <RShortText parentClass={css['news-card__title']} tagName="h3" lineCount="2" lineHeight={1.3} text={title}/>
                 </header>
                 
-                <RShortText parentClass={css['news-card__text']} tagName="p" lineCount="3"lineHeight={1.2} text={post.body[0].content}/>
+                <RShortText parentClass={css['news-card__text']} tagName="p" lineCount="3"lineHeight={1.2} text={body[0].content}/>
             </NavLink>
         </article>
     );

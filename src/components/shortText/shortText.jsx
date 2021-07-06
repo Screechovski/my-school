@@ -10,18 +10,18 @@ let defaultStyles = {
 
 let tryStyles;
 
-const shortText = (props) => {
-    const CustomTag = `${props.tagName}`;
+const shortText = ({tagName, lineHeight, lineCount, parentClass, text}) => {
+    const CustomTag = `${tagName}`;
 
-    if (props.lineHeight !== undefined) {
-        lineHeightK = props.lineHeight
+    if (lineHeight !== undefined) {
+        lineHeightK = lineHeight
     }
 
-    if (props.lineCount !== undefined) {
+    if (lineCount !== undefined) {
         tryStyles = {
             ...defaultStyles,
-            'WebkitLineClamp': props.lineCount.toString(),
-            'height': Number(props.lineCount) * lineHeightK + "em",
+            'WebkitLineClamp': lineCount.toString(),
+            'height': Number(lineCount) * lineHeightK + "em",
             'lineHeight': lineHeightK + 'em',
         }
     } else {
@@ -34,7 +34,7 @@ const shortText = (props) => {
     }
 
     return (
-        <CustomTag style={tryStyles} className={`${props.parentClass}`}>{props.text}</CustomTag>
+        <CustomTag style={tryStyles} className={`${parentClass}`}>{text}</CustomTag>
     );
 }
 

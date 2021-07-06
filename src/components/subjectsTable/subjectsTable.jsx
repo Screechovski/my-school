@@ -2,14 +2,11 @@
 import React from 'react';
 //css
 import css from './subjectsTable.module.sass'
-//state
-import state from '../../state';
 //images
 import check from './../../images/svg/check-mark.svg';
 import cross from './../../images/svg/cross.svg';
 
-const subjectsTable = (props) => {
-    const subjects = state.getSubject();
+const subjectsTable = ({subjects, subjectId}) => {
     return (
         <table className={css["subjects-table"]}>
             <thead className={css["subjects-table__header"]}>
@@ -33,7 +30,7 @@ const subjectsTable = (props) => {
                     return (
                         <tr key={sIndex} className={css["subjects-table__line"]}>
                             <td className={css["subjects-table__row"]}>
-                                {Number(props.subjectId) === Number(subject.id) ? (<u>{subject.title}</u>) : subject.title}
+                                {Number(subjectId) === Number(subject.id) ? (<u>{subject.title}</u>) : subject.title}
                             </td> 
 
                             {subject.years.map((year, yIndex)=>{
