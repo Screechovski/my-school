@@ -2,15 +2,56 @@
     display: flex
     flex-direction: column
     align-items: flex-start
+    margin-top: 25px
+    padding: 15px
+    box-shadow: 1px 1px 13px 0px rgba(0, 0, 0, 0.14)
+    border-radius: var(--border-radius-small)
+    width: 430px
+    &__title
+        font-size: 22px
+        color: var(--main-text-color)
+        margin-bottom: 1em
     &__label
         display: flex
         flex-direction: column
+        margin-bottom: 15px
+        width: 100%
     &__headline
+        font-size: 18px
+        margin-bottom: 0.6em
+        color: var(--main-text-color)
     &__input
-        width: 400px
+        width: 100%
+        font-size: 16px
+        padding: 0.5em
+        border: none
+        box-shadow: 1px 1px 13px 0px rgba(0, 0, 0, 0.14)
+        border-radius: var(--border-radius-small)
+        outline: none
     &__textarea
-        width: 400px
+        width: 100%
         min-height: 200px  
         max-height: 600px 
+        box-shadow: 1px 1px 13px 0px rgba(0, 0, 0, 0.14)
+        border-radius: var(--border-radius-small)
+        border: none
+        font-size: 16px
+        padding: 0.5em
+        outline: none
     &__button
+        font-size: 16px
+        padding: 0.5em 1em 0.7em 1em
+        cursor: pointer
+        background-color: var(--main-link-color)
+        color: #fff
+        border: none
+        box-shadow: 1px 1px 4px 1px #0059ff69
+        border-radius: var(--border-radius-small)
+        outline: none !important
+        align-self: flex-end
+        &:hover
+            box-shadow: none
+        &:active
+            transform: scale(0.97)
+
         

@@ -1,6 +1,6 @@
 .news-card
     box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.14)
-    border-radius: 10px
+    border-radius: var(--border-radius-small)
     background-color: #ffffff
     padding: 10px
     transition: box-shadow .1s, transform .2s
@@ -14,7 +14,7 @@
         .news-card__title
             text-decoration: underline
     &__image-wrap
-        border-radius: 10px
+        border-radius: var(--border-radius-small)
         overflow: hidden
         margin-bottom: 15px
     &__image
@@ -22,7 +22,7 @@
         height: 150px
         width: 100%
         object-fit: cover
-        border-radius: 10px
+        border-radius: var(--border-radius-small)
         background-color: #aaaaaa
     &__date
         text-transform: uppercase

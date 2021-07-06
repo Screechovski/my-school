@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+//import reportWebVitals from './reportWebVitals';
 //state
-import { addReview, getCurrentReview, getEducator, getEducatorsBySubjectId, getNav, getPost, getReview, getSubject, setCurrentReviewMessage, setCurrentReviewName, setCurrentReviewTitle } from './redux/state';
+import { store } from './redux/state';
 import 'css-reset-and-normalize';
 
-const navLinks = getNav();
-const news = getPost();
+const navLinks = store.getNav();
+const news = store.getPost();
 const sidebarNews = news.slice(0, 4);
-const subjectsElements = getSubject();
-const educatorsElements = getEducator();
-const reviews = getReview();
+const subjectsElements = store.getSubject();
+const educatorsElements = store.getEducator();
+const reviews = store.getReview();
 
-
-export const renderEntireTree = () => {
+const renderEntireTree = () => {
     ReactDOM.render(
         <React.StrictMode>
             <App
@@ -24,17 +23,19 @@ export const renderEntireTree = () => {
                 subjectsElements={subjectsElements}
                 educatorsElements={educatorsElements}
                 reviews={reviews}
-                getCurrentReview={getCurrentReview}
-                getEducator={getEducator}
-                getNav={getNav}
-                getPost={getPost}
-                getReview={getReview}
-                getSubject={getSubject}
-                setCurrentReviewName={setCurrentReviewName}
-                setCurrentReviewMessage={setCurrentReviewMessage}
-                setCurrentReviewTitle={setCurrentReviewTitle}
-                addReview={addReview}
-                getEducatorsBySubjectId={getEducatorsBySubjectId}
+                currentReviewUserName={store.getCurrentReview().userName}
+                currentReviewUserTitle={store.getCurrentReview().title}
+                currentReviewUserMessage={store.getCurrentReview().message}
+                getEducator={store.getEducator.bind(store)}
+                getNav={store.getNav.bind(store)}
+                getPost={store.getPost.bind(store)}
+                getReview={store.getReview.bind(store)}
+                getSubject={store.getSubject.bind(store)}
+                setCurrentReviewName={store.setCurrentReviewName.bind(store)}
+                setCurrentReviewMessage={store.setCurrentReviewMessage.bind(store)}
+                setCurrentReviewTitle={store.setCurrentReviewTitle.bind(store)}
+                addReview={store.addReview.bind(store)}
+                getEducatorsBySubjectId={store.getEducatorsBySubjectId.bind(store)}
             />
         </React.StrictMode>,
         document.getElementById('root')
@@ -43,4 +44,4 @@ export const renderEntireTree = () => {
 
 renderEntireTree();
 
-reportWebVitals();
+store.subscribe(renderEntireTree);

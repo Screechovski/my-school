@@ -18,7 +18,25 @@ import PageReview from './views/review'
 //css
 import  './App.sass';
 
-const App = ({navLinks, news, sidebarNews, reviews, subjectsElements, educatorsElements, addReview, getCurrentReview, getPost, getEducator, getSubject, setCurrentReviewName, setCurrentReviewMessage, setCurrentReviewTitle, getEducatorsBySubjectId}) => {
+const App = ({
+               navLinks,
+               news,
+               sidebarNews,
+               reviews,
+               subjectsElements,
+               educatorsElements,
+               addReview,
+               getPost,
+               currentReviewUserName,
+               currentReviewUserTitle,
+               currentReviewUserMessage,
+               getEducator,
+               getSubject,
+               setCurrentReviewName,
+               setCurrentReviewMessage,
+               setCurrentReviewTitle,
+               getEducatorsBySubjectId
+}) => {
   return (
     <BrowserRouter>
       <div className="page">
@@ -48,9 +66,9 @@ const App = ({navLinks, news, sidebarNews, reviews, subjectsElements, educatorsE
               <PageReview                
                 sidebarNews={sidebarNews} 
                 reviews={reviews}
-                userName={getCurrentReview().userName}
-                title={getCurrentReview().title}
-                message={getCurrentReview().message}
+                userName={currentReviewUserName}
+                title={currentReviewUserTitle}
+                message={currentReviewUserMessage}
                 setCurrentReviewName={setCurrentReviewName}
                 setCurrentReviewTitle={setCurrentReviewTitle}
                 setCurrentReviewMessage={setCurrentReviewMessage}
@@ -62,7 +80,7 @@ const App = ({navLinks, news, sidebarNews, reviews, subjectsElements, educatorsE
             <Route path="/educators-inner/:educatorId" render={({match})=>
               {
                 const educator = getEducator(Number(match.params.educatorId));
-                const coursesTaught = educator.coursesTaught.map(coursesId=>getSubject(coursesId));
+                const coursesTaught = educator.coursesTaught.map(getSubject);
                 return <PageEducatorsInner 
                   sidebarNews={sidebarNews} 
                   educator={educator} 
@@ -87,11 +105,10 @@ const App = ({navLinks, news, sidebarNews, reviews, subjectsElements, educatorsE
             }/>
             <Route path="/news-inner/:newsId" render={({match})=>
               {
-                const {id, mainImgUrl, title, date, body} = getPost(Number(match.prarams.newsId));
+                const {mainImgUrl, title, date, body} = getPost(Number(match.params.newsId));
 
                 return <PageNewsInner 
                   sidebarNews={sidebarNews}
-                  newsId={id}
                   mainImgUrl={mainImgUrl}
                   title={title}
                   date={date}
