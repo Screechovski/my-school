@@ -25,16 +25,13 @@ const App = ({
                reviews,
                subjectsElements,
                educatorsElements,
-               addReview,
                getPost,
                currentReviewUserName,
                currentReviewUserTitle,
                currentReviewUserMessage,
                getEducator,
                getSubject,
-               setCurrentReviewName,
-               setCurrentReviewMessage,
-               setCurrentReviewTitle,
+               dispatch,
                getEducatorsBySubjectId
 }) => {
   return (
@@ -63,16 +60,13 @@ const App = ({
               <PageMiscellanea sidebarNews={sidebarNews} />
             </Route>
             <Route path="/review">
-              <PageReview                
-                sidebarNews={sidebarNews} 
+              <PageReview
+                sidebarNews={sidebarNews}
                 reviews={reviews}
                 userName={currentReviewUserName}
                 title={currentReviewUserTitle}
                 message={currentReviewUserMessage}
-                setCurrentReviewName={setCurrentReviewName}
-                setCurrentReviewTitle={setCurrentReviewTitle}
-                setCurrentReviewMessage={setCurrentReviewMessage}
-                addReview={addReview}
+                dispatch={dispatch}
               />
                 
             </Route>

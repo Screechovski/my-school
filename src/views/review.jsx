@@ -7,7 +7,7 @@ import RNewsCard from '../components/newsCard/newsCard';
 import RMessageForm from '../components/messageForm/messageForm';  
 import RRviewWrap from './../components/reviewWrap/reviewWrap';
 
-const review = ({sidebarNews, reviews, userName, title, message, setCurrentReviewName, setCurrentReviewTitle, setCurrentReviewMessage, addReview}) => {
+const review = ({sidebarNews, reviews, userName, title, message, dispatch}) => {
     return (
         <div className="r-container page-body__r-container">  
             <RSidebar 
@@ -39,10 +39,7 @@ const review = ({sidebarNews, reviews, userName, title, message, setCurrentRevie
                         userName={userName}
                         title={title}
                         message={message}
-                        setCurrentReviewName={setCurrentReviewName}
-                        setCurrentReviewTitle={setCurrentReviewTitle}
-                        setCurrentReviewMessage={setCurrentReviewMessage}
-                        addReview={addReview}
+                        dispatch={dispatch}
                     />
                 ]}
             />

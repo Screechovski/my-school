@@ -31,10 +31,7 @@ const renderEntireTree = () => {
                 getPost={store.getPost.bind(store)}
                 getReview={store.getReview.bind(store)}
                 getSubject={store.getSubject.bind(store)}
-                setCurrentReviewName={store.setCurrentReviewName.bind(store)}
-                setCurrentReviewMessage={store.setCurrentReviewMessage.bind(store)}
-                setCurrentReviewTitle={store.setCurrentReviewTitle.bind(store)}
-                addReview={store.addReview.bind(store)}
+                dispatch={store.dispatch.bind(store)}
                 getEducatorsBySubjectId={store.getEducatorsBySubjectId.bind(store)}
             />
         </React.StrictMode>,
