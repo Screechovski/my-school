@@ -3,18 +3,18 @@ import React from 'react';
 //css
 import './messageForm.sass';
 
-const messageForm = ({userName, title, message, setCurrentReviewName, setCurrentReviewTitle, setCurrentReviewMessage, addReview}) => {
+const messageForm = ({userName, title, message, dispatch}) => {
     const handlerSetCurrentReviewName = ({target}) => {
-        setCurrentReviewName(target.value);
+        dispatch({type:"SET-CURRENT-REVIEW-NAME", fieldValue: target.value});
     }
     const handlerSetCurrentReviewTitle = ({target}) => {
-        setCurrentReviewTitle(target.value);
+        dispatch({type:"SET-CURRENT-REVIEW-TITLE", fieldValue: target.value});
     }
     const handlerSetCurrentReviewMessage = ({target}) => {
-        setCurrentReviewMessage(target.value);
+        dispatch({type:"SET-CURRENT-REVIEW-MESSAGE", fieldValue: target.value});
     }
     const handlerSendForm = () => {
-        addReview();
+        dispatch({type:"ADD-REVIEW", value: 0});
     }
 
     return (

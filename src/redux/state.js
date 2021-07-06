@@ -522,35 +522,50 @@ export const store = {
         })
         return maxId;
     },
-    addReview() {
-        if (this._state.currentUserReview.userName !== "") {
-            if (this._state.currentUserReview.title !== "") {
-                if (this._state.currentUserReview.message !== "") {
-                    this._state.allUsersReview.push({
-                        id: this.getMaxReviewId() + 1,
-                        ...this._state.currentUserReview
-                    })
-                    this._state.currentUserReview.userName = "";
-                    this._state.currentUserReview.title = "";
-                    this._state.currentUserReview.message = "";
-                    this._callSubscriber();
-                }
-            }
-        }
-    },
     getCurrentReview(){
         return this._state.currentUserReview;
     },
-    setCurrentReviewName(word){
-        this._state.currentUserReview.userName = word;
-        this._callSubscriber();
-    },
-    setCurrentReviewTitle(word){
-        this._state.currentUserReview.title = word;
-        this._callSubscriber();
-    },
-    setCurrentReviewMessage(word){
-        this._state.currentUserReview.message = word;
-        this._callSubscriber();
-    },
+    dispatch(action) {
+        if (action.type !== undefined) {
+            switch (action.type) {
+                case "ADD-REVIEW":
+                    const currentUserReview = this._state.currentUserReview;
+                    if (currentUserReview.userName !== "") {
+                        if (currentUserReview.title !== "") {
+                            if (currentUserReview.message !== "") {
+                                this._state.allUsersReview.push({
+                                    id: this.getMaxReviewId() + 1,
+                                    ...this._state.currentUserReview
+                                })
+                                currentUserReview.userName = "";
+                                currentUserReview.title = "";
+                                currentUserReview.message = "";
+                                this._callSubscriber();
+                            }
+                        }
+                    }
+                    break;
+                case "SET-CURRENT-REVIEW-NAME":
+                    const lastChar = action.fieldValue[action.fieldValue.length - 1];
+                    if (lastChar == " " || isNaN(Number(lastChar))){
+                        this._state.currentUserReview.userName = action.fieldValue;
+                        this._callSubscriber();
+                    }
+                    break;
+                case "SET-CURRENT-REVIEW-TITLE":
+                    this._state.currentUserReview.title = action.fieldValue;
+                    this._callSubscriber();
+                    break;
+                case "SET-CURRENT-REVIEW-MESSAGE":
+                    this._state.currentUserReview.message = action.fieldValue;
+                    this._callSubscriber();
+                    break;
+                default:
+                    console.warn(`Has not this ${action.type} action.type`)
+                    break;
+            }
+        } else {
+            console.warn(`Uncorrected action: ${action}`)
+        }
+    }
 }
