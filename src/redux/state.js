@@ -47,6 +47,16 @@ import w7 from './../images/educators/w-7.jpg';
 import w8 from './../images/educators/w-8.jpg';
 import { hasInArray } from './../assets/hasInArray';
 import statePostsGenerator from './../assets/statePostsGenerator';
+import subjectsReducer from "./subjectsReducer";
+import educatorsReducer from "./educatorsReducer";
+import postsReducer from "./postsReducer";
+import navLinkReducer from "./navLinksReducer";
+import allReviewReducer, {
+    ADD_REVIEW,
+    SET_CURRENT_REVIEW_MESSAGE,
+    SET_CURRENT_REVIEW_NAME,
+    SET_CURRENT_REVIEW_TITLE
+} from "./allReviewReducer";
 
 export const store = {
     _state: {
@@ -453,34 +463,36 @@ export const store = {
                 path: '/review'
             }
         ],
-        currentUserReview: {
-            userName: "asd",
-            title: "",
-            message: ""
-        },
-        allUsersReview: [
-            {
-                id: 0,
-                userName: "Larionov Orest",
-                title: "Maecenas ullamcorper, lectus in elementum tincidunt, nibh tortor ornare diam",
-                message: "Ut posuere dictum elit nec ornare. Curabitur id tristique velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris erat leo, laoreet et lorem non, viverra ultrices lorem. Sed viverra mollis felis et rutrum. Nam vel mi leo. Cras tempus sapien non purus maximus porta vel mattis ligula. Vivamus laoreet pharetra mi non gravida."
-            },{
-                id: 1,
-                userName: "Zaitsev Arseny",
-                title: "Aenean massa magna, aliquet id malesuada non, vulputate a leo.",
-                message: "Nam vehicula sapien orci, sit amet molestie quam consequat nec. Vivamus quam nunc, pharetra eget leo sed, rutrum ultricies risus. Nunc at elit ex. Nunc sapien purus, pulvinar ac eros ut, faucibus malesuada tellus. Duis sit amet laoreet mi. Fusce gravida eros sit amet nisi maximus, non rhoncus lectus tristique."
-            },{
-                id: 2,
-                userName: "Lobanov Venedict",
-                title: "Curabitur vitae dolor id orci semper pharetra.",
-                message: "Nullam a tortor at elit viverra maximus volutpat vel ligula. Vestibulum magna tortor, tristique at iaculis non, accumsan nec neque. Nulla nec porta sem. Duis tempus consectetur nisl consectetur malesuada. Cras sagittis ante sed aliquam cursus. Nunc dolor dolor, finibus ut pretium quis, rhoncus porttitor leo. Pellentesque ut mattis elit."
-            },{
-                id: 3,
-                userName: "Panov Alexander",
-                title: "Phasellus rutrum ornare faucibus.",
-                message: "Donec laoreet, est non fermentum efficitur, turpis quam luctus nibh, eu euismod ante tellus vel augue. Nunc dignissim massa sed rutrum sodales. Nullam non mi lacus. Quisque semper, orci et volutpat commodo, felis nisl dictum enim, quis luctus enim odio ac erat. Curabitur id dui eget libero ornare egestas."
-            }
-        ]
+        allUsersReview: {
+            currentUser:  {
+                userName: "asd",
+                title: "",
+                message: ""
+            },
+            reviews: [
+    {
+        id: 0,
+        userName: "Larionov Orest",
+        title: "Maecenas ullamcorper, lectus in elementum tincidunt, nibh tortor ornare diam",
+        message: "Ut posuere dictum elit nec ornare. Curabitur id tristique velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris erat leo, laoreet et lorem non, viverra ultrices lorem. Sed viverra mollis felis et rutrum. Nam vel mi leo. Cras tempus sapien non purus maximus porta vel mattis ligula. Vivamus laoreet pharetra mi non gravida."
+    },{
+        id: 1,
+        userName: "Zaitsev Arseny",
+        title: "Aenean massa magna, aliquet id malesuada non, vulputate a leo.",
+        message: "Nam vehicula sapien orci, sit amet molestie quam consequat nec. Vivamus quam nunc, pharetra eget leo sed, rutrum ultricies risus. Nunc at elit ex. Nunc sapien purus, pulvinar ac eros ut, faucibus malesuada tellus. Duis sit amet laoreet mi. Fusce gravida eros sit amet nisi maximus, non rhoncus lectus tristique."
+    },{
+        id: 2,
+        userName: "Lobanov Venedict",
+        title: "Curabitur vitae dolor id orci semper pharetra.",
+        message: "Nullam a tortor at elit viverra maximus volutpat vel ligula. Vestibulum magna tortor, tristique at iaculis non, accumsan nec neque. Nulla nec porta sem. Duis tempus consectetur nisl consectetur malesuada. Cras sagittis ante sed aliquam cursus. Nunc dolor dolor, finibus ut pretium quis, rhoncus porttitor leo. Pellentesque ut mattis elit."
+    },{
+        id: 3,
+        userName: "Panov Alexander",
+        title: "Phasellus rutrum ornare faucibus.",
+        message: "Donec laoreet, est non fermentum efficitur, turpis quam luctus nibh, eu euismod ante tellus vel augue. Nunc dignissim massa sed rutrum sodales. Nullam non mi lacus. Quisque semper, orci et volutpat commodo, felis nisl dictum enim, quis luctus enim odio ac erat. Curabitur id dui eget libero ornare egestas."
+    }
+]
+        }
     },
     _callSubscriber(){
         console.log("no subscribers")
@@ -523,47 +535,17 @@ export const store = {
         return maxId;
     },
     getCurrentReview(){
-        return this._state.currentUserReview;
+        return this._state.allUsersReview.currentUser;
     },
     dispatch(action) {
         if (action.type !== undefined) {
-            switch (action.type) {
-                case "ADD-REVIEW":
-                    const currentUserReview = this._state.currentUserReview;
-                    if (currentUserReview.userName !== "") {
-                        if (currentUserReview.title !== "") {
-                            if (currentUserReview.message !== "") {
-                                this._state.allUsersReview.push({
-                                    id: this.getMaxReviewId() + 1,
-                                    ...this._state.currentUserReview
-                                })
-                                currentUserReview.userName = "";
-                                currentUserReview.title = "";
-                                currentUserReview.message = "";
-                                this._callSubscriber();
-                            }
-                        }
-                    }
-                    break;
-                case "SET-CURRENT-REVIEW-NAME":
-                    const lastChar = action.fieldValue[action.fieldValue.length - 1];
-                    if (lastChar == " " || isNaN(Number(lastChar))){
-                        this._state.currentUserReview.userName = action.fieldValue;
-                        this._callSubscriber();
-                    }
-                    break;
-                case "SET-CURRENT-REVIEW-TITLE":
-                    this._state.currentUserReview.title = action.fieldValue;
-                    this._callSubscriber();
-                    break;
-                case "SET-CURRENT-REVIEW-MESSAGE":
-                    this._state.currentUserReview.message = action.fieldValue;
-                    this._callSubscriber();
-                    break;
-                default:
-                    console.warn(`Has not this ${action.type} action.type`)
-                    break;
-            }
+            this._state.subjects = subjectsReducer(this._state.subjects, action);
+            this._state.educators = educatorsReducer(this._state.educators, action);
+            this._state.posts = postsReducer(this._state.posts, action);
+            this._state.navLinks = navLinkReducer(this._state.navLinks, action);
+            this._state.allUsersReview = allReviewReducer(this._state.allUsersReview, action);
+
+            this._callSubscriber();
         } else {
             console.warn(`Uncorrected action: ${action}`)
         }
