@@ -2,19 +2,25 @@
 import React from 'react';
 //css
 import './messageForm.sass';
+import {
+    addReviewActionCreator,
+    setCurrentReviewMessageActionCreator,
+    setCurrentReviewNameActionCreator,
+    setCurrentReviewTitleActionCreator
+} from "../../redux/allReviewReducer";
 
 const messageForm = ({userName, title, message, dispatch}) => {
     const handlerSetCurrentReviewName = ({target}) => {
-        dispatch({type:"SET-CURRENT-REVIEW-NAME", fieldValue: target.value});
+        dispatch(setCurrentReviewNameActionCreator(target.value));
     }
     const handlerSetCurrentReviewTitle = ({target}) => {
-        dispatch({type:"SET-CURRENT-REVIEW-TITLE", fieldValue: target.value});
+        dispatch(setCurrentReviewTitleActionCreator(target.value));
     }
     const handlerSetCurrentReviewMessage = ({target}) => {
-        dispatch({type:"SET-CURRENT-REVIEW-MESSAGE", fieldValue: target.value});
+        dispatch(setCurrentReviewMessageActionCreator(target.value));
     }
     const handlerSendForm = () => {
-        dispatch({type:"ADD-REVIEW", value: 0});
+        dispatch(addReviewActionCreator());
     }
 
     return (

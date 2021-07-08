@@ -7,7 +7,7 @@ import RNewsCard from '../components/newsCard/newsCard';
 import RMessageForm from '../components/messageForm/messageForm';  
 import RRviewWrap from './../components/reviewWrap/reviewWrap';
 
-const review = ({sidebarNews, reviews, userName, title, message, dispatch}) => {
+const review = ({sidebarNews, reviews: { reviews }, userName, title, message, dispatch}) => {
     return (
         <div className="r-container page-body__r-container">  
             <RSidebar 

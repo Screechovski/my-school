@@ -12,6 +12,7 @@ const sidebarNews = news.slice(0, 4);
 const subjectsElements = store.getSubject();
 const educatorsElements = store.getEducator();
 const reviews = store.getReview();
+const currentUserReview = store.getCurrentReview();
 
 const renderEntireTree = () => {
     ReactDOM.render(
@@ -23,9 +24,9 @@ const renderEntireTree = () => {
                 subjectsElements={subjectsElements}
                 educatorsElements={educatorsElements}
                 reviews={reviews}
-                currentReviewUserName={store.getCurrentReview().userName}
-                currentReviewUserTitle={store.getCurrentReview().title}
-                currentReviewUserMessage={store.getCurrentReview().message}
+                currentReviewUserName={currentUserReview.userName}
+                currentReviewUserTitle={currentUserReview.title}
+                currentReviewUserMessage={currentUserReview.message}
                 getEducator={store.getEducator.bind(store)}
                 getNav={store.getNav.bind(store)}
                 getPost={store.getPost.bind(store)}
