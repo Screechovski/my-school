@@ -1,45 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-//import reportWebVitals from './reportWebVitals';
-//state
-import { store } from './redux/state';
+import store from './redux/reduxStore';
 import 'css-reset-and-normalize';
 
-const navLinks = store.getNav();
-const news = store.getPost();
-const sidebarNews = news.slice(0, 4);
-const subjectsElements = store.getSubject();
-const educatorsElements = store.getEducator();
-const reviews = store.getReview();
-const currentUserReview = store.getCurrentReview();
-
-const renderEntireTree = () => {
+const renderEntireTree = (store) => {
+    const state = store.getState();
     ReactDOM.render(
         <React.StrictMode>
             <App
-                navLinks={navLinks}
-                news={news}
-                sidebarNews={sidebarNews}
-                subjectsElements={subjectsElements}
-                educatorsElements={educatorsElements}
-                reviews={reviews}
-                currentReviewUserName={currentUserReview.userName}
-                currentReviewUserTitle={currentUserReview.title}
-                currentReviewUserMessage={currentUserReview.message}
-                getEducator={store.getEducator.bind(store)}
-                getNav={store.getNav.bind(store)}
-                getPost={store.getPost.bind(store)}
-                getReview={store.getReview.bind(store)}
-                getSubject={store.getSubject.bind(store)}
+                navLinks={state.navLinks}
+                news={state.posts}
+                sidebarNews={state.posts.slice(0, 4)}
+                subjectsElements={state.subjects}
+                educatorsElements={state.educators}
+                reviews={state.allUsersReview}
+                currentReviewUserName={state.allUsersReview.currentUser.userName}
+                currentReviewUserTitle={state.allUsersReview.currentUser.title}
+                currentReviewUserMessage={state.allUsersReview.currentUser.message}
+                getEducator={undefined}
+                getNav={undefined}
+                getPost={undefined}
+                getReview={undefined}
+                getSubject={undefined}
                 dispatch={store.dispatch.bind(store)}
-                getEducatorsBySubjectId={store.getEducatorsBySubjectId.bind(store)}
+                getEducatorsBySubjectId={undefined}
             />
         </React.StrictMode>,
         document.getElementById('root')
     )
 }
 
-renderEntireTree();
+renderEntireTree(store);
 
-store.subscribe(renderEntireTree);
+store.subscribe(()=> {
+    renderEntireTree(store)
+});

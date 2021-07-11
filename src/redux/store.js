@@ -51,12 +51,7 @@ import subjectsReducer from "./subjectsReducer";
 import educatorsReducer from "./educatorsReducer";
 import postsReducer from "./postsReducer";
 import navLinkReducer from "./navLinksReducer";
-import allReviewReducer, {
-    ADD_REVIEW,
-    SET_CURRENT_REVIEW_MESSAGE,
-    SET_CURRENT_REVIEW_NAME,
-    SET_CURRENT_REVIEW_TITLE
-} from "./allReviewReducer";
+import allReviewReducer from "./allReviewReducer";
 
 export const store = {
     _state: {
