@@ -19,20 +19,17 @@ import PageReview from './views/review'
 import  './App.sass';
 
 const App = ({
-               navLinks,
-               news,
-               sidebarNews,
-               reviews,
-               subjectsElements,
-               educatorsElements,
-               getPost,
-               currentReviewUserName,
-               currentReviewUserTitle,
-               currentReviewUserMessage,
-               getEducator,
-               getSubject,
-               dispatch,
-               getEducatorsBySubjectId
+    navLinks,
+    news,
+    sidebarNews,
+    reviews,
+    subjectsElements,
+    educatorsElements,
+    getPost,
+    getEducator,
+    getSubject,
+    getEducatorsBySubjectId,
+    store
 }) => {
   return (
     <BrowserRouter>
@@ -63,10 +60,7 @@ const App = ({
               <PageReview
                 sidebarNews={sidebarNews}
                 reviews={reviews}
-                userName={currentReviewUserName}
-                title={currentReviewUserTitle}
-                message={currentReviewUserMessage}
-                dispatch={dispatch}
+                store={store}
               />
                 
             </Route>

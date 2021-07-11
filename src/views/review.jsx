@@ -4,10 +4,10 @@ import React from 'react';
 import RMain from '../components/mainContent/mainContent';
 import RSidebar from '../components/sidebar/sidebar';
 import RNewsCard from '../components/newsCard/newsCard';  
-import RMessageForm from '../components/messageForm/messageForm';  
+import RMessageFormContainer from '../components/messageForm/messageFormContainer';
 import RRviewWrap from './../components/reviewWrap/reviewWrap';
 
-const review = ({sidebarNews, reviews: { reviews }, userName, title, message, dispatch}) => {
+const review = ({sidebarNews, reviews: { reviews }, store}) => {
     return (
         <div className="r-container page-body__r-container">  
             <RSidebar 
@@ -34,12 +34,8 @@ const review = ({sidebarNews, reviews: { reviews }, userName, title, message, di
                         key={0} 
                         reviews={reviews}
                     />, 
-                    <RMessageForm 
+                    <RMessageFormContainer
                         key={1}
-                        userName={userName}
-                        title={title}
-                        message={message}
-                        dispatch={dispatch}
                     />
                 ]}
             />
