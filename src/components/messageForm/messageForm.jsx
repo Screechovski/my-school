@@ -2,25 +2,19 @@
 import React from 'react';
 //css
 import './messageForm.sass';
-import {
-    addReviewActionCreator,
-    setCurrentReviewMessageActionCreator,
-    setCurrentReviewNameActionCreator,
-    setCurrentReviewTitleActionCreator
-} from "../../redux/allReviewReducer";
 
-const messageForm = ({userName, title, message, dispatch}) => {
-    const handlerSetCurrentReviewName = ({target}) => {
-        dispatch(setCurrentReviewNameActionCreator(target.value));
+const messageForm = ({userName, title, message, handlerSetCurrentReviewName, handlerSetCurrentReviewTitle, handlerSetCurrentReviewMessage, handlerSendForm}) => {
+    const handlerSetCurrentReviewNameLocal = ({target}) => {
+        handlerSetCurrentReviewName(target.value);
     }
-    const handlerSetCurrentReviewTitle = ({target}) => {
-        dispatch(setCurrentReviewTitleActionCreator(target.value));
+    const handlerSetCurrentReviewTitleLocal = ({target}) => {
+        handlerSetCurrentReviewTitle(target.value);
     }
-    const handlerSetCurrentReviewMessage = ({target}) => {
-        dispatch(setCurrentReviewMessageActionCreator(target.value));
+    const handlerSetCurrentReviewMessageLocal = ({target}) => {
+        handlerSetCurrentReviewMessage(target.value);
     }
-    const handlerSendForm = () => {
-        dispatch(addReviewActionCreator());
+    const handlerSendFormLocal = () => {
+        handlerSendForm();
     }
 
     return (
@@ -30,7 +24,7 @@ const messageForm = ({userName, title, message, dispatch}) => {
                 <h3 className="message-form__headline">Ваше имя</h3>
                 <input 
                     className="message-form__input" 
-                    onChange={handlerSetCurrentReviewName}
+                    onChange={handlerSetCurrentReviewNameLocal}
                     type="text"
                     id="messageTitle"
                     value={userName}
@@ -41,7 +35,7 @@ const messageForm = ({userName, title, message, dispatch}) => {
                 <input 
                     className="message-form__input" 
                     type="text" 
-                    onChange={handlerSetCurrentReviewTitle}
+                    onChange={handlerSetCurrentReviewTitleLocal}
                     id="messageTitle"
                     value={title}
                 />
@@ -51,12 +45,12 @@ const messageForm = ({userName, title, message, dispatch}) => {
                 <textarea 
                     className="message-form__textarea" 
                     name="" 
-                    onChange={handlerSetCurrentReviewMessage}
+                    onChange={handlerSetCurrentReviewMessageLocal}
                     id="messageText"
                     value={message}
                 ></textarea>
             </label>
-            <button className="message-form__button" onClick={handlerSendForm}>Отправить</button>
+            <button className="message-form__button" onClick={handlerSendFormLocal}>Отправить</button>
         </form>
     )
 }

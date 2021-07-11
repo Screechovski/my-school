@@ -20,11 +20,11 @@ const subjectsInnerContent = ({title, educators, subjects, subjectId}) => {
                     <h3 className={css["subject-inner__educators-title"]}>Преподаватели: </h3>
                     <div className={css["subject-inner__educators-table"]}>
                         {educators.map(educator => 
-                            <REducatorCard 
-                                image={educator.image} 
-                                name={educator.name} 
-                                email={educator.email} 
-                                key={educator.id} 
+                            <REducatorCard
+                                image={educator.image}
+                                name={educator.name}
+                                email={educator.email}
+                                key={educator.id}
                                 educatorId={educator.id}
                             />
                         )}

@@ -1,31 +1,39 @@
+//react
 import React from 'react';
+//react-dom
 import ReactDOM from 'react-dom';
+//components
 import App from './App';
+//store
 import store from './redux/reduxStore';
+//react-redux
+import {Provider} from "react-redux";
+//css
 import 'css-reset-and-normalize';
 
 const renderEntireTree = (store) => {
     const state = store.getState();
+
     ReactDOM.render(
         <React.StrictMode>
-            <App
-                navLinks={state.navLinks}
-                news={state.posts}
-                sidebarNews={state.posts.slice(0, 4)}
-                subjectsElements={state.subjects}
-                educatorsElements={state.educators}
-                reviews={state.allUsersReview}
-                currentReviewUserName={state.allUsersReview.currentUser.userName}
-                currentReviewUserTitle={state.allUsersReview.currentUser.title}
-                currentReviewUserMessage={state.allUsersReview.currentUser.message}
-                getEducator={undefined}
-                getNav={undefined}
-                getPost={undefined}
-                getReview={undefined}
-                getSubject={undefined}
-                dispatch={store.dispatch.bind(store)}
-                getEducatorsBySubjectId={undefined}
-            />
+            <Provider store={store}>
+                <App
+                    navLinks={state.navLinks}
+                    news={state.posts}
+                    sidebarNews={state.posts.slice(0, 4)}
+                    subjectsElements={state.subjects}
+                    educatorsElements={state.educators}
+                    reviews={state.allUsersReview}
+                    getEducator={undefined}
+                    getNav={undefined}
+                    getPost={undefined}
+                    getReview={undefined}
+                    getSubject={undefined}
+                    dispatch={store.dispatch.bind(store)}
+                    getEducatorsBySubjectId={undefined}
+                    store={store}
+                />
+            </Provider>
         </React.StrictMode>,
         document.getElementById('root')
     )
