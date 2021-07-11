@@ -20,6 +20,7 @@ const educators = ({sidebarNews, educatorsElements}) => {
             
             <RMain parentClass="page-body__content page-body__content--sidebar" title="Педагоги" typeContent="educators" slot={educatorsElements.map(elem=>
                 <REducatorCard
+                    key={elem.id * Math.random()}
                     image={elem.image}
                     name={elem.name}
                     email ={elem.email}

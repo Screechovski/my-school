@@ -11,36 +11,28 @@ import {Provider} from "react-redux";
 //css
 import 'css-reset-and-normalize';
 
-const renderEntireTree = (store) => {
-    const state = store.getState();
+const state = store.getState();
 
-    ReactDOM.render(
-        <React.StrictMode>
-            <Provider store={store}>
-                <App
-                    navLinks={state.navLinks}
-                    news={state.posts}
-                    sidebarNews={state.posts.slice(0, 4)}
-                    subjectsElements={state.subjects}
-                    educatorsElements={state.educators}
-                    reviews={state.allUsersReview}
-                    getEducator={undefined}
-                    getNav={undefined}
-                    getPost={undefined}
-                    getReview={undefined}
-                    getSubject={undefined}
-                    dispatch={store.dispatch.bind(store)}
-                    getEducatorsBySubjectId={undefined}
-                    store={store}
-                />
-            </Provider>
-        </React.StrictMode>,
-        document.getElementById('root')
-    )
-}
-
-renderEntireTree(store);
-
-store.subscribe(()=> {
-    renderEntireTree(store)
-});
+ReactDOM.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <App
+                navLinks={state.navLinks}
+                news={state.posts}
+                sidebarNews={state.posts.slice(0, 4)}
+                subjectsElements={state.subjects}
+                educatorsElements={state.educators}
+                reviews={state.allUsersReview}
+                getEducator={undefined}
+                getNav={undefined}
+                getPost={undefined}
+                getReview={undefined}
+                getSubject={undefined}
+                dispatch={store.dispatch.bind(store)}
+                getEducatorsBySubjectId={undefined}
+                store={store}
+            />
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
+)

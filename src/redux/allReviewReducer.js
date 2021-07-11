@@ -8,11 +8,11 @@ export const setCurrentReviewMessageActionCreator = value => ({type:SET_CURRENT_
 export const setCurrentReviewNameActionCreator = value => ({type:SET_CURRENT_REVIEW_NAME, fieldValue: value});
 export const setCurrentReviewTitleActionCreator = value => ({type:SET_CURRENT_REVIEW_TITLE, fieldValue: value});
 
-const initialState  = {
+let initialState = {
     currentUser:  {
         userName: "asd",
-            title: "",
-            message: ""
+        title: "",
+        message: ""
     },
     reviews: [
         {
@@ -39,40 +39,58 @@ const initialState  = {
     ]
 };
 
+if (localStorage.getItem('allReviewReducer')) {
+    try {
+        initialState = JSON.parse(localStorage.getItem('allReviewReducer'));
+    } catch (e) {
+        console.warn(e);
+    }
+}
+
 const allReviewReducer = (state = initialState, action = {}) => {
-    const { currentUser, reviews } = state;
+    let oldState = {...state};
+    oldState.currentUser = {...state.currentUser};
+    oldState.reviews = [...oldState.reviews]
+    oldState.reviews = oldState.reviews.map(el=>({...el}));
+
     switch (action.type) {
-        case ADD_REVIEW:
-            if (currentUser.userName !== "") {
-                if (currentUser.title !== "") {
-                    if (currentUser.message !== "") {
-                        reviews.push({
-                            id: reviews.length,
-                            ...currentUser
+        case ADD_REVIEW: {
+            if (oldState.currentUser.userName !== "") {
+                if (oldState.currentUser.title !== "") {
+                    if (oldState.currentUser.message !== "") {
+                        oldState.reviews.push({
+                            id: oldState.reviews.length,
+                            ...oldState.currentUser
                         })
-                        currentUser.userName = "";
-                        currentUser.title = "";
-                        currentUser.message = "";
+                        oldState.currentUser.userName = "";
+                        oldState.currentUser.title = "";
+                        oldState.currentUser.message = "";
                     }
                 }
             }
-            return state;
-        case SET_CURRENT_REVIEW_NAME:
+            localStorage.setItem('allReviewReducer', JSON.stringify(oldState));
+            return oldState;
+        }
+        case SET_CURRENT_REVIEW_NAME: {
             const lastChar = action.fieldValue[action.fieldValue.length - 1];
 
-            if (lastChar == " " || isNaN(Number(lastChar))){
-                currentUser.userName = action.fieldValue;
+            if (lastChar === " " || isNaN(Number(lastChar))){
+                oldState.currentUser.userName = action.fieldValue;
             }
-            return state;
-        case SET_CURRENT_REVIEW_TITLE:
-            currentUser.title = action.fieldValue;
-            return state;
-        case SET_CURRENT_REVIEW_MESSAGE:
-            currentUser.message = action.fieldValue;
-            return state;
-        default:
+            return oldState;
+        }
+        case SET_CURRENT_REVIEW_TITLE: {
+            oldState.currentUser.title = action.fieldValue;
+            return oldState;
+        }
+        case SET_CURRENT_REVIEW_MESSAGE: {
+            oldState.currentUser.message = action.fieldValue;
+            return oldState;
+        }
+        default: {
             console.warn(`Has not this ${action.type} action.type`)
-            return state;
+            return oldState;
+        }
     }
 }
 

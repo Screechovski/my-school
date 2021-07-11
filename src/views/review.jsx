@@ -5,7 +5,7 @@ import RMain from '../components/mainContent/mainContent';
 import RSidebar from '../components/sidebar/sidebar';
 import RNewsCard from '../components/newsCard/newsCard';  
 import RMessageFormContainer from '../components/messageForm/messageFormContainer';
-import RRviewWrap from './../components/reviewWrap/reviewWrap';
+import ReviewWrapContainer from './../components/reviewWrap/reviewWrapContainer';
 
 const review = ({sidebarNews, reviews: { reviews }, store}) => {
     return (
@@ -30,15 +30,16 @@ const review = ({sidebarNews, reviews: { reviews }, store}) => {
                 typeContent="" 
                 title="Отзывы или пожелания" 
                 slot={[
-                    <RRviewWrap 
-                        key={0} 
-                        reviews={reviews}
-                    />, 
-                    <RMessageFormContainer
-                        key={1}
-                    />
+
                 ]}
-            />
+            >
+                <ReviewWrapContainer
+                    key={0}
+                />
+                <RMessageFormContainer
+                    key={1}
+                />
+            </RMain>
         </div>
 
     )
