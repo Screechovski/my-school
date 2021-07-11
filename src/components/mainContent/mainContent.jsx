@@ -1,7 +1,8 @@
 import React from 'react';
 import css from './mainContent.module.sass';
 
-const mainContent = ({parentClass, title, typeContent, slot}) => {
+const mainContent = (props) => {
+    const {parentClass, title, typeContent, slot} = props;
     return (
         <main className={`${parentClass} ${css['main-content']}`}> 
             {
@@ -10,7 +11,7 @@ const mainContent = ({parentClass, title, typeContent, slot}) => {
             }
             {
                 typeContent !== undefined && 
-                    <div className={css['main-content--'+typeContent]} >{slot}</div>
+                    <div className={css['main-content--'+typeContent]} >{slot}{props.children}</div>
             }            
         </main>
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-import RNav from './../nav/nav';
+import NavContainer from './../nav/navContainer';
 import RLogo from './../logo/logo';
 import css from './header.module.sass';
 
@@ -8,7 +8,7 @@ const rHeader = ({navLinks}) => {
         <header className={css.header}>
             <div className={css.header__container + " r-container"}>
                 <RLogo type="medium"></RLogo>
-                <RNav navLinks={navLinks}></RNav>
+                <NavContainer/>
             </div>
         </header>
     )

@@ -4,13 +4,19 @@ import React from 'react';
 import './messageForm.sass';
 
 const messageForm = ({userName, title, message, handlerSetCurrentReviewName, handlerSetCurrentReviewTitle, handlerSetCurrentReviewMessage, handlerSendForm}) => {
-    const handlerSetCurrentReviewNameLocal = ({target}) => {
+    const handlerSetCurrentReviewNameLocal = (e) => {
+        const {target} = e;
+        e.preventDefault();
         handlerSetCurrentReviewName(target.value);
     }
-    const handlerSetCurrentReviewTitleLocal = ({target}) => {
+    const handlerSetCurrentReviewTitleLocal = (e) => {
+        const {target} = e;
+        e.preventDefault();
         handlerSetCurrentReviewTitle(target.value);
     }
-    const handlerSetCurrentReviewMessageLocal = ({target}) => {
+    const handlerSetCurrentReviewMessageLocal = (e) => {
+        const {target} = e;
+        e.preventDefault();
         handlerSetCurrentReviewMessage(target.value);
     }
     const handlerSendFormLocal = () => {
@@ -18,7 +24,7 @@ const messageForm = ({userName, title, message, handlerSetCurrentReviewName, han
     }
 
     return (
-        <form className="message-form" action="" onSubmit={e=>e.preventDefault()}>
+        <form className="message-form" action="">
             <h2 className="message-form__title">Оставьте свой отзыв</h2>
             <label className="message-form__label" htmlFor="messageTitle">
                 <h3 className="message-form__headline">Ваше имя</h3>
@@ -50,7 +56,7 @@ const messageForm = ({userName, title, message, handlerSetCurrentReviewName, han
                     value={message}
                 ></textarea>
             </label>
-            <button className="message-form__button" onClick={handlerSendFormLocal}>Отправить</button>
+            <button className="message-form__button" type="button" onClick={handlerSendFormLocal}>Отправить</button>
         </form>
     )
 }

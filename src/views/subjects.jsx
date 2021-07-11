@@ -5,7 +5,6 @@ import RSidebar from './../components/sidebar/sidebar';
 import RNewsCard from './../components/newsCard/newsCard';
 
 const subjects = ({sidebarNews, subjectsElements}) => {
-    console.log(subjectsElements);
     return (
         <div className="r-container page-body__r-container">        
             <RSidebar parentClass="page-body__sidebar" title="Новости" slot={sidebarNews.map(elem=>
@@ -26,7 +25,7 @@ const subjects = ({sidebarNews, subjectsElements}) => {
                 slot={subjectsElements.map(elem=>
                     <RSubjectCard
                         id={elem.id}
-                        key={elem.id} 
+                        key={elem.id * Math.random()}
                         title={elem.title}
                         image={elem.image}
                     />
