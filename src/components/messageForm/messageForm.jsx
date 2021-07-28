@@ -3,11 +3,11 @@ import React from 'react';
 //css
 import './messageForm.sass';
 
-const messageForm = ({userName, title, message, handlerSetCurrentReviewName, handlerSetCurrentReviewTitle, handlerSetCurrentReviewMessage, handlerSendForm}) => {
-    const handlerSetCurrentReviewNameLocal = (e) => {
+const messageForm = ({email, title, message, handlerSetCurrentReviewEmail, handlerSetCurrentReviewTitle, handlerSetCurrentReviewMessage, handlerSendForm}) => {
+    const handlerSetCurrentReviewEmailLocal = (e) => {
         const {target} = e;
         e.preventDefault();
-        handlerSetCurrentReviewName(target.value);
+        handlerSetCurrentReviewEmail(target.value);
     }
     const handlerSetCurrentReviewTitleLocal = (e) => {
         const {target} = e;
@@ -26,14 +26,14 @@ const messageForm = ({userName, title, message, handlerSetCurrentReviewName, han
     return (
         <form className="message-form" action="">
             <h2 className="message-form__title">Оставьте свой отзыв</h2>
-            <label className="message-form__label" htmlFor="messageTitle">
-                <h3 className="message-form__headline">Ваше имя</h3>
+            <label className="message-form__label" htmlFor="userEmail">
+                <h3 className="message-form__headline">Ваш email</h3>
                 <input 
                     className="message-form__input" 
-                    onChange={handlerSetCurrentReviewNameLocal}
+                    onChange={handlerSetCurrentReviewEmailLocal}
                     type="text"
-                    id="messageTitle"
-                    value={userName}
+                    id="userEmail"
+                    value={email}
                 />
             </label>
             <label className="message-form__label" htmlFor="messageTitle">

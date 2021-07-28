@@ -3,8 +3,8 @@ import MessageForm from './messageForm';
 //reducers
 import {
     addReviewActionCreator,
+    setCurrentReviewEmailActionCreator,
     setCurrentReviewMessageActionCreator,
-    setCurrentReviewNameActionCreator,
     setCurrentReviewTitleActionCreator
 } from "../../redux/allReviewReducer";
 //react-redux
@@ -12,7 +12,7 @@ import {connect} from "react-redux";
 
 const mapStateToProps = (state) => {
     return {
-        userName: state.allUsersReview.userName,
+        email: state.allUsersReview.email,
         title: state.allUsersReview.title,
         message: state.allUsersReview.message
     }
@@ -20,8 +20,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handlerSetCurrentReviewName: value => {
-            dispatch(setCurrentReviewNameActionCreator(value));
+        handlerSetCurrentReviewEmail: value => {
+            dispatch(setCurrentReviewEmailActionCreator(value));
         },
         handlerSetCurrentReviewTitle: value => {
             dispatch(setCurrentReviewTitleActionCreator(value));
