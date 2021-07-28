@@ -6,20 +6,29 @@ import './reviewWrap.sass';
 import RReviewCard from './../reviewCard/reviewCard';
 
 
-const reviewWrap = ({reviews}) => {    
-    return (
-        <div className="review-wrap">
-            {reviews.map(review=>
-                <RReviewCard 
-                    key={review.id} 
-                    id={review.id}
-                    userName={review.userName}
-                    title={review.title}
-                    message={review.message}                
-                />
-            )}
-        </div>
-    );
-}
+export default class ReviewWrap extends React.Component{
+    componentDidMount(){
+        fetch('https://jsonplaceholder.typicode.com/comments')
+            .then((response) => response.json())
+            .then(d=>d.slice(0, 20))
+            .then(this.props.initReview)
+            .catch(console.warn)
+    }
+    render(){
+        const {reviews} = this.props;
 
-export default reviewWrap;
+        return (
+            <div className="review-wrap">
+                {reviews.map(review=>
+                    <RReviewCard
+                        key={review.id}
+                        id={review.id}
+                        title={review.name}
+                        email={review.email}
+                        message={review.body}
+                    />
+                )}
+            </div>
+        );
+    }
+}

@@ -1,5 +1,6 @@
 import ReviewWrap from './reviewWrap'
 import {connect} from "react-redux";
+import {reviewInitAC} from "../../redux/allReviewReducer";
 
 const mapStateToProps = (state) => {
     return {
@@ -8,7 +9,11 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {}
+    return {
+        initReview: (posts) => {
+            dispatch(reviewInitAC(posts));
+        }
+    }
 }
 
 const reviewWrapContainer = connect(mapStateToProps, mapDispatchToProps)(ReviewWrap);
