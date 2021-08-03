@@ -10,6 +10,10 @@ class News extends React.Component {
         const {initNews} = this.props;
         fetch(URLS.posts)
             .then(r=>r.json())
+            .then(d=>{
+                console.log(d);
+                return d;
+            })
             .then(d=>d.slice(0, 20))
             .then(initNews)
             .catch(console.warn)
