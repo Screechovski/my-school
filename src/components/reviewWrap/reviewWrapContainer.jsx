@@ -1,10 +1,11 @@
 import ReviewWrap from './reviewWrap'
 import {connect} from "react-redux";
-import {reviewInitAC} from "../../redux/allReviewReducer";
+import { reviewInitAC } from '../../redux/actionCreators';
 
 const mapStateToProps = (state) => {
     return {
-        reviews: state.allUsersReview.reviews
+        reviews: state.allUsersReview.reviews,
+        reviewsLoading: state.allUsersReview.reviewsLoading
     }
 }
 

@@ -1,14 +1,10 @@
-export const ADD_REVIEW = "ADD_REVIEW";
-export const SET_CURRENT_REVIEW_EMAIL = "SET_CURRENT_REVIEW_EMAIL";
-export const SET_CURRENT_REVIEW_TITLE = "SET_CURRENT_REVIEW_TITLE";
-export const SET_CURRENT_REVIEW_MESSAGE = "SET_CURRENT_REVIEW_MESSAGE";
-export const INIT_REVIEWS = 'INIT_REVIEWS';
-
-export const addReviewActionCreator = () => ({type: ADD_REVIEW});
-export const setCurrentReviewMessageActionCreator = value => ({type:SET_CURRENT_REVIEW_MESSAGE, fieldValue: value});
-export const setCurrentReviewEmailActionCreator = value => ({type:SET_CURRENT_REVIEW_EMAIL, fieldValue: value});
-export const setCurrentReviewTitleActionCreator = value => ({type:SET_CURRENT_REVIEW_TITLE, fieldValue: value});
-export const reviewInitAC = value => ({type:INIT_REVIEWS, posts: value});
+import { 
+    ADD_REVIEW, 
+    INIT_REVIEWS, 
+    SET_CURRENT_REVIEW_EMAIL, 
+    SET_CURRENT_REVIEW_MESSAGE, 
+    SET_CURRENT_REVIEW_TITLE 
+} from "./actionTypes";
 
 let initialState = {
     currentUser:  {
@@ -16,16 +12,79 @@ let initialState = {
         name: "",
         body: ""
     },
-    reviews: []
+    reviews: [{
+        createdAt:"",
+        name:"",
+        email:"",
+        title:"",
+        body:"",
+        id:"1"
+    },{
+        createdAt:"",
+        name:"",
+        email:"",
+        title:"",
+        body:"",
+        id:"2"
+    },{
+        createdAt:"",
+        name:"",
+        email:"",
+        title:"",
+        body:"",
+        id:"3"
+    },{
+        createdAt:"",
+        name:"",
+        email:"",
+        title:"",
+        body:"",
+        id:"4"
+    },{
+        createdAt:"",
+        name:"",
+        email:"",
+        title:"",
+        body:"",
+        id:"5"
+    },{
+        createdAt:"",
+        name:"",
+        email:"",
+        title:"",
+        body:"",
+        id:"6"
+    },{
+        createdAt:"",
+        name:"",
+        email:"",
+        title:"",
+        body:"",
+        id:"7"
+    },{
+        createdAt:"",
+        name:"",
+        email:"",
+        title:"",
+        body:"",
+        id:"8"
+    },{
+        createdAt:"",
+        name:"",
+        email:"",
+        title:"",
+        body:"",
+        id:"9"
+    },{
+        createdAt:"",
+        name:"",
+        email:"",
+        title:"",
+        body:"",
+        id:"10"
+    }],
+    reviewsLoading: true
 };
-
-if (localStorage.getItem('allReviewReducer')) {
-    try {
-        initialState = JSON.parse(localStorage.getItem('allReviewReducer'));
-    } catch (e) {
-        console.warn(e);
-    }
-}
 
 const allReviewReducer = (state = initialState, action = {}) => {
     let oldState = {...state};
@@ -38,11 +97,14 @@ const allReviewReducer = (state = initialState, action = {}) => {
             if (oldState.currentUser.email !== "") {
                 if (oldState.currentUser.title !== "") {
                     if (oldState.currentUser.message !== "") {
-                        oldState.reviews.push({
+                        /*oldState.reviews.push({
                             id: oldState.reviews.length + 1,
                             postId: 5,
                             ...oldState.currentUser
-                        })
+                        })*/
+
+                        
+
                         oldState.currentUser.email = "";
                         oldState.currentUser.name = "";
                         oldState.currentUser.body = "";
@@ -71,7 +133,8 @@ const allReviewReducer = (state = initialState, action = {}) => {
         case INIT_REVIEWS: {
             return {
                 ...state,
-                reviews: action.posts
+                reviews: action.posts,
+                reviewsLoading: false
             }
         }
         default: {

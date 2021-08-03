@@ -37,7 +37,7 @@ const messageForm = ({email, title, message, handlerSetCurrentReviewEmail, handl
                 />
             </label>
             <label className="message-form__label" htmlFor="messageTitle">
-                <h3 className="message-form__headline">Краткое описание</h3>
+                <h3 className="message-form__headline">Ваше имя</h3>
                 <input 
                     className="message-form__input" 
                     type="text" 

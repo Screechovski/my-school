@@ -1,12 +1,12 @@
 //components
 import MessageForm from './messageForm';
 //reducers
-import {
-    addReviewActionCreator,
-    setCurrentReviewEmailActionCreator,
-    setCurrentReviewMessageActionCreator,
-    setCurrentReviewTitleActionCreator
-} from "../../redux/allReviewReducer";
+import { 
+    addReviewActionCreator, 
+    setCurrentReviewEmailActionCreator, 
+    setCurrentReviewMessageActionCreator, 
+    setCurrentReviewTitleActionCreator 
+} from '../../redux/actionCreators';
 //react-redux
 import {connect} from "react-redux";
 
