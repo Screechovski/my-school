@@ -18,8 +18,7 @@ ReactDOM.render(
         <Provider store={store}>
             <App
                 navLinks={state.navLinks}
-                news={state.posts}
-                sidebarNews={state.posts.slice(0, 4)}
+                news={state.posts.posts}
                 subjectsElements={state.subjects}
                 educatorsElements={state.educators}
                 reviews={state.allUsersReview}

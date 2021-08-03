@@ -33,9 +33,7 @@ const shortText = ({tagName, lineHeight, lineCount, parentClass, text}) => {
         }
     }
 
-    return (
-        <CustomTag style={tryStyles} className={`${parentClass}`}>{text}</CustomTag>
-    );
+    return <CustomTag style={tryStyles} className={parentClass}>{text}</CustomTag>;
 }
 
 export default shortText;

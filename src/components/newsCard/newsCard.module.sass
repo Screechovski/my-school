@@ -17,9 +17,10 @@
         border-radius: var(--border-radius-small)
         overflow: hidden
         margin-bottom: 15px
+        height: 150px     
     &__image
         display: block
-        height: 150px
+        height: inherit
         width: 100%
         object-fit: cover
         border-radius: var(--border-radius-small)
@@ -36,7 +37,9 @@
         color: var(--main-link-color)
         margin-bottom: 1em
         &::first-letter
-            text-transform: uppercase
+            font-weight: bold
+            color: red
+            text-transform: uppercase !important
     &__text
         font-size: 13px
         line-height: 1.2em

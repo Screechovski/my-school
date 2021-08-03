@@ -21,7 +21,6 @@ import  './App.sass';
 const App = ({
     navLinks,
     news,
-    sidebarNews,
     reviews,
     subjectsElements,
     educatorsElements,
@@ -42,35 +41,33 @@ const App = ({
               <PageIndex /> 
             </Route>
             <Route path="/about" > 
-              <PageAbout sidebarNews={sidebarNews} />
+              <PageAbout />
             </Route>
             <Route path="/news" >  
               <PageNews news={news} /> 
             </Route>
             <Route path="/subjects" >  
-              <PageSubjects sidebarNews={sidebarNews} subjectsElements={subjectsElements} /> 
+              <PageSubjects subjectsElements={subjectsElements} /> 
             </Route>
             <Route path="/educators" > 
-              <PageEducators sidebarNews={sidebarNews} educatorsElements={educatorsElements} /> 
+              <PageEducators educatorsElements={educatorsElements} /> 
             </Route>
             <Route path="/miscellanea">
-              <PageMiscellanea sidebarNews={sidebarNews} />
+              <PageMiscellanea />
             </Route>
             <Route path="/review">
               <PageReview
-                sidebarNews={sidebarNews}
                 reviews={reviews}
                 store={store}
               />
-                
             </Route>
 
-            <Route path="/educators-inner/:educatorId" render={({match})=>
-              {
+            <Route path="/educators-inner/:educatorId" render={({match})=>{
                 const educator = getEducator(Number(match.params.educatorId));
                 const coursesTaught = educator.coursesTaught.map(getSubject);
+                
                 return <PageEducatorsInner 
-                  sidebarNews={sidebarNews} 
+                  
                   educator={educator} 
                   coursesTaught={coursesTaught}
                 />
@@ -87,7 +84,7 @@ const App = ({
                   title={title} 
                   subjects={subjectsElements} 
                   subjectId={match.params.subjectId} 
-                  sidebarNews={sidebarNews} 
+                  
                 />
               }
             }/>
@@ -96,7 +93,6 @@ const App = ({
                 const {mainImgUrl, title, date, body} = getPost(Number(match.params.newsId));
 
                 return <PageNewsInner 
-                  sidebarNews={sidebarNews}
                   mainImgUrl={mainImgUrl}
                   title={title}
                   date={date}
