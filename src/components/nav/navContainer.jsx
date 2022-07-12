@@ -1,11 +1,9 @@
 import Nav from './nav';
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
-const mapStateToProps = state => {
-    return {
-        navLinks: state.navLinks
-    }
-}
+const mapStateToProps = state => ({
+    navLinks: state.navLinks
+})
 
 const navContainer = connect(mapStateToProps)(Nav);
 

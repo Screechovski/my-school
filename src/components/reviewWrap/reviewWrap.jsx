@@ -6,20 +6,20 @@ import './reviewWrap.sass';
 import RReviewCard from './../reviewCard/reviewCard';
 import URLS from '../../assets/urls';
 
-export default class ReviewWrap extends React.Component{
-    componentDidMount(){
+export default class ReviewWrap extends React.Component {
+    componentDidMount() {
         fetch(URLS.reviews)
-            .then(r=>r.json())
-            .then(d=>d.slice(0, 20))
+            .then(r => r.json())
+            .then(d => d.slice(0, 20))
             .then(this.props.initReview)
             .catch(console.warn)
     }
-    render(){
-        const {reviews, reviewsLoading} = this.props;
+    render() {
+        const { reviews, reviewsLoading } = this.props;
 
         return (
             <div className="review-wrap">
-                {reviews.map(({id, createdAt, name, email, body})=>
+                {reviews.map(({ id, createdAt, name, email, body }) =>
                     <RReviewCard
                         key={id}
                         id={id}

@@ -8,13 +8,9 @@ const logo = (props) => {
 
     switch (props.type) {
         case 'small':
-            cssLine = `${css.logo} ${css['logo--small']}`
-            break;
         case 'medium':
-            cssLine = `${css.logo} ${css['logo--medium']}`
-            break;
         case 'large':
-            cssLine = `${css.logo} ${css['logo--large']}`
+            cssLine = `${css.logo} ${css['logo--' + props.type]}`
             break;
         default:
             cssLine = css.logo

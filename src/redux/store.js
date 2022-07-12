@@ -61,14 +61,14 @@ export const store = {
                 title: "Чистописание",
                 href: "calligraphy",
                 image: img0,
-                years: [true,false,false,false,false,false,false,false,false,false,false]
+                years: [true, false, false, false, false, false, false, false, false, false, false]
             },
             {
                 id: 1,
                 title: "Чтение",
                 href: "reading",
                 image: img1,
-                years: [true,true,true,true,false,false,false,false,false,false,false]
+                years: [true, true, true, true, false, false, false, false, false, false, false]
 
             },
             {
@@ -76,210 +76,210 @@ export const store = {
                 title: "Труд",
                 href: "work",
                 image: img2,
-                years: [true,true,true,true,false,false,false,false,false,false,false]
+                years: [true, true, true, true, false, false, false, false, false, false, false]
             },
             {
                 id: 3,
                 title: "Природоведение",
                 href: "natural_science",
                 image: img3,
-                years: [true,true,true,true,true,false,false,false,false,false,false]
+                years: [true, true, true, true, true, false, false, false, false, false, false]
             },
             {
                 id: 4,
                 title: "Математика",
                 href: "mathematics",
                 image: img4,
-                years: [true,true,true,true,true,true,false,false,false,false,false]
+                years: [true, true, true, true, true, true, false, false, false, false, false]
             },
             {
                 id: 5,
                 title: "Музыка (Пение)",
                 href: "music_(singing)",
                 image: img5,
-                years: [true,true,true,true,true,true,true,false,false,false,false]
+                years: [true, true, true, true, true, true, true, false, false, false, false]
             },
             {
                 id: 6,
                 title: "Изобразительное искусство (Рисование)",
                 href: "fine_arts_(drawing)",
                 image: img6,
-                years: [true,true,true,true,true,true,true,true,true,true,true]
+                years: [true, true, true, true, true, true, true, true, true, true, true]
             },
             {
                 id: 7,
                 title: "Русский язык",
                 href: "russian_language",
                 image: img7,
-                years: [true,true,true,true,true,true,true,true,true,true,true]
+                years: [true, true, true, true, true, true, true, true, true, true, true]
             },
             {
                 id: 8,
                 title: "Физкультура",
                 href: "physical_education",
                 image: img8,
-                years: [true,true,true,true,true,true,true,true,true,true,true]
+                years: [true, true, true, true, true, true, true, true, true, true, true]
             },
             {
                 id: 9,
                 title: "Родной язык",
                 href: "native_language",
                 image: img9,
-                years: [false,true,true,true,true,true,true,true,true,true,true]
+                years: [false, true, true, true, true, true, true, true, true, true, true]
             },
             {
                 id: 10,
                 title: "Основы религиозных культур и светской этики",
                 href: "foundations_of_religious_cultures_and_secular_ethics",
                 image: img10,
-                years: [false,false,false,true,true,false,false,false,false,false,false]
+                years: [false, false, false, true, true, false, false, false, false, false, false]
             },
             {
                 id: 11,
                 title: "Иностранный язык",
                 href: "foreign_language",
                 image: img11,
-                years: [false,false,false,true,true,true,true,true,true,true,true]
+                years: [false, false, false, true, true, true, true, true, true, true, true]
             },
             {
                 id: 12,
                 title: "Граждановедение",
                 href: "citizenship",
                 image: img12,
-                years: [false,false,false,false,true,true,true,false,false,false,false]
+                years: [false, false, false, false, true, true, true, false, false, false, false]
             },
             {
                 id: 13,
                 title: "Краеведение",
                 href: "local_history",
                 image: img13,
-                years: [false,false,false,false,true,true,true,false,false,false,false]
+                years: [false, false, false, false, true, true, true, false, false, false, false]
             },
             {
                 id: 14,
                 title: "История",
                 href: "history",
                 image: img14,
-                years: [false,false,false,false,true,true,true,true,true,true,true]
+                years: [false, false, false, false, true, true, true, true, true, true, true]
             },
             {
                 id: 15,
                 title: "Литература",
                 href: "literature",
                 image: img15,
-                years: [false,false,false,false,true,true,true,true,true,true,true]
+                years: [false, false, false, false, true, true, true, true, true, true, true]
             },
             {
                 id: 16,
                 title: "Основы безопасности жизнедеятельности (ОБЖ)",
                 href: "fundamentals_of_life_safety_(obzh)",
                 image: img16,
-                years: [false,false,false,false,true,true,true,true,true,true,true]
+                years: [false, false, false, false, true, true, true, true, true, true, true]
             },
             {
                 id: 17,
                 title: "Технология",
                 href: "technology",
                 image: img17,
-                years: [false,false,false,false,true,true,true,true,true,true,true]
+                years: [false, false, false, false, true, true, true, true, true, true, true]
             },
             {
                 id: 18,
                 title: "География",
                 href: "geography",
                 image: img18,
-                years: [false,false,false,false,false,true,true,true,true,true,false]
+                years: [false, false, false, false, false, true, true, true, true, true, false]
             },
             {
                 id: 19,
                 title: "Биология",
                 href: "biology",
                 image: img19,
-                years: [false,false,false,false,false,true,true,true,true,true,true]
+                years: [false, false, false, false, false, true, true, true, true, true, true]
             },
             {
                 id: 20,
                 title: "Информатика",
                 href: "computer_science",
                 image: img20,
-                years: [false,false,false,false,false,true,true,true,true,true,true]
+                years: [false, false, false, false, false, true, true, true, true, true, true]
             },
             {
                 id: 21,
                 title: "Обществознание",
                 href: "social_science",
                 image: img21,
-                years: [false,false,false,false,false,true,true,true,true,true,true]
+                years: [false, false, false, false, false, true, true, true, true, true, true]
             },
             {
                 id: 22,
                 title: "Черчение",
                 href: "drawing",
                 image: img22,
-                years: [false,false,false,false,false,false,true,true,false,false,false]
+                years: [false, false, false, false, false, false, true, true, false, false, false]
             },
             {
                 id: 23,
                 title: "Алгебра",
                 href: "algebra",
                 image: img23,
-                years: [false,false,false,false,false,false,true,true,true,true,true]
+                years: [false, false, false, false, false, false, true, true, true, true, true]
             },
             {
                 id: 24,
                 title: "Геометрия",
                 href: "geometry",
                 image: img24,
-                years: [false,false,false,false,false,false,true,true,true,true,true]
+                years: [false, false, false, false, false, false, true, true, true, true, true]
             },
             {
                 id: 25,
                 title: "Физика",
                 href: "physics",
                 image: img25,
-                years: [false,false,false,false,false,false,true,true,true,true,true]
+                years: [false, false, false, false, false, false, true, true, true, true, true]
             },
             {
                 id: 26,
                 title: "Химия",
                 href: "chemistry",
                 image: img26,
-                years: [false,false,false,false,false,false,false,true,true,true,true]
+                years: [false, false, false, false, false, false, false, true, true, true, true]
             },
             {
                 id: 27,
                 title: "Основы экономики",
                 href: "fundamentals_of_economics",
                 image: img27,
-                years: [false,false,false,false,false,false,false,false,false,true,true]
+                years: [false, false, false, false, false, false, false, false, false, true, true]
             },
             {
                 id: 28,
                 title: "Правоведение",
                 href: "jurisprudence",
                 image: img28,
-                years: [false,false,false,false,false,false,false,false,false,true,true]
+                years: [false, false, false, false, false, false, false, false, false, true, true]
             },
             {
                 id: 29,
                 title: "Философия",
                 href: "philosophy",
                 image: img29,
-                years: [false,false,false,false,false,false,false,false,false,true,true]
+                years: [false, false, false, false, false, false, false, false, false, true, true]
             },
             {
                 id: 30,
                 title: "Экология",
                 href: "ecology",
                 image: img30,
-                years: [false,false,false,false,false,false,false,false,false,true,true]
+                years: [false, false, false, false, false, false, false, false, false, true, true]
             },
             {
                 id: 31,
                 title: "Астрономия",
                 href: "astronomy",
                 image: img31,
-                years: [false,false,false,false,false,false,false,false,false,false,true]
+                years: [false, false, false, false, false, false, false, false, false, false, true]
             }
         ],
         educators: [
@@ -289,7 +289,7 @@ export const store = {
                 educationLevel: 'высшее образование - специалитет',
                 tel: '741(48)634-12-42',
                 email: 'wuquibanabrei-6943@yopmail.com',
-                coursesTaught: [12,13,14] ,
+                coursesTaught: [12, 13, 14],
                 image: m1
             },
             {
@@ -299,7 +299,7 @@ export const store = {
                 educationLevel: '',
                 tel: '2(6714)437-0227547',
                 email: 'yeifreujocrouxa-1742@yopmail.com',
-                coursesTaught: [10,14,21,27],
+                coursesTaught: [10, 14, 21, 27],
                 image: w1
             },
             {
@@ -309,7 +309,7 @@ export const store = {
                 educationLevel: '',
                 tel: '2(0755)860-0413371',
                 email: 'quiyarauvubra-3784@yopmail.com',
-                coursesTaught: [27,24,23,4],
+                coursesTaught: [27, 24, 23, 4],
                 image: m2
             },
             {
@@ -319,7 +319,7 @@ export const store = {
                 educationLevel: '',
                 tel: '25(6398)749-4512588',
                 email: 'proiyatteyaubreu-1743@yopmail.com',
-                coursesTaught: [22,23,24,4],
+                coursesTaught: [22, 23, 24, 4],
                 image: m3
             },
             {
@@ -379,7 +379,7 @@ export const store = {
                 educationLevel: '',
                 tel: '5(24)044-6373939',
                 email: 'quegeiyouddibra-3856@yopmail.com',
-                coursesTaught: [20,22],
+                coursesTaught: [20, 22],
                 image: w4
             },
             {
@@ -389,7 +389,7 @@ export const store = {
                 educationLevel: '',
                 tel: '45(571)125-5234495',
                 email: 'doinejukuffeu-5376@yopmail.com',
-                coursesTaught: [25,31],
+                coursesTaught: [25, 31],
                 image: w5
             },
             {
@@ -399,7 +399,7 @@ export const store = {
                 educationLevel: '',
                 tel: '488(2419)137-5731202',
                 email: 'yivaddagremei-8606@yopmail.com',
-                coursesTaught: [7,9,15],
+                coursesTaught: [7, 9, 15],
                 image: m7
             },
             {
@@ -409,7 +409,7 @@ export const store = {
                 educationLevel: '',
                 tel: '2(878)132-7065957',
                 email: 'puboifremacrei-8128@yopmail.com',
-                coursesTaught: [0,1,7],
+                coursesTaught: [0, 1, 7],
                 image: w6
             },
             {
@@ -419,7 +419,7 @@ export const store = {
                 educationLevel: '',
                 tel: '66(80)373-5038353',
                 email: 'queullefajepri-5547@yopmail.com',
-                coursesTaught: [26,30],
+                coursesTaught: [26, 30],
                 image: w7
             },
             {
@@ -438,98 +438,98 @@ export const store = {
             {
                 value: 'Главная',
                 path: '/'
-            },{
+            }, {
                 value: 'О школе',
                 path: '/about'
-            },{
+            }, {
                 value: 'Новости',
                 path: '/news'
-            },{
+            }, {
                 value: 'Предметы',
                 path: '/subjects'
-            },{
+            }, {
                 value: 'Педагоги',
                 path: '/educators'
             }, {
                 value: 'Разное',
                 path: '/miscellanea'
-            },{
+            }, {
                 value: 'Отзывы',
                 path: '/review'
             }
         ],
         allUsersReview: {
-            currentUser:  {
+            currentUser: {
                 userName: "asd",
                 title: "",
                 message: ""
             },
             reviews: [
-    {
-        id: 0,
-        userName: "Larionov Orest",
-        title: "Maecenas ullamcorper, lectus in elementum tincidunt, nibh tortor ornare diam",
-        message: "Ut posuere dictum elit nec ornare. Curabitur id tristique velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris erat leo, laoreet et lorem non, viverra ultrices lorem. Sed viverra mollis felis et rutrum. Nam vel mi leo. Cras tempus sapien non purus maximus porta vel mattis ligula. Vivamus laoreet pharetra mi non gravida."
-    },{
-        id: 1,
-        userName: "Zaitsev Arseny",
-        title: "Aenean massa magna, aliquet id malesuada non, vulputate a leo.",
-        message: "Nam vehicula sapien orci, sit amet molestie quam consequat nec. Vivamus quam nunc, pharetra eget leo sed, rutrum ultricies risus. Nunc at elit ex. Nunc sapien purus, pulvinar ac eros ut, faucibus malesuada tellus. Duis sit amet laoreet mi. Fusce gravida eros sit amet nisi maximus, non rhoncus lectus tristique."
-    },{
-        id: 2,
-        userName: "Lobanov Venedict",
-        title: "Curabitur vitae dolor id orci semper pharetra.",
-        message: "Nullam a tortor at elit viverra maximus volutpat vel ligula. Vestibulum magna tortor, tristique at iaculis non, accumsan nec neque. Nulla nec porta sem. Duis tempus consectetur nisl consectetur malesuada. Cras sagittis ante sed aliquam cursus. Nunc dolor dolor, finibus ut pretium quis, rhoncus porttitor leo. Pellentesque ut mattis elit."
-    },{
-        id: 3,
-        userName: "Panov Alexander",
-        title: "Phasellus rutrum ornare faucibus.",
-        message: "Donec laoreet, est non fermentum efficitur, turpis quam luctus nibh, eu euismod ante tellus vel augue. Nunc dignissim massa sed rutrum sodales. Nullam non mi lacus. Quisque semper, orci et volutpat commodo, felis nisl dictum enim, quis luctus enim odio ac erat. Curabitur id dui eget libero ornare egestas."
-    }
-]
+                {
+                    id: 0,
+                    userName: "Larionov Orest",
+                    title: "Maecenas ullamcorper, lectus in elementum tincidunt, nibh tortor ornare diam",
+                    message: "Ut posuere dictum elit nec ornare. Curabitur id tristique velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris erat leo, laoreet et lorem non, viverra ultrices lorem. Sed viverra mollis felis et rutrum. Nam vel mi leo. Cras tempus sapien non purus maximus porta vel mattis ligula. Vivamus laoreet pharetra mi non gravida."
+                }, {
+                    id: 1,
+                    userName: "Zaitsev Arseny",
+                    title: "Aenean massa magna, aliquet id malesuada non, vulputate a leo.",
+                    message: "Nam vehicula sapien orci, sit amet molestie quam consequat nec. Vivamus quam nunc, pharetra eget leo sed, rutrum ultricies risus. Nunc at elit ex. Nunc sapien purus, pulvinar ac eros ut, faucibus malesuada tellus. Duis sit amet laoreet mi. Fusce gravida eros sit amet nisi maximus, non rhoncus lectus tristique."
+                }, {
+                    id: 2,
+                    userName: "Lobanov Venedict",
+                    title: "Curabitur vitae dolor id orci semper pharetra.",
+                    message: "Nullam a tortor at elit viverra maximus volutpat vel ligula. Vestibulum magna tortor, tristique at iaculis non, accumsan nec neque. Nulla nec porta sem. Duis tempus consectetur nisl consectetur malesuada. Cras sagittis ante sed aliquam cursus. Nunc dolor dolor, finibus ut pretium quis, rhoncus porttitor leo. Pellentesque ut mattis elit."
+                }, {
+                    id: 3,
+                    userName: "Panov Alexander",
+                    title: "Phasellus rutrum ornare faucibus.",
+                    message: "Donec laoreet, est non fermentum efficitur, turpis quam luctus nibh, eu euismod ante tellus vel augue. Nunc dignissim massa sed rutrum sodales. Nullam non mi lacus. Quisque semper, orci et volutpat commodo, felis nisl dictum enim, quis luctus enim odio ac erat. Curabitur id dui eget libero ornare egestas."
+                }
+            ]
         }
     },
-    _callSubscriber(){
+    _callSubscriber() {
         console.log("no subscribers")
     },
-    subscribe (observer)  {
+    subscribe(observer) {
         this._callSubscriber = observer;
     },
-    getState(){
+    getState() {
         return this._state;
     },
-    getSubject(id = null){
-        return (id === null) ?  this._state.subjects : this._state.subjects[id];
+    getSubject(id = null) {
+        return (id === null) ? this._state.subjects : this._state.subjects[id];
     },
-    getEducator(id = null){
-        return (id === null) ?  this._state.educators : this._state.educators[id];
+    getEducator(id = null) {
+        return (id === null) ? this._state.educators : this._state.educators[id];
     },
-    getPost(id = null){
-        return (id === null) ?  this._state.posts : this._state.posts[id];
+    getPost(id = null) {
+        return (id === null) ? this._state.posts : this._state.posts[id];
     },
     getEducatorsBySubjectId(id = null) {
         if (id === null) {
             return this._state.educators;
         } else {
-            return this._state.educators.filter(educator=>hasInArray(educator.coursesTaught, id));
+            return this._state.educators.filter(educator => hasInArray(educator.coursesTaught, id));
         }
     },
-    getNav(){
+    getNav() {
         return this._state.navLinks;
     },
-    getReview(id = null){
-        return (id === null) ?  this._state.allUsersReview : this._state.allUsersReview[id];
+    getReview(id = null) {
+        return (id === null) ? this._state.allUsersReview : this._state.allUsersReview[id];
     },
-    getMaxReviewId(){
+    getMaxReviewId() {
         let maxId = 0;
-        this.getReview().forEach(review=>{
-            if (review.id > maxId){
+        this.getReview().forEach(review => {
+            if (review.id > maxId) {
                 maxId = review.id;
             }
         })
         return maxId;
     },
-    getCurrentReview(){
+    getCurrentReview() {
         return this._state.allUsersReview.currentUser;
     },
     dispatch(action) {

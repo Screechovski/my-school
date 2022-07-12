@@ -3,19 +3,15 @@ import React from 'react';
 //css
 import './newsInnerContent.sass';
 
-const newsInnerContent = ({mainImgUrl, title, date, body}) => {
-    const postBody = body.map((elem, index)=>{
-        if (elem.type === "text"){
-            return (
-                <p key={index} className="news-inner__text">{elem.content}</p>
-            )
+const newsInnerContent = ({ mainImgUrl, title, date, body }) => {
+    const postBody = body.map((elem, index) => {
+        if (elem.type === "text") {
+            return <p key={index} className="news-inner__text">{elem.content}</p>
         } else {
-            return (
-                <img key={index} className="news-inner-img" data-position={elem.content.position} data-size={elem.content.size} src={elem.content.url} alt="asd"/>
-            )
+            return <img key={index} className="news-inner-img" data-position={elem.content.position} data-size={elem.content.size} src={elem.content.url} alt="asd" />
         }
     });
-    
+
     return (
         <article className="news-inner">
             <header className="news-inner__header news-inner-header">
@@ -23,8 +19,8 @@ const newsInnerContent = ({mainImgUrl, title, date, body}) => {
                 <div className="news-inner-header__content">
                     <h2 className="news-inner-header__title">{title}</h2>
                     <span className="news-inner-header__date">{date}</span>
-                </div>                
-            </header>            
+                </div>
+            </header>
             {postBody}
         </article>
     )

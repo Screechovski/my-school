@@ -1,14 +1,14 @@
 //components
 import MessageForm from './messageForm';
 //reducers
-import { 
-    addReviewActionCreator, 
-    setCurrentReviewEmailActionCreator, 
-    setCurrentReviewMessageActionCreator, 
-    setCurrentReviewTitleActionCreator 
+import {
+    addReviewActionCreator,
+    setCurrentReviewEmailActionCreator,
+    setCurrentReviewMessageActionCreator,
+    setCurrentReviewTitleActionCreator
 } from '../../redux/actionCreators';
 //react-redux
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
     return {

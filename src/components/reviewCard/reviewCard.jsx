@@ -4,7 +4,7 @@ import React from 'react';
 import './reviewCard.sass';
 
 
-const reviewCard = ({email, title, message, createdTime, loading}) => {
+const reviewCard = ({ email, title, message, createdTime, loading }) => {
     return (
         <article className="review-card">
             <h4 className={`review-card__title ${loading ? 'loading' : ''}`}>{title}</h4>
