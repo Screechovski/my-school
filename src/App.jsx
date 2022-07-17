@@ -1,102 +1,87 @@
-//react
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-//components
-import RHeader from './components/header/header';
-import RFooter from './components/footer/footer';
-//pages
-import PageIndex from './views/PageIndex';
-import PageSubjects from './views/subjects';
-import PageAbout from './views/about';
-import PageNews from './views/news';
-import PageEducators from './views/educators';
-import PageEducatorsInner from './views/educators-inner';
-import PageSubjectsInner from './views/subjects-inner';
-import PageMiscellanea from './views/miscellanea';
-import PageNewsInner from './views/news-inner'
-import PageReview from './views/review'
-//css
+
 import './App.sass';
 
-const App = ({
-    navLinks,
-    news,
-    reviews,
-    subjectsElements,
-    educatorsElements,
-    getPost,
-    getEducator,
-    getSubject,
-    getEducatorsBySubjectId,
-    store
-}) => {
+import Header from '@/molecules/Header/Header';
+import Footer from '@/molecules/Footer/Footer';
+import PageIndex from '@/views/PageIndex/PageIndex';
+
+const App = (props) => {
     return (
-        <BrowserRouter>
-            <div className="page">
-                <RHeader navLinks={navLinks} />
+        <>
+            <BrowserRouter>
+                <Header />
+                <Routes>
+                    <Route exact path="/" element={<PageIndex />} />
+                </Routes>
+                <Footer />
+            </BrowserRouter>
 
-                <section className="page__body page-body page-body--width-sidebar">
-                    <Routes>
 
-                        <Route exact path="/" element={<PageIndex />} />
+            {/* <section className="page__body page-body page-body--width-sidebar">
+                <Routes>
 
-                        <Route path="/about" element={<PageAbout />} />
+                    <section className="page__body page-body page-body--width-sidebar"></section>
 
-                        <Route path="/news" element={<PageNews news={news} />} />
+                    <Route exact path="/" element={<PageIndex />} />
 
-                        <Route path="/subjects" element={<PageSubjects subjectsElements={subjectsElements} />} />
+                    <Route path="/about" element={<PageAbout />} />
 
-                        <Route path="/educators" element={<PageEducators educatorsElements={educatorsElements} />} />
+                    <Route path="/news" element={<PageNews news={news} />} />
 
-                        <Route path="/miscellanea" element={<PageMiscellanea />} />
+                    <Route path="/subjects" element={<PageSubjects subjectsElements={subjectsElements} />} />
 
-                        <Route path="/review" element={
-                            <PageReview
-                                reviews={reviews}
-                                store={store}
-                            />
-                        } />
+                    <Route path="/educators" element={<PageEducators educatorsElements={educatorsElements} />} />
 
-                        <Route path="/educators-inner/:educatorId" element={({ match }) => {
-                            const educator = getEducator(Number(match.params.educatorId));
-                            const coursesTaught = educator.coursesTaught.map(getSubject);
+                    <Route path="/miscellanea" element={<PageMiscellanea />} />
 
-                            return <PageEducatorsInner
-                                educator={educator}
-                                coursesTaught={coursesTaught}
-                            />
-                        }} />
+                    <Route path="/review" element={
+                        <PageReview
+                            reviews={reviews}
+                            store={store}
+                        />
+                    } />
 
-                        <Route path="/subjects-inner/:subjectId" element={({ match }) => {
-                            const { title, id } = getSubject(Number(match.params.subjectId));
-                            const educators = getEducatorsBySubjectId(id);
+                    <Route path="/educators-inner/:educatorId" element={({ match }) => {
+                        const educator = getEducator(Number(match.params.educatorId));
+                        const coursesTaught = educator.coursesTaught.map(getSubject);
 
-                            return <PageSubjectsInner
-                                educators={educators}
-                                title={title}
-                                subjects={subjectsElements}
-                                subjectId={match.params.subjectId}
-                            />
-                        }} />
+                        return <PageEducatorsInner
+                            educator={educator}
+                            coursesTaught={coursesTaught}
+                        />
+                    }} />
 
-                        <Route path="/news-inner/:newsId" element={({ match }) => {
-                            const { mainImgUrl, title, date, body } = getPost(Number(match.params.newsId));
+                    <Route path="/subjects-inner/:subjectId" element={({ match }) => {
+                        const { title, id } = getSubject(Number(match.params.subjectId));
+                        const educators = getEducatorsBySubjectId(id);
 
-                            return <PageNewsInner
-                                mainImgUrl={mainImgUrl}
-                                title={title}
-                                date={date}
-                                body={body}
-                            />
-                        }} />
+                        return <PageSubjectsInner
+                            educators={educators}
+                            title={title}
+                            subjects={subjectsElements}
+                            subjectId={match.params.subjectId}
+                        />
+                    }} />
 
-                    </Routes>
+                    <Route path="/news-inner/:newsId" element={({ match }) => {
+                        const { mainImgUrl, title, date, body } = getPost(Number(match.params.newsId));
 
-                </section>
+                        return <PageNewsInner
+                            mainImgUrl={mainImgUrl}
+                            title={title}
+                            date={date}
+                            body={body}
+                        />
+                    }} />
 
-                <RFooter />
-            </div>
-        </BrowserRouter>
+                </Routes>
+
+            </section>
+
+             */}
+        </>
     );
 };
 

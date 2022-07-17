@@ -1,17 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Andika&display=swap')
 
+#root
+    display: grid
+    padding: 10px
+    grid-template-rows: auto 1fr auto
+    gap: 10px
+    min-height: 100vh
+    box-sizing: border-box
+
 html
     scrollbar-width: none
     --border-radius-small: 10px
-    --border-radius-medium: 12px
-    --border-radius-big: 15px
+    --border-radius-medium: 20px
+    --border-radius-big: 30px
     --main-link-color: #0059FF
     --main-text-color: #303030
+    --backgrount-light-gray: #f9f9f9
+
     --main-font: 'Andika', sans-serif
     --title-font: 'Montserrat', sans-serif
     &::-webkit-scrollbar
         width: 0px
-    
+
 body
     font-family: var(--main-font)
     font-size: 16px
@@ -29,13 +39,12 @@ body
     box-sizing: border-box
     padding: 0 20px
 
-
 .page__body
     padding: 30px 0
     min-height: calc(100vh - 86px - 64px)
-    
+
 .page-body
-    &__r-container        
+    &__r-container
         display: flex
         justify-content: space-between
         align-items: flex-start
@@ -62,6 +71,24 @@ body
     & > *
         display: none
 
+.title1,
+.title2,
+.title3
+    font-weight: bold
+    text-transform: uppercase
+    font-family: var(--title-font)
+
+.title1
+    font-size: 28px
+    line-height: 1.4em
+
+.title2
+    font-size: 24px
+    line-height: 1.3em
+
+.title3
+    font-size: 20px
+    line-height: 1.3em
 
 @keyframes loadingAfter
   0%
