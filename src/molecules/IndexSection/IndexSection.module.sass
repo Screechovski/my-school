@@ -2,6 +2,9 @@
     background-color: var(--backgrount-light-gray)
     padding: 10px
     border-radius: var(--border-radius-medium)
+    display: flex
+    flex-direction: column
+    gap: 10px
     &__header
         display: flex
         align-items: center
@@ -10,5 +13,8 @@
             color: var(--main-text-color)
             text-decoration: none
             font-size: 24px
+            text-transform: lowercase
+            &::first-letter
+                text-transform: uppercase
         &Link
             color: var(--main-link-color)

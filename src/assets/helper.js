@@ -31,7 +31,7 @@ const include = (url, path) => url.indexOf(path) !== -1
 
 export const myFetch = (url, options) => new Promise((resolve, reject) => {
     if (include(url, "/reviews")) {
-        setTimeout(()=>{
+        setTimeout(() => {
             if (Math.random() > errorChanse) {
                 resolve({
                     status: "SUCCESS",
@@ -48,7 +48,7 @@ export const myFetch = (url, options) => new Promise((resolve, reject) => {
     } else if (include(url, "/review/")) {
         const id = getIdAfter(url, "/review/")
 
-        setTimeout(()=>{
+        setTimeout(() => {
             if (Math.random() > errorChanse) {
                 resolve({
                     status: "SUCCESS",
@@ -62,8 +62,8 @@ export const myFetch = (url, options) => new Promise((resolve, reject) => {
                 })
             }
         }, randomDelay())
-    } else if (include(url, "/posts")) {
-        setTimeout(()=>{
+    } else if (include(url, "/news")) {
+        setTimeout(() => {
             if (Math.random() > errorChanse) {
                 resolve({
                     status: "SUCCESS",
@@ -77,10 +77,10 @@ export const myFetch = (url, options) => new Promise((resolve, reject) => {
                 })
             }
         }, randomDelay())
-    } else if (include(url, "/post/")) {
-        const id = getIdAfter(url, "/post/")
+    } else if (include(url, "/news/")) {
+        const id = getIdAfter(url, "/news/")
 
-        setTimeout(()=>{
+        setTimeout(() => {
             if (Math.random() > errorChanse) {
                 resolve({
                     status: "SUCCESS",
@@ -95,7 +95,7 @@ export const myFetch = (url, options) => new Promise((resolve, reject) => {
             }
         }, randomDelay())
     } else {
-        setTimeout(()=>{
+        setTimeout(() => {
             reject({
                 status: "ERROR",
                 data: null,

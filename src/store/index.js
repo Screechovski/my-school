@@ -1,20 +1,18 @@
-import {combineReducers, createStore} from "redux";
-
-import subjectsReducer from "./subjectsReducer";
-import educatorsReducer from "./educatorsReducer";
-import postsReducer from "./postsReducer";
+import { combineReducers } from "redux";
+import thunk from 'redux-thunk'
+import { configureStore } from '@reduxjs/toolkit'
 import reviewReducer from "./review/reviewReducer";
+import newsReducer from './news/newsReducer';
 
-let reducers = combineReducers({
-    subjects: subjectsReducer,
-    educators: educatorsReducer,
-    posts: postsReducer,
-    review: reviewReducer,
+const reducers = combineReducers({
+    newsReducer,
+    reviewReducer,
 });
 
-const store = createStore(
-    reducers,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = configureStore({
+    reducer: reducers,
+    middleware: f => f({ thunk }),
+    devTools: process.env.NODE_ENV !== 'production',
+})
 
 export default store;

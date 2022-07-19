@@ -3,6 +3,7 @@ import CONSTANTS from '@/assets/constants';
 import IndexSection from '@/molecules/IndexSection/IndexSection';
 import css from './PageIndex.module.sass'
 import { myFetch } from '@/assets/helper';
+import { IndexNews } from '@/components/IndexNews/IndexNews';
 
 let fixStrict = false;
 
@@ -13,21 +14,6 @@ const PageIndex = () => {
 
         fixStrict = true;
 
-        myFetch("/post/20")
-            .then(console.log)
-            .catch(console.warn)
-
-        myFetch("/review/20")
-            .then(console.log)
-            .catch(console.warn)
-
-        myFetch("/posts")
-            .then(console.log)
-            .catch(console.warn)
-
-        myFetch("/reviews")
-            .then(console.log)
-            .catch(console.warn)
     }, [])
 
     return (
@@ -42,7 +28,14 @@ const PageIndex = () => {
                         nameAll="все новости"
                         linkPath={CONSTANTS.NAV_LINKS.news.path}
                     >
-                        <div></div>
+                        <IndexNews />
+                    </IndexSection>
+                    <IndexSection
+                        name="Анонсы мероприятий"
+                        nameAll="все анонсы мероприятий"
+                        linkPath={"#"}
+                    >
+                        <span />
                     </IndexSection>
                 </ul>
             </div>

@@ -1,10 +1,10 @@
-import { REVIEWS_AT } from "./reviewActionTypes";
+import { reviewInitFail, reviewInitStart, reviewInitSuccess } from "./reviewActionCreator"
+
 
 export const reviewInit = () => (dispatch) => {
-    dispatch({ type: REVIEWS_AT.INIT_START })
+    dispatch(reviewInitStart())
 
-    dispatch({ type: REVIEWS_AT.INIT_SUCCESS })
+    dispatch(reviewInitSuccess())
 
-    dispatch({ type: REVIEWS_AT.INIT_FAIL })
-
+    dispatch(reviewInitFail())
 }
