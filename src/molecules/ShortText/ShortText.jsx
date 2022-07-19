@@ -10,7 +10,7 @@ let defaultStyles = {
 
 let tryStyles;
 
-const ShortText = ({ tagName, lineHeight, lineCount, parentClass, text }) => {
+export const ShortText = ({ tagName, lineHeight, lineCount, parentClass, text }) => {
     const CustomTag = `${tagName}`;
 
     if (lineHeight !== undefined) {
@@ -35,5 +35,3 @@ const ShortText = ({ tagName, lineHeight, lineCount, parentClass, text }) => {
 
     return <CustomTag style={tryStyles} className={parentClass}>{text}</CustomTag>;
 }
-
-export default ShortText;

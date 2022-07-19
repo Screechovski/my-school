@@ -1,7 +1,6 @@
 import React from "react";
 
-
-const ErrorSvg = (props) => {
+export const ErrorSvg = (props) => {
     const { cssClass } = props;
     const cssClassName = cssClass ?? "svg";
 
@@ -16,5 +15,3 @@ const ErrorSvg = (props) => {
 ErrorSvg.defaultProps = {
     cssClass: null
 }
-
-export default ErrorSvg;

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './logo.module.sass';
 
-const Logo = (props) => {
+export const Logo = (props) => {
     const { type, cssClass } = props;
     let cssLine;
 
@@ -30,5 +30,3 @@ Logo.defaultProps = {
     cssClass: "",
     type: ""
 }
-
-export default Logo;

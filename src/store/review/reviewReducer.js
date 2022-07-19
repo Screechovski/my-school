@@ -7,7 +7,7 @@ const initialState = {
     reviews: null
 }
 
-const reviewReducer = (state = initialState, action = {}) => {
+export const reviewReducer = (state = initialState, action = {}) => {
     const { type, payload } = action;
 
     switch (type) {
@@ -19,5 +19,3 @@ const reviewReducer = (state = initialState, action = {}) => {
         }
     }
 }
-
-export default reviewReducer;

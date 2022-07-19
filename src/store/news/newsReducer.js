@@ -7,7 +7,7 @@ const initialState = {
     news: []
 }
 
-const newsReducer = (state = initialState, action = {}) => {
+export const newsReducer = (state = initialState, action = {}) => {
     const { type, payload } = action;
 
     switch (type) {
@@ -38,5 +38,3 @@ const newsReducer = (state = initialState, action = {}) => {
         }
     }
 }
-
-export default newsReducer;

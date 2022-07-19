@@ -1,8 +1,8 @@
 import React from 'react';
-import Logo from '@/molecules/Logo/Logo';
+import { Logo } from '@/molecules/Logo/Logo';
 import css from './Footer.module.sass';
 
-const Footer = () => {
+export const Footer = () => {
     return (
         <footer className={css.footer + " r-container"}>
             <div className={css.footer__container}>
@@ -12,5 +12,3 @@ const Footer = () => {
         </footer>
     );
 }
-
-export default Footer;

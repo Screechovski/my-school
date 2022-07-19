@@ -1,8 +1,8 @@
 import React from 'react';
-import ErrorSvg from '@/svg/ErrorSvg';
+import { ErrorSvg } from '@/svg/ErrorSvg';
 import css from "./ErrorLine.module.sass";
 
-const ErrorLine = (props) => {
+export const ErrorLine = (props) => {
     const { message } = props;
 
     return (
@@ -15,5 +15,3 @@ const ErrorLine = (props) => {
         </div>
     )
 }
-
-export default ErrorLine;

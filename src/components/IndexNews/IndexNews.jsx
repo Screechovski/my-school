@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { newsInited, newsLoading, getNewsShort, newsError } from "@/store/news/newsSelectors";
 import { newsInit } from "@/store/news/newsActions";
 import css from "./IndexNews.module.sass";
-import NewsCard from '@/molecules/NewsCard/NewsCard';
-import ErrorLine from "@/molecules/ErrorLine/ErrorLine";
+import { NewsCard } from '@/molecules/NewsCard/NewsCard';
+import { ErrorLine } from "@/molecules/ErrorLine/ErrorLine";
 
 let fixStrict = false;
 

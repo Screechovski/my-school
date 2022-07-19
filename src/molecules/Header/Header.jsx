@@ -1,9 +1,9 @@
 import React from 'react';
-import Logo from '@/molecules/Logo/Logo';
-import Navigation from '@/molecules/Navigation/Navigation';
+import { Logo } from '@/molecules/Logo/Logo';
+import { Navigation } from '@/molecules/Navigation/Navigation';
 import css from './Header.module.sass';
 
-const Header = () => {
+export const Header = () => {
     return (
         <header className={css.header + " r-container"}>
             <div className={css.header__container}>
@@ -13,4 +13,3 @@ const Header = () => {
         </header>
     )
 }
-export default Header;

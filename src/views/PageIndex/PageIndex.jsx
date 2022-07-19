@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import CONSTANTS from '@/assets/constants';
-import IndexSection from '@/molecules/IndexSection/IndexSection';
+import { CONSTANTS } from '@/assets/constants';
+import { IndexSection } from '@/molecules/IndexSection/IndexSection';
 import css from './PageIndex.module.sass'
 import { myFetch } from '@/assets/helper';
 import { IndexNews } from '@/components/IndexNews/IndexNews';
 
 let fixStrict = false;
 
-const PageIndex = () => {
+export const PageIndex = () => {
 
     useEffect(() => {
         if (fixStrict) return;
@@ -42,5 +42,3 @@ const PageIndex = () => {
         </section>
     )
 }
-
-export default PageIndex;

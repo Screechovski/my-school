@@ -1,11 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import ShortText from '@/molecules/shortText/shortText';
+import { ShortText } from '@/molecules/shortText/shortText';
 import css from './NewsCard.module.sass';
 
-const NewsCard = (props) => {
-    const { title, id, date, body, mainImgUrl } = props;
-
+export const NewsCard = ({
+    title,
+    id,
+    date,
+    body,
+    mainImgUrl
+}) => {
     return (
         <article className={css['news-card']} title={`Нажмите чтоб перейти на новость ${title.substring(0, 10).trim()}...`}>
             <NavLink to={"/news-inner/" + id} className={css['news-card__inner']}>
@@ -23,5 +27,3 @@ const NewsCard = (props) => {
         </article>
     );
 }
-
-export default NewsCard;

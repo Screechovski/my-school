@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
 import css from "./IndexSection.module.sass"
 
-const IndexSection = (props) => {
+export const IndexSection = (props) => {
     const { name, nameAll, children, linkPath } = props;
 
     return (
@@ -38,5 +38,3 @@ IndexSection.propTypes = {
         PropTypes.node
     ]).isRequired,
 }
-
-export default IndexSection;
