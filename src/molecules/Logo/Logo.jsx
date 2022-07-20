@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {memo} from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './logo.module.sass';
 
-export const Logo = (props) => {
+export const Logo = memo((props) => {
     const { type, cssClass } = props;
     let cssLine;
 
@@ -24,7 +24,7 @@ export const Logo = (props) => {
             <i>MY-shCOOL</i>
         </NavLink>
     );
-}
+})
 
 Logo.defaultProps = {
     cssClass: "",

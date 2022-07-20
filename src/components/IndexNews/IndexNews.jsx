@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
+import React, {memo, useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { newsInited, newsLoading, getNewsShort, newsError } from "@/store/news/newsSelectors";
-import { newsInit } from "@/store/news/newsActions";
 import css from "./IndexNews.module.sass";
-import { NewsCard } from '@/molecules/NewsCard/NewsCard';
-import { ErrorLine } from "@/molecules/ErrorLine/ErrorLine";
+import {getNewsShort, newsError, newsInited, newsLoading} from "../../store/news/newsSelectors";
+import {newsInit} from "../../store/news/newsActions";
+import {NewsCard} from "../../molecules/NewsCard/NewsCard";
+import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 
 let fixStrict = false;
 
-export const IndexNews = (props) => {
-    const news = useSelector(getNewsShort(5));
+export const IndexNews = memo((
+
+) => {
+    const news = useSelector(getNewsShort(10));
     const loading = useSelector(newsLoading);
     const inited = useSelector(newsInited);
     const error = useSelector(newsError);
@@ -47,7 +49,6 @@ export const IndexNews = (props) => {
                             date={item.date}
                             body={item.message}
                             mainImgUrl={item.image}
-                            loading={false}
                         />
                     </li>)}
             </ul>
@@ -57,4 +58,4 @@ export const IndexNews = (props) => {
         return <ErrorLine message={error} />
     }
     console.warn("Error IndexNews unknown state");
-}
+})

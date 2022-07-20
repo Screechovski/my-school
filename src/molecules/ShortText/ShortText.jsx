@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 
 let lineHeightK = 1.3;
 
@@ -10,7 +10,13 @@ let defaultStyles = {
 
 let tryStyles;
 
-export const ShortText = ({ tagName, lineHeight, lineCount, parentClass, text }) => {
+export const ShortText = memo(({
+    tagName,
+    lineHeight,
+    lineCount,
+    parentClass,
+    text
+}) => {
     const CustomTag = `${tagName}`;
 
     if (lineHeight !== undefined) {
@@ -34,4 +40,4 @@ export const ShortText = ({ tagName, lineHeight, lineCount, parentClass, text })
     }
 
     return <CustomTag style={tryStyles} className={parentClass}>{text}</CustomTag>;
-}
+})

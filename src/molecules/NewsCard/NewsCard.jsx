@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {memo} from 'react';
 import { NavLink } from 'react-router-dom';
-import { ShortText } from '@/molecules/shortText/shortText';
 import css from './NewsCard.module.sass';
+import {ShortText} from "../ShortText/ShortText";
 
-export const NewsCard = ({
+export const NewsCard = memo(({
     title,
     id,
     date,
@@ -26,4 +26,4 @@ export const NewsCard = ({
             </NavLink>
         </article>
     );
-}
+})

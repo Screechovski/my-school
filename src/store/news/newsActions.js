@@ -1,5 +1,5 @@
 import { newsInitFail, newsInitStart, newsInitSuccess } from "./newsActionCreator"
-import { myFetch } from '@/assets/helper';
+import {myFetch} from "../../assets/helper";
 
 export const newsInit = () => async (dispatch) => {
     dispatch(newsInitStart())

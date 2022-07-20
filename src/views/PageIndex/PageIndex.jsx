@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
-import { CONSTANTS } from '@/assets/constants';
-import { IndexSection } from '@/molecules/IndexSection/IndexSection';
+import React, {memo, useEffect} from 'react';
+
 import css from './PageIndex.module.sass'
-import { myFetch } from '@/assets/helper';
-import { IndexNews } from '@/components/IndexNews/IndexNews';
+import {CONSTANTS} from "../../assets/constants";
+import {IndexSection} from "../../molecules/IndexSection/IndexSection";
+import {IndexNews} from "../../components/IndexNews/IndexNews";
+import {IndexEvents} from "../../components/IndexEvents/IndexEvents";
 
 let fixStrict = false;
 
-export const PageIndex = () => {
+export const PageIndex = memo((
+
+) => {
 
     useEffect(() => {
         if (fixStrict) return;
@@ -35,10 +38,10 @@ export const PageIndex = () => {
                         nameAll="все анонсы мероприятий"
                         linkPath={"#"}
                     >
-                        <span />
+                        <IndexEvents />
                     </IndexSection>
                 </ul>
             </div>
         </section>
     )
-}
+})

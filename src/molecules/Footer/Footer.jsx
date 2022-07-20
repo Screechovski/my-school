@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {memo} from 'react';
 import { Logo } from '@/molecules/Logo/Logo';
 import css from './Footer.module.sass';
 
-export const Footer = () => {
+export const Footer = memo(() => {
     return (
         <footer className={css.footer + " r-container"}>
             <div className={css.footer__container}>
@@ -11,4 +11,4 @@ export const Footer = () => {
             </div>
         </footer>
     );
-}
+})

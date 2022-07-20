@@ -62,5 +62,10 @@ module.exports = {
     devtool: 'source-map',
     devServer: {
         hot: true,
+        static: {
+            directory: path.join(__dirname, 'public'),
+        },
+        compress: true,
+        port: 8080
     }
 }

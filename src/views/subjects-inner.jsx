@@ -1,7 +1,7 @@
 //react
 import React from 'react';
 //components
-import RMain from '../components/mainContent/mainContent';
+import RMain from '../molecules/MainContent/MainContent';
 import RSubjectsInnerContent from '../components/subjectsInnerContent/subjectsInnerContent';
 import RSidebar from '../components/sidebar/sidebar';
 

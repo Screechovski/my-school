@@ -1,5 +1,5 @@
 import React from 'react';
-import RMain from './../components/mainContent/mainContent';
+import RMain from '../molecules/MainContent/MainContent';
 import RSubjectCard from './../components/subjectCard/subjectCard';
 import RSidebar from './../components/sidebar/sidebar';
 

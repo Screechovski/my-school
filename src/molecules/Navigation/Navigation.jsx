@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {memo} from 'react';
 import { NavLink } from 'react-router-dom';
 import { CONSTANTS } from '../../assets/constants';
 import css from './Navigation.module.sass';
 
-export const Navigation = () => {
+export const Navigation = memo(() => {
     return (
         <nav className={css.nav}>
             <ul className={css.nav__list}>
@@ -14,4 +14,4 @@ export const Navigation = () => {
             </ul>
         </nav>
     )
-}
+})

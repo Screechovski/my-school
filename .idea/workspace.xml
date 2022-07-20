@@ -19,7 +19,41 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="" />
+    <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/generators/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/generators/posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/generators/reviews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/generators/reviews.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/helper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/IndexNews/IndexNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexNews/IndexNews.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainContent/mainContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainContent/mainContent.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/ErrorLine/ErrorLine.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/ErrorLine/ErrorLine.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Footer/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/IndexSection/IndexSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/IndexSection/IndexSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Logo/Logo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Logo/Logo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Navigation/Navigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/ShortText/ShortText.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/ShortText/ShortText.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/news/newsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/news/newsActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/ErrorSvg.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/svg/ErrorSvg.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageIndex/PageIndex.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageIndex/PageIndex.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/about.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/about.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/educators-inner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/educators-inner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/educators.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/educators.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/miscellanea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/miscellanea.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/news-inner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/news-inner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/news.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageNews/PageNews.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/review.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/review.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/subjects-inner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/subjects-inner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/subjects.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/subjects.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,12 +63,27 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Sass File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="1ux5BO0xiPsVb1BlAxInVVlCCNb" />
   <component name="ProjectViewState">
@@ -46,12 +95,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/nav" />
+    <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -62,6 +114,10 @@
       <recent name="E:\Sites\my-app\src\components\messageForm" />
       <recent name="E:\Sites\my-app\src\components\educatorCard" />
       <recent name="E:\Sites\my-app\src\redux" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\sch\src\molecules" />
+      <recent name="D:\sch\src\views\PageNews" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -81,11 +137,13 @@
       <workItem from="1627490488807" duration="4913000" />
       <workItem from="1628010651885" duration="9000" />
       <workItem from="1658215711368" duration="7000" />
+      <workItem from="1658308059752" duration="2125000" />
+      <workItem from="1658310218817" duration="4279000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -97,35 +155,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="765" y="524" key="#ESLint" timestamp="1627491776298">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="765" y="524" key="#ESLint/0.46.1920.1034@0.46.1920.1034" timestamp="1627491776298" />
-    <state x="690" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1626007993232">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="690" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.46.1920.1034@0.46.1920.1034" timestamp="1626007993232" />
-    <state x="565" y="173" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1626002083703">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="565" y="173" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.46.1920.1034@0.46.1920.1034" timestamp="1626002083703" />
-    <state x="782" y="478" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625602859799">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="782" y="478" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.46.1920.1034@0.46.1920.1034" timestamp="1625602859799" />
-    <state x="927" y="167" width="572" height="774" key="find.popup" timestamp="1627494235388">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="927" y="167" width="572" height="774" key="find.popup/0.46.1920.1034@0.46.1920.1034" timestamp="1627494235388" />
-    <state x="616" y="262" key="run.anything.popup" timestamp="1626008055849">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="616" y="262" key="run.anything.popup/0.46.1920.1034@0.46.1920.1034" timestamp="1626008055849" />
-    <state x="623" y="269" width="672" height="678" key="search.everywhere.popup" timestamp="1626001159691">
-      <screen x="0" y="46" width="1920" height="1034" />
-    </state>
-    <state x="623" y="269" width="672" height="678" key="search.everywhere.popup/0.46.1920.1034@0.46.1920.1034" timestamp="1626001159691" />
   </component>
 </project>

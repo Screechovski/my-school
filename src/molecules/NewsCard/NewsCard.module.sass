@@ -4,15 +4,16 @@
     background-color: #ffffff
     padding: 10px
     transition: box-shadow .1s, transform .2s
-    &__inner
-        display: flex
-        flex-direction: column
-        text-decoration: none
+    will-change: box-shadow, transform
     &:hover
         box-shadow: 1px 1px 15px 0px rgba(0,0,0,0.2)
         transform: scale(1.05)
         .news-card__title
             text-decoration: underline
+    &__inner
+        display: flex
+        flex-direction: column
+        text-decoration: none
     &__image-wrap
         border-radius: var(--border-radius-small)
         overflow: hidden

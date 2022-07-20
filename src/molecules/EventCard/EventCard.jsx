@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {memo} from 'react';
 import { NavLink } from 'react-router-dom';
-import { ShortText } from '@/molecules/shortText/shortText';
-import css from './NewsCard.module.sass';
+import css from './EventCard.module.sass';
+import {ShortText} from "../ShortText/ShortText";
 
-export const EventCard = ({
+export const EventCard = memo(({
     title,
     id,
     date,
@@ -15,11 +15,23 @@ export const EventCard = ({
                 <span className={css.eventCard__date}>{date}</span>
 
                 <header>
-                    <ShortText parentClass={css.eventCard__title} tagName="h3" lineCount="2" lineHeight={1.3} text={title} />
+                    <ShortText
+                        parentClass={css.eventCard__title}
+                        tagName="h3"
+                        lineCount="2"
+                        lineHeight={1.3}
+                        text={title}
+                    />
                 </header>
 
-                <ShortText parentClass={css.eventCard__text} tagName="p" lineCount="3" lineHeight={1.2} text={body} />
+                <ShortText
+                    parentClass={css.eventCard__text}
+                    tagName="p"
+                    lineCount="5"
+                    lineHeight={1.2}
+                    text={body}
+                />
             </NavLink>
         </article>
     );
-}
+})

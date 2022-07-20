@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {memo} from 'react';
 import { ErrorSvg } from '@/svg/ErrorSvg';
 import css from "./ErrorLine.module.sass";
 
-export const ErrorLine = (props) => {
+export const ErrorLine = memo((props) => {
     const { message } = props;
 
     return (
@@ -14,4 +14,4 @@ export const ErrorLine = (props) => {
             <p className={css.errorLine__text}>{message}</p>
         </div>
     )
-}
+})

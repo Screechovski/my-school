@@ -3,7 +3,7 @@ import React from 'react';
 //components
 import RNewsInnerContent from './../components/newsInnerContent/newsInnerContent'
 import RSidebar from './../components/sidebar/sidebar';
-import RMain from './../components/mainContent/mainContent';
+import RMain from '../molecules/MainContent/MainContent';
 
 const newsInner = ({mainImgUrl, title, date, body}) => {
     return (

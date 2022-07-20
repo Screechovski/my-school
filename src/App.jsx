@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Header } from '@/molecules/Header/Header';
-import { Footer } from '@/molecules/Footer/Footer';
-import { PageIndex } from '@/views/PageIndex/PageIndex';
-
 import './App.sass';
+import {Header} from "./molecules/Header/Header";
+import {Footer} from "./molecules/Footer/Footer";
+import {PageIndex} from "./views/PageIndex/PageIndex";
+import {PageNews} from "./views/PageNews/PageNews";
+
 
 export const App = (props) => {
     return (
@@ -13,6 +14,7 @@ export const App = (props) => {
                 <Header />
                 <Routes>
                     <Route exact path="/" element={<PageIndex />} />
+                    <Route path="/news" element={<PageNews />} />
                 </Routes>
                 <Footer />
             </BrowserRouter>

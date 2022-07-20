@@ -1,5 +1,6 @@
 import { generatePost, generatePosts } from "./generators/posts";
 import { generateReview, generateReviews } from "./generators/reviews";
+import {generateEvents} from "./generators/events";
 
 const errorChanse = 0.1;
 
@@ -85,6 +86,21 @@ export const myFetch = (url, options) => new Promise((resolve, reject) => {
                 resolve({
                     status: "SUCCESS",
                     data: generatePost(id),
+                })
+            } else {
+                reject({
+                    status: "ERROR",
+                    data: null,
+                    error: "Unknown error"
+                })
+            }
+        }, randomDelay())
+    } else if (include(url, "/events")) {
+        setTimeout(() => {
+            if (Math.random() > errorChanse) {
+                resolve({
+                    status: "SUCCESS",
+                    data: generateEvents(20),
                 })
             } else {
                 reject({

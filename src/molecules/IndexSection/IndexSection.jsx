@@ -1,20 +1,17 @@
-import React from "react";
+import React, {memo} from "react";
 import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
 import css from "./IndexSection.module.sass"
 
-export const IndexSection = (props) => {
+export const IndexSection = memo((props) => {
     const { name, nameAll, children, linkPath } = props;
 
     return (
         <li className={css.indexSection}>
             <div className={css.indexSection__header}>
-                <NavLink
-                    className={css.indexSection__headerTitle + " title2"}
-                    to={linkPath}
-                >
+                <h3 className={css.indexSection__headerTitle + " title2"}>
                     {name}
-                </NavLink>
+                </h3>
                 <NavLink
                     className={css.indexSection__headerLink}
                     to={linkPath}
@@ -28,7 +25,7 @@ export const IndexSection = (props) => {
             </div>
         </li>
     )
-}
+})
 
 IndexSection.propTypes = {
     name: PropTypes.string.isRequired,

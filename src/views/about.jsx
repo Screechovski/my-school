@@ -1,5 +1,5 @@
 import React from 'react';
-import RMain from './../components/mainContent/mainContent';
+import RMain from '../molecules/MainContent/MainContent';
 import RSidebar from './../components/sidebar/sidebar';
 
 const about = () => {
