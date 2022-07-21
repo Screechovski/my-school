@@ -5,6 +5,7 @@ import {Header} from "./molecules/Header/Header";
 import {Footer} from "./molecules/Footer/Footer";
 import {PageIndex} from "./views/PageIndex/PageIndex";
 import {PageNews} from "./views/PageNews/PageNews";
+import {PageSubjects} from "./views/PageSubjects/PageSubjects";
 
 
 export const App = (props) => {
@@ -15,23 +16,18 @@ export const App = (props) => {
                 <Routes>
                     <Route exact path="/" element={<PageIndex />} />
                     <Route path="/news" element={<PageNews />} />
+                    <Route path="/subjects" element={<PageSubjects />} />
                 </Routes>
                 <Footer />
             </BrowserRouter>
 
 
-            {/* <section className="page__body page-body page-body--width-sidebar">
+            {/* <section className="page__body page-body page-body--width-Sidebar">
                 <Routes>
 
-                    <section className="page__body page-body page-body--width-sidebar"></section>
-
-                    <Route exact path="/" element={<PageIndex />} />
+                    <section className="page__body page-body page-body--width-Sidebar"></section>
 
                     <Route path="/about" element={<PageAbout />} />
-
-                    <Route path="/news" element={<PageNews news={news} />} />
-
-                    <Route path="/subjects" element={<PageSubjects subjectsElements={subjectsElements} />} />
 
                     <Route path="/educators" element={<PageEducators educatorsElements={educatorsElements} />} />
 

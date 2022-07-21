@@ -18,7 +18,7 @@ html
     --red: #ff2b2b
     --backgrount-light-gray: #f9f9f9
     --backgrount-gray: #ececec
-
+    --body-color: #e9eeff
     --main-font: 'Andika', sans-serif
     --title-font: 'Montserrat', sans-serif
     &::-webkit-scrollbar
@@ -27,7 +27,7 @@ html
 body
     font-family: var(--main-font)
     font-size: 16px
-    background-color: #e9eeff
+    background-color: var(--body-color)
     scrollbar-width: none
     &::-webkit-scrollbar
         width: 0px
@@ -39,7 +39,6 @@ body
     width: 100%
     margin: 0 auto
     box-sizing: border-box
-    padding: 0 20px
 
 .page__body
     padding: 30px 0
@@ -76,13 +75,14 @@ body
 .title1,
 .title2,
 .title3
-    font-weight: bold
+    font-weight: 500
     font-family: var(--title-font)
+    color: var(--main-text-color)
+    margin-bottom: 1em
 
 .title1
     font-size: 28px
     line-height: 1.4em
-    text-transform: uppercase
 
 .title2
     font-size: 24px

@@ -2,19 +2,20 @@ import React, {memo} from 'react';
 import css from './MainContent.module.sass';
 
 export const MainContent = memo(({
-    parentClass,
+    cssClass,
     title,
-    typeContent,
-    slot,
     children
 }) => {
     return (
-        <main className={`${parentClass} ${css.mainContent}`}>
+        <section className={`${cssClass} ${css.mainContent}`}>
             {title &&
-                <h2 className={css.mainContent__title} >{title}</h2>}
+                <h2 className="title1" >{title}</h2>}
 
-            {typeContent &&
-                <div className={css['mainContent_' + typeContent]} >{slot}{children}</div>}
-        </main>
+            {children && children}
+        </section>
     )
 });
+
+MainContent.defaultProps = {
+    cssClass: ""
+}

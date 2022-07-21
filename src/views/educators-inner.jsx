@@ -3,7 +3,7 @@ import React from 'react';
 //components
 import RMain from '../molecules/MainContent/MainContent';
 import REducatorsInnerContent from '../components/educatorsInnerContent/educatorsInnerContent';
-import RSidebar from '../components/sidebar/sidebar';
+import RSidebar from '../molecules/Sidebar/Sidebar';
 
 const educatorsInner = ({ coursesTaught, educator }) => {
     return (

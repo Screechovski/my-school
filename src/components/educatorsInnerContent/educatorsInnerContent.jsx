@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './educatorsInnerContent.module.sass';
-import RSubjectCard from './../subjectCard/subjectCard';
+import RSubjectCard from '../../molecules/SubjectCard/SubjectCard';
 
 const educatorsInnerContent = ({image, id, name, position, educationLevel, tel, email, coursesTaught}) => {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import RMain from '../molecules/MainContent/MainContent';
-import RSidebar from './../components/sidebar/sidebar';
+import RSidebar from '../molecules/Sidebar/Sidebar';
 
 const about = () => {
     return (

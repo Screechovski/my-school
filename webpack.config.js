@@ -24,7 +24,7 @@ module.exports = {
     ],
     output: {
         filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'public'),
         publicPath,
         clean: true,
     },
@@ -66,6 +66,8 @@ module.exports = {
             directory: path.join(__dirname, 'public'),
         },
         compress: true,
-        port: 8080
+        port: 8080,
+        historyApiFallback: true,
+        open: true
     }
 }

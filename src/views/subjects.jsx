@@ -1,7 +1,7 @@
 import React from 'react';
 import RMain from '../molecules/MainContent/MainContent';
-import RSubjectCard from './../components/subjectCard/subjectCard';
-import RSidebar from './../components/sidebar/sidebar';
+import RSubjectCard from '../molecules/SubjectCard/SubjectCard';
+import RSidebar from '../molecules/Sidebar/Sidebar';
 
 const subjects = ({subjectsElements}) => {
     return (

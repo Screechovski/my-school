@@ -2,7 +2,7 @@
 import React from 'react';
 //components
 import RMain from '../molecules/MainContent/MainContent';
-import RSidebar from '../components/sidebar/sidebar';
+import RSidebar from '../molecules/Sidebar/Sidebar';
 import RMessageFormContainer from '../components/messageForm/messageFormContainer';
 import ReviewWrapContainer from './../components/reviewWrap/reviewWrapContainer';
 

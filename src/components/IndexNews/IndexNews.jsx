@@ -21,7 +21,7 @@ export const IndexNews = memo((
         if (fixStrict) return;
         fixStrict = true;
 
-        dispatch(newsInit())
+        !inited && dispatch(newsInit())
     }, [])
 
     if (!loading && !inited && !error) {

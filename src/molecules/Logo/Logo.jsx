@@ -1,11 +1,12 @@
-import React, {memo} from 'react';
+import React, {memo, useCallback} from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './logo.module.sass';
 
-export const Logo = memo((props) => {
-    const { type, cssClass } = props;
+export const Logo = memo(({
+    type,
+    cssClass
+}) => {
     let cssLine;
-
     switch (type) {
         case 'small':
         case 'medium':

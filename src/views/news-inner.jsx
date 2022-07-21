@@ -2,7 +2,7 @@
 import React from 'react';
 //components
 import RNewsInnerContent from './../components/newsInnerContent/newsInnerContent'
-import RSidebar from './../components/sidebar/sidebar';
+import RSidebar from '../molecules/Sidebar/Sidebar';
 import RMain from '../molecules/MainContent/MainContent';
 
 const newsInner = ({mainImgUrl, title, date, body}) => {

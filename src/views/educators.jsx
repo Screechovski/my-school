@@ -1,7 +1,7 @@
 import React from 'react';
 import RMain from '../molecules/MainContent/MainContent';
 import REducatorCard from './../components/educatorCard/educatorCard';
-import RSidebar from './../components/sidebar/sidebar';
+import RSidebar from '../molecules/Sidebar/Sidebar';
 
 const educators = ({educatorsElements}) => {
     return (

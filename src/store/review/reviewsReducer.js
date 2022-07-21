@@ -1,4 +1,4 @@
-import { REVIEWS_AT } from "./reviewActionTypes";
+import { REVIEWS_AT } from "./reviewsActionTypes";
 
 const initialState = {
     inited: false,
@@ -7,7 +7,7 @@ const initialState = {
     reviews: null
 }
 
-export const reviewReducer = (state = initialState, action = {}) => {
+export const reviewsReducer = (state = initialState, action = {}) => {
     const { type, payload } = action;
 
     switch (type) {

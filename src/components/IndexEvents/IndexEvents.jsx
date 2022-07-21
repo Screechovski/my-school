@@ -9,9 +9,7 @@ import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 
 let fixStrict = false;
 
-export const IndexEvents = memo((
-
-) => {
+export const IndexEvents = memo(({}) => {
     const events = useSelector(getEventsShort(10));
     const loading = useSelector(eventsLoading);
     const inited = useSelector(eventsInited);
@@ -22,7 +20,7 @@ export const IndexEvents = memo((
         if (fixStrict) return;
         fixStrict = true;
 
-        dispatch(eventsInit())
+        !inited && dispatch(eventsInit())
     }, [])
 
     if (!loading && !inited && !error) {

@@ -1,6 +1,7 @@
 import { generatePost, generatePosts } from "./generators/posts";
 import { generateReview, generateReviews } from "./generators/reviews";
-import {generateEvents} from "./generators/events";
+import {generateEvent, generateEvents} from "./generators/events";
+import {generateSubjects} from "./generators/subjects";
 
 const errorChanse = 0.1;
 
@@ -27,96 +28,50 @@ const getIdAfter = (url, path) => {
 
     return id;
 }
-
-const include = (url, path) => url.indexOf(path) !== -1
-
-export const myFetch = (url, options) => new Promise((resolve, reject) => {
-    if (include(url, "/reviews")) {
-        setTimeout(() => {
-            if (Math.random() > errorChanse) {
-                resolve({
-                    status: "SUCCESS",
-                    data: generateReviews(20),
-                })
-            } else {
-                reject({
-                    status: "ERROR",
-                    data: null,
-                    error: "Unknown error"
-                })
-            }
-        }, randomDelay())
-    } else if (include(url, "/review/")) {
-        const id = getIdAfter(url, "/review/")
-
-        setTimeout(() => {
-            if (Math.random() > errorChanse) {
-                resolve({
-                    status: "SUCCESS",
-                    data: generateReview(id),
-                })
-            } else {
-                reject({
-                    status: "ERROR",
-                    data: null,
-                    error: "Unknown error"
-                })
-            }
-        }, randomDelay())
-    } else if (include(url, "/news")) {
-        setTimeout(() => {
-            if (Math.random() > errorChanse) {
-                resolve({
-                    status: "SUCCESS",
-                    data: generatePosts(20),
-                })
-            } else {
-                reject({
-                    status: "ERROR",
-                    data: null,
-                    error: "Unknown error"
-                })
-            }
-        }, randomDelay())
-    } else if (include(url, "/news/")) {
-        const id = getIdAfter(url, "/news/")
-
-        setTimeout(() => {
-            if (Math.random() > errorChanse) {
-                resolve({
-                    status: "SUCCESS",
-                    data: generatePost(id),
-                })
-            } else {
-                reject({
-                    status: "ERROR",
-                    data: null,
-                    error: "Unknown error"
-                })
-            }
-        }, randomDelay())
-    } else if (include(url, "/events")) {
-        setTimeout(() => {
-            if (Math.random() > errorChanse) {
-                resolve({
-                    status: "SUCCESS",
-                    data: generateEvents(20),
-                })
-            } else {
-                reject({
-                    status: "ERROR",
-                    data: null,
-                    error: "Unknown error"
-                })
-            }
-        }, randomDelay())
-    } else {
-        setTimeout(() => {
+const include = (url, path) => url.indexOf(path) !== -1;
+const route = (data, resolve, reject) => {
+    setTimeout(() => {
+        if (Math.random() > errorChanse) {
+            resolve({
+                status: "SUCCESS",
+                data,
+            })
+        } else {
             reject({
                 status: "ERROR",
                 data: null,
-                error: "404 error"
+                error: "Unknown error"
             })
-        }, randomDelay())
+        }
+    }, randomDelay())
+}
+
+export const myFetch = (url) => new Promise((resolve, reject) => {
+    if (include(url, "/reviews")) {
+        route(generateReviews(20), resolve, reject);
+    } else if (include(url, "/review/")) {
+        const id = getIdAfter(url, "/review/");
+
+        route(generateReview(id), resolve, reject);
+    } else if (include(url, "/news")) {
+        route(generatePosts(20), resolve, reject);
+    } else if (include(url, "/news/")) {
+        const id = getIdAfter(url, "/news/")
+
+        route(generatePost(id), resolve, reject);
+    } else if (include(url, "/events")) {
+        route(generateEvents(20), resolve, reject);
+    } else if (include(url, "/events/")) {
+        const id = getIdAfter(url, "/events/");
+
+        route(generateEvent(id), resolve, reject);
+    } else if (include(url, "/subjects")) {
+        route(generateSubjects(), resolve, reject);
+    } else {
+        setTimeout(() => reject({
+            status: "ERROR",
+            data: null,
+            error: "404 error"
+        }), randomDelay())
     }
 })
