@@ -63,7 +63,7 @@ module.exports = {
     devServer: {
         hot: true,
         static: {
-            directory: path.join(__dirname, 'public'),
+            directory: path.join(__dirname, 'img'),
         },
         compress: true,
         port: 8080,

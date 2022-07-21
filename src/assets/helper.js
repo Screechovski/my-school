@@ -1,9 +1,10 @@
 import { generatePost, generatePosts } from "./generators/posts";
 import { generateReview, generateReviews } from "./generators/reviews";
 import {generateEvent, generateEvents} from "./generators/events";
-import {generateSubjects} from "./generators/subjects";
+import {generateSubject, generateSubjects} from "./generators/subjects";
+import { generateEducator, generateEducators } from "./generators/educators";
 
-const errorChanse = 0.1;
+const errorChanse = 0.5;
 
 export const hasInArray = (arr, item) => {
     for (let i = 0; i < arr.length; i++) {
@@ -46,11 +47,13 @@ const route = (data, resolve, reject) => {
     }, randomDelay())
 }
 
+const paths = ["/reviews", "/news", "/events", "/subjects", "/educators"];
+
 export const myFetch = (url) => new Promise((resolve, reject) => {
     if (include(url, "/reviews")) {
         route(generateReviews(20), resolve, reject);
-    } else if (include(url, "/review/")) {
-        const id = getIdAfter(url, "/review/");
+    } else if (include(url, "/reviews/")) {
+        const id = getIdAfter(url, "/reviews/");
 
         route(generateReview(id), resolve, reject);
     } else if (include(url, "/news")) {
@@ -67,6 +70,16 @@ export const myFetch = (url) => new Promise((resolve, reject) => {
         route(generateEvent(id), resolve, reject);
     } else if (include(url, "/subjects")) {
         route(generateSubjects(), resolve, reject);
+    } else if (include(url, "/subjects/")) {
+        const id = getIdAfter(url, "/subjects/");
+
+        route(generateSubject(id), resolve, reject);
+    } else if (include(url, "/educators")) {
+        route(generateEducators(), resolve, reject);
+    } else if (include(url, "/educators/")) {
+        const id = getIdAfter(url, "/educators/");
+
+        route(generateEducator(id), resolve, reject);
     } else {
         setTimeout(() => reject({
             status: "ERROR",

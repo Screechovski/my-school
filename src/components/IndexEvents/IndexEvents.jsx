@@ -53,7 +53,10 @@ export const IndexEvents = memo(({}) => {
         )
     }
     if (error) {
-        return <ErrorLine message={error} />
+        return <ErrorLine
+            message={error}
+            reload={() => dispatch(eventsInit())}
+        />
     }
     return <></>;
 })

@@ -37,15 +37,15 @@ export const PageSubjects = memo(({}) => {
 
 
     return (
-        <div className={css.pageSubjects + " r-container"}>
+        <div className="page r-container">
             <Sidebar
                 title="Новости"
-                cssClass={css.pageSubjects__sidebar}
+                cssClass="page__sidebar"
             >
                 {newsLoadingPS && "Loading..."}
 
                 {newsInitedPS &&
-                    <ul className={css.pageSubjects__sidebarList}>
+                    <ul className="page__sidebarList">
                         {newsPS.map(({
                             title,
                             id,
@@ -65,11 +65,14 @@ export const PageSubjects = memo(({}) => {
                     </ul>}
 
                 {newsErrorPS &&
-                    <ErrorLine message={newsErrorPS}/>}
+                    <ErrorLine
+                        message={newsErrorPS}
+                        reload={() => dispatch(newsInit())}
+                    />}
             </Sidebar>
 
             <MainContent
-                cssClass={css.pageSubjects__mainContainer}
+                cssClass="page__mainContainer"
                 title="Предметы"
             >
                 {subjectsLoadingPS && "Loading..."}
@@ -80,9 +83,9 @@ export const PageSubjects = memo(({}) => {
                         title,
                         imageName,
                     }) =>
-                        <li key={id} className={css.pageSubjects__item}>
+                        <li key={id}>
                             <SubjectCard
-                                image={"./images/" + imageName}
+                                image={imageName}
                                 title={title}
                                 id={id}
                             />
@@ -90,7 +93,10 @@ export const PageSubjects = memo(({}) => {
                 </ul>}
 
                 {subjectsErrorPS &&
-                    <ErrorLine message={subjectsErrorPS}/>}
+                    <ErrorLine
+                        message={subjectsErrorPS}
+                        reload={() => dispatch(subjectsInit())}
+                    />}
             </MainContent>
         </div>
     )

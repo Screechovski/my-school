@@ -55,7 +55,10 @@ export const IndexNews = memo((
         )
     }
     if (error) {
-        return <ErrorLine message={error} />
+        return <ErrorLine
+            message={error}
+            reload={() => dispatch(newsInit())}
+        />
     }
     console.warn("Error IndexNews unknown state");
 })

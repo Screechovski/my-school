@@ -9,7 +9,7 @@ export const MainContent = memo(({
     return (
         <section className={`${cssClass} ${css.mainContent}`}>
             {title &&
-                <h2 className="title1" >{title}</h2>}
+                <h2 className={css.mainContent__title + " title1"}>{title}</h2>}
 
             {children && children}
         </section>

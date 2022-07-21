@@ -45,17 +45,20 @@ class PageNewsPure extends React.PureComponent {
                 loading: eventsLoading,
                 error: eventsError,
                 events
-            }
+            },
+            newsInit,
+            eventsInit
         } = this.props;
 
-        return (<div className={css.pageNews + " r-container"}>
+        return (
+            <div className="page r-container">
                 <Sidebar
                     title="Мероприятия"
-                    cssClass={css.pageNews__sidebar}
+                    cssClass="page__sidebar"
                 >
                     {eventsLoading && "Loading..."}
 
-                    {eventsInited && <ul className={css.pageNews__sidebarList}>
+                    {eventsInited && <ul className="page__sidebarList">
                         {events.slice(0, 4).map(({
                             date,
                             id,
@@ -72,11 +75,16 @@ class PageNewsPure extends React.PureComponent {
                             </li>)}
                     </ul>}
 
-                    {eventsError && <ErrorLine message={eventsError}/>}
+                    {eventsError &&
+                        <ErrorLine
+                            message={eventsError}
+                            loading={eventsLoading}
+                            reload={eventsInit}
+                        />}
                 </Sidebar>
 
                 <MainContent
-                    cssClass={css.pageNews__mainContainer}
+                    cssClass="page__mainContainer"
                     title="Новости"
                 >
                     {newsLoading && "Loading..."}
@@ -89,7 +97,7 @@ class PageNewsPure extends React.PureComponent {
                             message,
                             image
                         }) =>
-                            <li key={id} className={css.pageNews__item}>
+                            <li key={id}>
                                 <NewsCard
                                     title={title}
                                     id={id}
@@ -100,9 +108,15 @@ class PageNewsPure extends React.PureComponent {
                             </li>)}
                     </ul>}
 
-                    {newsError && <ErrorLine message={newsError}/>}
+                    {newsError &&
+                        <ErrorLine
+                            loading={newsLoading}
+                            message={newsError}
+                            reload={newsInit}
+                        />}
                 </MainContent>
-            </div>)
+            </div>
+        )
     }
 }
 

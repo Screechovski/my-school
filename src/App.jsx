@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.sass';
-import {Header} from "./molecules/Header/Header";
-import {Footer} from "./molecules/Footer/Footer";
-import {PageIndex} from "./views/PageIndex/PageIndex";
-import {PageNews} from "./views/PageNews/PageNews";
-import {PageSubjects} from "./views/PageSubjects/PageSubjects";
+import { Header } from "./molecules/Header/Header";
+import { Footer } from "./molecules/Footer/Footer";
+import { PageIndex } from "./views/PageIndex/PageIndex";
+import { PageNews } from "./views/PageNews/PageNews";
+import { PageSubjects } from "./views/PageSubjects/PageSubjects";
+import { PageEducators } from './views/PageEducators/PageEducators';
 
 
 export const App = (props) => {
@@ -17,6 +18,14 @@ export const App = (props) => {
                     <Route exact path="/" element={<PageIndex />} />
                     <Route path="/news" element={<PageNews />} />
                     <Route path="/subjects" element={<PageSubjects />} />
+                    <Route path="/educators" element={<PageEducators />} />
+
+                    <Route path="/about" element={<span />} />
+                    <Route path="/miscellanea" element={<span />} />
+                    <Route path="/review" element={<span />} />
+                    <Route path="/educators-inner/:educatorId" element={<span />} />
+                    <Route path="/subjects-inner/:subjectId" element={<span />} />
+                    <Route path="/news-inner/:newsId" element={<span />} />
                 </Routes>
                 <Footer />
             </BrowserRouter>
@@ -28,8 +37,6 @@ export const App = (props) => {
                     <section className="page__body page-body page-body--width-Sidebar"></section>
 
                     <Route path="/about" element={<PageAbout />} />
-
-                    <Route path="/educators" element={<PageEducators educatorsElements={educatorsElements} />} />
 
                     <Route path="/miscellanea" element={<PageMiscellanea />} />
 

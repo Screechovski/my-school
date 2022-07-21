@@ -4,11 +4,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { newsReducer } from './news/newsReducer';
 import {eventsReducer} from "./events/eventsReducer";
 import {subjectsReducer} from "./subjects/subjectsReducer";
+import {educatorsReducer} from "./educators/educatorsReducer";
 
 const reducers = combineReducers({
     newsReducer,
     eventsReducer,
-    subjectsReducer
+    subjectsReducer,
+    educatorsReducer
 });
 
 export const store = configureStore({

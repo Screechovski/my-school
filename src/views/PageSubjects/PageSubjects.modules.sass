@@ -1,21 +1,6 @@
-.pageSubjects
-  display: flex
-  justify-content: space-between
-  align-items: flex-start
-  gap: 10px
-  &__sidebar
-    width: 300px
-  &__sidebarList
-    display: flex
-    flex-direction: column
-    gap: 10px
-  &__mainContainer
-    width: calc(100% - 310px)
-  &__list
+.pageSubjects__list
     display: grid
     grid-template-columns: repeat(4, 1fr)
     gap: 10px
     @media screen and (max-width: 1500px)
-      grid-template-columns: repeat(3, 1fr)
-  &__item
-    opacity: 1
+        grid-template-columns: repeat(3, 1fr)

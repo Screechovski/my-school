@@ -3,7 +3,7 @@ import { SUBJECTS_AT } from "./subjectsActionTypes";
 const initialState = {
     inited: false,
     loading: false,
-    initErrors: null,
+    error: null,
     subjects: null
 }
 
@@ -15,6 +15,7 @@ export const subjectsReducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 loading: true,
+                error: null,
             }
         }
         case SUBJECTS_AT.INIT_SUCCESS: {

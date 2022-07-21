@@ -15,6 +15,7 @@ export const newsReducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 loading: true,
+                error: null,
             }
         }
         case NEWS_AT.INIT_SUCCESS: {

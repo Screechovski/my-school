@@ -7,7 +7,7 @@ export class Sidebar extends React.PureComponent {
 
         return (
             <aside className={`${css.sidebar} ${cssClass}`}>
-                <h2 className="title1">{title}</h2>
+                <h2 className={css.sidebar__title + " title1"}>{title}</h2>
                 <ul className={css.sidebar__list}>
                     {children}
                 </ul>

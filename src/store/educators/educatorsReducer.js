@@ -1,33 +1,32 @@
-
-import { EVENTS_AT } from './eventsActionTypes';
+import { EDUCATORS_AT } from "./educatorsActionTypes";
 
 const initialState = {
     inited: false,
     loading: false,
     error: null,
-    events: []
+    subjects: null
 }
 
-export const eventsReducer = (state = initialState, action = {}) => {
+export const educatorsReducer = (state = initialState, action = {}) => {
     const { type, payload } = action;
 
     switch (type) {
-        case EVENTS_AT.INIT_START: {
+        case EDUCATORS_AT.INIT_START: {
             return {
                 ...state,
                 loading: true,
                 error: null,
             }
         }
-        case EVENTS_AT.INIT_SUCCESS: {
+        case EDUCATORS_AT.INIT_SUCCESS: {
             return {
                 ...state,
-                events: payload,
+                educators: payload,
                 inited: true,
                 loading: false,
             }
         }
-        case EVENTS_AT.INIT_FAIL: {
+        case EDUCATORS_AT.INIT_FAIL: {
             return {
                 ...state,
                 error: payload,
