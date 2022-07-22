@@ -1,33 +1,28 @@
 import React, {memo, useEffect} from "react";
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import css from "./IndexNews.module.sass";
-import {getNewsShort, newsError, newsInited, newsLoading} from "../../store/news/newsSelectors";
 import {newsInit} from "../../store/news/newsActions";
 import {NewsCard} from "../../molecules/NewsCard/NewsCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
+import {newsHook} from "../../store/news/newsHook";
 
 let fixStrict = false;
 
-export const IndexNews = memo((
-
-) => {
-    const news = useSelector(getNewsShort(10));
-    const loading = useSelector(newsLoading);
-    const inited = useSelector(newsInited);
-    const error = useSelector(newsError);
+export const IndexNews = memo(() => {
+    const { newsLoading, newsInited, newsError, news } = newsHook(10);
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (fixStrict) return;
         fixStrict = true;
 
-        !inited && dispatch(newsInit())
+        !newsInited && dispatch(newsInit())
     }, [])
 
-    if (!loading && !inited && !error) {
+    if (!newsLoading && !newsInited && !newsError) {
         return <></>;
     }
-    if (loading) {
+    if (newsLoading) {
         return (
             <ul className={css.indexNews}>
                 {([1, 2, 3, 4, 5]).map(id =>
@@ -38,7 +33,7 @@ export const IndexNews = memo((
             </ul>
         )
     }
-    if (inited) {
+    if (newsInited) {
         return (
             <ul className={css.indexNews}>
                 {news.map(item =>
@@ -54,9 +49,9 @@ export const IndexNews = memo((
             </ul>
         )
     }
-    if (error) {
+    if (newsError) {
         return <ErrorLine
-            message={error}
+            message={newsError}
             reload={() => dispatch(newsInit())}
         />
     }

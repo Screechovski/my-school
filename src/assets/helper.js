@@ -4,7 +4,7 @@ import {generateEvent, generateEvents} from "./generators/events";
 import {generateSubject, generateSubjects} from "./generators/subjects";
 import { generateEducator, generateEducators } from "./generators/educators";
 
-const errorChanse = 0.5;
+const errorChanse = 0.1;
 
 export const hasInArray = (arr, item) => {
     for (let i = 0; i < arr.length; i++) {

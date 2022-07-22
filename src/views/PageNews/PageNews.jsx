@@ -21,7 +21,8 @@ class PageNewsPure extends React.PureComponent {
             newsReducer: {
                 inited: newsInited,
                 loading: newsLoading
-            }, eventsReducer: {
+            },
+            eventsReducer: {
                 inited: eventsInited,
                 loading: eventsLoading
             },

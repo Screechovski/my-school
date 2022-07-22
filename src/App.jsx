@@ -7,6 +7,7 @@ import { PageIndex } from "./views/PageIndex/PageIndex";
 import { PageNews } from "./views/PageNews/PageNews";
 import { PageSubjects } from "./views/PageSubjects/PageSubjects";
 import { PageEducators } from './views/PageEducators/PageEducators';
+import {PageEducatorsInner} from "./views/PageEducatorsInner/PageEducatorsInner";
 
 
 export const App = (props) => {
@@ -24,9 +25,13 @@ export const App = (props) => {
                     <Route path="/miscellanea" element={<span />} />
                     <Route path="/review" element={<span />} />
 
-                    <Route path="/educators-inner/:educatorId" element={<span />} />
-                    <Route path="/subjects-inner/:subjectId" element={<span />} />
-                    <Route path="/news-inner/:newsId" element={<span />} />
+                    <Route
+                        path="/educators-inner/:educatorId"
+                        element={<PageEducatorsInner />}
+                    />
+
+                    {/*<Route path="/subjects-inner/:subjectId" element={<span />} />*/}
+                    {/*<Route path="/news-inner/:newsId" element={<span />} />*/}
                 </Routes>
                 <Footer />
             </BrowserRouter>

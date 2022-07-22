@@ -8,7 +8,6 @@ export const EducatorCard = memo(({
     email,
     id
 }) => {
-    console.log(image);
     return (
         <div className={css.educatorCard}>
             <NavLink className={css.educatorCard__mainLink} to={`/educators-inner/${id}`} />

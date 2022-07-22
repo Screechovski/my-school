@@ -8,21 +8,15 @@ import { Sidebar } from "../../molecules/Sidebar/Sidebar";
 import { educatorsInit } from "../../store/educators/educatorsActions";
 import { educatorsError, educatorsInited, educatorsLoading, getEducators } from "../../store/educators/educatorsSelectors";
 import { newsInit } from "../../store/news/newsActions";
-import { getNewsShort, newsError, newsInited, newsLoading } from "../../store/news/newsSelectors";
 import css from "./PageEducators.module.sass";
+import {newsHook} from "../../store/news/newsHook";
+import {educatorsHook} from "../../store/educators/educatorsHook";
 
 let fixStrict = false;
 
 export const PageEducators = memo(() => {
-    const newsLoadingPS = useSelector(newsLoading);
-    const newsInitedPS = useSelector(newsInited);
-    const newsErrorPS = useSelector(newsError);
-    const newsPS = useSelector(getNewsShort(4));
-
-    const educatorsLoadingPS = useSelector(educatorsLoading);
-    const educatorsInitedPS = useSelector(educatorsInited);
-    const educatorsErrorPS = useSelector(educatorsError);
-    const educatorsPS = useSelector(getEducators);
+    const { newsLoading, newsInited, newsError, news } = newsHook(4);
+    const { educatorsLoading, educatorsInited, educatorsError, educators } = educatorsHook();
 
     const dispatch = useDispatch();
 
@@ -30,8 +24,8 @@ export const PageEducators = memo(() => {
         if (fixStrict) return;
         fixStrict = true;
 
-        if (!newsInitedPS && !newsLoadingPS) dispatch(newsInit())
-        if (!educatorsInitedPS && !educatorsLoadingPS) dispatch(educatorsInit())
+        if (!newsInited && !newsLoading) dispatch(newsInit())
+        if (!educatorsInited && !educatorsLoading) dispatch(educatorsInit())
     }, [])
 
     return (
@@ -40,10 +34,10 @@ export const PageEducators = memo(() => {
                 title="Новости"
                 cssClass="page__sidebar"
             >
-                {newsLoadingPS && "Loading..."}
+                {newsLoading && "Loading..."}
 
-                {newsInitedPS && <ul className="page__sidebarList">
-                    {newsPS.slice(0, 4).map(({
+                {newsInited && <ul className="page__sidebarList">
+                    {news.slice(0, 4).map(({
                         title,
                         id,
                         date,
@@ -61,9 +55,9 @@ export const PageEducators = memo(() => {
                         </li>)}
                 </ul>}
 
-                {newsErrorPS &&
+                {newsError &&
                     <ErrorLine
-                        message={newsErrorPS}
+                        message={newsError}
                         reload={() => dispatch(newsInit())}
                     />}
             </Sidebar>
@@ -72,11 +66,11 @@ export const PageEducators = memo(() => {
                 cssClass="page__mainContainer"
                 title="Преподаватели"
             >
-                {educatorsLoadingPS && "Loading..."}
+                {educatorsLoading && "Loading..."}
 
-                {educatorsInitedPS &&
+                {educatorsInited &&
                     <ul className={css.pageEducators__list}>
-                        {educatorsPS.map(({
+                        {educators.map(({
                             id,
                             name,
                             tel,
@@ -94,9 +88,9 @@ export const PageEducators = memo(() => {
                             </li>)}
                     </ul>}
 
-                {educatorsErrorPS &&
+                {educatorsError &&
                     <ErrorLine
-                        message={educatorsErrorPS}
+                        message={educatorsError}
                         reload={() => dispatch(educatorsInit())}
                     />}
             </MainContent>
