@@ -23,6 +23,7 @@ export const App = (props) => {
                     <Route path="/about" element={<span />} />
                     <Route path="/miscellanea" element={<span />} />
                     <Route path="/review" element={<span />} />
+
                     <Route path="/educators-inner/:educatorId" element={<span />} />
                     <Route path="/subjects-inner/:subjectId" element={<span />} />
                     <Route path="/news-inner/:newsId" element={<span />} />

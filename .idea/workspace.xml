@@ -20,104 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/molecules/SubjectCard/SubjectCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main.53959d882a551f9bfeb3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main.53959d882a551f9bfeb3.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/runtime.67231dc32eeba02bf6ee.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/runtime.67231dc32eeba02bf6ee.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/m-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/m-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/m-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/m-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/m-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/m-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/m-7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/w-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/w-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/w-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/w-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/w-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/w-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/w-7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/educators/w-8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/reviewers/w-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/algebra.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/astronomy.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/biology.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/calculating.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/carpenter.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/chemistry.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/church.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/communities.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/computer.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/divider.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/eco.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/economic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/fitness.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/foreign-language.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/history.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/history_writing.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/house.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/justice.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/kremlin.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/library.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/life-jacket.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/overpopulation.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/paint.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/planet-earth.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/project-management.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/reading.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/relativity.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/shapes.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/singing.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/world-map.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/writing-tool.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/subjects/yin-yang.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/svg/check-mark.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/svg/cross.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/helper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IndexEvents/IndexEvents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexEvents/IndexEvents.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IndexNews/IndexNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexNews/IndexNews.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/educatorsInnerContent/educatorsInnerContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/educatorsInnerContent/educatorsInnerContent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar/sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Sidebar/Sidebar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar/sidebar.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Sidebar/Sidebar.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/subjectCard/subjectCard.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/subjectCard/subjectCard.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectCard/SubjectCard.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Logo/Logo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Logo/Logo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/review/reviewActionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/review/reviewsActionCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/review/reviewActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/review/reviewsActionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/review/reviewActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/review/reviewsActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/review/reviewReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/review/reviewsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/subjectsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjectsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PageIndex/PageIndex.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageIndex/PageIndex.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PageIndex/PageIndex.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageIndex/PageIndex.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PageNews/PageNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageNews/PageNews.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PageNews/PageNews.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageNews/PageNews.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/about.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/about.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/educators-inner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/educators-inner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/educators.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/educators.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/miscellanea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/miscellanea.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/news-inner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/news-inner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/review.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/review.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/subjects-inner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/subjects-inner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/subjects.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/subjects.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/generators/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/generators/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/fakeStore.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageSubjects/PageSubjects.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageSubjects/PageSubjects.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,23 +65,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/store/subjects" />
-    <property name="list.type.of.created.stylesheet" value="Sass" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.standard" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.standard" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.standard" value="" />
-    <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/Sites/my-app",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\sch\src\store\subjects" />
@@ -209,6 +110,9 @@
       <workItem from="1658308059752" duration="2125000" />
       <workItem from="1658310218817" duration="4341000" />
       <workItem from="1658390447205" duration="9766000" />
+      <workItem from="1658431745100" duration="44000" />
+      <workItem from="1658431802381" duration="22000" />
+      <workItem from="1658509571206" duration="772000" />
     </task>
     <servers />
   </component>
@@ -225,5 +129,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

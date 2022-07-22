@@ -45,30 +45,30 @@ export const PageSubjects = memo(({}) => {
                 {newsLoadingPS && "Loading..."}
 
                 {newsInitedPS &&
-                    <ul className="page__sidebarList">
-                        {newsPS.map(({
-                            title,
-                            id,
-                            date,
-                            message,
-                            image
-                        }) =>
-                            <li key={id}>
-                                <NewsCard
-                                    title={title}
-                                    id={id}
-                                    date={date}
-                                    body={message}
-                                    mainImgUrl={image}
-                                />
-                            </li>)}
-                    </ul>}
+                <ul className="page__sidebarList">
+                    {newsPS.map(({
+                                     title,
+                                     id,
+                                     date,
+                                     message,
+                                     image
+                                 }) =>
+                        <li key={id}>
+                            <NewsCard
+                                title={title}
+                                id={id}
+                                date={date}
+                                body={message}
+                                mainImgUrl={image}
+                            />
+                        </li>)}
+                </ul>}
 
                 {newsErrorPS &&
-                    <ErrorLine
-                        message={newsErrorPS}
-                        reload={() => dispatch(newsInit())}
-                    />}
+                <ErrorLine
+                    message={newsErrorPS}
+                    reload={() => dispatch(newsInit())}
+                />}
             </Sidebar>
 
             <MainContent
@@ -79,10 +79,10 @@ export const PageSubjects = memo(({}) => {
 
                 {subjectsInitedPS && <ul className={css.pageSubjects__list}>
                     {subjectsPS.map(({
-                        id,
-                        title,
-                        imageName,
-                    }) =>
+                                         id,
+                                         title,
+                                         imageName,
+                                     }) =>
                         <li key={id}>
                             <SubjectCard
                                 image={imageName}
@@ -93,10 +93,10 @@ export const PageSubjects = memo(({}) => {
                 </ul>}
 
                 {subjectsErrorPS &&
-                    <ErrorLine
-                        message={subjectsErrorPS}
-                        reload={() => dispatch(subjectsInit())}
-                    />}
+                <ErrorLine
+                    message={subjectsErrorPS}
+                    reload={() => dispatch(subjectsInit())}
+                />}
             </MainContent>
         </div>
     )
