@@ -20,6 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/MainContentEducatorInner/MainContentEducatorInner.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MainContentEducatorInner/MainContentEducatorInner.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MainContentEducators/MainContentEducators.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MainContentEducators/MainContentEducators.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MainContentNews/MainContentNews.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MainContentSubjects/MainContentSubjects.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MainContentSubjects/MainContentSubjects.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SidebarEvents/SidebarEvents.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SidebarNews/SidebarNews.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/molecules/EducatorInner/EducatorInner.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerActionCreator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerActionTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerHook.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerSelectors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/PageEducatorInner/PageEducatorInner.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/PageNewsInner/PageNewsInner.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/PageNewsInner/PageNewsInner.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/description.txt" beforeDir="false" afterPath="$PROJECT_DIR$/description.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
@@ -31,7 +50,7 @@
       <change beforePath="$PROJECT_DIR$/src/assets/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/helper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/IndexEvents/IndexEvents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexEvents/IndexEvents.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/IndexNews/IndexNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexNews/IndexNews.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/educatorsInnerContent/educatorsInnerContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EducatorInner/EducatorInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/educatorsInnerContent/educatorsInnerContent.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/educatorsInnerContent/educatorsInnerContent.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EducatorInner/EducatorsInner.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/messageForm/messageForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/old/messageForm/messageForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/messageForm/messageForm.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/old/messageForm/messageForm.sass" afterDir="false" />
@@ -47,7 +66,6 @@
       <change beforePath="$PROJECT_DIR$/src/components/subjectsInnerContent/subjectsInnerContent.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/old/subjectsInnerContent/subjectsInnerContent.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/subjectsTable/subjectsTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/old/subjectsTable/subjectsTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/subjectsTable/subjectsTable.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/old/subjectsTable/subjectsTable.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/molecules/EducatorCard/EducatorCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EducatorCard/EducatorCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/molecules/EducatorCard/EducatorCard.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EducatorCard/EducatorCard.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.jsx" afterDir="false" />
@@ -67,8 +85,8 @@
       <change beforePath="$PROJECT_DIR$/src/store/subjects/subjectsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjects/subjectsActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/PageEducators/PageEducators.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageEducators/PageEducators.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/PageEducators/PageEducators.module.sass" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PageEducatorsInner/PageEducatorsInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageEducatorInner/PageEducatorInner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PageEducatorsInner/PageEducatorsInner.module.sass" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageEducatorsInner/PageEducatorsInner.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageEducatorsInner/PageEducatorsInner.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentNews/MainContentNews.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/PageNews/PageNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageNews/PageNews.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/PageNews/PageNews.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageNews/PageNews.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/PageSubjects/PageSubjects.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageSubjects/PageSubjects.jsx" afterDir="false" />
@@ -169,7 +187,7 @@
       <workItem from="1658431745100" duration="44000" />
       <workItem from="1658431802381" duration="22000" />
       <workItem from="1658509571206" duration="4682000" />
-      <workItem from="1658565732367" duration="14726000" />
+      <workItem from="1658565732367" duration="14859000" />
     </task>
     <servers />
   </component>
