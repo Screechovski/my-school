@@ -1,4 +1,7 @@
 — molecules — компоненты исключительно UI, без малейшей логики, props to ui
 — components — составные компоненты, в которых может находится запросная/расчетная логика и передача их данных в компненты типа molecules
-— block--element__modificateur (в модуль файлах — block__element_modificateur_
+— views — компоненты страниц
+
+— block--element__modificateur (в модуль файлах — block__element_modificateur)
+
 — весь импорт именной

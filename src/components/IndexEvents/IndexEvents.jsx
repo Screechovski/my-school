@@ -3,9 +3,10 @@ import { useEffect } from 'react';
 import {useDispatch} from 'react-redux';
 import {eventsInit} from "../../store/events/eventsActions";
 import css from "./IndexEvents.module.sass";
-import {EventCard} from "../../molecules/EventCard/EventCard";
+import {EventCard, EventCardLoading} from "../../molecules/EventCard/EventCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {eventsHook} from "../../store/events/eventsHook";
+import {getNumberArray} from "../../assets/helper";
 
 let fixStrict = false;
 
@@ -26,11 +27,10 @@ export const IndexEvents = memo(({}) => {
     if (eventsLoading) {
         return (
             <ul className={css.indexEvents}>
-                {([1, 2, 3, 4, 5]).map(id =>
-                    <li
-                        key={id}
-                        className={css.indexEvents__item + " loading " + css.indexEvents__item_loading}
-                    />)}
+                {getNumberArray(10).map(id =>
+                    <li className={css.indexEvents__item} key={id}>
+                        <EventCardLoading />
+                    </li>)}
             </ul>
         )
     }

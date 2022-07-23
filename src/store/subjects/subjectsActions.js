@@ -1,5 +1,5 @@
 import {subjectsInitFail, subjectsInitStart, subjectsInitSuccess} from "./subjectsActionCreator"
-import {myFetch} from "../../assets/helper";
+import {clientLog, myFetch} from "../../assets/helper";
 
 
 export const subjectsInit = () => async (dispatch) => {
@@ -7,6 +7,8 @@ export const subjectsInit = () => async (dispatch) => {
 
     try {
         const fetchResult = await myFetch("/subjects");
+
+        clientLog("fetchResult", fetchResult);
 
         dispatch(subjectsInitSuccess(fetchResult.data))
     } catch (error) {

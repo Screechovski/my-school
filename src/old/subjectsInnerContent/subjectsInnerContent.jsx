@@ -2,7 +2,7 @@
 import React from 'react';
 //components
 import REducatorCard from './../educatorCard/educatorCard';
-import RSubjectsTable from './../subjectsTable/subjectsTable';
+import RSubjectsTable from '../subjectsTable/subjectsTable';
 //css
 import css from './subjectsInnerContent.module.sass';
 

@@ -10,3 +10,12 @@ export const SubjectCard = memo(({ image, title, id }) => {
         </NavLink>
     );
 })
+
+export const SubjectCardLoading = memo(() => {
+    return (
+        <div className={css.subjectCardLoading}>
+            <div className={css.subjectCardLoading__icon + " loading"} />
+            <div className={css.subjectCardLoading__title + " loading"} />
+        </div>
+    );
+})

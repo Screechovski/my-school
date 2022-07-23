@@ -1,5 +1,13 @@
 import { educators } from "./items";
+import {generateSubject} from "./subjects";
 
 export const generateEducators = () => educators;
 
-export const generateEducator = (value) => educators.find(({ id }) => id === value);
+export const generateEducator = (value) => {
+    const educator = {...educators.find(({ id }) => id === value)};
+    const coursesTaught = educator.coursesTaught.map(subjectId => generateSubject(subjectId));
+
+    educator.coursesTaught = coursesTaught;
+
+    return educator;
+};

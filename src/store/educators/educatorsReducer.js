@@ -4,7 +4,7 @@ const initialState = {
     inited: false,
     loading: false,
     error: null,
-    subjects: null
+    educators: null
 }
 
 export const educatorsReducer = (state = initialState, action = {}) => {

@@ -2,14 +2,15 @@ import React, {memo, useEffect} from "react";
 import { useDispatch } from 'react-redux'
 import css from "./IndexNews.module.sass";
 import {newsInit} from "../../store/news/newsActions";
-import {NewsCard} from "../../molecules/NewsCard/NewsCard";
+import {NewsCard, NewsCardLoading} from "../../molecules/NewsCard/NewsCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {newsHook} from "../../store/news/newsHook";
+import {getNumberArray} from "../../assets/helper";
 
 let fixStrict = false;
 
 export const IndexNews = memo(() => {
-    const { newsLoading, newsInited, newsError, news } = newsHook(10);
+    const { newsLoading, newsInited, newsError, news } = newsHook({ count: 10});
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -25,11 +26,10 @@ export const IndexNews = memo(() => {
     if (newsLoading) {
         return (
             <ul className={css.indexNews}>
-                {([1, 2, 3, 4, 5]).map(id =>
-                    <li
-                        key={id}
-                        className={css.indexNews__item + " loading " + css.indexNews__item_loading}
-                    />)}
+                {getNumberArray(10).map(id =>
+                    <li className={css.indexNews__item} key={id}>
+                        <NewsCardLoading />
+                    </li>)}
             </ul>
         )
     }

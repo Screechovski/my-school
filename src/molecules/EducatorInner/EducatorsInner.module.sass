@@ -1,4 +1,4 @@
-.educators-inner
+.educatorInner
     display: flex
     flex-direction: column
     --image-size: 300px
@@ -17,6 +17,7 @@
             object-fit: cover
     &__content
         max-width: calc(100% - var(--image-size) - 15px)
+        width: calc(100% - var(--image-size) - 15px)
         color: var(--main-text-color)
     &__title
         font-size: 38px
@@ -41,3 +42,24 @@
         display: grid
         grid-template-columns: repeat(4, 1fr)
         gap: 20px
+
+.educatorInnerLoading
+    --image-size: 300px
+    &__image
+        height: calc(var(--image-size) * 1.25)
+        width: var(--image-size)
+        border-radius: 12px
+    &__title
+        width: 460px
+        font-size: 38px
+        height: 1em
+        margin-bottom: 0.5em
+        display: inline-block
+    &__item
+        height: 1em
+        width: 170px
+        display: inline-block
+    &__text
+        height: 196px
+        width: 100%
+        display: inline-block

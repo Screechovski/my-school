@@ -35,3 +35,13 @@ export const EventCard = memo(({
         </article>
     );
 })
+
+export const EventCardLoading = memo(() => {
+    return (
+        <div className={css.eventCardLoading}>
+            <div className={css.eventCardLoading__date + " loading"} />
+            <div className={css.eventCardLoading__title + " loading"} />
+            <div className={css.eventCardLoading__text + " loading"} />
+        </div>
+    )
+})

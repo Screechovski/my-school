@@ -1,7 +1,7 @@
 //react
 import React from 'react';
 //components
-import RNewsInnerContent from './../components/newsInnerContent/newsInnerContent'
+import RNewsInnerContent from './newsInnerContent/newsInnerContent'
 import RSidebar from '../molecules/Sidebar/Sidebar';
 import RMain from '../molecules/MainContent/MainContent';
 

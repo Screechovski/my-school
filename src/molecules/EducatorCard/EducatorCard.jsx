@@ -10,8 +10,8 @@ export const EducatorCard = memo(({
 }) => {
     return (
         <div className={css.educatorCard}>
-            <NavLink className={css.educatorCard__mainLink} to={`/educators-inner/${id}`} />
-            <div className={css.educatorCard__imageWrap}>
+            <NavLink className={css.educatorCard__mainLink} to={`/educator-inner/${id}`} />
+            <div>
                 <img className={css.educatorCard__image} src={image} alt="" />
             </div>
             <div className={css.educatorCard__body}>
@@ -21,4 +21,17 @@ export const EducatorCard = memo(({
             </div>
         </div>
     );
+})
+
+export const EducatorCardLoading = memo(() => {
+    return (
+        <div className={css.educatorCardLoading}>
+            <div className={css.educatorCardLoading__image + " loading"}></div>
+            <div className={css.educatorCardLoading__body}>
+                <div className={css.educatorCardLoading__title + " loading"}></div>
+                <div className={css.educatorCardLoading__profession + " loading"}></div>
+                <div className={css.educatorCardLoading__mail + " loading"}></div>
+            </div>
+        </div>
+    )
 })

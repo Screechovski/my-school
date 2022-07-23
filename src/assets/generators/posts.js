@@ -10,7 +10,7 @@ export const generatePosts = (count) => {
             title: titles[i],
             image: "null",
             date: generateDate(),
-            message: titles[i]
+            message: messages[i]
         })
     }
 

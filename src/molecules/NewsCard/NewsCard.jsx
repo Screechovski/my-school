@@ -27,3 +27,14 @@ export const NewsCard = memo(({
         </article>
     );
 })
+
+export const NewsCardLoading = memo(() => {
+    return (
+        <div className={css.newsCardLoading}>
+            <div className={css.newsCardLoading__image + " loading"} />
+            <div className={css.newsCardLoading__date + " loading"} />
+            <div className={css.newsCardLoading__title + " loading"} />
+            <div className={css.newsCardLoading__text + " loading"} />
+        </div>
+    )
+})

@@ -7,7 +7,8 @@ import { PageIndex } from "./views/PageIndex/PageIndex";
 import { PageNews } from "./views/PageNews/PageNews";
 import { PageSubjects } from "./views/PageSubjects/PageSubjects";
 import { PageEducators } from './views/PageEducators/PageEducators';
-import {PageEducatorsInner} from "./views/PageEducatorsInner/PageEducatorsInner";
+import {PageEducatorInner} from "./views/PageEducatorInner/PageEducatorInner";
+import {PageNewsInner} from "./views/PageNewsInner/PageNewsInner";
 
 
 export const App = (props) => {
@@ -25,10 +26,8 @@ export const App = (props) => {
                     <Route path="/miscellanea" element={<span />} />
                     <Route path="/review" element={<span />} />
 
-                    <Route
-                        path="/educators-inner/:educatorId"
-                        element={<PageEducatorsInner />}
-                    />
+                    <Route path="/educator-inner/:educatorId" element={<PageEducatorInner />} />
+                    <Route path="/news-inner/:newsId" element={<PageNewsInner />} />
 
                     {/*<Route path="/subjects-inner/:subjectId" element={<span />} />*/}
                     {/*<Route path="/news-inner/:newsId" element={<span />} />*/}
@@ -57,7 +56,7 @@ export const App = (props) => {
                         const educator = getEducator(Number(match.params.educatorId));
                         const coursesTaught = educator.coursesTaught.map(getSubject);
 
-                        return <PageEducatorsInner
+                        return <PageEducatorInner
                             educator={educator}
                             coursesTaught={coursesTaught}
                         />

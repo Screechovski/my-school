@@ -3,7 +3,7 @@ import React from 'react';
 //css
 import './reviewWrap.sass';
 //components
-import RReviewCard from './../reviewCard/reviewCard';
+import RReviewCard from '../reviewCard/reviewCard';
 import URLS from '../../assets/urls';
 
 export default class ReviewWrap extends React.Component {

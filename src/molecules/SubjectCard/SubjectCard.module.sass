@@ -8,6 +8,7 @@
     transition: box-shadow .1s, transform .2s
     text-decoration: none
     box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.14)
+    height: 39px
     &:hover
         box-shadow: 1px 1px 15px 0px rgba(0,0,0,0.2)
         transform: scale(1.05)
@@ -20,3 +21,20 @@
         width: calc(100% - 40px)
         text-decoration: none
         color: var(--main-link-color)
+
+.subjectCardLoading
+    padding: 10px
+    display: flex
+    align-items: center
+    height: 39px
+    background-color: #ffffff
+    box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.14)
+    border-radius: var(--border-radius-medium)
+    gap: 10px
+    &__icon
+        height: 30px
+        width: 30px
+        border-radius: var(--border-radius-small)
+    &__title
+        height: 1.2em
+        width: 120px

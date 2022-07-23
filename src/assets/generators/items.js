@@ -76,44 +76,37 @@ export const subjects = [
     {
         id: 0,
         title: "Чистописание",
-        href: "calligraphy",
         imageName: path("subjects", "writing-tool.svg"),
         years: [true, false, false, false, false, false, false, false, false, false, false]
     }, {
         id: 1,
         title: "Чтение",
-        href: "reading",
         imageName: path("subjects", "reading.svg"),
         years: [true, true, true, true, false, false, false, false, false, false, false]
 
     }, {
         id: 2,
         title: "Труд",
-        href: "work",
         imageName: path("subjects", "carpenter.svg"),
         years: [true, true, true, true, false, false, false, false, false, false, false]
     }, {
         id: 3,
         title: "Природоведение",
-        href: "natural_science",
         imageName: path("subjects", "planet-earth.svg"),
         years: [true, true, true, true, true, false, false, false, false, false, false]
     }, {
         id: 4,
         title: "Математика",
-        href: "mathematics",
         imageName: path("subjects", "calculating.svg"),
         years: [true, true, true, true, true, true, false, false, false, false, false]
     }, {
         id: 5,
         title: "Музыка (Пение)",
-        href: "music_(singing)",
         imageName: path("subjects", "singing.svg"),
         years: [true, true, true, true, true, true, true, false, false, false, false]
     }, {
         id: 6,
         title: "Изобразительное искусство (Рисование)",
-        href: "fine_arts_(drawing)",
         imageName: path("subjects", "paint.svg"),
         years: [true, true, true, true, true, true, true, true, true, true, true]
     }, {
@@ -131,37 +124,31 @@ export const subjects = [
     }, {
         id: 9,
         title: "Родной язык",
-        href: "native_language",
         imageName: path("subjects", "house.svg"),
         years: [false, true, true, true, true, true, true, true, true, true, true]
     }, {
         id: 10,
         title: "Основы религиозных культур и светской этики",
-        href: "foundations_of_religious_cultures_and_secular_ethics",
         imageName: path("subjects", "church.svg"),
         years: [false, false, false, true, true, false, false, false, false, false, false]
     }, {
         id: 11,
         title: "Иностранный язык",
-        href: "foreign_language",
         imageName: path("subjects", "foreign-language.svg"),
         years: [false, false, false, true, true, true, true, true, true, true, true]
     }, {
         id: 12,
         title: "Граждановедение",
-        href: "citizenship",
         imageName: path("subjects", "overpopulation.svg"),
         years: [false, false, false, false, true, true, true, false, false, false, false]
     }, {
         id: 13,
         title: "Краеведение",
-        href: "local_history",
         imageName: path("subjects", "history.svg"),
         years: [false, false, false, false, true, true, true, false, false, false, false]
     }, {
         id: 14,
         title: "История",
-        href: "history",
         imageName: path("subjects", "history_writing.svg"),
         years: [false, false, false, false, true, true, true, true, true, true, true]
     }, {
@@ -173,37 +160,31 @@ export const subjects = [
     }, {
         id: 16,
         title: "Основы безопасности жизнедеятельности (ОБЖ)",
-        href: "fundamentals_of_life_safety_obzh",
         imageName: path("subjects", "life-jacket.svg"),
         years: [false, false, false, false, true, true, true, true, true, true, true]
     }, {
         id: 17,
         title: "Технология",
-        href: "technology",
         imageName: path("subjects", "project-management.svg"),
         years: [false, false, false, false, true, true, true, true, true, true, true]
     }, {
         id: 18,
         title: "География",
-        href: "geography",
         imageName: path("subjects", "world-map.svg"),
         years: [false, false, false, false, false, true, true, true, true, true, false]
     }, {
         id: 19,
         title: "Биология",
-        href: "biology",
         imageName: path("subjects", "biology.svg"),
         years: [false, false, false, false, false, true, true, true, true, true, true]
     }, {
         id: 20,
         title: "Информатика",
-        href: "computer_science",
         imageName: path("subjects", "computer.svg"),
         years: [false, false, false, false, false, true, true, true, true, true, true]
     }, {
         id: 21,
         title: "Обществознание",
-        href: "social_science",
         imageName: path("subjects", "communities.svg"),
         years: [false, false, false, false, false, true, true, true, true, true, true]
     }, {
@@ -215,55 +196,46 @@ export const subjects = [
     }, {
         id: 23,
         title: "Алгебра",
-        href: "algebra",
         imageName: path("subjects", "algebra.svg"),
         years: [false, false, false, false, false, false, true, true, true, true, true]
     }, {
         id: 24,
         title: "Геометрия",
-        href: "geometry",
         imageName: path("subjects", "shapes.svg"),
         years: [false, false, false, false, false, false, true, true, true, true, true]
     }, {
         id: 25,
         title: "Физика",
-        href: "physics",
         imageName: path("subjects", "relativity.svg"),
         years: [false, false, false, false, false, false, true, true, true, true, true]
     }, {
         id: 26,
         title: "Химия",
-        href: "chemistry",
         imageName: path("subjects", "chemistry.svg"),
         years: [false, false, false, false, false, false, false, true, true, true, true]
     }, {
         id: 27,
         title: "Основы экономики",
-        href: "fundamentals_of_economics",
         imageName: path("subjects", "economic.svg"),
         years: [false, false, false, false, false, false, false, false, false, true, true]
     }, {
         id: 28,
         title: "Правоведение",
-        href: "jurisprudence",
         imageName: path("subjects", "justice.svg"),
         years: [false, false, false, false, false, false, false, false, false, true, true]
     }, {
         id: 29,
         title: "Философия",
-        href: "philosophy",
         imageName: path("subjects", "yin-yang.svg"),
         years: [false, false, false, false, false, false, false, false, false, true, true]
     }, {
         id: 30,
         title: "Экология",
-        href: "ecology",
         imageName: path("subjects", "eco.svg"),
         years: [false, false, false, false, false, false, false, false, false, true, true]
     }, {
         id: 31,
         title: "Астрономия",
-        href: "astronomy",
         imageName: path("subjects", "astronomy.svg"),
         years: [false, false, false, false, false, false, false, false, false, false, true]
     }

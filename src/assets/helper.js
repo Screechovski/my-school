@@ -27,7 +27,7 @@ const getIdAfter = (url, path) => {
     const rStart = url.indexOf(path);
     const id = url.substring(rStart + pathLength, rStart + pathLength + 2).replace("/", "");
 
-    return id;
+    return +id;
 }
 const include = (url, path) => url.indexOf(path) !== -1;
 const route = (data, resolve, reject) => {
@@ -47,39 +47,37 @@ const route = (data, resolve, reject) => {
     }, randomDelay())
 }
 
-const paths = ["/reviews", "/news", "/events", "/subjects", "/educators"];
-
 export const myFetch = (url) => new Promise((resolve, reject) => {
-    if (include(url, "/reviews")) {
-        route(generateReviews(20), resolve, reject);
-    } else if (include(url, "/reviews/")) {
-        const id = getIdAfter(url, "/reviews/");
+    if (include(url, "/reviews/")) {
+    const id = getIdAfter(url, "/reviews/");
 
-        route(generateReview(id), resolve, reject);
-    } else if (include(url, "/news")) {
-        route(generatePosts(20), resolve, reject);
+    route(generateReview(id), resolve, reject);
+    } else if (include(url, "/reviews")) {
+        route(generateReviews(20), resolve, reject);
     } else if (include(url, "/news/")) {
         const id = getIdAfter(url, "/news/")
 
         route(generatePost(id), resolve, reject);
-    } else if (include(url, "/events")) {
-        route(generateEvents(20), resolve, reject);
+    } else if (include(url, "/news")) {
+        route(generatePosts(20), resolve, reject);
     } else if (include(url, "/events/")) {
         const id = getIdAfter(url, "/events/");
 
         route(generateEvent(id), resolve, reject);
-    } else if (include(url, "/subjects")) {
-        route(generateSubjects(), resolve, reject);
+    } else if (include(url, "/events")) {
+        route(generateEvents(20), resolve, reject);
     } else if (include(url, "/subjects/")) {
         const id = getIdAfter(url, "/subjects/");
 
         route(generateSubject(id), resolve, reject);
-    } else if (include(url, "/educators")) {
-        route(generateEducators(), resolve, reject);
+    } else if (include(url, "/subjects")) {
+        route(generateSubjects(), resolve, reject);
     } else if (include(url, "/educators/")) {
         const id = getIdAfter(url, "/educators/");
 
         route(generateEducator(id), resolve, reject);
+    } else if (include(url, "/educators")) {
+        route(generateEducators(), resolve, reject);
     } else {
         setTimeout(() => reject({
             status: "ERROR",
@@ -88,3 +86,13 @@ export const myFetch = (url) => new Promise((resolve, reject) => {
         }), randomDelay())
     }
 })
+
+export const serverLog = (...text) => console.log("SERVER: ", ...text)
+export const clientLog = (...text) => console.log("CLIENT: ", ...text)
+export const getNumberArray = (length) => {
+    const res = [];
+    for (let i = length; i > 0; i--) {
+        res.push(i);
+    }
+    return res;
+}

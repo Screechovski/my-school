@@ -3,8 +3,8 @@ import React from 'react';
 //components
 import RMain from '../molecules/MainContent/MainContent';
 import RSidebar from '../molecules/Sidebar/Sidebar';
-import RMessageFormContainer from '../components/messageForm/messageFormContainer';
-import ReviewWrapContainer from './../components/reviewWrap/reviewWrapContainer';
+import RMessageFormContainer from './messageForm/messageFormContainer';
+import ReviewWrapContainer from './reviewWrap/reviewWrapContainer';
 
 export default class Review extends React.Component {
     render(){

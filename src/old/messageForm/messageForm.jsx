@@ -24,7 +24,7 @@ const messageForm = ({ email, title, message, handlerSetCurrentReviewEmail, hand
     }
 
     return (
-        <form className="message-form" action="">
+        <form className="message-form" action="src/old/messageForm/messageForm">
             <h2 className="message-form__title">Оставьте свой отзыв</h2>
             <label className="message-form__label" htmlFor="userEmail">
                 <h3 className="message-form__headline">Ваш email</h3>
