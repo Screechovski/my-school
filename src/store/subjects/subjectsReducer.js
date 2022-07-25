@@ -14,6 +14,8 @@ export const subjectsReducer = (state = initialState, action = {}) => {
         case SUBJECTS_AT.INIT_START: {
             return {
                 ...state,
+                subjects: null,
+                inited: false,
                 loading: true,
                 error: null,
             }
@@ -24,14 +26,16 @@ export const subjectsReducer = (state = initialState, action = {}) => {
                 subjects: payload,
                 inited: true,
                 loading: false,
+                error: null,
             }
         }
         case SUBJECTS_AT.INIT_FAIL: {
             return {
                 ...state,
-                error: payload,
+                subjects: null,
                 inited: false,
                 loading: false,
+                error: payload,
             }
         }
         default: {

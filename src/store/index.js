@@ -6,13 +6,15 @@ import {eventsReducer} from "./events/eventsReducer";
 import {subjectsReducer} from "./subjects/subjectsReducer";
 import {educatorsReducer} from "./educators/educatorsReducer";
 import {educatorInnerReducer} from "./educatorInner/educatorInnerReducer";
+import {newsInnerReducer} from "./newsInner/newsInnerReducer";
 
 const reducers = combineReducers({
     newsReducer,
     eventsReducer,
     subjectsReducer,
     educatorsReducer,
-    educatorInnerReducer
+    educatorInnerReducer,
+    newsInnerReducer
 });
 
 export const store = configureStore({
