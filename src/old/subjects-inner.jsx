@@ -2,7 +2,7 @@
 import React from 'react';
 //components
 import RMain from '../molecules/MainContent/MainContent';
-import RSubjectsInnerContent from './subjectsInnerContent/subjectsInnerContent';
+import RSubjectsInnerContent from '../molecules/SubjectInner/SubjectInner';
 import RSidebar from '../molecules/Sidebar/Sidebar';
 
 const subjects = ({title, educators, subjects, subjectId}) => {

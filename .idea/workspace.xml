@@ -20,10 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/subjects/subjectsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjects/subjectsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PageNewsInner/PageNewsInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageNewsInner/PageNewsInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/old/educators.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/old/news-inner.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/old/newsInnerContent/newsInnerContent.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/old/newsInnerContent/newsInnerContent.sass" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/old/subjects-inner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/old/subjects-inner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/old/subjectsInnerContent/subjectsInnerContent.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/old/subjectsInnerContent/subjectsInnerContent.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/old/subjectsTable/subjectsTable.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/old/subjectsTable/subjectsTable.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.module.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,17 +73,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Sites/my-app/src/store/newsInner",
-    "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Sites/my-app/src/store/newsInner&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Sites\my-app\src\store\newsInner" />
@@ -84,8 +93,8 @@
       <recent name="E:\Sites\my-app\src\store\news" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Sites\my-app\src\old" />
       <recent name="E:\Sites\my-app\src\molecules" />
+      <recent name="E:\Sites\my-app\src\old" />
       <recent name="E:\Sites\my-app\src\views\PageEducatorsInner" />
       <recent name="D:\sch\public" />
       <recent name="D:\sch\src\molecules" />
@@ -115,7 +124,9 @@
       <workItem from="1658431802381" duration="22000" />
       <workItem from="1658509571206" duration="4682000" />
       <workItem from="1658565732367" duration="15153000" />
-      <workItem from="1658767165813" duration="3621000" />
+      <workItem from="1658767165813" duration="4051000" />
+      <workItem from="1658840679853" duration="81000" />
+      <workItem from="1658859526603" duration="2266000" />
     </task>
     <servers />
   </component>
