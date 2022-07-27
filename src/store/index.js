@@ -7,6 +7,7 @@ import {subjectsReducer} from "./subjects/subjectsReducer";
 import {educatorsReducer} from "./educators/educatorsReducer";
 import {educatorInnerReducer} from "./educatorInner/educatorInnerReducer";
 import {newsInnerReducer} from "./newsInner/newsInnerReducer";
+import {subjectInnerReducer} from "./subjectInner/subjectInnerReducer";
 
 const reducers = combineReducers({
     newsReducer,
@@ -14,7 +15,8 @@ const reducers = combineReducers({
     subjectsReducer,
     educatorsReducer,
     educatorInnerReducer,
-    newsInnerReducer
+    newsInnerReducer,
+    subjectInnerReducer
 });
 
 export const store = configureStore({

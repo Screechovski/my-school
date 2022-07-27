@@ -1,13 +1,18 @@
-import { subjects } from "./items";
+import {educators, subjects} from "./items";
 
-export const generateSubjects = () => subjects.map(({
-    id,
-    title,
-    imageName,
-}) => ({
-    id,
-    title,
-    imageName,
-}));
+export const generateSubjects = () => subjects();
 
-export const generateSubject = (value) => subjects.find(({ id }) => id === value);
+export const generateSubject = (value) => {
+    const result = {
+        subject: subjects().find(({ id }) => id === value),
+        educators: []
+    };
+
+    educators().forEach(educator => {
+        if (educator.coursesTaught.includes(value)) {
+            result.educators.push(educator);
+        }
+    })
+
+    return result;
+};

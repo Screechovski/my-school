@@ -20,19 +20,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old/educators.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old/news-inner.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old/newsInnerContent/newsInnerContent.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old/newsInnerContent/newsInnerContent.sass" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old/subjects-inner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/old/subjects-inner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old/subjectsInnerContent/subjectsInnerContent.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old/subjectsInnerContent/subjectsInnerContent.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old/subjectsTable/subjectsTable.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old/subjectsTable/subjectsTable.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/generators/educators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/generators/educators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/generators/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/generators/events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/generators/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/generators/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/generators/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/generators/posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/generators/reviews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/generators/reviews.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/generators/subjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/generators/subjects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/helper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainContentSubjectInner/MainContentSubjectInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentSubjectInner/MainContentSubjectInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/EducatorInner/EducatorInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EducatorInner/EducatorInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/old/subjects-inner.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageEducatorInner/PageEducatorInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageEducatorInner/PageEducatorInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageEducators/PageEducators.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageEducators/PageEducators.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageIndex/PageIndex.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageIndex/PageIndex.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageNews/PageNews.module.sass" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageNewsInner/PageNewsInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageNewsInner/PageNewsInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageNewsInner/PageNewsInner.module.sass" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageSubjectInner/PageSubjectInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageSubjectInner/PageSubjectInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PageSubjects/PageSubjects.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageSubjects/PageSubjects.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,24 +86,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Sites/my-app/src/store/newsInner&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/Sites/my-app/src/store/subjectInner",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Sites\my-app\src\store\subjectInner" />
       <recent name="E:\Sites\my-app\src\store\newsInner" />
       <recent name="E:\Sites\my-app\src\store\educatorsInner" />
       <recent name="E:\Sites\my-app\src\store\educators" />
       <recent name="E:\Sites\my-app\src\store\subjects" />
-      <recent name="E:\Sites\my-app\src\store\news" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Sites\my-app\src\molecules" />
@@ -126,7 +139,9 @@
       <workItem from="1658565732367" duration="15153000" />
       <workItem from="1658767165813" duration="4051000" />
       <workItem from="1658840679853" duration="81000" />
-      <workItem from="1658859526603" duration="2266000" />
+      <workItem from="1658859526603" duration="3060000" />
+      <workItem from="1658905826781" duration="2000" />
+      <workItem from="1658942131394" duration="6216000" />
     </task>
     <servers />
   </component>

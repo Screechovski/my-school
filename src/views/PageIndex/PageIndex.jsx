@@ -1,11 +1,11 @@
-import React, {memo} from 'react';
+import React from 'react';
 import css from './PageIndex.module.sass'
 import {CONSTANTS} from "../../assets/constants";
 import {IndexSection} from "../../molecules/IndexSection/IndexSection";
 import {IndexNews} from "../../components/IndexNews/IndexNews";
 import {IndexEvents} from "../../components/IndexEvents/IndexEvents";
 
-export const PageIndex = memo(() => {
+export const PageIndex = () => {
     return (
         <section className={css.index + " r-container"}>
             <img src="" className={css.index__slider}/>
@@ -28,4 +28,4 @@ export const PageIndex = memo(() => {
             </ul>
         </section>
     )
-})
+}

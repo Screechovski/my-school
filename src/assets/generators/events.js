@@ -6,8 +6,8 @@ export const generateEvents = (count) => {
     for (let i = count; i > 0; i--) {
         events.push({
             id: count - i + 1,
-            title: titles[i-1],
-            message: messages[i-1],
+            title: titles()[i-1],
+            message: messages()[i-1],
             date: generateDate(),
         })
     }
@@ -17,7 +17,7 @@ export const generateEvents = (count) => {
 
 export const generateEvent = (id) => ({
     id,
-    title: titles[19 - id],
-    messages: messages[19 - id],
+    title: titles()[19 - id],
+    messages: messages()[19 - id],
     date: generateDate(),
 })

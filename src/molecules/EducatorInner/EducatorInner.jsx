@@ -44,12 +44,13 @@ export const EducatorInner = memo(({
             <footer className={css.educatorInner__footer}>
                 <h3 className={css.educatorInner__subtitile}>Преподаваемые дисциплины:</h3>
                 <div className={css.educatorInner__subjects}>
-                    {coursesTaught.map(subject=>
+                    {coursesTaught.map(subject =>
                         <SubjectCard
                             image={subject.imageName}
                             title={subject.title}
                             id={subject.id}
-                            key={subject.id}/>)}
+                            key={subject.id}
+                        />)}
                 </div>
             </footer>
         </article>

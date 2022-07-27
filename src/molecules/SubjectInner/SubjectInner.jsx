@@ -5,18 +5,18 @@ import {EducatorCard} from "../EducatorCard/EducatorCard";
 
 export const SubjectInner = memo(({
     title,
-    educators,
+    educators = [],
     subjects,
     subjectId
 }) => {
     return (
-        <article>
-            <header>
+        <article className={css.subjectInner}>
+            <header className={css.subjectInner__header}>
                 <h2 className={css.subjectInner__title}>{title}</h2>
                 <p className={css.subjectInner__desc}>Описание предмета и т.д Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet fugiat dolore sequi necessitatibus ad numquam veritatis corporis ex porro. Hic, praesentium eligendi at officia voluptatum dolore laudantium autem perferendis aut ipsa magnam debitis. Quibusdam ipsa ipsam harum nisi delectus, quam doloremque aliquid totam voluptas laboriosam itaque, ipsum, earum molestiae aspernatur.</p>
                 <p className={css.subjectInner__desc}>Описание предмета и т.д Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet fugiat dolore sequi necessitatibus ad numquam veritatis corporis ex porro. Hic, praesentium eligendi at officia voluptatum dolore laudantium autem perferendis aut ipsa magnam debitis. Quibusdam ipsa ipsam harum nisi delectus, quam doloremque aliquid totam voluptas laboriosam itaque, ipsum, earum molestiae aspernatur.</p>
             </header>
-            <footer>
+            <footer className={css.subjectInner__footer}>
                 <SubjectTable
                     subjects={subjects}
                     subjectId={subjectId}
@@ -32,6 +32,7 @@ export const SubjectInner = memo(({
                             imageName,
                         }) =>
                             <EducatorCard
+                                key={id}
                                 image={imageName}
                                 name={name}
                                 email={email}

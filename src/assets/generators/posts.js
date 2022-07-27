@@ -7,10 +7,10 @@ export const generatePosts = (count) => {
     for (let i = 0; i < count; i++) {
         posts.push({
             id: i + 1,
-            title: titles[i],
+            title: titles()[i],
             image: "null",
             date: generateDate(),
-            message: messages[i]
+            message: messages()[i]
         })
     }
 
@@ -19,8 +19,8 @@ export const generatePosts = (count) => {
 
 export const generatePost = (id) => ({
     id,
-    title: titles[id - 1],
+    title: titles()[id - 1],
     image: "null",
     date: generateDate(),
-    message: messages[id - 1]
+    message: messages()[id - 1]
 })

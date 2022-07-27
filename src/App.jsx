@@ -29,7 +29,6 @@ export const App = (props) => {
                 <Route path="/news-inner/:newsId" element={<PageNewsInner />} />
                 <Route path="/subjects-inner/:subjectId" element={<PageSubjectInner />} />
 
-                {/*<Route path="/news-inner/:newsId" element={<span />} />*/}
             </Routes>
             <Footer />
         </BrowserRouter>

@@ -19,8 +19,8 @@ export const generateReviews = (count) => {
 export const generateReview = id => ({
     id,
     image: manPhoto,
-    message: messages[i],
+    message: messages[id],
     createAt: generateDate(),
-    name: names[i]
+    name: names[id]
 })
 

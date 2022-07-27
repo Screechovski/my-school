@@ -22,6 +22,7 @@ export const getRandomBetween = (min, max) => {
 const randomDelay = () => {
     return getRandomBetween(1, 1000);
 }
+
 const getIdAfter = (url, path) => {
     const pathLength = path.length;
     const rStart = url.indexOf(path);
@@ -29,7 +30,9 @@ const getIdAfter = (url, path) => {
 
     return +id;
 }
+
 const include = (url, path) => url.indexOf(path) !== -1;
+
 const route = (data, resolve, reject) => {
     setTimeout(() => {
         if (Math.random() > errorChanse) {
