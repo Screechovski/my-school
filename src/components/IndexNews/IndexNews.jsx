@@ -1,42 +1,36 @@
-import React, {memo, useEffect} from "react";
-import { useDispatch } from 'react-redux'
+import React, {memo} from "react";
 import css from "./IndexNews.module.sass";
-import {newsInit} from "../../store/news/newsActions";
 import {NewsCard, NewsCardLoading} from "../../molecules/NewsCard/NewsCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
-import {newsHook} from "../../store/news/newsHook";
 import {getNumberArray} from "../../assets/helper";
-
-let fixStrict = false;
+import {useQuery} from "@tanstack/react-query";
+import {newsQuery} from "../../queryes/news";
+import {num} from "../../assets/magicNumbers";
 
 export const IndexNews = memo(() => {
-    const { newsLoading, newsInited, newsError, news } = newsHook({ count: 10});
-    const dispatch = useDispatch();
+    const {isSuccess, data, isLoading, error, refetch} = useQuery(
+        ["news"],
+        newsQuery
+    );
 
-    useEffect(() => {
-        if (fixStrict) return;
-        fixStrict = true;
-
-        !newsInited && dispatch(newsInit())
-    }, [])
-
-    if (!newsLoading && !newsInited && !newsError) {
+    if (!isLoading && !isSuccess && !error) {
         return <></>;
     }
-    if (newsLoading) {
+    if (isLoading) {
         return (
             <ul className={css.indexNews}>
-                {getNumberArray(10).map(id =>
+                {getNumberArray(10).map((id) => (
                     <li className={css.indexNews__item} key={id}>
                         <NewsCardLoading />
-                    </li>)}
+                    </li>
+                ))}
             </ul>
-        )
+        );
     }
-    if (newsInited) {
+    if (isSuccess) {
         return (
             <ul className={css.indexNews}>
-                {news.map(item =>
+                {data.data.slice(0, num.index.newsCount).map((item) => (
                     <li className={css.indexNews__item} key={item.id}>
                         <NewsCard
                             title={item.title}
@@ -45,15 +39,13 @@ export const IndexNews = memo(() => {
                             body={item.message}
                             mainImgUrl={item.image}
                         />
-                    </li>)}
+                    </li>
+                ))}
             </ul>
-        )
+        );
     }
-    if (newsError) {
-        return <ErrorLine
-            message={newsError}
-            reload={() => dispatch(newsInit())}
-        />
+    if (error) {
+        return <ErrorLine message={error.error} reload={refetch} />;
     }
     console.warn("Error IndexNews unknown state");
-})
+});

@@ -1,30 +1,30 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-let mode = 'development';
-let publicPath = '/'
-let target = 'web';
+let mode = "development";
+let publicPath = "/"
+let target = "web";
 let envName = process.env.NODE_ENV;
 
-if (envName === 'production') {
-    mode = 'production';
-    target = 'browserslist';
+if (envName === "production") {
+    mode = "production";
+    target = "browserslist";
 }
 
 module.exports = {
-    entry: './src/index.js',
+    entry: "./src/index.js",
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: "./src/index.html"
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
+            filename: "[name].[contenthash].css",
         }),
     ],
     output: {
-        filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'public'),
+        filename: "[name].[contenthash].js",
+        path: path.resolve(__dirname, "public"),
         publicPath,
         clean: true,
     },
@@ -40,30 +40,42 @@ module.exports = {
                     envName,
                 }
             }
-        },{
+        }, {
             test: /\.(s[ac]|c)ss$/i, // /\.(le|c)ss$/i если вы используете less
             use: [
                 MiniCssExtractPlugin.loader,
-                'css-loader',
-                'postcss-loader',
-                'sass-loader',
+                "css-loader",
+                {
+                    loader: "postcss-loader",
+                    options: {
+                        postcssOptions: {
+                            plugins: [
+                                [
+                                    "autoprefixer",
+                                    {},
+                                ],
+                            ],
+                        },
+                    },
+                },
+                "sass-loader",
             ],
         }]
     },
     resolve: {
         extensions: [".js", ".jsx"],
         alias: {
-            "@": path.resolve(__dirname, 'src'),
+            "@": path.resolve(__dirname, "src"),
         }
     },
     optimization: {
-        runtimeChunk: 'single',
+        runtimeChunk: "single",
     },
-    devtool: 'source-map',
+    devtool: "source-map",
     devServer: {
         hot: true,
         static: {
-            directory: path.join(__dirname, 'img'),
+            directory: path.join(__dirname, "img"),
         },
         compress: true,
         port: 8080,

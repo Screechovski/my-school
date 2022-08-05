@@ -1,44 +1,36 @@
-import React, { memo, useEffect } from "react";
+import React, {memo} from "react";
 import css from "./MainContentEducators.module.sass";
 import {getNumberArray} from "../../assets/helper";
-import {EducatorCard, EducatorCardLoading} from "../../molecules/EducatorCard/EducatorCard";
+import {
+    EducatorCard,
+    EducatorCardLoading
+} from "../../molecules/EducatorCard/EducatorCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
-import {educatorsInit} from "../../store/educators/educatorsActions";
 import {MainContent} from "../../molecules/MainContent/MainContent";
-import {educatorsHook} from "../../store/educators/educatorsHook";
-import {useDispatch} from "react-redux";
+import {useQuery} from "@tanstack/react-query";
+import {educatorsQuery} from "../../queryes/educators";
 
 export const MainContentEducators = memo(() => {
-    const { educatorsLoading, educatorsInited, educatorsError, educators } = educatorsHook();
-
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (!educatorsInited && !educatorsLoading) dispatch(educatorsInit())
-    }, [])
+    const {isSuccess, data, isLoading, error, refetch} = useQuery(
+        ["educators"],
+        educatorsQuery
+    );
 
     return (
-        <MainContent
-            cssClass="page__mainContainer"
-            title="Преподаватели"
-        >
-            {educatorsLoading &&
+        <MainContent cssClass="page__mainContainer" title="Преподаватели">
+            {isLoading && (
                 <ul className={css.mainContentEducators__list}>
-                    {getNumberArray(15).map((id) =>
+                    {getNumberArray(15).map((id) => (
                         <li key={id}>
                             <EducatorCardLoading />
-                        </li>)}
-                </ul>}
+                        </li>
+                    ))}
+                </ul>
+            )}
 
-            {educatorsInited &&
+            {isSuccess && (
                 <ul className={css.mainContentEducators__list}>
-                    {educators.map(({
-                        id,
-                        name,
-                        tel,
-                        email,
-                        imageName,
-                    }) =>
+                    {data.data.map(({id, name, tel, email, imageName}) => (
                         <li key={id}>
                             <EducatorCard
                                 image={imageName}
@@ -47,14 +39,12 @@ export const MainContentEducators = memo(() => {
                                 id={id}
                                 phone={tel}
                             />
-                        </li>)}
-                </ul>}
+                        </li>
+                    ))}
+                </ul>
+            )}
 
-            {educatorsError &&
-                <ErrorLine
-                    message={educatorsError}
-                    reload={() => dispatch(educatorsInit())}
-                />}
+            {error && <ErrorLine message={error?.error} reload={refetch} />}
         </MainContent>
-    )
-})
+    );
+});

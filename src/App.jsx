@@ -11,31 +11,31 @@ import {PageEducatorInner} from "./views/PageEducatorInner/PageEducatorInner";
 import {PageNewsInner} from "./views/PageNewsInner/PageNewsInner";
 import {PageSubjectInner} from "./views/PageSubjectInner/PageSubjectInner";
 
-export const App = (props) => {
+export const App = () => {
     return (
         <BrowserRouter>
-            <Header />
+            <Header/>
             <Routes>
-                <Route exact path="/" element={<PageIndex />} />
-                <Route path="/news" element={<PageNews />} />
-                <Route path="/subjects" element={<PageSubjects />} />
-                <Route path="/educators" element={<PageEducators />} />
+                <Route exact path="/" element={<PageIndex/>}/>
+                <Route path="/news" element={<PageNews/>}/>
+                <Route path="/subjects" element={<PageSubjects/>}/>
+                <Route path="/educators" element={<PageEducators/>}/>
 
-                <Route path="/about" element={<span />} />
-                <Route path="/miscellanea" element={<span />} />
-                <Route path="/review" element={<span />} />
+                <Route path="/about" element={<span/>}/>
+                <Route path="/miscellanea" element={<span/>}/>
+                <Route path="/review" element={<span/>}/>
 
                 <Route
                     path="/educator-inner/:educatorId"
-                    element={<PageEducatorInner />}
+                    element={<PageEducatorInner/>}
                 />
-                <Route path="/news-inner/:newsId" element={<PageNewsInner />} />
+                <Route path="/news-inner/:newsId" element={<PageNewsInner/>}/>
                 <Route
                     path="/subjects-inner/:subjectId"
-                    element={<PageSubjectInner />}
+                    element={<PageSubjectInner/>}
                 />
             </Routes>
-            <Footer />
+            <Footer/>
         </BrowserRouter>
     );
 };
