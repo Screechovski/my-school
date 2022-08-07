@@ -21,33 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/magicNumbers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/magicNumbers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IndexEvents/IndexEvents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexEvents/IndexEvents.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IndexNews/IndexNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexNews/IndexNews.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainContentNews/MainContentNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentNews/MainContentNews.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainContentSubjects/MainContentSubjects.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentSubjects/MainContentSubjects.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SidebarEvents/SidebarEvents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidebarEvents/SidebarEvents.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SidebarNews/SidebarNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidebarNews/SidebarNews.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/events/eventsActionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/events_DEPRECATED/eventsActionCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/events/eventsActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/events_DEPRECATED/eventsActionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/events/eventsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/events_DEPRECATED/eventsActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/events/eventsHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/events_DEPRECATED/eventsHook.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/events/eventsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/events_DEPRECATED/eventsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/events/eventsSelectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/events_DEPRECATED/eventsSelectors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/news/newsActionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/news_DEPRECATED/newsActionCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/news/newsActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/news_DEPRECATED/newsActionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/news/newsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/news_DEPRECATED/newsActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/news/newsHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/news_DEPRECATED/newsHook.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/news/newsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/news_DEPRECATED/newsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/news/newsSelectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/news_DEPRECATED/newsSelectors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/subjects/subjectsActionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjects_DEPRECATED/subjectsActionCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/subjects/subjectsActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjects_DEPRECATED/subjectsActionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/subjects/subjectsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjects_DEPRECATED/subjectsActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/subjects/subjectsHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjects_DEPRECATED/subjectsHook.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/subjects/subjectsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjects_DEPRECATED/subjectsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/subjects/subjectsSelectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjects_DEPRECATED/subjectsSelectors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +121,7 @@
       <workItem from="1658942131394" duration="6216000" />
       <workItem from="1659217161171" duration="63000" />
       <workItem from="1659722698188" duration="5170000" />
-      <workItem from="1659867842668" duration="2196000" />
+      <workItem from="1659867842668" duration="2843000" />
     </task>
     <servers />
   </component>
