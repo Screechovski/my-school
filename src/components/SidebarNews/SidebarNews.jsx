@@ -1,57 +1,49 @@
-import React, {memo, useEffect} from "react";
+import React, {memo} from "react";
 import {getNumberArray} from "../../assets/helper";
 import {NewsCard, NewsCardLoading} from "../../molecules/NewsCard/NewsCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
-import {newsInit} from "../../store/news/newsActions";
 import {Sidebar} from "../../molecules/Sidebar/Sidebar";
-import {newsHook} from "../../store/news/newsHook";
-import {useDispatch} from "react-redux";
+import {useQuery} from "@tanstack/react-query";
+import {newsQuery} from "../../queryes/news";
+import {NUM} from "../../assets/constants";
 
 export const SidebarNews = memo(() => {
-    const { newsLoading, newsInited, newsError, news } = newsHook({ count: 4 });
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (!newsInited && !newsLoading) dispatch(newsInit())
-    }, [])
+    const {isSuccess, data, isLoading, isError, error, refetch} = useQuery(
+        ["news"],
+        newsQuery
+    );
 
     return (
-        <Sidebar
-            title="Новости"
-            cssClass="page__sidebar"
-        >
-            {newsLoading &&
+        <Sidebar title="Новости" cssClass="page__sidebar">
+            {isLoading && (
                 <ul className="page__sidebarList">
-                    {getNumberArray(4).map(id =>
+                    {getNumberArray(NUM.news.sidebar).map((id) => (
                         <li key={id}>
                             <NewsCardLoading />
-                        </li>)}
-                </ul>}
+                        </li>
+                    ))}
+                </ul>
+            )}
 
-            {newsInited && <ul className="page__sidebarList">
-                {news.map(({
-                    title,
-                    id,
-                    date,
-                    message,
-                    image
-                }) =>
-                    <li key={id}>
-                        <NewsCard
-                            title={title}
-                            id={id}
-                            date={date}
-                            body={message}
-                            mainImgUrl={image}
-                        />
-                    </li>)}
-            </ul>}
+            {isSuccess && (
+                <ul className="page__sidebarList">
+                    {data.data
+                        .slice(0, NUM.news.sidebar)
+                        .map(({title, id, date, message, image}) => (
+                            <li key={id}>
+                                <NewsCard
+                                    title={title}
+                                    id={id}
+                                    date={date}
+                                    body={message}
+                                    mainImgUrl={image}
+                                />
+                            </li>
+                        ))}
+                </ul>
+            )}
 
-            {newsError &&
-                <ErrorLine
-                    message={newsError}
-                    reload={() => dispatch(newsInit())}
-                />}
+            {isError && <ErrorLine message={error.error} reload={refetch} />}
         </Sidebar>
-    )
-})
+    );
+});

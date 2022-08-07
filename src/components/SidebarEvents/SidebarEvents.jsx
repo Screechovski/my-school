@@ -1,56 +1,48 @@
-import React, {useEffect, memo} from "react";
+import React, {memo} from "react";
 import {getNumberArray} from "../../assets/helper";
 import {EventCard, EventCardLoading} from "../../molecules/EventCard/EventCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
-import {eventsInit} from "../../store/events/eventsActions";
 import {Sidebar} from "../../molecules/Sidebar/Sidebar";
-import {eventsHook} from "../../store/events/eventsHook";
-import {useDispatch} from "react-redux";
+import {useQuery} from "@tanstack/react-query";
+import {eventsQuery} from "../../queryes/events";
+import {NUM} from "../../assets/constants";
 
 export const SidebarEvents = memo(() => {
-    const { eventsInited, eventsLoading, eventsError, events } = eventsHook(4);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (!eventsInited && !eventsLoading && !eventsError) dispatch(eventsInit());
-    }, [])
+    const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
+        ["events"],
+        eventsQuery
+    );
 
     return (
-        <Sidebar
-            title="Мероприятия"
-            cssClass="page__sidebar"
-        >
-            {eventsLoading &&
+        <Sidebar title="Мероприятия" cssClass="page__sidebar">
+            {isLoading && (
                 <ul className="page__sidebarList">
-                    {getNumberArray(4).map(id => <li key={id}>
-                        <EventCardLoading />
-                    </li>)}
-                </ul>}
-
-            {eventsInited &&
-                <ul className="page__sidebarList">
-                    {events.map(({
-                        date,
-                        id,
-                        message,
-                        title
-                    }) =>
+                    {getNumberArray(NUM.events.sidebar).map((id) => (
                         <li key={id}>
-                            <EventCard
-                                title={title}
-                                id={id}
-                                date={date}
-                                body={message}
-                            />
-                        </li>)}
-                </ul>}
+                            <EventCardLoading />
+                        </li>
+                    ))}
+                </ul>
+            )}
 
-            {eventsError &&
-                <ErrorLine
-                    message={eventsError}
-                    loading={eventsLoading}
-                    reload={() => dispatch(eventsInit())}
-                />}
+            {isSuccess && (
+                <ul className="page__sidebarList">
+                    {data.data
+                        .slice(0, NUM.events.sidebar)
+                        .map(({date, id, message, title}) => (
+                            <li key={id}>
+                                <EventCard
+                                    title={title}
+                                    id={id}
+                                    date={date}
+                                    body={message}
+                                />
+                            </li>
+                        ))}
+                </ul>
+            )}
+
+            {isError && <ErrorLine message={error.error} reload={refetch} />}
         </Sidebar>
-    )
-})
+    );
+});

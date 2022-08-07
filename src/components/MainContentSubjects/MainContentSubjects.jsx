@@ -1,55 +1,49 @@
-import React, {memo, useEffect} from "react";
+import React, {memo} from "react";
 import css from "./MainContentSubjects.module.sass";
 import {getNumberArray} from "../../assets/helper";
-import {SubjectCard, SubjectCardLoading} from "../../molecules/SubjectCard/SubjectCard";
+import {
+    SubjectCard,
+    SubjectCardLoading
+} from "../../molecules/SubjectCard/SubjectCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
-import {subjectsInit} from "../../store/subjects/subjectsActions";
 import {MainContent} from "../../molecules/MainContent/MainContent";
-import {subjectsHook} from "../../store/subjects/subjectsHook";
-import {useDispatch} from "react-redux";
+import {useQuery} from "@tanstack/react-query";
+import {subjectsQuery} from "../../queryes/subjects";
+import {NUM} from "../../assets/constants";
 
 export const MainContentSubjects = memo(() => {
-    const { subjectsInited, subjectsLoading, subjectsError, subjects } = subjectsHook();
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (!subjectsInited && !subjectsLoading) dispatch(subjectsInit());
-    }, [])
+    const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
+        ["subjects"],
+        subjectsQuery
+    );
 
     return (
-        <MainContent
-            cssClass="page__mainContainer"
-            title="Предметы"
-        >
-            {subjectsLoading &&
+        <MainContent cssClass="page__mainContainer" title="Предметы">
+            {isLoading && (
                 <ul className={css.mainContentSubjects__list}>
-                    {getNumberArray(32).map(id =>
+                    {getNumberArray(NUM.subjects.count).map((id) => (
                         <li key={id}>
                             <SubjectCardLoading />
-                        </li>)}
-                </ul>}
+                        </li>
+                    ))}
+                </ul>
+            )}
 
-            {subjectsInited &&
+            {isSuccess && (
                 <ul className={css.mainContentSubjects__list}>
-                    {subjects.map(({
-                        id,
-                        title,
-                        imageName,
-                    }) =>
+                    {data.data.map(({id, title, imageName}) => (
                         <li key={id}>
                             <SubjectCard
                                 image={imageName}
                                 title={title}
                                 id={id}
                             />
-                        </li>)}
-                </ul>}
+                        </li>
+                    ))}
+                </ul>
+            )}
 
-            {subjectsError &&
-                <ErrorLine
-                    message={subjectsError}
-                    reload={() => dispatch(subjectsInit())}
-                />}
+            {isError && <ErrorLine message={error.error} reload={refetch} />}
         </MainContent>
-    )
-})
+    );
+});

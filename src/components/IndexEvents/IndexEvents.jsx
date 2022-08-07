@@ -1,43 +1,34 @@
-import React, {memo} from 'react';
-import { useEffect } from 'react';
-import {useDispatch} from 'react-redux';
-import {eventsInit} from "../../store/events/eventsActions";
+import React, {memo} from "react";
 import css from "./IndexEvents.module.sass";
 import {EventCard, EventCardLoading} from "../../molecules/EventCard/EventCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
-import {eventsHook} from "../../store/events/eventsHook";
 import {getNumberArray} from "../../assets/helper";
-
-let fixStrict = false;
+import {useQuery} from "@tanstack/react-query";
+import {eventsQuery} from "../../queryes/events";
+import {NUM} from "../../assets/constants";
 
 export const IndexEvents = memo(({}) => {
-    const { eventsInited, eventsLoading, eventsError, events } = eventsHook(10);
-    const dispatch = useDispatch();
+    const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
+        ["events"],
+        eventsQuery
+    );
 
-    useEffect(() => {
-        if (fixStrict) return;
-        fixStrict = true;
-
-        !eventsInited && dispatch(eventsInit())
-    }, [])
-
-    if (!eventsLoading && !eventsInited && !eventsError) {
-        return <></>;
-    }
-    if (eventsLoading) {
+    if (isLoading) {
         return (
             <ul className={css.indexEvents}>
-                {getNumberArray(10).map(id =>
+                {getNumberArray(NUM.events.indexPage).map((id) => (
                     <li className={css.indexEvents__item} key={id}>
                         <EventCardLoading />
-                    </li>)}
+                    </li>
+                ))}
             </ul>
-        )
+        );
     }
-    if (eventsInited) {
+
+    if (isSuccess) {
         return (
             <ul className={css.indexEvents}>
-                {events.map(item =>
+                {data.data.slice(0, NUM.events.indexPage).map((item) => (
                     <li className={css.indexEvents__item} key={item.id}>
                         <EventCard
                             title={item.title}
@@ -45,15 +36,15 @@ export const IndexEvents = memo(({}) => {
                             date={item.date}
                             body={item.message}
                         />
-                    </li>)}
+                    </li>
+                ))}
             </ul>
-        )
+        );
     }
-    if (eventsError) {
-        return <ErrorLine
-            message={eventsError}
-            reload={() => dispatch(eventsInit())}
-        />
+
+    if (isError) {
+        return <ErrorLine message={error.error} reload={refetch} />;
     }
+
     return <></>;
-})
+});
