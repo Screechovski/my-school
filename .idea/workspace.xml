@@ -21,25 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/EducatorCard/EducatorCard.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EducatorCard/EducatorCard.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/EducatorInner/EducatorsInner.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EducatorInner/EducatorsInner.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/ErrorLine/ErrorLine.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/ErrorLine/ErrorLine.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Footer/Footer.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Footer/Footer.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Header/Header.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Header/Header.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/IndexSection/IndexSection.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/IndexSection/IndexSection.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Navigation/Navigation.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Navigation/Navigation.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/NewsInner/NewsInner.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/NewsInner/NewsInner.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Sidebar/Sidebar.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Sidebar/Sidebar.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectCard/SubjectCard.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectCard/SubjectCard.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/generators/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/generators/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/generators/subjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/generators/subjects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainContentNewsInner/MainContentNewsInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentNewsInner/MainContentNewsInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainContentSubjectInner/MainContentSubjectInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentSubjectInner/MainContentSubjectInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old/messageForm/messageForm.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/old/messageForm/messageForm.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old/reviewCard/reviewCard.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/old/reviewCard/reviewCard.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PageIndex/PageIndex.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PageIndex/PageIndex.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/queryes/subjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/queryes/subjects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/subjectInner/subjectInnerActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjectInner/subjectInnerActions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +130,7 @@
       <workItem from="1659217161171" duration="63000" />
       <workItem from="1659722698188" duration="5170000" />
       <workItem from="1659867842668" duration="3952000" />
-      <workItem from="1659943074982" duration="2779000" />
+      <workItem from="1659943074982" duration="9995000" />
     </task>
     <servers />
   </component>

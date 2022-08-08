@@ -1,29 +1,40 @@
 .subjectsTable
     width: 100%
     max-width: 920px
+    &__head
+        background-color: rgba(255,255,255,0.75)
+        @apply rounded-medium top-small sticky z-10 block
     &__gridedRow
         display: grid
         grid-template-columns: auto repeat(11, 40px)
-        padding: 5px 0px 5px 10px
-    &__bodyRow
-        @apply rounded-small
-        &:hover
-            @apply bg-layout
+    &__headerRow
+        @apply pl-small
     &__headerCol
         height: 40px
         min-width: 40px
         display: flex
         justify-content: center
         align-items: center
+        &_active
+            background-color: rgba(236, 236, 236, 1)
         span
             width: 100%
             text-align: left
             line-height: 1.2em
+    &__bodyRow
+        @apply rounded-small pl-small
+        &:hover
+            @apply bg-layout
     &__bodyCol
-        height: 25px
+        height: 35px
         min-width: 25px
+        padding: 5px 0
         img
             display: block
             height: 20px
             width: 20px
             margin: 0 auto
+        &_active
+            background-color: rgba(236, 236, 236, 1)
+    &__subjectLink
+        @apply text-link

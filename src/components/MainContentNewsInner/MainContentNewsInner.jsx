@@ -8,35 +8,35 @@ import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {MainContent} from "../../molecules/MainContent/MainContent";
 
 export const MainContentNewsInner = memo(() => {
-    const { newsId } = useParams();
+    const {newsId} = useParams();
     const dispatch = useDispatch();
-    const {newsInnerInited, newsInnerLoading, newsInnerError, newsInner} = newsInnerHook(newsId);
+    const {newsInnerInited, newsInnerLoading, newsInnerError, newsInner} =
+        newsInnerHook(newsId);
 
     useEffect(() => {
-        if (!newsInnerInited && !newsInnerLoading) dispatch(newsInnerInit(newsId));
-    }, [])
+        if (!newsInnerInited && !newsInnerLoading)
+            dispatch(newsInnerInit(newsId));
+    }, [newsInnerInited, newsInnerLoading]);
 
     return (
-        <MainContent
-            cssClass="page__mainContainer"
-            title="Новость"
-        >
+        <MainContent cssClass="page__mainContainer" title="Новость">
             {newsInnerLoading && <NewsInnerLoading />}
 
-            {newsInnerInited &&
+            {newsInnerInited && (
                 <NewsInner
                     image={newsInner.image}
                     title={newsInner.title}
                     date={newsInner.date}
                     message={newsInner.message}
-                />}
+                />
+            )}
 
-            {newsInnerError &&
+            {newsInnerError && (
                 <ErrorLine
                     message={newsInnerError}
                     reload={() => dispatch(newsInnerInit(newsId))}
-                />}
+                />
+            )}
         </MainContent>
-    )
-})
-
+    );
+});
