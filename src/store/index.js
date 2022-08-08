@@ -5,18 +5,18 @@ import {configureStore} from "@reduxjs/toolkit";
 // import {eventsReducer} from "./events/eventsReducer";
 // import {subjectsReducer} from "./subjects/subjectsReducer";
 // import {educatorsReducer} from "./educators/educatorsReducer";
-import {educatorInnerReducer} from "./educatorInner/educatorInnerReducer";
-import {newsInnerReducer} from "./newsInner/newsInnerReducer";
-import {subjectInnerReducer} from "./subjectInner/subjectInnerReducer";
+// import {educatorInnerReducer} from "./educatorInner/educatorInnerReducer";
+// import {newsInnerReducer} from "./newsInner/newsInnerReducer";
+// import {subjectInnerReducer} from "./subjectInner/subjectInnerReducer";
 
 const reducers = combineReducers({
     // newsReducer,
     // eventsReducer,
     // subjectsReducer,
     // educatorsReducer,
-    educatorInnerReducer,
-    newsInnerReducer,
-    subjectInnerReducer
+    // educatorInnerReducer,
+    // newsInnerReducer,
+    // subjectInnerReducer
 });
 
 export const store = configureStore({

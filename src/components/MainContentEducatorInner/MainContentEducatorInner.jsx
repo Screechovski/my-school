@@ -1,46 +1,39 @@
-import React, {memo, useEffect} from "react";
-import {EducatorInner, EducatorInnerLoading} from "../../molecules/EducatorInner/EducatorInner";
+import React, {memo} from "react";
+import {
+    EducatorInner,
+    EducatorInnerLoading
+} from "../../molecules/EducatorInner/EducatorInner";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
-import {educatorInnerInit} from "../../store/educatorInner/educatorInnerActions";
 import {MainContent} from "../../molecules/MainContent/MainContent";
-import {educatorInnerHook} from "../../store/educatorInner/educatorInnerHook";
-import {useDispatch} from "react-redux";
 import {useParams} from "react-router-dom";
+import {useQuery} from "@tanstack/react-query";
+import {educatorQuery} from "../../queryes/educators";
 
 export const MainContentEducatorInner = memo(() => {
-    const { educatorId } = useParams();
-    const { educatorInnerInited, educatorInnerLoading, educatorInnerError, educatorInner } = educatorInnerHook(educatorId);
-
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (!educatorInnerInited && !educatorInnerLoading && !educatorInnerError) dispatch(educatorInnerInit(educatorId));
-    }, [])
+    const {educatorId} = useParams();
+    const {isLoading, isSuccess, isError, data, error, refetch} = useQuery(
+        ["educator", educatorId],
+        educatorQuery(educatorId)
+    );
 
     return (
-        <MainContent
-            cssClass="page__mainContainer"
-            title="Преподаватель"
-        >
-            {educatorInnerLoading && <EducatorInnerLoading />}
+        <MainContent cssClass="page__mainContainer" title="Преподаватель">
+            {isLoading && <EducatorInnerLoading />}
 
-            {educatorInnerInited &&
+            {isSuccess && (
                 <EducatorInner
-                    image={educatorInner.imageName}
-                    id={educatorInner.id}
-                    name={educatorInner.name}
-                    position={educatorInner.position}
-                    educationLevel={educatorInner.educationLevel}
-                    tel={educatorInner.tel}
-                    email={educatorInner.email}
-                    coursesTaught={educatorInner.coursesTaught}
-                />}
+                    image={data.data.imageName}
+                    id={data.data.id}
+                    name={data.data.name}
+                    position={data.data.position}
+                    educationLevel={data.data.educationLevel}
+                    tel={data.data.tel}
+                    email={data.data.email}
+                    coursesTaught={data.data.coursesTaught}
+                />
+            )}
 
-            {educatorInnerError &&
-                <ErrorLine
-                    message={educatorInnerError}
-                    reload={() => dispatch(educatorInnerInit(educatorId))}
-                />}
+            {isError && <ErrorLine message={error.error} reload={refetch} />}
         </MainContent>
-    )
-})
+    );
+});

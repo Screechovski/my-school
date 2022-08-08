@@ -1,42 +1,32 @@
-import React, {memo, useEffect} from "react";
-import {useDispatch} from "react-redux";
+import React, {memo} from "react";
 import {useParams} from "react-router-dom";
-import {newsInnerHook} from "../../store/newsInner/newsInnerHook";
-import {newsInnerInit} from "../../store/newsInner/newsInnerActions";
 import {NewsInner, NewsInnerLoading} from "../../molecules/NewsInner/NewsInner";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {MainContent} from "../../molecules/MainContent/MainContent";
+import {useQuery} from "@tanstack/react-query";
+import {singleNewsQuery} from "../../queryes/news";
 
 export const MainContentNewsInner = memo(() => {
     const {newsId} = useParams();
-    const dispatch = useDispatch();
-    const {newsInnerInited, newsInnerLoading, newsInnerError, newsInner} =
-        newsInnerHook(newsId);
-
-    useEffect(() => {
-        if (!newsInnerInited && !newsInnerLoading)
-            dispatch(newsInnerInit(newsId));
-    }, [newsInnerInited, newsInnerLoading]);
+    const {isLoading, isSuccess, isError, data, error, refetch} = useQuery(
+        ["news", newsId],
+        singleNewsQuery(newsId)
+    );
 
     return (
         <MainContent cssClass="page__mainContainer" title="Новость">
-            {newsInnerLoading && <NewsInnerLoading />}
+            {isLoading && <NewsInnerLoading />}
 
-            {newsInnerInited && (
+            {isSuccess && (
                 <NewsInner
-                    image={newsInner.image}
-                    title={newsInner.title}
-                    date={newsInner.date}
-                    message={newsInner.message}
+                    image={data.data.image}
+                    title={data.data.title}
+                    date={data.data.date}
+                    message={data.data.message}
                 />
             )}
 
-            {newsInnerError && (
-                <ErrorLine
-                    message={newsInnerError}
-                    reload={() => dispatch(newsInnerInit(newsId))}
-                />
-            )}
+            {isError && <ErrorLine message={error.error} reload={refetch} />}
         </MainContent>
     );
 });

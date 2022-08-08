@@ -21,24 +21,29 @@
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainContentEvents/MainContentEvents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentEvents/MainContentEvents.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainContentNews/MainContentNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentNews/MainContentNews.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/EducatorCard/EducatorCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EducatorCard/EducatorCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/EducatorInner/EducatorInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EducatorInner/EducatorInner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/ErrorLine/ErrorLine.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/ErrorLine/ErrorLine.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Footer/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/IndexSection/IndexSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/IndexSection/IndexSection.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Logo/Logo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Logo/Logo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Navigation/Navigation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/NewsInner/NewsInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/NewsInner/NewsInner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/ShortText/ShortText.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/ShortText/ShortText.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectCard/SubjectCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectCard/SubjectCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainContentEducatorInner/MainContentEducatorInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentEducatorInner/MainContentEducatorInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainContentNewsInner/MainContentNewsInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentNewsInner/MainContentNewsInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/queryes/educators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/queryes/educators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/queryes/news.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/queryes/news.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerActionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/educatorInner_DEPRECATED/educatorInnerActionCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/educatorInner_DEPRECATED/educatorInnerActionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/educatorInner_DEPRECATED/educatorInnerActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/educatorInner_DEPRECATED/educatorInnerHook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/educatorInner_DEPRECATED/educatorInnerReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/educatorInner/educatorInnerSelectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/educatorInner_DEPRECATED/educatorInnerSelectors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/newsInner/newsInnerActionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/newsInner_DEPRECATED/newsInnerActionCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/newsInner/newsInnerActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/newsInner_DEPRECATED/newsInnerActionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/newsInner/newsInnerActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/newsInner_DEPRECATED/newsInnerActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/newsInner/newsInnerHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/newsInner_DEPRECATED/newsInnerHook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/newsInner/newsInnerReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/newsInner_DEPRECATED/newsInnerReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/newsInner/newsInnerSelectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/newsInner_DEPRECATED/newsInnerSelectors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/subjectInner/subjectInnerActionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjectInner_DEPRECATED/subjectInnerActionCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/subjectInner/subjectInnerActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjectInner_DEPRECATED/subjectInnerActionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/subjectInner/subjectInnerActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjectInner_DEPRECATED/subjectInnerActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/subjectInner/subjectInnerHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjectInner_DEPRECATED/subjectInnerHook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/subjectInner/subjectInnerReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjectInner_DEPRECATED/subjectInnerReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/subjectInner/subjectInnerSelectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/subjectInner_DEPRECATED/subjectInnerSelectors.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +144,7 @@
       <workItem from="1659217161171" duration="63000" />
       <workItem from="1659722698188" duration="5170000" />
       <workItem from="1659867842668" duration="3952000" />
-      <workItem from="1659943074982" duration="12724000" />
+      <workItem from="1659943074982" duration="13495000" />
     </task>
     <servers />
   </component>
