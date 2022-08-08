@@ -10,32 +10,33 @@ import {PageEducators} from "./views/PageEducators/PageEducators";
 import {PageEducatorInner} from "./views/PageEducatorInner/PageEducatorInner";
 import {PageNewsInner} from "./views/PageNewsInner/PageNewsInner";
 import {PageSubjectInner} from "./views/PageSubjectInner/PageSubjectInner";
+import {PageEvents} from "./views/PageEvents/PageEvents";
 
 export const App = () => {
     return (
         <BrowserRouter>
-            <Header/>
+            <Header />
             <Routes>
-                <Route exact path="/" element={<PageIndex/>}/>
-                <Route path="/news" element={<PageNews/>}/>
-                <Route path="/subjects" element={<PageSubjects/>}/>
-                <Route path="/educators" element={<PageEducators/>}/>
+                <Route exact path="/" element={<PageIndex />} />
+                <Route path="/news" element={<PageNews />} />
+                <Route path="/subjects" element={<PageSubjects />} />
+                <Route path="/educators" element={<PageEducators />} />
 
-                <Route path="/about" element={<span/>}/>
-                <Route path="/miscellanea" element={<span/>}/>
-                <Route path="/review" element={<span/>}/>
+                <Route path="/about" element={<span />} />
+                <Route path="/events" element={<PageEvents />} />
 
                 <Route
                     path="/educator-inner/:educatorId"
-                    element={<PageEducatorInner/>}
+                    element={<PageEducatorInner />}
                 />
-                <Route path="/news-inner/:newsId" element={<PageNewsInner/>}/>
+                <Route path="/news-inner/:newsId" element={<PageNewsInner />} />
                 <Route
                     path="/subjects-inner/:subjectId"
-                    element={<PageSubjectInner/>}
+                    element={<PageSubjectInner />}
                 />
+                <Route path="/event-inner/:eventId" element={<span />} />
             </Routes>
-            <Footer/>
+            <Footer />
         </BrowserRouter>
     );
 };

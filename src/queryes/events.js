@@ -1,5 +1,3 @@
 import {myFetch} from "../assets/helper";
 
-export const eventsQuery = () => {
-    return myFetch("/events");
-};
+export const eventsQuery = () => myFetch("/events");

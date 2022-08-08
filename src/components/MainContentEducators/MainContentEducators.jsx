@@ -11,7 +11,7 @@ import {useQuery} from "@tanstack/react-query";
 import {educatorsQuery} from "../../queryes/educators";
 
 export const MainContentEducators = memo(() => {
-    const {isSuccess, data, isLoading, error, refetch} = useQuery(
+    const {isSuccess, data, isLoading, isError, error, refetch} = useQuery(
         ["educators"],
         educatorsQuery
     );
@@ -44,7 +44,7 @@ export const MainContentEducators = memo(() => {
                 </ul>
             )}
 
-            {error && <ErrorLine message={error?.error} reload={refetch} />}
+            {isError && <ErrorLine message={error.error} reload={refetch} />}
         </MainContent>
     );
 });

@@ -16,6 +16,10 @@ export const CONSTANTS = {
             value: "Новости",
             path: "/news"
         },
+        events: {
+            value: "Мероприятия",
+            path: "/events"
+        },
         subjects: {
             value: "Предметы",
             path: "/subjects"
@@ -23,14 +27,6 @@ export const CONSTANTS = {
         educators: {
             value: "Педагоги",
             path: "/educators"
-        },
-        miscellanea: {
-            value: "Разное",
-            path: "/miscellanea"
-        },
-        review: {
-            value: "Отзывы",
-            path: "/review"
         }
     }
 };
@@ -47,6 +43,7 @@ export const NUM = {
     },
     events: {
         sidebar: 4,
-        indexPage: 10
+        indexPage: 10,
+        count: 20
     }
 };
