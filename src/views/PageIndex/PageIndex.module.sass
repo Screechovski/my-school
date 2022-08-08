@@ -1,16 +1,9 @@
 .index
-    background-color: #fff
-    border-radius: var(--border-radius-big)
-    padding: 10px
-    display: flex
-    flex-direction: column
-    gap: 20px
+    @apply rounded-big gap-medium flex flex-col p-small bg-white
     &__slider
         width: 100%
         height: 600px
         background-color: gray
-        border-radius: var(--border-radius-medium)
+        @apply rounded-medium
     &__sections
-        display: flex
-        flex-direction: column
-        gap: 10px
+        @apply flex flex-col gap-small

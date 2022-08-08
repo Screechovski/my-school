@@ -17,13 +17,13 @@ html
     --border-radius-small: 10px
     --border-radius-medium: 20px
     --border-radius-big: 30px
-    --main-link-color: #0059FF
-    --main-text-color: #303030
-    --red: #ff2b2b
-    --red-placeholder: #ffcccc
-    --backgrount-light-gray: #f9f9f9
-    --backgrount-gray: #ececec
-    --body-color: #e9eeff
+    //--main-link-color: #0059FF
+    //--main-text-color: #303030
+    //--red: #ff2b2b
+    //--red-placeholder: #ffcccc
+    //--backgrount-light-gray: #f9f9f9
+    //--backgrount-gray: #ececec
+    //--body-color: #e9eeff
     --main-font: 'Andika', sans-serif
     --title-font: 'Montserrat', sans-serif
     &::-webkit-scrollbar
@@ -32,8 +32,8 @@ html
 body
     font-family: var(--main-font)
     font-size: 16px
-    background-color: var(--body-color)
     scrollbar-width: none
+    @apply bg-body
     &::-webkit-scrollbar
         width: 0px
     *
@@ -65,8 +65,8 @@ body
 
 .loading
     position: relative
-    border-radius: var(--border-radius-small)
     overflow: hidden
+    @apply rounded-small
     &::after
         content: ''
         position: absolute
@@ -83,7 +83,7 @@ body
 .title3
     font-weight: 500
     font-family: var(--title-font)
-    color: var(--main-text-color)
+    @apply text-text
 
 .title1
     font-size: 28px

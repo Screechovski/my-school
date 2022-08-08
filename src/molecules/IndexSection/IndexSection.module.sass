@@ -1,20 +1,15 @@
 .indexSection
-    background-color: var(--backgrount-light-gray)
-    padding: 10px
-    border-radius: var(--border-radius-medium)
-    display: flex
-    flex-direction: column
-    gap: 10px
+    @apply bg-layoutBg rounded-medium p-small gap-small flex flex-col
     &__header
         display: flex
         align-items: center
         justify-content: space-between
         &Title
-            color: var(--main-text-color)
+            @apply text-text
             text-decoration: none
             font-size: 24px
             text-transform: lowercase
             &::first-letter
                 text-transform: uppercase
         &Link
-            color: var(--main-link-color)
+            @apply text-link

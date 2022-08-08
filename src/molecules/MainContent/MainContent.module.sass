@@ -1,12 +1,8 @@
 .mainContent
-    background-color: #ffffff
+    @apply p-medium bg-white rounded-big
     box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.14)
-    padding: var(--border-radius-medium)
-    border-radius: var(--border-radius-big)
     &_subjects
-        display: grid
-        grid-template-columns: 1fr 1fr 1fr
-        gap: 20px
+        @apply gap-medium grid grid-cols-3
     &_educators
         display: grid
         grid-template-columns: 1fr 1fr 1fr

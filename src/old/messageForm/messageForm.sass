@@ -5,11 +5,11 @@
     margin-top: 25px
     padding: 15px
     box-shadow: 1px 1px 13px 0px rgba(0, 0, 0, 0.14)
-    border-radius: var(--border-radius-small)
     width: 430px
+    @apply rounded-small
     &__title
         font-size: 22px
-        color: var(--main-text-color)
+        @apply text-text
         margin-bottom: 1em
     &__label
         display: flex
@@ -19,36 +19,34 @@
     &__headline
         font-size: 18px
         margin-bottom: 0.6em
-        color: var(--main-text-color)
+        @apply text-text
     &__input
         width: 100%
         font-size: 16px
         padding: 0.5em
         border: none
         box-shadow: 1px 1px 13px 0px rgba(0, 0, 0, 0.14)
-        border-radius: var(--border-radius-small)
         outline: none
+        @apply rounded-small
     &__textarea
         width: 100%
         min-height: 200px  
         max-height: 600px 
         box-shadow: 1px 1px 13px 0px rgba(0, 0, 0, 0.14)
-        border-radius: var(--border-radius-small)
         border: none
         font-size: 16px
         padding: 0.5em
         outline: none
+        @apply rounded-small
     &__button
         font-size: 16px
         padding: 0.5em 1em 0.7em 1em
         cursor: pointer
-        background-color: var(--main-link-color)
-        color: #fff
+        @apply bg-link
         border: none
         box-shadow: 1px 1px 4px 1px #0059ff69
-        border-radius: var(--border-radius-small)
         outline: none !important
-        align-self: flex-end
+        @apply rounded-small self-end text-white
         &:hover
             box-shadow: none
         &:active

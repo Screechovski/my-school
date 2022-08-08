@@ -4,13 +4,13 @@
     margin-bottom: 10px
     padding: 15px
     box-shadow: 1px 1px 13px 0px rgba(0, 0, 0, 0.14)
-    border-radius: var(--border-radius-small)
+    @apply rounded-small
     &__title
-        color: var(--main-text-color)
         font-size: 18px
         font-weight: bold
         margin-bottom: 0.5em
         line-height: 1.4em
+        @apply text-text
         &.loading
             height: 1.4em
             width: 50%
@@ -18,7 +18,7 @@
         font-size: 16px
         margin-bottom: 0.5em
         line-height: 1.4em
-        color: var(--main-text-color)
+        @apply text-text
         &.loading
             height: 1.4em
     &__text
