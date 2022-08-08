@@ -1,17 +1,16 @@
-import React, {memo} from 'react';
-import {NavLink} from 'react-router-dom';
-import css from './EventCard.module.sass';
+import React from "react";
+import {NavLink} from "react-router-dom";
+import css from "./EventCard.module.sass";
 import {ShortText} from "../ShortText/ShortText";
 
-export const EventCard = memo(({
-                                   title,
-                                   id,
-                                   date,
-                                   body
-                               }) => {
+export const EventCard = ({title, id, date, body}) => {
     return (
-        <article className={css.eventCard}
-                 title={`Нажмите чтоб перейти на событие ${title.substring(0, 10).trim()}...`}>
+        <article
+            className={css.eventCard}
+            title={`Нажмите чтоб перейти на событие ${title
+                .substring(0, 10)
+                .trim()}...`}
+        >
             <NavLink to={"/event-inner/" + id} className={css.eventCard__inner}>
                 <span className={css.eventCard__date}>{date}</span>
 
@@ -35,14 +34,14 @@ export const EventCard = memo(({
             </NavLink>
         </article>
     );
-})
+};
 
-export const EventCardLoading = memo(() => {
+export const EventCardLoading = () => {
     return (
         <div className={css.eventCardLoading}>
-            <div className={css.eventCardLoading__date + " loading"}/>
-            <div className={css.eventCardLoading__title + " loading"}/>
-            <div className={css.eventCardLoading__text + " loading"}/>
+            <div className={css.eventCardLoading__date + " loading"} />
+            <div className={css.eventCardLoading__title + " loading"} />
+            <div className={css.eventCardLoading__text + " loading"} />
         </div>
-    )
-})
+    );
+};

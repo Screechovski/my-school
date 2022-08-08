@@ -1,11 +1,11 @@
 //react
-import React, {memo, useState} from "react";
+import React from "react";
 //css
 import css from "./SubjectTable.module.sass";
 import {NavLink} from "react-router-dom";
 import {getNumberArray} from "../../assets/helper";
 
-export const SubjectTable = memo(({subjects, subjectId}) => {
+export const SubjectTable = ({subjects, subjectId}) => {
     // const [hoveredColumnId, setHoveredColumnId] = useState(-1);
     const checkPath = "/svg/check-mark.svg";
     const crossPath = "/svg/cross.svg";
@@ -99,4 +99,4 @@ export const SubjectTable = memo(({subjects, subjectId}) => {
             </tbody>
         </table>
     );
-});
+};

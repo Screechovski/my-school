@@ -1,16 +1,17 @@
-import React, { memo } from "react";
+import React from "react";
 import css from "./NewsInner.module.sass";
 
-export const NewsInner = memo(({
-    image,
-    title,
-    date,
-    message
-}) => {
+export const NewsInner = ({image, title, date, message}) => {
     return (
         <article className={css.newsInner}>
-            <header className={css.newsInner__header + " " + css.newsInnerHeader}>
-                <img className={css.newsInnerHeader__image} src={image} alt="asd" />
+            <header
+                className={css.newsInner__header + " " + css.newsInnerHeader}
+            >
+                <img
+                    className={css.newsInnerHeader__image}
+                    src={image}
+                    alt="asd"
+                />
                 <div className={css.newsInnerHeader__content}>
                     <h2 className={css.newsInnerHeader__title}>{title}</h2>
                     <span className={css.newsInnerHeader__date}>{date}</span>
@@ -18,10 +19,10 @@ export const NewsInner = memo(({
             </header>
             <p className={css.newsInner__text}>{message}</p>
         </article>
-    )
-})
+    );
+};
 
-export const NewsInnerLoading = memo(() => {
+export const NewsInnerLoading = () => {
     return (
         <div className={css.newsInnerLoading}>
             <div className={css.newsInner__header + " " + css.newsInnerHeader}>
@@ -33,5 +34,5 @@ export const NewsInnerLoading = memo(() => {
             </div>
             <div className={css.newsInnerLoading__text + " loading"} />
         </div>
-    )
-})
+    );
+};

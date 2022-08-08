@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import {MainContent} from "../../molecules/MainContent/MainContent";
 import css from "./MainContentEvents.module.sass";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
@@ -8,13 +8,11 @@ import {EventCard, EventCardLoading} from "../../molecules/EventCard/EventCard";
 import {getNumberArray} from "../../assets/helper";
 import {NUM} from "../../assets/constants";
 
-export const MainContentEvents = () => {
+export const MainContentEvents = memo(() => {
     const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
         ["events"],
         eventsQuery
     );
-
-    console.log({isSuccess, isError, isLoading, data, error, refetch});
 
     return (
         <MainContent title="Мероприятия" cssClass="page__mainContainer">
@@ -46,4 +44,4 @@ export const MainContentEvents = () => {
             {isError && <ErrorLine message={error.error} reload={refetch} />}
         </MainContent>
     );
-};
+});

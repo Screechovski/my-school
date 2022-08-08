@@ -1,16 +1,16 @@
-import React, {memo} from 'react';
+import React from "react";
 
 let lineHeightK = 1.3;
 
 let defaultStyles = {
-    'overflow': 'hidden',
-    'display': '-webkit-box',
-    'WebkitBoxOrient': 'vertical',
-}
+    overflow: "hidden",
+    display: "-webkit-box",
+    WebkitBoxOrient: "vertical"
+};
 
 let tryStyles;
 
-export const ShortText = memo(({
+export const ShortText = ({
     tagName,
     lineHeight,
     lineCount,
@@ -20,24 +20,28 @@ export const ShortText = memo(({
     const CustomTag = `${tagName}`;
 
     if (lineHeight !== undefined) {
-        lineHeightK = lineHeight
+        lineHeightK = lineHeight;
     }
 
     if (lineCount !== undefined) {
         tryStyles = {
             ...defaultStyles,
-            'WebkitLineClamp': lineCount.toString(),
-            'height': Number(lineCount) * lineHeightK + "em",
-            'lineHeight': lineHeightK + 'em',
-        }
+            WebkitLineClamp: lineCount.toString(),
+            height: Number(lineCount) * lineHeightK + "em",
+            lineHeight: lineHeightK + "em"
+        };
     } else {
         tryStyles = {
             ...defaultStyles,
-            'WebkitLineClamp': '3',
-            'height': '3.6em',
-            'lineHeight': lineHeightK + 'em',
-        }
+            WebkitLineClamp: "3",
+            height: "3.6em",
+            lineHeight: lineHeightK + "em"
+        };
     }
 
-    return <CustomTag style={tryStyles} className={parentClass}>{text}</CustomTag>;
-})
+    return (
+        <CustomTag style={tryStyles} className={parentClass}>
+            {text}
+        </CustomTag>
+    );
+};

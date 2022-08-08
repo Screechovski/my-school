@@ -21,10 +21,24 @@
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainContentEducators/MainContentEducators.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentEducators/MainContentEducators.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/queryes/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/queryes/events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainContentEvents/MainContentEvents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentEvents/MainContentEvents.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainContentNews/MainContentNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContentNews/MainContentNews.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/EducatorCard/EducatorCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EducatorCard/EducatorCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/EducatorInner/EducatorInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EducatorInner/EducatorInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/ErrorLine/ErrorLine.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/ErrorLine/ErrorLine.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/EventCard/EventCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Footer/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/IndexSection/IndexSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/IndexSection/IndexSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Logo/Logo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Logo/Logo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/MainContent/MainContent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Navigation/Navigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/NewsCard/NewsCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/NewsInner/NewsInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/NewsInner/NewsInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/ShortText/ShortText.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/ShortText/ShortText.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectCard/SubjectCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectCard/SubjectCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectInner/SubjectInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/SubjectTable/SubjectTable.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +139,7 @@
       <workItem from="1659217161171" duration="63000" />
       <workItem from="1659722698188" duration="5170000" />
       <workItem from="1659867842668" duration="3952000" />
-      <workItem from="1659943074982" duration="12230000" />
+      <workItem from="1659943074982" duration="12724000" />
     </task>
     <servers />
   </component>

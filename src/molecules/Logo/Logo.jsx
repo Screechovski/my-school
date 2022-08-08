@@ -1,33 +1,30 @@
-import React, {memo, useCallback} from 'react';
-import { NavLink } from 'react-router-dom';
-import css from './logo.module.sass';
+import React, {memo, useCallback} from "react";
+import {NavLink} from "react-router-dom";
+import css from "./logo.module.sass";
 
-export const Logo = memo(({
-    type,
-    cssClass
-}) => {
+export const Logo = ({type, cssClass}) => {
     let cssLine;
     switch (type) {
-        case 'small':
-        case 'medium':
-        case 'large':
-            cssLine = `${css.logo} ${css['logo--' + type]}`
+        case "small":
+        case "medium":
+        case "large":
+            cssLine = `${css.logo} ${css["logo--" + type]}`;
             break;
         default:
-            cssLine = css.logo
+            cssLine = css.logo;
             break;
     }
 
-    cssLine += ` ${cssClass}`
+    cssLine += ` ${cssClass}`;
 
     return (
         <NavLink to="/" className={cssLine}>
             <i>MY-shCOOL</i>
         </NavLink>
     );
-})
+};
 
 Logo.defaultProps = {
     cssClass: "",
     type: ""
-}
+};
