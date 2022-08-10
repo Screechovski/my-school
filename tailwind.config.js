@@ -6,13 +6,15 @@ module.exports = {
             none: "0",
             small: "10px",
             medium: "20px",
-            big: "30px"
+            big: "30px",
+            full: "50%"
         },
         borderWidth: {
             1: "1px",
             2: "2px"
         },
         spacing: {
+            0: "0px",
             small: "10px",
             medium: "20px",
             big: "30px",

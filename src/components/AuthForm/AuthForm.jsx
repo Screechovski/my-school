@@ -35,6 +35,7 @@ export const AuthForm = () => {
                 ))}
             </ul>
             <Button
+                cssClass="form__button"
                 text="Войти"
                 clickHandler={() => () => {}}
                 disabled={!isValid}

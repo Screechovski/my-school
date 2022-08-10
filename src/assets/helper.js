@@ -52,7 +52,7 @@ const route = (data, resolve, reject) => {
     }, randomDelay());
 };
 
-export const myFetch = (url) =>
+export const myFetch = (url, options = {}) =>
     new Promise((resolve, reject) => {
         if (include(url, "/reviews/")) {
             const id = getIdAfter(url, "/reviews/");
@@ -84,6 +84,19 @@ export const myFetch = (url) =>
             route(generateEducator(id), resolve, reject);
         } else if (include(url, "/educators")) {
             route(generateEducators(), resolve, reject);
+        } else if (include(url, "/create-user")) {
+            if (hasUser(options.body.email)) {
+                reject({
+                    status: "ERROR",
+                    data: null,
+                    error: "Пользователь с такой почтой уже зарегистрирован"
+                });
+            } else {
+                resolve({
+                    status: "SUCCESS",
+                    data: registerUser(options.body)
+                });
+            }
         } else {
             setTimeout(
                 () =>
@@ -116,6 +129,17 @@ export const isValidEmail = (email) => {
     );
 };
 
+export const fieldsStringify = (fields) => {
+    const fieldsArray = Object.values(fields);
+    let resultObject = {};
+
+    for (const fieldsArrayElement of fieldsArray) {
+        resultObject[fieldsArrayElement.name] = fieldsArrayElement.value;
+    }
+
+    return resultObject;
+};
+
 export const fieldsIsValid = (fields) => {
     const fieldsArray = Object.values(fields);
 
@@ -130,4 +154,13 @@ export const fieldsIsValid = (fields) => {
 
 export const copyObject = (obj) => {
     return JSON.parse(JSON.stringify(obj));
+};
+
+const hasUser = (email) => {
+    return !!localStorage.getItem(`USER::${email}`);
+};
+
+const registerUser = (userData) => {
+    localStorage.setItem(`USER::${userData.email}`, JSON.stringify(userData));
+    return 1;
 };

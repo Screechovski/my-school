@@ -6,14 +6,16 @@ import {registerFormHook} from "../../store/registerForm/registerFormHook";
 import css from "./RegisterForm.module.sass";
 import {Field} from "../../molecules/Field/Field";
 import {Button} from "../../molecules/Button/Button";
-import {registerFormChangeFieldAction} from "../../store/registerForm/registerFormActions";
+import {
+    registerFormChangeFieldAction,
+    registerFormSubmit
+} from "../../store/registerForm/registerFormActions";
 
 export const RegisterForm = () => {
     const dispatch = useDispatch();
     const {fields, isSuccess, isLoading, isValid, isSubmit} =
         registerFormHook();
-
-    console.log(Object.values(fields).map(({name}) => name));
+    const registerFormSubmitAction = () => dispatch(registerFormSubmit);
 
     useEffect(() => {
         if (!isSuccess && !isLoading) dispatch(registerFormInitAC());
@@ -47,7 +49,7 @@ export const RegisterForm = () => {
             <Button
                 cssClass="form__button"
                 text="Отправить"
-                clickHandler={() => () => {}}
+                clickHandler={registerFormSubmitAction}
                 disabled={!isValid}
                 loading={isSubmit}
             />

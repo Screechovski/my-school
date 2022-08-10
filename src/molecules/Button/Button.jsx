@@ -1,10 +1,20 @@
 import React from "react";
 import css from "./Button.module.sass";
 
-export const Button = ({href, text, clickHandler, loading, disabled}) => {
+export const Button = ({
+    cssClass,
+    href,
+    text,
+    clickHandler,
+    loading,
+    disabled
+}) => {
     const getClassName = (addedClass) => {
         let className = css.button + " " + addedClass;
 
+        if (cssClass) {
+            className += ` ${cssClass}`;
+        }
         if (disabled) {
             className += ` ${css.button_disabled}`;
         }

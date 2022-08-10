@@ -29,9 +29,9 @@ export const FieldPassword = ({
                     value={value}
                     placeholder={placeholder}
                 />
-                <button onClick={() => setHidden(!hidden)}>
-                    {hidden ? <EyeSlashSVG /> : <EyeSVG />}
-                </button>
+                {/*<button onClick={() => setHidden(!hidden)}>*/}
+                {/*    {hidden ? <EyeSlashSVG /> : <EyeSVG />}*/}
+                {/*</button>*/}
             </div>
         </label>
     );

@@ -1,0 +1,53 @@
+.alert
+  min-width: 300px
+  max-width: 400px
+  width: auto
+  @apply flex gap-small rounded-medium p-small border-2 border-solid items-center
+  &__text
+    font-size: 14px
+    @apply text-slate-800
+  &__icon
+    min-height: 40px
+    min-width: 40px
+    max-height: 40px
+    max-width: 40px
+    @apply flex justify-center items-center
+  &_success
+    @apply bg-green-100 border-green-500
+    .alert__svg
+      min-height: 40px
+      min-width: 40px
+      max-height: 40px
+      max-width: 40px
+      @apply fill-green-500
+  &_error
+    @apply bg-red-100 border-red-500
+    .alert__svg
+      min-height: 36px
+      min-width: 36px
+      max-height: 36px
+      max-width: 36px
+      @apply fill-red-500
+  &_warning
+    @apply bg-orange-100 border-orange-400
+    .alert__svg
+      min-height: 33px
+      min-width: 33px
+      max-height: 33px
+      max-width: 33px
+      @apply fill-orange-400
+  &_info
+    @apply bg-blue-100 border-blue-400
+    .alert__svg
+      min-height: 33px
+      min-width: 33px
+      max-height: 33px
+      max-width: 33px
+      @apply fill-blue-400
+
+.alertWrapper
+  @apply absolute top-medium
+  left: 50%
+  transform: translateX(-50%)
+  &__list
+    @apply flex flex-col gap-small

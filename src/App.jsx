@@ -13,6 +13,7 @@ import {PageSubjectInner} from "./views/PageSubjectInner/PageSubjectInner";
 import {PageEvents} from "./views/PageEvents/PageEvents";
 import {PageAuthForm} from "./views/PageAuthForm/PageAuthForm";
 import {PageRegisterForm} from "./views/PageRegisterForm/PageRegisterForm";
+import {AlertContainer} from "./components/Alert/AlertContainer";
 
 export const App = () => {
     return (
@@ -41,6 +42,7 @@ export const App = () => {
                 <Route path="/auth" element={<PageAuthForm />} />
                 <Route path="/register" element={<PageRegisterForm />} />
             </Routes>
+            <AlertContainer />
             <Footer />
         </BrowserRouter>
     );
