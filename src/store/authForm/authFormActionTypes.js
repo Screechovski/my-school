@@ -1,0 +1,4 @@
+export const AUTH_FORM_AT = {
+    INIT: "AUTH_FORM_INIT",
+    CHANGE_FIELD: "AUTH_FORM_CHANGE_FIELD"
+};

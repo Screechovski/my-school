@@ -16,7 +16,7 @@ export const EventCard = ({title, id, date, body}) => {
 
                 <header>
                     <ShortText
-                        parentClass={css.eventCard__title}
+                        parentClass={css.eventCard__title + " link"}
                         tagName="h3"
                         lineCount="2"
                         lineHeight={1.3}

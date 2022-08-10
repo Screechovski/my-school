@@ -23,7 +23,7 @@ export const NewsCard = ({title, id, date, body, mainImgUrl}) => {
 
                 <header>
                     <ShortText
-                        parentClass={css.newsCard__title}
+                        parentClass={css.newsCard__title + " link"}
                         tagName="h3"
                         lineCount="2"
                         lineHeight={1.3}

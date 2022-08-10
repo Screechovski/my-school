@@ -1,16 +1,9 @@
 .educatorCard
-    background-color: #ffffff
-    padding: 10px
-    box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.14)
-    cursor: pointer
-    display: flex
-    align-items: stretch
     transition: box-shadow .1s, transform .2s
-    position: relative
-    @apply rounded-medium gap-small
+    @apply rounded-medium gap-small shadow-xl p-small flex items-stretch relative cursor-pointer bg-white shadow bg-slate-100
     &:hover
-        box-shadow: 1px 1px 15px 0px rgba(0,0,0,0.2)
         transform: scale(1.05)
+        @apply shadow-xl
     &__image
         height: 70px
         width: 70px
@@ -20,17 +13,13 @@
     &__title
         font-size: 18px
         line-height: 1.2em
-        @apply text-text
+        @apply text-slate-800
     &__profession
         font-size: 13px
         color: #5e5e5e
     &__mail
-        text-decoration: none
         position: relative
         z-index: 3
-        @apply text-link
-        &:hover
-            text-decoration: underline
     &__mainLink
         position: absolute
         z-index: 1

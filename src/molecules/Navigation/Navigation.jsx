@@ -9,7 +9,10 @@ export const Navigation = () => {
             <ul className={css.nav__list}>
                 {Object.values(CONSTANTS.NAV_LINKS).map((item, index) => (
                     <li className={css.nav__item} key={index}>
-                        <NavLink className={css.nav__link} to={item.path}>
+                        <NavLink
+                            className={css.nav__link + " link"}
+                            to={item.path}
+                        >
                             {item.value}
                         </NavLink>
                     </li>

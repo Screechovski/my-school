@@ -8,22 +8,22 @@ module.exports = {
             medium: "20px",
             big: "30px"
         },
-        colors: {
-            body: "#e9eeff",
-            white: "#ffffff",
-            layoutBg: "#f9f9f9",
-            layout: "#ececec",
-            redPlaceholder: "#ffcccc",
-            red: "#ff2b2b",
-            text: "#303030",
-            link: "#0059FF"
+        borderWidth: {
+            1: "1px",
+            2: "2px"
         },
         spacing: {
             small: "10px",
             medium: "20px",
-            big: "30px"
+            big: "30px",
+            field: "50px",
+            none: "0px"
         },
-        extend: {}
+        extend: {
+            boxShadow: {
+                field: "0px 0px 0px 4px gray"
+            }
+        }
     },
     plugins: []
 };

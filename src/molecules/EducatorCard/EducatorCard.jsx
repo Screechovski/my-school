@@ -15,7 +15,10 @@ export const EducatorCard = ({image, name, email, id}) => {
             <div className={css.educatorCard__body}>
                 <h2 className={css.educatorCard__title}>{name}</h2>
                 <p className={css.educatorCard__profession}>Педагог</p>
-                <a href={`mailto:${email}`} className={css.educatorCard__mail}>
+                <a
+                    href={`mailto:${email}`}
+                    className={css.educatorCard__mail + " link"}
+                >
                     {email}
                 </a>
             </div>
@@ -25,7 +28,7 @@ export const EducatorCard = ({image, name, email, id}) => {
 
 export const EducatorCardLoading = () => {
     return (
-        <div className={css.educatorCardLoading}>
+        <div className={css.educatorCard}>
             <div className={css.educatorCardLoading__image + " loading"}></div>
             <div className={css.educatorCardLoading__body}>
                 <div

@@ -11,6 +11,8 @@ import {PageEducatorInner} from "./views/PageEducatorInner/PageEducatorInner";
 import {PageNewsInner} from "./views/PageNewsInner/PageNewsInner";
 import {PageSubjectInner} from "./views/PageSubjectInner/PageSubjectInner";
 import {PageEvents} from "./views/PageEvents/PageEvents";
+import {PageAuthForm} from "./views/PageAuthForm/PageAuthForm";
+import {PageRegisterForm} from "./views/PageRegisterForm/PageRegisterForm";
 
 export const App = () => {
     return (
@@ -35,6 +37,9 @@ export const App = () => {
                     element={<PageSubjectInner />}
                 />
                 <Route path="/event-inner/:eventId" element={<span />} />
+
+                <Route path="/auth" element={<PageAuthForm />} />
+                <Route path="/register" element={<PageRegisterForm />} />
             </Routes>
             <Footer />
         </BrowserRouter>

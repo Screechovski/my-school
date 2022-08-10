@@ -1,13 +1,10 @@
 .eventCard
-  box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.14)
-  background-color: #ffffff
-  padding: 10px
-  transition: box-shadow .1s, transform .2s
-  will-change: box-shadow, transform
-  @apply rounded-medium
+  will-change: transform
+  transition: transform 0.1s
+  @apply rounded-medium shadow-xl p-small bg-white bg-slate-100 shadow
   &:hover
-    box-shadow: 1px 1px 15px 0px rgba(0,0,0,0.2)
     transform: scale(1.05)
+    @apply shadow-xl
     .eventCard__title
       text-decoration: underline
   &__inner
@@ -25,7 +22,7 @@
     font-size: 16px
     line-height: 1.2em
     margin-bottom: 1em
-    @apply text-link
+    //@apply text-link
     &::first-letter
       font-weight: bold
       color: red
@@ -33,7 +30,7 @@
   &__text
     font-size: 13px
     line-height: 1.2em
-    color: #5A5A5A
+    @apply text-slate-800
     &::first-letter
       text-transform: uppercase
 

@@ -86,7 +86,7 @@ export const SubjectTable = ({subjects, subjectId}) => {
                             <td
                                 key={yIndex}
                                 className={css.subjectsTable__bodyCol}
-                                onMouseEnter={() => setHoveredColumnId(yIndex)}
+                                //onMouseEnter={() => setHoveredColumnId(yIndex)}
                             >
                                 <img
                                     src={year ? checkPath : crossPath}

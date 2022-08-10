@@ -5,35 +5,20 @@
 @tailwind utilities
 
 #root
-    display: grid
-    padding: 10px
     grid-template-rows: auto 1fr auto
-    gap: 10px
     min-height: 100vh
     box-sizing: border-box
+    @apply grid gap-small p-small bg-slate-100
 
 html
     scrollbar-width: none
-    --border-radius-small: 10px
-    --border-radius-medium: 20px
-    --border-radius-big: 30px
-    //--main-link-color: #0059FF
-    //--main-text-color: #303030
-    //--red: #ff2b2b
-    //--red-placeholder: #ffcccc
-    //--backgrount-light-gray: #f9f9f9
-    //--backgrount-gray: #ececec
-    //--body-color: #e9eeff
-    --main-font: 'Andika', sans-serif
-    --title-font: 'Montserrat', sans-serif
+    font-family: 'Andika', sans-serif
     &::-webkit-scrollbar
         width: 0px
 
 body
-    font-family: var(--main-font)
     font-size: 16px
     scrollbar-width: none
-    @apply bg-body
     &::-webkit-scrollbar
         width: 0px
     *
@@ -46,22 +31,15 @@ body
     box-sizing: border-box
 
 .page
-    display: flex
-    justify-content: space-between
-    align-items: flex-start
-    gap: 10px
+    @apply flex justify-between items-start gap-small
     &__sidebar
         width: 300px
-        position: sticky
-        top: 10px
+        @apply top-small sticky
     &__mainContainer
         width: calc(100% - 310px)
-        position: sticky
-        top: 10px
+        @apply top-small sticky
     &__sidebarList
-        display: flex
-        flex-direction: column
-        gap: 10px
+        @apply flex flex-col gap-small
 
 .loading
     position: relative
@@ -83,7 +61,7 @@ body
 .title3
     font-weight: 500
     font-family: var(--title-font)
-    @apply text-text
+    //@apply text-text
 
 .title1
     font-size: 28px
@@ -104,3 +82,22 @@ body
         background-color: rgba(94,94,94, 0.4)
     100%
         background-color: rgba(94,94,94, 0.8)
+
+.form
+    @apply flex gap-big flex-col p-medium rounded-medium shadow-xl bg-white
+    &--fixed-width
+        max-width: 400px
+        width: 400px
+    &__title
+        font-size: 20px
+        @apply pl-small
+    &__link
+        opacity: 1
+        //@apply text-link
+        &:hover
+            @apply underline
+
+.link
+    @apply text-blue-400 underline
+    &:hover
+        @apply no-underline

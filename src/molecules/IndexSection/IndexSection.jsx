@@ -12,7 +12,7 @@ export const IndexSection = (props) => {
                 <h3 className={css.indexSection__headerTitle + " title2"}>
                     {name}
                 </h3>
-                <NavLink className={css.indexSection__headerLink} to={linkPath}>
+                <NavLink className="link" to={linkPath}>
                     {nameAll}
                 </NavLink>
             </div>

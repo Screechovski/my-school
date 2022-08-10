@@ -1,12 +1,10 @@
 .subjectCard
     transition: box-shadow .1s, transform .2s
     text-decoration: none
-    box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.14)
-    height: 39px
-    @apply rounded-medium bg-white flex items-center justify-between p-small
+    @apply rounded-medium bg-slate-100 flex items-center justify-between p-small shadow h-field
     &:hover
-        box-shadow: 1px 1px 15px 0px rgba(0,0,0,0.2)
         transform: scale(1.05)
+        @apply shadow-xl
     &__icon
         height: 30px
         width: 30px
@@ -14,17 +12,14 @@
         display: block
         line-height: 1.2em
         width: calc(100% - 40px)
-        text-decoration: none
-        @apply text-link
 
-.subjectCardLoading
-    height: 39px
-    box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.14)
-    @apply gap-small flex items-center rounded-medium bg-white p-small
-    &__icon
-        height: 30px
-        width: 30px
-        @apply rounded-small
-    &__title
-        height: 1.2em
-        width: 120px
+.subjectCardLoading__icon
+    height: 30px
+    width: 30px
+    @apply rounded-small
+
+.subjectCardLoading__title
+    height: 1.2em
+    width: 120px
+    margin-right: auto
+    margin-left: 10px

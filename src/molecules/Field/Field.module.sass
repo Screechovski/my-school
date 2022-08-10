@@ -1,0 +1,15 @@
+.field
+  &__headline
+    @apply pl-small block
+  &__input
+    @apply h-field rounded-medium px-small py-none border-white border-2 border-white outline-none w-full border-slate-300
+    &:focus
+      @apply shadow-none
+    &_success
+      @apply border-2 border-green-400
+      &:focus
+        @apply shadow-field shadow-green-100
+    &_fail
+      @apply border-2 border-red-400
+      &:focus
+        @apply shadow-field shadow-red-100

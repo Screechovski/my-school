@@ -1,13 +1,11 @@
 .mainContent
     @apply p-medium bg-white rounded-big
-    box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.14)
     &_subjects
         @apply gap-medium grid grid-cols-3
     &_educators
-        display: grid
-        grid-template-columns: 1fr 1fr 1fr
-        gap: 20px
+        @apply grid gap-medium grid-cols-3
     &_news
         display: block
     &__title
+        @apply text-slate-800
         margin-bottom: 1em

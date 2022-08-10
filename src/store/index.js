@@ -1,22 +1,12 @@
 import {combineReducers} from "redux";
 import thunk from "redux-thunk";
 import {configureStore} from "@reduxjs/toolkit";
-// import {newsReducer} from "./news/newsReducer";
-// import {eventsReducer} from "./events/eventsReducer";
-// import {subjectsReducer} from "./subjects/subjectsReducer";
-// import {educatorsReducer} from "./educators/educatorsReducer";
-// import {educatorInnerReducer} from "./educatorInner/educatorInnerReducer";
-// import {newsInnerReducer} from "./newsInner/newsInnerReducer";
-// import {subjectInnerReducer} from "./subjectInner/subjectInnerReducer";
+import {authFormReducer} from "./authForm/authFormReducer";
+import {registerFormReducer} from "./registerForm/registerFormReducer";
 
 const reducers = combineReducers({
-    // newsReducer,
-    // eventsReducer,
-    // subjectsReducer,
-    // educatorsReducer,
-    // educatorInnerReducer,
-    // newsInnerReducer,
-    // subjectInnerReducer
+    registerFormReducer,
+    authFormReducer
 });
 
 export const store = configureStore({
