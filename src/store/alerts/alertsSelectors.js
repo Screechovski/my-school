@@ -1,0 +1,1 @@
+export const alertsSelector = (state) => state.alertsReducer.alerts;

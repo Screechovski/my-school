@@ -21,17 +21,38 @@
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/helper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Alert/Alert.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Alert/Alert.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AlertContainer/AlertContainer.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Alert/AlertContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AlertContainer/AlertContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Button/Button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Button/Button.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Field/FieldPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Field/FieldPassword.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/registerForm/registerFormActionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/registerForm/registerFormActionCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/registerForm/registerFormActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/registerForm/registerFormActionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/registerForm/registerFormActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/registerForm/registerFormActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Field/Field.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Field/Field.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/alerts/alertsActionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/alerts_DEPRECATED/alertsActionCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/alerts/alertsActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/alerts_DEPRECATED/alertsActionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/alerts/alertsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/alerts_DEPRECATED/alertsActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/alerts/alertsHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/alerts_DEPRECATED/alertsHook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/alerts/alertsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/alerts_DEPRECATED/alertsReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/alerts/alertsSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/alerts_DEPRECATED/alertsSelector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/authForm/authFormActionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/authForm_DEPRECATED/authFormActionCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/authForm/authFormActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/authForm_DEPRECATED/authFormActionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/authForm/authFormActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/authForm_DEPRECATED/authFormActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/authForm/authFormHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/authForm_DEPRECATED/authFormHook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/authForm/authFormReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/authForm_DEPRECATED/authFormReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/authForm/authFormSelectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/authForm_DEPRECATED/authFormSelectors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/registerForm/registerFormActionCreator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/registerForm/registerFormActionTypes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/registerForm/registerFormActions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/registerForm/registerFormHook.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/registerForm/registerFormReducer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/registerForm/registerFormSelectors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/svg/SuccessIconSVG.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/svg/SuccessIconSVG.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,25 +93,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Sites/my-app/src/store/auth&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\webde\\AppData\\Roaming\\npm\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/molecules/Alert" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\sch\src\molecules\Alert" />
       <recent name="E:\Sites\my-app\src\store\auth" />
       <recent name="E:\Sites\my-app\src\views" />
       <recent name="E:\Sites\my-app\src\store\subjectInner" />
       <recent name="E:\Sites\my-app\src\store\newsInner" />
-      <recent name="E:\Sites\my-app\src\store\educatorsInner" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Sites\my-app\src\molecules" />
@@ -137,6 +158,8 @@
       <workItem from="1659978373494" duration="5610000" />
       <workItem from="1660074583061" duration="5506000" />
       <workItem from="1660151405383" duration="10739000" />
+      <workItem from="1660298216924" duration="5394000" />
+      <workItem from="1660304380292" duration="5951000" />
     </task>
     <servers />
   </component>
@@ -155,7 +178,12 @@
     </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
+    <expand>
+      <path>
+        <item name="sch" type="b2602c69:ProjectViewProjectNode" />
+        <item name="sch" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
     <select />
   </component>
 </project>

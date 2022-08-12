@@ -1,35 +1,42 @@
 import React, {useEffect} from "react";
-import {useDispatch} from "react-redux";
-import {NavLink} from "react-router-dom";
-import {registerFormInitAC} from "../../store/registerForm/registerFormActionCreator";
-import {registerFormHook} from "../../store/registerForm/registerFormHook";
+import {useDispatch, useSelector} from "react-redux";
+import {NavLink, useNavigate} from "react-router-dom";
 import css from "./RegisterForm.module.sass";
 import {Field} from "../../molecules/Field/Field";
 import {Button} from "../../molecules/Button/Button";
 import {
-    registerFormChangeFieldAction,
+    registerFormChangeField,
+    registerFormInit,
     registerFormSubmit
-} from "../../store/registerForm/registerFormActions";
+} from "../../store/registerForm/registerFormSlice";
 
 export const RegisterForm = () => {
     const dispatch = useDispatch();
-    const {fields, isSuccess, isLoading, isValid, isSubmit} =
-        registerFormHook();
-    const registerFormSubmitAction = () => dispatch(registerFormSubmit);
+    const navigate = useNavigate();
+
+    const {fields, isSuccess, isLoading, isValid, isSubmit} = useSelector(state => state.registerFormReducer);
+    const registerFormSubmitAction = () => {
+        console.log("registerFormSubmitAction");
+        dispatch(registerFormSubmit()).then(result => {
+            if (result.type === "registerForm/registerFormSubmit/fulfilled") {
+                navigate("/auth");
+            }
+        });
+    };
 
     useEffect(() => {
-        if (!isSuccess && !isLoading) dispatch(registerFormInitAC());
+        if (!isSuccess && !isLoading) dispatch(registerFormInit());
     }, []);
 
     const changeFiledHandler = (name) => (value) => {
-        dispatch(registerFormChangeFieldAction)(name)(value);
+        dispatch(registerFormChangeField({name, value}));
     };
 
     return (
         <form className={css.registerForm + " form"}>
             <h3 className="form__title">Регистрация</h3>
             <ul className={css.registerForm__inner}>
-                {fields.map((field) => (
+                {Object.values(fields).map((field) => (
                     <li
                         key={field.name}
                         className={
@@ -41,7 +48,8 @@ export const RegisterForm = () => {
                         <Field
                             {...field}
                             change={changeFiledHandler(field.name)}
-                            blur={() => () => {}}
+                            blur={() => () => {
+                            }}
                         />
                     </li>
                 ))}

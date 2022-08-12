@@ -17,6 +17,8 @@ export const Field = ({
     isDisabled,
     cssClass
 }) => {
+    const changeProxy = (e) => change(e.target.value);
+
     const getClassName = () => {
         let className = css.field__input;
 
@@ -45,7 +47,7 @@ export const Field = ({
                     }}
                     headline={headline}
                     blur={blur}
-                    change={change}
+                    change={changeProxy}
                     placeholder={placeholder}
                     value={value}
                     cssClassInput={getClassName()}
@@ -60,7 +62,7 @@ export const Field = ({
                     }}
                     headline={headline}
                     blur={blur}
-                    change={change}
+                    change={changeProxy}
                     placeholder={placeholder}
                     value={value}
                     cssClassInput={getClassName()}

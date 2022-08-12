@@ -7,10 +7,10 @@ import {SuccessIconSVG} from "../../svg/SuccessIconSVG";
 import {ErrorIconSVG} from "../../svg/ErrorIconSVG";
 import {InfoIconSVG} from "../../svg/InfoIconSVG";
 import {useDispatch} from "react-redux";
+import {removeAlert} from "../../store/alerts/alertsSlice";
 
 export const Alert = ({type, message, id}) => {
     const dispatch = useDispatch();
-    const removeAlertAction = (id) => () => {};
     let timer = null;
 
     const getSVG = () => {
@@ -31,15 +31,13 @@ export const Alert = ({type, message, id}) => {
     };
 
     useEffect(() => {
-        timer = setTimeout(() => {
-            dispatch(removeAlertAction(id));
-        }, 5000);
+        timer = setTimeout(() => dispatch(removeAlert({id})), 5000);
 
-        return clearTimeout(timer);
+        return () => clearTimeout(timer);
     }, []);
 
     return (
-        <div className={css.alert + " " + css[`alert_${type}`]}>
+        <div className={css.alert + " " + css[`alert_${type}`]} onClick={() => dispatch(removeAlert({id}))}>
             <i className={css.alert__icon}>{getSVG()}</i>
             <ShortText
                 text={message}
