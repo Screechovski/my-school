@@ -1,5 +1,12 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import {fieldsIsValid, fieldsStringify, isValidEmail, myFetch} from "../../assets/helper";
+import {
+    emailFieldCreator,
+    fieldCreator,
+    fieldsIsValid,
+    fieldsStringify,
+    isValidEmail,
+    myFetch
+} from "../../assets/helper";
 import {addAlert} from "../alerts/alertsSlice";
 
 const initialState = {
@@ -14,83 +21,39 @@ const initialState = {
 };
 
 const getFields = () => ({
-    name: {
+    name: fieldCreator({
         name: "name",
         headline: "Ваше имя",
         placeholder: "Введите имя",
-        value: "",
-        isValid: null,
-        isDisabled: false,
-        isRequired: true,
-        isLoading: false,
-        type: "input"
-    },
-    surname: {
+    }),
+    surname: fieldCreator({
         name: "surname",
         headline: "Ваше фамилия",
         placeholder: "Введите фамилию",
-        value: "",
-        isValid: null,
-        isDisabled: false,
-        isRequired: true,
-        isLoading: false,
-        type: "input"
-    },
-    childName: {
+    }),
+    childName: fieldCreator({
         name: "childName",
         headline: "Имя ребёнка",
         placeholder: "Введите имя ребёнка",
-        value: "",
-        isValid: null,
-        isDisabled: false,
-        isRequired: true,
-        isLoading: false,
-        type: "input"
-    },
-    childSurname: {
+    }),
+    childSurname: fieldCreator({
         name: "childSurname",
         headline: "Фамилия ребёнка",
         placeholder: "Введите фамилию ребёнка",
-        value: "",
-        isValid: null,
-        isDisabled: false,
-        isRequired: true,
-        isLoading: false,
-        type: "input"
-    },
-    email: {
-        name: "email",
-        headline: "Ваш email",
-        placeholder: "Введите ваш email",
-        value: "",
-        isValid: null,
-        isDisabled: false,
-        isRequired: true,
-        isLoading: false,
-        type: "input"
-    },
-    password: {
+    }),
+    email: emailFieldCreator(),
+    password: fieldCreator({
         name: "password",
         headline: "Пароль",
         placeholder: "Введите пароль",
-        value: "",
-        isValid: null,
-        isDisabled: false,
-        isRequired: true,
-        isLoading: false,
         type: "password"
-    },
-    passwordRepeat: {
+    }),
+    passwordRepeat: fieldCreator({
         name: "passwordRepeat",
         headline: "Повторите пароль",
         placeholder: "Введите пароль повторно",
-        value: "",
-        isValid: null,
-        isDisabled: false,
-        isRequired: true,
-        isLoading: false,
         type: "password"
-    }
+    })
 });
 
 
@@ -103,6 +66,13 @@ export const registerFormSubmit = createAsyncThunk("registerForm/registerFormSub
     const {
         registerFormReducer: {fields}
     } = getState();
+
+    if (!fieldsIsValid(fields)) {
+
+        dispatch(addAlert({type: "error", message: "Проверьте правильность заполненых полей"}));
+
+        return rejectWithValue({error: {error: "Проверьте правильность заполненых полей"}});
+    }
 
     try {
         const data = await myFetch("/create-user", {

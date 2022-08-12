@@ -1,15 +1,32 @@
-import React, {useEffect} from "react";
+import React, {memo, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import css from "./AuthForm.module.sass";
 import {Field} from "../../molecules/Field/Field";
 import {Button} from "../../molecules/Button/Button";
-import {authFormChangeField, authFormInit} from "../../store/authForm/authFormSlice";
+import {
+    authFormChangeField,
+    authFormInit,
+    authFormSubmit
+} from "../../store/authForm/authFormSlice";
 import {authFormSelector} from "../../store/authForm/authFormSelectors";
+import {userInit} from "../../store/user/userSlice";
 
-export const AuthForm = () => {
+export const AuthForm = memo(() => {
     const dispatch = useDispatch();
-    const {fields, isSuccess, isLoading, isValid, isSubmit} = useSelector(authFormSelector);
+    const navigate = useNavigate();
+
+    const {fields, isSuccess, isLoading, isValid, isSubmit} =
+        useSelector(authFormSelector);
+
+    const authSubmitAction = () => {
+        dispatch(authFormSubmit()).then((data) => {
+            if (data.type === "authForm/authFormSubmit/fulfilled") {
+                navigate("/");
+                dispatch(userInit());
+            }
+        });
+    };
 
     useEffect(() => {
         if (!isSuccess && !isLoading) dispatch(authFormInit());
@@ -28,8 +45,7 @@ export const AuthForm = () => {
                         <Field
                             {...field}
                             change={changeFiledHandler(field.name)}
-                            blur={() => () => {
-                            }}
+                            blur={() => () => {}}
                         />
                     </li>
                 ))}
@@ -37,8 +53,7 @@ export const AuthForm = () => {
             <Button
                 cssClass="form__button"
                 text="Войти"
-                clickHandler={() => () => {
-                }}
+                clickHandler={authSubmitAction}
                 disabled={!isValid}
                 loading={isSubmit}
             />
@@ -47,4 +62,4 @@ export const AuthForm = () => {
             </NavLink>
         </form>
     );
-};
+});

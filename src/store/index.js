@@ -4,11 +4,13 @@ import {configureStore} from "@reduxjs/toolkit";
 import {alertsReducer} from "./alerts/alertsSlice";
 import {authFormReducer} from "./authForm/authFormSlice";
 import {registerFormReducer} from "./registerForm/registerFormSlice";
+import {userReducer} from "./user/userSlice";
 
 const reducers = combineReducers({
     registerFormReducer,
     alertsReducer,
-    authFormReducer
+    authFormReducer,
+    userReducer
 });
 
 export const store = configureStore({

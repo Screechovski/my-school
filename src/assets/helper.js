@@ -4,7 +4,7 @@ import {generateEvent, generateEvents} from "./generators/events";
 import {generateSubject, generateSubjects} from "./generators/subjects";
 import {generateEducator, generateEducators} from "./generators/educators";
 
-const errorChanse = 0.5;
+const errorChanse = 0.1;
 
 export const hasInArray = (arr, item) => {
     for (let i = 0; i < arr.length; i++) {
@@ -97,6 +97,44 @@ export const myFetch = (url, options = {}) =>
                     data: registerUser(options.body)
                 });
             }
+        } else if (include(url, "/auth")) {
+            if (!hasUser(options.body.email)) {
+                reject({
+                    status: "ERROR",
+                    data: null,
+                    error: "Пользователь с такой почтой не найден"
+                });
+            }
+
+            if (
+                getUser(options.body.email).password === options.body.password
+            ) {
+                authUser(options.body.email);
+                resolve({
+                    status: "SUCCESS",
+                    data: null
+                });
+            } else {
+                reject({
+                    status: "ERROR",
+                    data: null,
+                    error: "Неверный пароль"
+                });
+            }
+        } else if (include(url, "/check")) {
+            const isAuth = isAuthUser();
+            if (!!isAuth) {
+                resolve({
+                    status: "SUCCESS",
+                    data: getUser(isAuth)
+                });
+            } else {
+                reject({
+                    status: "ERROR",
+                    data: null,
+                    error: "Необходима авторизация"
+                });
+            }
         } else {
             setTimeout(
                 () =>
@@ -164,3 +202,61 @@ const registerUser = (userData) => {
     localStorage.setItem(`USER::${userData.email}`, JSON.stringify(userData));
     return 1;
 };
+
+const getUser = (email = null) => {
+    if (email) {
+        return JSON.parse(localStorage.getItem(`USER::${email}`));
+    } else {
+        return -1;
+    }
+};
+const authUser = (email = null) => {
+    if (email) {
+        sessionStorage.setItem("AUTH", email);
+    }
+};
+
+const isAuthUser = () => {
+    return sessionStorage.getItem("AUTH");
+};
+
+export const fieldCreator = ({
+    name,
+    headline,
+    placeholder,
+    value,
+    isValid,
+    isDisabled,
+    isRequired,
+    isLoading,
+    type,
+    warningLine,
+    attr
+}) => {
+    return {
+        name: name ?? "email",
+        headline: headline ?? "Ваш email",
+        placeholder: placeholder ?? "Введите ваш email",
+        value: value ?? "",
+        isValid: isValid ?? null,
+        isDisabled: isDisabled ?? false,
+        isRequired: isRequired ?? true,
+        isLoading: isLoading ?? false,
+        type: type ?? "input",
+        warningLine: warningLine ?? "",
+        attr: attr ?? {}
+    };
+};
+
+export const emailFieldCreator = () =>
+    fieldCreator({
+        name: "email",
+        headline: "Ваш email",
+        placeholder: "Введите ваш email",
+        value: "",
+        isValid: null,
+        isDisabled: false,
+        isRequired: true,
+        isLoading: false,
+        type: "input"
+    });

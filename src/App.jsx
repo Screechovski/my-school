@@ -38,6 +38,7 @@ export const App = () => {
                     element={<PageSubjectInner />}
                 />
                 <Route path="/event-inner/:eventId" element={<span />} />
+                <Route path="/profile" element={<span />} />
 
                 <Route path="/auth" element={<PageAuthForm />} />
                 <Route path="/register" element={<PageRegisterForm />} />

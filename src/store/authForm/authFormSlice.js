@@ -1,5 +1,13 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {fieldsIsValid, isValidEmail} from "../../assets/helper";
+import {
+    emailFieldCreator,
+    fieldCreator,
+    fieldsIsValid,
+    fieldsStringify,
+    isValidEmail,
+    myFetch
+} from "../../assets/helper";
+import {addAlert} from "../alerts/alertsSlice";
 
 const initialState = {
     isError: false,
@@ -13,33 +21,59 @@ const initialState = {
 };
 
 const getFields = () => ({
-    email: {
-        name: "email",
-        headline: "Ваш email",
-        placeholder: "Введите ваш email",
-        value: "",
-        isValid: null,
-        isDisabled: false,
-        isRequired: true,
-        isLoading: false,
-        type: "input"
-    },
-    password: {
+    email: emailFieldCreator(),
+    password: fieldCreator({
         name: "password",
         headline: "Пароль",
         placeholder: "Введите пароль",
-        value: "",
-        isValid: null,
-        isDisabled: false,
-        isRequired: true,
-        isLoading: false,
         type: "password"
-    }
+    })
 });
 
-export const authFormSubmit = createAsyncThunk("authForm/authFormSubmit", async (_, {}) => {
+export const authFormSubmit = createAsyncThunk(
+    "authForm/authFormSubmit",
+    async (_, {dispatch, getState, fulfillWithValue, rejectWithValue}) => {
+        const {
+            authFormReducer: {fields}
+        } = getState();
 
-})
+        if (!fieldsIsValid(fields)) {
+            dispatch(
+                addAlert({
+                    type: "error",
+                    message: "Проверьте правильность заполненых полей"
+                })
+            );
+
+            return rejectWithValue({
+                error: {error: "Проверьте правильность заполненых полей"}
+            });
+        }
+
+        try {
+            const data = await myFetch("/auth", {
+                body: fieldsStringify(fields)
+            });
+
+            if (data.status !== "SUCCESS") throw data;
+
+            dispatch(
+                addAlert({
+                    type: "success",
+                    message: "Вы успешно авторизированны"
+                })
+            );
+
+            return fulfillWithValue({data});
+        } catch (error) {
+            console.warn(error);
+
+            dispatch(addAlert({type: "error", message: error.error}));
+
+            return rejectWithValue({error});
+        }
+    }
+);
 
 export const authFormSlice = createSlice({
     name: "authForm",

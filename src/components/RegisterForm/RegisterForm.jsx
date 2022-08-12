@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, memo} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink, useNavigate} from "react-router-dom";
 import css from "./RegisterForm.module.sass";
@@ -10,15 +10,16 @@ import {
     registerFormSubmit
 } from "../../store/registerForm/registerFormSlice";
 
-export const RegisterForm = () => {
+export const RegisterForm = memo(() => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const {fields, isSuccess, isLoading, isValid, isSubmit} = useSelector(state => state.registerFormReducer);
+    const {fields, isSuccess, isLoading, isValid, isSubmit} = useSelector(
+        (state) => state.registerFormReducer
+    );
     const registerFormSubmitAction = () => {
-        console.log("registerFormSubmitAction");
-        dispatch(registerFormSubmit()).then(result => {
-            if (result.type === "registerForm/registerFormSubmit/fulfilled") {
+        dispatch(registerFormSubmit()).then((data) => {
+            if (data.type === "registerForm/registerFormSubmit/fulfilled") {
                 navigate("/auth");
             }
         });
@@ -48,8 +49,7 @@ export const RegisterForm = () => {
                         <Field
                             {...field}
                             change={changeFiledHandler(field.name)}
-                            blur={() => () => {
-                            }}
+                            blur={() => () => {}}
                         />
                     </li>
                 ))}
@@ -66,4 +66,4 @@ export const RegisterForm = () => {
             </NavLink>
         </form>
     );
-};
+});
