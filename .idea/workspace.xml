@@ -24,17 +24,15 @@
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/helper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UserPanel/UserPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserPanel/UserPanel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Button/Button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Button/Button.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Button/Button.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Button/Button.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/authForm/authFormSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/authForm/authFormSlice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/registerForm/registerFormSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/registerForm/registerFormSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/registerForm_DEPRECATED/registerFormActionCreator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/registerForm_DEPRECATED/registerFormActionTypes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/registerForm_DEPRECATED/registerFormActions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/registerForm_DEPRECATED/registerFormHook.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/registerForm_DEPRECATED/registerFormReducer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/registerForm_DEPRECATED/registerFormSelectors.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,15 +77,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "yarn",
-    "prettierjs.PrettierConfiguration.Package": "E:\\Sites\\my-app\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;E:\\Sites\\my-app\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\sch\src\molecules\Alert" />
@@ -143,7 +141,9 @@
       <workItem from="1660151405383" duration="10739000" />
       <workItem from="1660298216924" duration="5394000" />
       <workItem from="1660304380292" duration="5951000" />
-      <workItem from="1660326639966" duration="1708000" />
+      <workItem from="1660326639966" duration="1739000" />
+      <workItem from="1660335124055" duration="3794000" />
+      <workItem from="1660380730485" duration="3965000" />
     </task>
     <servers />
   </component>
