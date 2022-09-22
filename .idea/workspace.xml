@@ -20,19 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/helper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm/AuthForm.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterForm/RegisterForm.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserPanel/UserPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserPanel/UserPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Button/Button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Button/Button.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Button/Button.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Button/Button.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/authForm/authFormSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/authForm/authFormSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/registerForm/registerFormSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/registerForm/registerFormSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/generators/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/generators/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,9 +78,11 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;E:/Sites/my-app/server/node_modules/jest&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;E:\\Sites\\my-app\\node_modules\\prettier&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;E:\\Sites\\my-app\\client\\node_modules\\prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\Sites\\my-app\\server\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -95,12 +95,32 @@
       <recent name="E:\Sites\my-app\src\store\newsInner" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Sites\my-app\server\src\modules" />
       <recent name="E:\Sites\my-app\src\molecules" />
       <recent name="E:\Sites\my-app\src\old" />
       <recent name="E:\Sites\my-app\src\views\PageEducatorsInner" />
       <recent name="D:\sch\public" />
-      <recent name="D:\sch\src\molecules" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="/news" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/server/__test__/news.api.test.ts" />
+      <test-names>
+        <test-name value="/news" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest./news" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -144,6 +164,9 @@
       <workItem from="1660326639966" duration="1739000" />
       <workItem from="1660335124055" duration="3794000" />
       <workItem from="1660380730485" duration="3965000" />
+      <workItem from="1663835755589" duration="7234000" />
+      <workItem from="1663844583679" duration="2498000" />
+      <workItem from="1663882058256" duration="10000" />
     </task>
     <servers />
   </component>
@@ -161,6 +184,16 @@
       </map>
     </option>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/modules/posts.ts</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
       <path>
@@ -169,5 +202,8 @@
       </path>
     </expand>
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/my_app$_news.info" NAME="/news Coverage Results" MODIFIED="1663845367762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -39,7 +39,7 @@ export const App = () => {
                     path="/subjects-inner/:subjectId"
                     element={<PageSubjectInner />}
                 />
-                <Route path="/event-inner/:eventId" element={<span />} />
+                <Route path="/event-inner/:eventId" element={<span>1</span>} />
 
                 <Route path="/auth" element={<PageAuthForm />} />
                 <Route path="/register" element={<PageRegisterForm />} />

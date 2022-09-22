@@ -12,8 +12,6 @@ if (envName === "production") {
     target = "browserslist";
 }
 
-console.log(path.join(__dirname, ""));
-
 module.exports = {
     entry: "./src/index.js",
     plugins: [
@@ -81,5 +79,6 @@ module.exports = {
         port: 8080,
         historyApiFallback: true,
         open: true
-    }
+    },
+    watch: envName !== "production"
 };
