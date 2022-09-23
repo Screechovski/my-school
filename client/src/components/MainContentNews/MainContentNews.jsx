@@ -13,6 +13,9 @@ export const MainContentNews = memo(() => {
         ["news"],
         newsQuery
     );
+
+    console.log(JSON.stringify(data?.data))
+
     return (
         <MainContent cssClass="page__mainContainer" title="Новости">
             {isLoading && (

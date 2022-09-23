@@ -1,6 +1,6 @@
-const URL = window.location.origin; //"http://localhost:8080";
+const URL = '';//window.location.origin; "http://localhost:8080";
 
-const path = (href, name) => `${URL}/img/${href}/${name}`;
+const path = (href: string, name: string) => `${URL}/img/${href}/${name}`;
 
 export const manPhoto = () => "https://thispersondoesnotexist.com/image";
 
@@ -82,11 +82,11 @@ export const generateDate = () => {
 
     const random = new Date(fromTime + Math.random() * (toTime - fromTime));
 
-    let m = random.getMinutes();
-    let h = random.getHours();
-    let yyyy = random.getFullYear();
-    let mm = random.getMonth() + 1;
-    let dd = random.getDate();
+    let m: string | number = random.getMinutes();
+    let h: string | number = random.getHours();
+    let yyyy: string | number = random.getFullYear();
+    let mm: string | number = random.getMonth() + 1;
+    let dd: string | number = random.getDate();
 
     if (mm < 10) mm = "0" + mm;
     if (dd < 10) dd = "0" + dd;

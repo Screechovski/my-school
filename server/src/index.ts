@@ -142,10 +142,18 @@ app.delete(
 
 /* NEWS END */
 
-app.delete('/q3576jn3a5723467m246__test__', (req: RequestEmpty, res) => {
-    postsInstance.clean();
-    res.sendStatus(HTTP_CODES.NO_CONTENT_204);
-});
+
+app.get('/insertBDnew13', (req, res) => {
+    DBInstance.test__addEducators()
+        .then(data => {
+            console.log(data);
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.log(error);
+            res.sendStatus(500);
+        })
+})
 
 app.get('/*', (req: RequestEmpty, res) => {
     res.sendFile(path.join(__dirname, '/build/index.html'));

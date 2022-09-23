@@ -20,8 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/generators/educators.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/generators/educators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/generators/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/generators/items.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/generators/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/generators/posts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/MainContentNews/MainContentNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainContentNews/MainContentNews.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/queryes/news.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/queryes/news.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/assets/items.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/assets/items.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/db.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +169,7 @@
       <workItem from="1663844583679" duration="2498000" />
       <workItem from="1663882058256" duration="5480000" />
       <workItem from="1663926197143" duration="3420000" />
-      <workItem from="1663954668406" duration="2072000" />
+      <workItem from="1663954668406" duration="11507000" />
     </task>
     <servers />
   </component>

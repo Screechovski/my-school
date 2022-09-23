@@ -1,7 +1,7 @@
 import { titles, messages, generateDate } from "./items";
 
 
-export const generatePosts = (count) => {
+export const generatePosts = (count: number) => {
     let posts = [];
 
     for (let i = 0; i < count; i++) {
@@ -17,7 +17,7 @@ export const generatePosts = (count) => {
     return posts;
 }
 
-export const generatePost = (id) => ({
+export const generatePost = (id: number) => ({
     id,
     title: titles()[id - 1],
     image: "null",

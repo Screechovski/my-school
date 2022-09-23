@@ -1,4 +1,4 @@
-const URL = "http://localhost:3333"; //window.location.origin; //"http://localhost:8080";
+const URL = ""; //window.location.origin; //"http://localhost:8080";
 
 const path = (href: string, name: string): string =>
     `${URL}/img/${href}/${name}`;
@@ -110,7 +110,7 @@ export const generateDate = (): string => {
     );
 };
 
-export const subjects = (): Array<Object> => [
+export const subjects = () => [
     {
         id: 0,
         title: "Чистописание",
