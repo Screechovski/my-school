@@ -20,15 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/generators/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/generators/items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/helper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/IndexNews/IndexNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/IndexNews/IndexNews.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/MainContentNewsInner/MainContentNewsInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainContentNewsInner/MainContentNewsInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/queryes/news.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/queryes/news.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/assets/helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/assets/helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
@@ -75,17 +79,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;E:/Sites/my-app/server/node_modules/jest&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;E:\\Sites\\my-app\\client\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;E:\\Sites\\my-app\\server\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs.jest.jest_package": "E:/Sites/my-app/server/node_modules/jest",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "E:\\Sites\\my-app\\client\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "ts.external.directory.path": "E:\\Sites\\my-app\\server\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\sch\src\molecules\Alert" />
@@ -166,7 +170,9 @@
       <workItem from="1660380730485" duration="3965000" />
       <workItem from="1663835755589" duration="7234000" />
       <workItem from="1663844583679" duration="2498000" />
-      <workItem from="1663882058256" duration="10000" />
+      <workItem from="1663882058256" duration="5480000" />
+      <workItem from="1663926197143" duration="3420000" />
+      <workItem from="1663954668406" duration="2000000" />
     </task>
     <servers />
   </component>
@@ -183,16 +189,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/modules/posts.ts</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

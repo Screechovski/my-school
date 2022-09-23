@@ -1,28 +1,31 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-    target: "node",
-    entry: "./src/index.ts",
+    target: 'node',
+    entry: './src/index.ts',
     module: {
         rules: [
             {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
-                use: ["babel-loader"]
+                use: ['babel-loader']
             },
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
-                exclude: /node_modules/,
-            },
+                exclude: /node_modules/
+            }
         ]
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.js']
     },
     output: {
-        path: path.resolve(__dirname, "../public"),
-        filename: "server.js"
+        path: path.resolve(__dirname, '../public'),
+        filename: 'server.js'
     },
-    watch: true
+    watch: true,
+    stats: {
+        errorDetails: true
+    }
 };

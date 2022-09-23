@@ -1,4 +1,4 @@
-import {myFetch} from "../assets/helper";
+import {smartFetch} from '../assets/helper';
 
-export const newsQuery = () => myFetch("/news");
-export const singleNewsQuery = (id) => () => myFetch("/news/" + id);
+export const newsQuery = () => smartFetch('/api/news');
+export const singleNewsQuery = (id) => () => smartFetch('/api/news/' + id);

@@ -1,11 +1,13 @@
 {
     "scripts": {
         "test": "jest",
-        "build": "webpack --mode=development",
-        "build-prod": "webpack --mode=production"
+        "start": "webpack --mode=development",
+        "build": "webpack --mode=production"
     },
     "dependencies": {
+        "@types/mysql": "^2.15.21",
         "express": "^4.18.1",
+        "mysql": "^2.18.1",
         "webpack": "^5.74.0"
     },
     "devDependencies": {
