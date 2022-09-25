@@ -1,6 +1,6 @@
 import React, {memo} from "react";
 import css from "./MainContentSubjects.module.sass";
-import {getNumberArray} from "../../assets/helper";
+import {getNumberArray, queryConfig} from "../../assets/helper";
 import {
     SubjectCard,
     SubjectCardLoading
@@ -14,7 +14,8 @@ import {NUM} from "../../assets/constants";
 export const MainContentSubjects = memo(() => {
     const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
         ["subjects"],
-        subjectsQuery
+        subjectsQuery,
+        queryConfig
     );
 
     return (
@@ -31,10 +32,10 @@ export const MainContentSubjects = memo(() => {
 
             {isSuccess && (
                 <ul className={css.mainContentSubjects__list}>
-                    {data.data.map(({id, title, imageName}) => (
+                    {data.data.map(({id, title, image}) => (
                         <li key={id}>
                             <SubjectCard
-                                image={imageName}
+                                image={image}
                                 title={title}
                                 id={id}
                             />

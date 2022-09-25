@@ -1,5 +1,5 @@
-import {myFetch} from "../assets/helper";
+import {smartFetch} from '../assets/helper';
 
-export const educatorsQuery = () => myFetch("/educators");
+export const educatorsQuery = () => smartFetch('/educators');
 
-export const educatorQuery = (id) => () => myFetch("/educators/" + id);
+export const educatorQuery = (id) => () => smartFetch('/educator/' + id);

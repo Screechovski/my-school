@@ -1,5 +1,6 @@
 import React from "react";
 import css from "./NewsInner.module.sass";
+import {prettyBackendDate} from "../../assets/helper";
 
 export const NewsInner = ({image, title, date, message}) => {
     return (
@@ -14,7 +15,7 @@ export const NewsInner = ({image, title, date, message}) => {
                 />
                 <div className={css.newsInnerHeader__content}>
                     <h2 className={css.newsInnerHeader__title}>{title}</h2>
-                    <span className={css.newsInnerHeader__date}>{date}</span>
+                    <span className={css.newsInnerHeader__date}>{prettyBackendDate(date)}</span>
                 </div>
             </header>
             <p className={css.newsInner__text}>{message}</p>

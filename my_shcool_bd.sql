@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 24 2022 г., 00:02
+-- Время создания: Сен 24 2022 г., 15:20
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -116,10 +116,61 @@ INSERT INTO `subjects` (`id`, `title`, `image`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `subjects_years`
+-- Структура таблицы `subject_user`
 --
 
-CREATE TABLE `subjects_years` (
+CREATE TABLE `subject_user` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `subject_user`
+--
+
+INSERT INTO `subject_user` (`id`, `user_id`, `subject_id`) VALUES
+(1, 1, 13),
+(2, 1, 14),
+(3, 1, 15),
+(4, 2, 11),
+(5, 2, 15),
+(6, 2, 22),
+(7, 2, 28),
+(8, 3, 28),
+(9, 3, 25),
+(10, 3, 24),
+(11, 3, 5),
+(12, 4, 23),
+(13, 4, 24),
+(14, 4, 25),
+(15, 4, 5),
+(16, 5, 19),
+(17, 6, 12),
+(18, 7, 17),
+(19, 8, 18),
+(20, 9, 9),
+(21, 10, 21),
+(22, 10, 23),
+(23, 11, 26),
+(24, 11, 32),
+(25, 12, 8),
+(26, 12, 10),
+(27, 12, 16),
+(28, 13, 1),
+(29, 13, 2),
+(30, 13, 8),
+(31, 14, 27),
+(32, 14, 31),
+(33, 15, 20);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `subject_year`
+--
+
+CREATE TABLE `subject_year` (
   `id` int(11) NOT NULL,
   `subject_id` int(2) NOT NULL,
   `1` tinyint(1) NOT NULL DEFAULT 0,
@@ -136,10 +187,10 @@ CREATE TABLE `subjects_years` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `subjects_years`
+-- Дамп данных таблицы `subject_year`
 --
 
-INSERT INTO `subjects_years` (`id`, `subject_id`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`) VALUES
+INSERT INTO `subject_year` (`id`, `subject_id`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`) VALUES
 (1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (2, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0),
 (3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0),
@@ -197,21 +248,21 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `patronymic`, `role`, `active`, `phone`, `email`, `image`, `password`) VALUES
-(1, 'Макар', 'Тарасов', 'Мэлсович', 'teacher', 1, '741486341242', 'wuquibanabrei-6943@yopmail.com', '/img/educators/m-1.jpg', '$2a$10$orixprsWcnXUywxBz/.RCudr6IbtE0OTr7XF3LTUNFB5TuSRbmbd.'),
-(2, 'Гражина', 'Зимина', 'Александровна', 'teacher', 1, '267144370227547', 'yeifreujocrouxa-1742@yopmail.com', '/img/educators/w-1.jpg', '$2a$10$tK7E1fW9QfQqg8p.KDafQOQrjdqd2r6T89gWsf0puEfMz/b7PTyTa'),
-(3, 'Касьян', 'Тетерин', 'Лаврентьевич', 'teacher', 1, '207558600413371', 'quiyarauvubra-3784@yopmail.com', '/img/educators/m-2.jpg', '$2a$10$.U.9fZ0fdA4.3U59ZwNV..kZP0WrGzBiWhuakmysMW2uh/1Yrznva'),
-(4, 'Леонтий', 'Рогов', 'Яковлевич', 'teacher', 1, '2563987494512588', 'proiyatteyaubreu-1743@yopmail.com', '/img/educators/m-3.jpg', '$2a$10$D0Qq2TZwhAgUCrEzfzyEDemPhwsqomAld9SHFZ/F2uRMeiGB.1cku'),
-(5, 'Дмитрий', 'Веселов', 'Никитевич', 'teacher', 1, '071711502028991', 'cicocrequossi-3052@yopmail.com', '/img/educators/m-4.jpg', '$2a$10$VvrIqDzm6EAdYHXz4Z85zeQ0xsLMtZLnf7FcVXmwMJ2fHgY8pVIFK'),
-(6, 'Дина', 'Васильева', 'Феликсовна', 'teacher', 1, '766517436237908', 'jonoitrerequei-6613@yopmail.com', '/img/educators/w-2.jpg', '$2a$10$bkSOYG9tyRE7UkEnWhcRIegDLEqR1VbBv8zX2nWnBln1g6jor1pmO'),
-(7, 'Виктор', 'Якушев', 'Иринеевич', 'teacher', 1, '20810847307164315', 'veuquokoineje-8739@yopmail.com', '/img/educators/m-5.jpg', '$2a$10$mGRBiwGbuIXSWpGZZ71S4uGU6xvXM8uH42icwS3TeUysJm.7k/j.2'),
-(8, 'Индира', 'Никонова', 'Аркадьевна', 'teacher', 1, '935170807016826', 'lepugeipreque-3076@yopmail.com', '/img/educators/w-3.jpg', '$2a$10$PPZBgVGMPOIVCFcxnkWwHeh7vYMoDllUy8LSxFeXHKBoJwv/rh/AO'),
-(9, 'Гордей', 'Ильин', 'Проклович', 'teacher', 1, '650512544153088', 'foiquequappotre-1359@yopmail.com', '/img/educators/m-6.jpg', '$2a$10$.5ghpGtfyTD8/QnKGpyi0eKL7qN28FctkR28C9vfbgY/L7ymDcVTm'),
-(10, 'Ярослава', 'Аксёнова', 'Фроловна', 'teacher', 1, '5240446373939', 'quegeiyouddibra-3856@yopmail.com', '/img/educators/w-4.jpg', '$2a$10$s3afxTYQBbSod.AZPyhIDOJ2go0levnAluat1Kqm28tcInqNm1duK'),
-(11, 'Залина', 'Кириллова', 'Богдановна', 'teacher', 1, '455711255234495', 'doinejukuffeu-5376@yopmail.com', '/img/educators/w-5.jpg', '$2a$10$qmE.lSlgV14GRbCqgCR0b.p3amFytfMJkHy3WtbDIncAo5MFV.v0S'),
-(12, 'Ростислав', 'Лукин', 'Иванович', 'teacher', 1, '48824191375731202', 'yivaddagremei-8606@yopmail.com', '/img/educators/m-7.jpg', '$2a$10$x8tq9ufs/cciO/bQi7XGseMMsrTajWVvZxdCwzhRWze7I1aKfzUuG'),
-(13, 'Верона', 'Жукова', 'Семёновна', 'teacher', 1, '28781327065957', 'puboifremacrei-8128@yopmail.com', '/img/educators/w-6.jpg', '$2a$10$Scg3/JL1Id3spzjr7AI1UeUodHKXTridHb2vMB.4pGbrYG2ERtHSW'),
-(14, 'Розалия', 'Мишина', 'Федосеевна', 'teacher', 1, '66803735038353', 'queullefajepri-5547@yopmail.com', '/img/educators/w-7.jpg', '$2a$10$kkJuAKmWn6QV/HaqvxmQV.gpRudl2nSaUlI8ez9t55YvQgXdORhIO'),
-(15, 'Юна', 'Колобова', 'Авдеевна', 'teacher', 1, '3446172667494', 'nakauttabenu-2083@yopmail.com', '/img/educators/w-8.jpg', '$2a$10$WcI4BlAkGg9JEzjos./NzeIGynKITbTN91n6ZGRUjIuP7XUOWbY4y');
+(1, 'Макар', 'Тарасов', 'Мэлсович', 'teacher', 1, '741486341242', 'wuquibanabrei-6943@yopmail.com', '/img/educatorsController/m-1.jpg', '$2a$10$orixprsWcnXUywxBz/.RCudr6IbtE0OTr7XF3LTUNFB5TuSRbmbd.'),
+(2, 'Гражина', 'Зимина', 'Александровна', 'teacher', 1, '267144370227547', 'yeifreujocrouxa-1742@yopmail.com', '/img/educatorsController/w-1.jpg', '$2a$10$tK7E1fW9QfQqg8p.KDafQOQrjdqd2r6T89gWsf0puEfMz/b7PTyTa'),
+(3, 'Касьян', 'Тетерин', 'Лаврентьевич', 'teacher', 1, '207558600413371', 'quiyarauvubra-3784@yopmail.com', '/img/educatorsController/m-2.jpg', '$2a$10$.U.9fZ0fdA4.3U59ZwNV..kZP0WrGzBiWhuakmysMW2uh/1Yrznva'),
+(4, 'Леонтий', 'Рогов', 'Яковлевич', 'teacher', 1, '2563987494512588', 'proiyatteyaubreu-1743@yopmail.com', '/img/educatorsController/m-3.jpg', '$2a$10$D0Qq2TZwhAgUCrEzfzyEDemPhwsqomAld9SHFZ/F2uRMeiGB.1cku'),
+(5, 'Дмитрий', 'Веселов', 'Никитевич', 'teacher', 1, '071711502028991', 'cicocrequossi-3052@yopmail.com', '/img/educatorsController/m-4.jpg', '$2a$10$VvrIqDzm6EAdYHXz4Z85zeQ0xsLMtZLnf7FcVXmwMJ2fHgY8pVIFK'),
+(6, 'Дина', 'Васильева', 'Феликсовна', 'teacher', 1, '766517436237908', 'jonoitrerequei-6613@yopmail.com', '/img/educatorsController/w-2.jpg', '$2a$10$bkSOYG9tyRE7UkEnWhcRIegDLEqR1VbBv8zX2nWnBln1g6jor1pmO'),
+(7, 'Виктор', 'Якушев', 'Иринеевич', 'teacher', 1, '20810847307164315', 'veuquokoineje-8739@yopmail.com', '/img/educatorsController/m-5.jpg', '$2a$10$mGRBiwGbuIXSWpGZZ71S4uGU6xvXM8uH42icwS3TeUysJm.7k/j.2'),
+(8, 'Индира', 'Никонова', 'Аркадьевна', 'teacher', 1, '935170807016826', 'lepugeipreque-3076@yopmail.com', '/img/educatorsController/w-3.jpg', '$2a$10$PPZBgVGMPOIVCFcxnkWwHeh7vYMoDllUy8LSxFeXHKBoJwv/rh/AO'),
+(9, 'Гордей', 'Ильин', 'Проклович', 'teacher', 1, '650512544153088', 'foiquequappotre-1359@yopmail.com', '/img/educatorsController/m-6.jpg', '$2a$10$.5ghpGtfyTD8/QnKGpyi0eKL7qN28FctkR28C9vfbgY/L7ymDcVTm'),
+(10, 'Ярослава', 'Аксёнова', 'Фроловна', 'teacher', 1, '5240446373939', 'quegeiyouddibra-3856@yopmail.com', '/img/educatorsController/w-4.jpg', '$2a$10$s3afxTYQBbSod.AZPyhIDOJ2go0levnAluat1Kqm28tcInqNm1duK'),
+(11, 'Залина', 'Кириллова', 'Богдановна', 'teacher', 1, '455711255234495', 'doinejukuffeu-5376@yopmail.com', '/img/educatorsController/w-5.jpg', '$2a$10$qmE.lSlgV14GRbCqgCR0b.p3amFytfMJkHy3WtbDIncAo5MFV.v0S'),
+(12, 'Ростислав', 'Лукин', 'Иванович', 'teacher', 1, '48824191375731202', 'yivaddagremei-8606@yopmail.com', '/img/educatorsController/m-7.jpg', '$2a$10$x8tq9ufs/cciO/bQi7XGseMMsrTajWVvZxdCwzhRWze7I1aKfzUuG'),
+(13, 'Верона', 'Жукова', 'Семёновна', 'teacher', 1, '28781327065957', 'puboifremacrei-8128@yopmail.com', '/img/educatorsController/w-6.jpg', '$2a$10$Scg3/JL1Id3spzjr7AI1UeUodHKXTridHb2vMB.4pGbrYG2ERtHSW'),
+(14, 'Розалия', 'Мишина', 'Федосеевна', 'teacher', 1, '66803735038353', 'queullefajepri-5547@yopmail.com', '/img/educatorsController/w-7.jpg', '$2a$10$kkJuAKmWn6QV/HaqvxmQV.gpRudl2nSaUlI8ez9t55YvQgXdORhIO'),
+(15, 'Юна', 'Колобова', 'Авдеевна', 'teacher', 1, '3446172667494', 'nakauttabenu-2083@yopmail.com', '/img/educatorsController/w-8.jpg', '$2a$10$WcI4BlAkGg9JEzjos./NzeIGynKITbTN91n6ZGRUjIuP7XUOWbY4y');
 
 --
 -- Индексы сохранённых таблиц
@@ -230,9 +281,15 @@ ALTER TABLE `subjects`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `subjects_years`
+-- Индексы таблицы `subject_user`
 --
-ALTER TABLE `subjects_years`
+ALTER TABLE `subject_user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `subject_year`
+--
+ALTER TABLE `subject_year`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `subject_id` (`subject_id`);
 
@@ -259,10 +316,10 @@ ALTER TABLE `subjects`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT для таблицы `subjects_years`
+-- AUTO_INCREMENT для таблицы `subject_user`
 --
-ALTER TABLE `subjects_years`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+ALTER TABLE `subject_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT для таблицы `users`

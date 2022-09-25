@@ -1,16 +1,15 @@
 .button
-  @apply px-big text-white rounded-medium border-2 h-field
-  &:not(.button_disabled),
-  &:not(.button_loading)
-    @apply bg-blue-700 border-1 border-blue-800 cursor-pointer
-    &:hover
-      @apply bg-blue-600 border-blue-700
-    &:active
-      @apply bg-blue-800 border-blue-900
-    &:focus-visible
-      @apply outline-none
-  &_disabled
-    @apply bg-gray-600 border-1 border-gray-900 cursor-no-drop
-  &_loading
-    .button__loader
-      --loader-size: 29px
+    @apply px-big text-white rounded-medium border-2 h-field
+    &:not(.button_disabled)
+        @apply bg-blue-700 border-1 border-blue-800 cursor-pointer
+        &:hover
+            @apply bg-blue-600 border-blue-700
+        &:active
+            @apply bg-blue-800 border-blue-900
+        &:focus-visible
+            @apply outline-none
+    &_disabled
+        @apply bg-gray-600 border-1 border-gray-900 cursor-no-drop
+    &_loading
+        .button__loader
+            --loader-size: 29px

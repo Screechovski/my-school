@@ -1,4 +1,5 @@
-import { titles, messages, generateDate } from "./items";
+// @ts-ignore
+import { titles, messages, generateDate } from "./items.ts";
 
 
 export const generatePosts = (count: number) => {

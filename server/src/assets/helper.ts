@@ -12,13 +12,13 @@ export const HTTP_CODES = {
 };
 
 export const success = (data: any, message = ''): AnswerType => ({
-    type: 'SUCCESS',
+    status: 'SUCCESS',
     data: data,
     message: message
 });
 
 export const error = (message: string = ''): AnswerType => ({
-    type: 'ERROR',
+    status: 'ERROR',
     data: null,
     message: message
 });

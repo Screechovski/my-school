@@ -1,4 +1,4 @@
-import {generateDate, messages, titles} from "./items";
+import {generateDate, messages, titles} from "./items.js";
 
 export const generateEvents = (count) => {
     let events = [];

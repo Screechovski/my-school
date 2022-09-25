@@ -2,8 +2,9 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import css from "./NewsCard.module.sass";
 import {ShortText} from "../ShortText/ShortText";
+import {prettyBackendDate} from "../../assets/helper";
 
-export const NewsCard = ({title, id, date, body, mainImgUrl}) => {
+export const NewsCard = ({title, id, date, body, image}) => {
     return (
         <article
             className={css.newsCard}
@@ -11,15 +12,15 @@ export const NewsCard = ({title, id, date, body, mainImgUrl}) => {
                 .substring(0, 10)
                 .trim()}...`}
         >
-            <NavLink to={"/news-inner/" + id} className={css.newsCard__inner}>
+            <NavLink to={"/news/" + id} className={css.newsCard__inner}>
                 <div className={css.newsCard__imageWrap}>
                     <img
                         alt="Картинка"
-                        src={mainImgUrl}
+                        src={image}
                         className={css.newsCard__image}
                     />
                 </div>
-                <span className={css.newsCard__date}>{date}</span>
+                <span className={css.newsCard__date}>{prettyBackendDate(date)}</span>
 
                 <header>
                     <ShortText

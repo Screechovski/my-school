@@ -247,10 +247,10 @@
 import express from 'express';
 export const app = express();
 const port = 3333;
-import {Posts} from './modules/posts';
+import {PostsController} from './modules/posts';
 import {HTTP_CODES, success, error} from './assets/helper';
 &nbsp;
-const postsInstance = new Posts(20);
+const postsInstance = new PostsController(20);
 &nbsp;
 const jsonBodyMiddleware = express.json();
 &nbsp;

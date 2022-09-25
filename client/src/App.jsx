@@ -25,21 +25,21 @@ export const App = () => {
                 <Route exact path="/" element={<PageIndex />} />
                 <Route path="/news" element={<PageNews />} />
                 <Route path="/subjects" element={<PageSubjects />} />
-                <Route path="/educators" element={<PageEducators />} />
+                <Route path="/educatorsController" element={<PageEducators />} />
 
                 <Route path="/about" element={<span />} />
-                <Route path="/events" element={<PageEvents />} />
+                <Route path="/eventsController" element={<PageEvents />} />
 
                 <Route
-                    path="/educator-inner/:educatorId"
+                    path="/educator/:educatorId"
                     element={<PageEducatorInner />}
                 />
-                <Route path="/news-inner/:newsId" element={<PageNewsInner />} />
+                <Route path="/news/:newsId" element={<PageNewsInner />} />
                 <Route
-                    path="/subjects-inner/:subjectId"
+                    path="/subject/:subjectId"
                     element={<PageSubjectInner />}
                 />
-                <Route path="/event-inner/:eventId" element={<span>1</span>} />
+                <Route path="/event/:eventId" element={<span>1</span>} />
 
                 <Route path="/auth" element={<PageAuthForm />} />
                 <Route path="/register" element={<PageRegisterForm />} />

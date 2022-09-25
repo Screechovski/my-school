@@ -36,7 +36,7 @@ export const IndexNews = memo(() => {
                         <NewsCard
                             title={item.title}
                             id={item.id}
-                            date={item.date}
+                            date={item.created}
                             body={item.message}
                             mainImgUrl={item.image}
                         />

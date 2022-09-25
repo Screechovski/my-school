@@ -1,0 +1,26 @@
+import { titles, messages, generateDate } from "./items.js";
+
+
+export const generatePosts = (count) => {
+    let posts = [];
+
+    for (let i = 0; i < count; i++) {
+        posts.push({
+            id: i + 1,
+            title: titles()[i],
+            image: "null",
+            date: generateDate(),
+            message: messages()[i]
+        })
+    }
+
+    return posts;
+}
+
+export const generatePost = (id) => ({
+    id,
+    title: titles()[id - 1],
+    image: "null",
+    date: generateDate(),
+    message: messages()[id - 1]
+})

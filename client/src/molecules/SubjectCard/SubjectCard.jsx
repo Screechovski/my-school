@@ -4,7 +4,7 @@ import css from "./SubjectCard.module.sass";
 
 export const SubjectCard = ({image, title, id}) => {
     return (
-        <NavLink to={"/subjects-inner/" + id} className={css.subjectCard}>
+        <NavLink to={"/subject/" + id} className={css.subjectCard}>
             <img
                 className={css.subjectCard__icon}
                 src={image}

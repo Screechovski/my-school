@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-import {getNumberArray} from "../../assets/helper";
+import {getNumberArray, queryConfig} from "../../assets/helper";
 import {EventCard, EventCardLoading} from "../../molecules/EventCard/EventCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {Sidebar} from "../../molecules/Sidebar/Sidebar";
@@ -10,7 +10,8 @@ import {NUM} from "../../assets/constants";
 export const SidebarEvents = memo(() => {
     const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
         ["events"],
-        eventsQuery
+        eventsQuery,
+        queryConfig
     );
 
     return (
@@ -29,12 +30,12 @@ export const SidebarEvents = memo(() => {
                 <ul className="page__sidebarList">
                     {data.data
                         .slice(0, NUM.events.sidebar)
-                        .map(({date, id, message, title}) => (
+                        .map(({created, id, message, title}) => (
                             <li key={id}>
                                 <EventCard
                                     title={title}
                                     id={id}
-                                    date={date}
+                                    date={created}
                                     body={message}
                                 />
                             </li>

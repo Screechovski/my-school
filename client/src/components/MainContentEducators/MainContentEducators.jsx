@@ -1,6 +1,6 @@
 import React, {memo} from "react";
 import css from "./MainContentEducators.module.sass";
-import {getNumberArray} from "../../assets/helper";
+import {getNumberArray, queryConfig} from "../../assets/helper";
 import {
     EducatorCard,
     EducatorCardLoading
@@ -13,7 +13,8 @@ import {educatorsQuery} from "../../queryes/educators";
 export const MainContentEducators = memo(() => {
     const {isSuccess, data, isLoading, isError, error, refetch} = useQuery(
         ["educators"],
-        educatorsQuery
+        educatorsQuery,
+        queryConfig
     );
 
     return (
@@ -30,14 +31,13 @@ export const MainContentEducators = memo(() => {
 
             {isSuccess && (
                 <ul className={css.mainContentEducators__list}>
-                    {data.data.map(({id, name, tel, email, imageName}) => (
-                        <li key={id}>
+                    {data.data.map((educator) => (
+                        <li key={educator.id}>
                             <EducatorCard
-                                image={imageName}
-                                name={name}
-                                email={email}
-                                id={id}
-                                phone={tel}
+                                image={educator.image}
+                                name={educator.name}
+                                email={educator.email}
+                                id={educator.id}
                             />
                         </li>
                     ))}

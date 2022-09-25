@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-import {getNumberArray} from "../../assets/helper";
+import {getNumberArray, queryConfig} from "../../assets/helper";
 import {NewsCard, NewsCardLoading} from "../../molecules/NewsCard/NewsCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {Sidebar} from "../../molecules/Sidebar/Sidebar";
@@ -10,7 +10,8 @@ import {NUM} from "../../assets/constants";
 export const SidebarNews = memo(() => {
     const {isSuccess, data, isLoading, isError, error, refetch} = useQuery(
         ["news"],
-        newsQuery
+        newsQuery,
+        queryConfig
     );
 
     return (
@@ -29,14 +30,14 @@ export const SidebarNews = memo(() => {
                 <ul className="page__sidebarList">
                     {data.data
                         .slice(0, NUM.news.sidebar)
-                        .map(({title, id, date, message, image}) => (
-                            <li key={id}>
+                        .map((news) => (
+                            <li key={news.id}>
                                 <NewsCard
-                                    title={title}
-                                    id={id}
-                                    date={date}
-                                    body={message}
-                                    mainImgUrl={image}
+                                    title={news.title}
+                                    id={news.id}
+                                    date={news.created}
+                                    body={news.message}
+                                    image={news.image}
                                 />
                             </li>
                         ))}

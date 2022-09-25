@@ -20,17 +20,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d60a2182-c8d1-4aec-9221-54224936acec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/src/db/db.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/generators/educators.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/generators/educators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/generators/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/generators/items.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/generators/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/generators/posts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/generators/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/generators/events.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/generators/posts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/generators/posts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/helper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/magicNumbers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/AuthForm/AuthForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AuthForm/AuthForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/IndexEvents/IndexEvents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/IndexEvents/IndexEvents.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/IndexNews/IndexNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/IndexNews/IndexNews.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/MainContentEducatorInner/MainContentEducatorInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainContentEducatorInner/MainContentEducatorInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/MainContentEducators/MainContentEducators.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainContentEducators/MainContentEducators.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/MainContentEvents/MainContentEvents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainContentEvents/MainContentEvents.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/MainContentNews/MainContentNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainContentNews/MainContentNews.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/MainContentNewsInner/MainContentNewsInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainContentNewsInner/MainContentNewsInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/MainContentSubjectInner/MainContentSubjectInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainContentSubjectInner/MainContentSubjectInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/MainContentSubjects/MainContentSubjects.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainContentSubjects/MainContentSubjects.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/RegisterForm/RegisterForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RegisterForm/RegisterForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/RegisterForm/RegisterForm.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RegisterForm/RegisterForm.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ResetPasswordForm/ResetPasswordForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ResetPasswordForm/ResetPasswordForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/SidebarEvents/SidebarEvents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SidebarEvents/SidebarEvents.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/SidebarNews/SidebarNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SidebarNews/SidebarNews.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/molecules/Button/Button.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/molecules/Button/Button.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/molecules/EducatorCard/EducatorCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/molecules/EducatorCard/EducatorCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/molecules/EducatorInner/EducatorInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/molecules/EducatorInner/EducatorInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/molecules/EventCard/EventCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/molecules/EventCard/EventCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/molecules/Field/Field.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/molecules/Field/Field.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/molecules/NewsCard/NewsCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/molecules/NewsCard/NewsCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/molecules/NewsInner/NewsInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/molecules/NewsInner/NewsInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/molecules/SubjectCard/SubjectCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/molecules/SubjectCard/SubjectCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/molecules/SubjectInner/SubjectInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/molecules/SubjectInner/SubjectInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/queryes/educators.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/queryes/educators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/queryes/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/queryes/events.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/queryes/news.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/queryes/news.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/queryes/subjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/queryes/subjects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/authForm/authFormSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/authForm/authFormSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/registerForm/registerFormSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/registerForm/registerFormSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/resetPasswordForm/resetPasswordFormSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/resetPasswordForm/resetPasswordFormSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/subjectInner_DEPRECATED/subjectInnerActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/subjectInner_DEPRECATED/subjectInnerActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_shcool_bd.sql" beforeDir="false" afterPath="$PROJECT_DIR$/my_shcool_bd.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/coverage/clover.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/coverage/clover.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/coverage/lcov-report/src/assets/items.ts.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/coverage/lcov-report/src/assets/items.ts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/coverage/lcov-report/src/index.ts.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/coverage/lcov-report/src/index.ts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/coverage/lcov-report/src/modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/coverage/lcov-report/src/modules/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/coverage/lcov-report/src/modules/posts.ts.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/coverage/lcov-report/src/modules/posts.ts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/coverage/lcov.info" beforeDir="false" afterPath="$PROJECT_DIR$/server/coverage/lcov.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/assets/items.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/assets/items.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/db.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/assets/helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/assets/helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/assets/items.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/db.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/posts.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,29 +126,33 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/Sites/my-app/client/src/assets/generators",
     "nodejs.jest.jest_package": "E:/Sites/my-app/server/node_modules/jest",
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "E:\\Sites\\my-app\\client\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
     "ts.external.directory.path": "E:\\Sites\\my-app\\server\\node_modules\\typescript\\lib",
+    "ts.rename.search.for.js.occurrences": "false",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Sites\my-app\client\src\assets\generators" />
       <recent name="D:\sch\src\molecules\Alert" />
       <recent name="E:\Sites\my-app\src\store\auth" />
       <recent name="E:\Sites\my-app\src\views" />
       <recent name="E:\Sites\my-app\src\store\subjectInner" />
-      <recent name="E:\Sites\my-app\src\store\newsInner" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Sites\my-app\server\src\modules" />
+      <recent name="E:\Sites\my-app\server\src\db" />
       <recent name="E:\Sites\my-app\src\molecules" />
       <recent name="E:\Sites\my-app\src\old" />
       <recent name="E:\Sites\my-app\src\views\PageEducatorsInner" />
-      <recent name="D:\sch\public" />
     </key>
   </component>
   <component name="RunManager">
@@ -169,12 +221,21 @@
       <workItem from="1663844583679" duration="2498000" />
       <workItem from="1663882058256" duration="5480000" />
       <workItem from="1663926197143" duration="3420000" />
-      <workItem from="1663954668406" duration="11507000" />
+      <workItem from="1663954668406" duration="11879000" />
+      <workItem from="1664020547945" duration="23674000" />
+      <workItem from="1664081378322" duration="17146000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/client/src/assets/generators/events.js" />
+        <option value="$PROJECT_DIR$/client/src/assets/generators/items.js" />
+        <option value="$PROJECT_DIR$/client/src/assets/generators/posts.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

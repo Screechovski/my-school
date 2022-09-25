@@ -7,7 +7,6 @@ import {
 
 export const subjectInnerInit = (id) => async (dispatch) => {
     dispatch(subjectInnerInitStart({id}));
-    console.log(1);
 
     try {
         const fetchResult = await myFetch(`/subjects/${id}`);

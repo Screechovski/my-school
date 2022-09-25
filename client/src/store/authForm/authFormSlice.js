@@ -1,21 +1,18 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {
     emailFieldCreator,
-    fieldCreator,
+    createField,
     fieldsIsValid,
     fieldsStringify,
-    isValidEmail,
-    myFetch
-} from "../../assets/helper";
-import {addAlert} from "../alerts/alertsSlice";
+    isValidEmail
+} from '../../assets/helper';
+import {addAlert} from '../alerts/alertsSlice';
+import {authorization} from '../../api/auth';
 
 const initialState = {
-    isError: false,
     isSuccess: false,
     isLoading: false,
-    isValid: false,
-    isSubmit: false,
-    isInited: false,
+    isError: false,
 
     fields: {},
     error: null
@@ -23,16 +20,16 @@ const initialState = {
 
 const getFields = () => ({
     email: emailFieldCreator(),
-    password: fieldCreator({
-        name: "password",
-        headline: "Пароль",
-        placeholder: "Введите пароль",
-        type: "password"
+    password: createField({
+        name: 'password',
+        headline: 'Пароль',
+        placeholder: 'Введите пароль',
+        type: 'password'
     })
 });
 
-export const authFormSubmit = createAsyncThunk(
-    "authForm/authFormSubmit",
+export const authFormSubmitThunk = createAsyncThunk(
+    'authForm/authFormSubmitThunk',
     async (_, {dispatch, getState, fulfillWithValue, rejectWithValue}) => {
         const {
             authFormReducer: {fields}
@@ -41,61 +38,56 @@ export const authFormSubmit = createAsyncThunk(
         if (!fieldsIsValid(fields)) {
             dispatch(
                 addAlert({
-                    type: "error",
-                    message: "Проверьте правильность заполненых полей"
+                    type: 'error',
+                    message: 'Проверьте правильность заполненых полей'
                 })
             );
 
             return rejectWithValue({
-                error: {error: "Проверьте правильность заполненых полей"}
+                message: 'Проверьте правильность заполненых полей'
             });
         }
 
         try {
-            const data = await myFetch("/auth", {
-                body: fieldsStringify(fields)
-            });
+            const data = await authorization(fieldsStringify(fields));
 
-            if (data.status !== "SUCCESS") throw data;
+            if (data.status !== 'SUCCESS') throw data;
 
             dispatch(
                 addAlert({
-                    type: "success",
-                    message: "Вы успешно авторизированны"
+                    type: 'success',
+                    message: 'Вы успешно авторизированны'
                 })
             );
 
-            return fulfillWithValue({data});
+            return fulfillWithValue(null);
         } catch (error) {
             console.warn(error);
-
-            dispatch(addAlert({type: "error", message: error.error}));
-
-            return rejectWithValue({error});
+            return rejectWithValue(error);
         }
     }
 );
 
 export const authFormSlice = createSlice({
-    name: "authForm",
+    name: 'authFormSlice',
     initialState,
     reducers: {
         authFormInit(state, action) {
             state.fields = getFields();
-            state.isInited = true;
+            state.isSuccess = true;
         },
         authFormChangeField(state, action) {
             const {name, value} = action.payload;
 
             switch (name) {
-                case "email": {
+                case 'email': {
                     state.fields[name].value = value;
                     state.fields[name].isValid = isValidEmail(value);
                     break;
                 }
-                case "password": {
+                case 'password': {
                     state.fields[name].value = value;
-                    state.fields[name].isValid = value.length > 4;
+                    state.fields[name].isValid = value.length > 5;
                     break;
                 }
             }
@@ -103,19 +95,21 @@ export const authFormSlice = createSlice({
             state.isValid = fieldsIsValid(state.fields);
         }
     },
-    extraReducers: {
-        [authFormSubmit.pending]: (state, action) => {
-            state.isSubmit = true;
-        },
-        [authFormSubmit.fulfilled]: (state, action) => {
-            state.isSubmit = false;
+    extraReducers: (builder) => {
+        builder.addCase(authFormSubmitThunk.pending, (state, action) => {
+            state.isLoading = true;
+            state.isError = false;
+            state.error = null;
+        });
+        builder.addCase(authFormSubmitThunk.fulfilled, (state, action) => {
+            state.isLoading = false;
             state.fields = getFields();
-            state.isValid = false;
-        },
-        [authFormSubmit.rejected]: (state, action) => {
-            state.isSubmit = false;
+        });
+        builder.addCase(authFormSubmitThunk.rejected, (state, action) => {
+            state.isLoading = false;
             state.isError = true;
-        }
+            state.error = action.payload.message;
+        });
     }
 });
 

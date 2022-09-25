@@ -15,8 +15,6 @@ export const MainContentNewsInner = memo(() => {
         queryConfig
     );
 
-    // debugger;
-
     return (
         <MainContent cssClass="page__mainContainer" title="Новость">
             {isLoading && <NewsInnerLoading />}
@@ -25,7 +23,7 @@ export const MainContentNewsInner = memo(() => {
                 <NewsInner
                     image={data.data.image}
                     title={data.data.title}
-                    date={data.data.date}
+                    date={data.data.created}
                     message={data.data.message}
                 />
             )}

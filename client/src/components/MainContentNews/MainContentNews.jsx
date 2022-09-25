@@ -1,6 +1,6 @@
 import React, {memo} from "react";
 import css from "./MainContentNews.module.sass";
-import {getNumberArray} from "../../assets/helper";
+import {getNumberArray, queryConfig} from "../../assets/helper";
 import {NewsCard, NewsCardLoading} from "../../molecules/NewsCard/NewsCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {MainContent} from "../../molecules/MainContent/MainContent";
@@ -11,10 +11,9 @@ import {NUM} from "../../assets/constants";
 export const MainContentNews = memo(() => {
     const {isSuccess, data, isLoading, isError, error, refetch} = useQuery(
         ["news"],
-        newsQuery
+        newsQuery,
+        queryConfig
     );
-
-    console.log(JSON.stringify(data?.data))
 
     return (
         <MainContent cssClass="page__mainContainer" title="Новости">
@@ -30,14 +29,14 @@ export const MainContentNews = memo(() => {
 
             {isSuccess && (
                 <ul className={css.mainContentNews__list}>
-                    {data.data.map(({title, id, date, message, image}) => (
-                        <li key={id}>
+                    {data.data.map((news) => (
+                        <li key={news.id}>
                             <NewsCard
-                                title={title}
-                                id={id}
-                                date={date}
-                                body={message}
-                                mainImgUrl={image}
+                                title={news.title}
+                                id={news.id}
+                                date={news.created}
+                                body={news.message}
+                                image={news.image}
                             />
                         </li>
                     ))}

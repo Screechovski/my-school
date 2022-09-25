@@ -5,13 +5,14 @@ import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {useQuery} from "@tanstack/react-query";
 import {eventsQuery} from "../../queryes/events";
 import {EventCard, EventCardLoading} from "../../molecules/EventCard/EventCard";
-import {getNumberArray} from "../../assets/helper";
+import {getNumberArray, queryConfig} from "../../assets/helper";
 import {NUM} from "../../assets/constants";
 
 export const MainContentEvents = memo(() => {
     const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
         ["events"],
-        eventsQuery
+        eventsQuery,
+        queryConfig
     );
 
     return (
@@ -34,7 +35,7 @@ export const MainContentEvents = memo(() => {
                                 title={event.title}
                                 body={event.message}
                                 id={event.id}
-                                date={event.date}
+                                date={event.created}
                             />
                         </li>
                     ))}

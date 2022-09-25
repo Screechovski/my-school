@@ -6,7 +6,7 @@ export type RequestWithParams<T> = Request<T>;
 export type RequestWithParamsAndBody<T, B> = Request<T, {}, B>;
 export type RequestEmpty = Request<{}, {}, {}, {}>;
 export type AnswerType = {
-    type: string;
+    status: string;
     data: Array<any> | Object | null;
     message: string;
 };

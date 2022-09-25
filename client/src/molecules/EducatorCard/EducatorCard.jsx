@@ -7,7 +7,7 @@ export const EducatorCard = ({image, name, email, id}) => {
         <div className={css.educatorCard}>
             <NavLink
                 className={css.educatorCard__mainLink}
-                to={`/educator-inner/${id}`}
+                to={`/educator/${id}`}
             />
             <div>
                 <img className={css.educatorCard__image} src={image} alt="" />

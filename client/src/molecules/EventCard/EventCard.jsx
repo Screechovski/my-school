@@ -2,6 +2,7 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import css from "./EventCard.module.sass";
 import {ShortText} from "../ShortText/ShortText";
+import {prettyBackendDate} from "../../assets/helper";
 
 export const EventCard = ({title, id, date, body}) => {
     return (
@@ -11,8 +12,8 @@ export const EventCard = ({title, id, date, body}) => {
                 .substring(0, 10)
                 .trim()}...`}
         >
-            <NavLink to={"/event-inner/" + id} className={css.eventCard__inner}>
-                <span className={css.eventCard__date}>{date}</span>
+            <NavLink to={"/event/" + id} className={css.eventCard__inner}>
+                <span className={css.eventCard__date}>{prettyBackendDate(date)}</span>
 
                 <header>
                     <ShortText

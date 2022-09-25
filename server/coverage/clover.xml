@@ -109,7 +109,7 @@
     </package>
     <package name="src.modules">
       <metrics statements="30" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="3"/>
-      <file name="posts.ts" path="E:\Sites\my-app\server\src\modules\posts.ts">
+      <file name="postsController.ts" path="E:\Sites\my-app\server\src\modules\postsController.ts">
         <metrics statements="30" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="19" count="20" type="stmt"/>

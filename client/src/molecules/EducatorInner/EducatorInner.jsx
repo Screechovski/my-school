@@ -69,7 +69,7 @@ export const EducatorInner = ({
                 <div className={css.educatorInner__subjects}>
                     {coursesTaught.map((subject) => (
                         <SubjectCard
-                            image={subject.imageName}
+                            image={subject.image}
                             title={subject.title}
                             id={subject.id}
                             key={subject.id}

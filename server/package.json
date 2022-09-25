@@ -1,22 +1,28 @@
 {
     "scripts": {
+        "server": "yarn nodemon --watch ../public ../public/server.js",
         "test": "jest",
         "start": "webpack --mode=development",
         "build": "webpack --mode=production"
     },
     "dependencies": {
-        "@types/mysql": "^2.15.21",
         "bcryptjs": "^2.4.3",
+        "cookie-parser": "^1.4.6",
         "express": "^4.18.1",
         "mysql": "^2.18.1",
+        "nodemailer": "^6.7.8",
         "webpack": "^5.74.0"
     },
     "devDependencies": {
         "@babel/core": "^7.18.10",
         "@babel/preset-env": "^7.18.10",
+        "@types/bcryptjs": "^2.4.2",
+        "@types/cookie-parser": "^1.4.3",
         "@types/express": "^4.17.14",
         "@types/jest": "^29.0.3",
+        "@types/mysql": "^2.15.21",
         "@types/node": "^18.7.18",
+        "@types/nodemailer": "^6.4.6",
         "@types/supertest": "^2.0.12",
         "babel-loader": "^8.2.5",
         "jest": "^29.0.3",

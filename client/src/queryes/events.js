@@ -1,3 +1,3 @@
-import {myFetch} from "../assets/helper";
+import {smartFetch} from '../assets/helper';
 
-export const eventsQuery = () => myFetch("/events");
+export const eventsQuery = () => smartFetch('/events');

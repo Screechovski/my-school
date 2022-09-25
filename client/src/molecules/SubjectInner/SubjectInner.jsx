@@ -20,18 +20,18 @@ export const SubjectInner = ({
                     <h3 className={css.subjectInner__educatorsTitle}>
                         Преподаватели:{" "}
                     </h3>
-                    <div className={css.subjectInner__educatorsTable}>
-                        {educators.map(({id, name, tel, email, imageName}) => (
-                            <EducatorCard
-                                key={id}
-                                image={imageName}
-                                name={name}
-                                email={email}
-                                id={id}
-                                phone={tel}
-                            />
+                    <ul className={css.subjectInner__educatorsTable}>
+                        {educators && educators.map(educator => (
+                            <li key={educator.id}>
+                                <EducatorCard
+                                    image={educator.image}
+                                    name={educator.name}
+                                    email={educator.email}
+                                    id={educator.id}
+                                />
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             </footer>
         </article>

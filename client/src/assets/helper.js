@@ -1,8 +1,8 @@
-import {generatePost, generatePosts} from './generators/posts';
-import {generateReview, generateReviews} from './generators/reviews';
-import {generateEvent, generateEvents} from './generators/events';
-import {generateSubject, generateSubjects} from './generators/subjects';
-import {generateEducator, generateEducators} from './generators/educators';
+import {generatePost, generatePosts} from './generators/posts.js';
+import {generateReview, generateReviews} from './generators/reviews.js';
+import {generateEvent, generateEvents} from './generators/events.js';
+import {generateSubject, generateSubjects} from './generators/subjects.js';
+import {generateEducator, generateEducators} from './generators/educators.js';
 
 const errorChanse = 0.1;
 
@@ -237,7 +237,7 @@ const UnauthUser = () => {
     return sessionStorage.removeItem('AUTH');
 };
 
-export const fieldCreator = ({
+export const createField = ({
     name,
     headline,
     placeholder,
@@ -266,7 +266,7 @@ export const fieldCreator = ({
 };
 
 export const emailFieldCreator = () =>
-    fieldCreator({
+    createField({
         name: 'email',
         headline: 'Ваш email',
         placeholder: 'Введите ваш email',
@@ -297,13 +297,24 @@ class InvalidFieldsClass {
     }
 }
 
-export const smartFetch = (url, options) =>
-    fetch(url, options).then((d) => d.json());
+export const smartFetch = (uri, options) => {
+    const url = `${location.origin}/api${uri}`;
+    return fetch(url, options).then((d) => d.json());
+};
 
 export const queryConfig = () => ({
     refetchOnMount: false,
     retry: false,
     refetchOnWindowFocus: false
 });
+
+export const prettyBackendDate = (dateString) => {
+    const [date, time] = dateString.split('T');
+
+    const [y, mm, d] = date.split('-');
+    const [h, m] = time.split(':');
+
+    return `${d}.${mm}.${y} ${h}:${m}`;
+};
 
 export const invalidFields = new InvalidFieldsClass();
