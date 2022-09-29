@@ -23,7 +23,10 @@ yarn-error.log*
 node_modules
 
 .idea
+.idea_old
+.vscode
 
 public/build
 client/node_modules
 server/node_modules
+server.js
