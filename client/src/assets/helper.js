@@ -3,6 +3,7 @@ import {generateReview, generateReviews} from './generators/reviews.js';
 import {generateEvent, generateEvents} from './generators/events.js';
 import {generateSubject, generateSubjects} from './generators/subjects.js';
 import {generateEducator, generateEducators} from './generators/educators.js';
+import {NUM} from './constants';
 
 const errorChanse = 0.1;
 
@@ -170,14 +171,42 @@ export const getNumberArray = (length) => {
     }
     return res;
 };
-export const isValidEmail = (email) => {
-    return Array.isArray(
-        String(email)
-            .toLowerCase()
-            .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            )
-    );
+
+export const Validation = {
+    email(email) {
+        const isValid = Array.isArray(
+            String(email)
+                .toLowerCase()
+                .match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                )
+        );
+
+        return {
+            isValid,
+            value: email
+        };
+    },
+    password(password) {
+        const cleanValue = password.replace(/[^a-z0-9]/gi, '');
+        const isValid =
+            password.length > NUM.password.minLength &&
+            password.length < NUM.password.maxLength;
+
+        return {
+            isValid,
+            value: cleanValue
+        };
+    },
+    code(code) {
+        const cleanValue = code.replace(/[^a-z0-9]/gi, '');
+        const isValid = code.length === NUM.code.length;
+
+        return {
+            isValid,
+            value: cleanValue
+        };
+    }
 };
 
 export const fieldsStringify = (fields) => {
@@ -302,11 +331,16 @@ export const smartFetch = (uri, options) => {
     return fetch(url, options).then((d) => d.json());
 };
 
-export const queryConfig = () => ({
+export const QUERY_CONFIG = {
+    refetchInterval: false,
+    refetchIntervalInBackground: false,
     refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
     retry: false,
-    refetchOnWindowFocus: false
-});
+    retryOnMount: false,
+    retryDelay: false
+};
 
 export const prettyBackendDate = (dateString) => {
     const [date, time] = dateString.split('T');

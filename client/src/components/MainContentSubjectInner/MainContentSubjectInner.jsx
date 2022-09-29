@@ -5,14 +5,14 @@ import {ErrorLine} from '../../molecules/ErrorLine/ErrorLine';
 import {MainContent} from '../../molecules/MainContent/MainContent';
 import {useQuery} from '@tanstack/react-query';
 import {subjectQuery, subjectsQuery} from '../../queryes/subjects';
-import {queryConfig} from '../../assets/helper';
+import {QUERY_CONFIG} from '../../assets/helper';
 
 export const MainContentSubjectInner = memo(() => {
     const {subjectId} = useParams();
     const {isLoading, isSuccess, data, refetch, isError, error} = useQuery(
         ['subject', subjectId],
         subjectQuery(subjectId),
-        queryConfig
+        QUERY_CONFIG
     );
 
     console.log(isLoading, isSuccess, data, refetch, isError, error);

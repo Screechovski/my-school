@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-import {getNumberArray, queryConfig} from "../../assets/helper";
+import {getNumberArray, QUERY_CONFIG} from "../../assets/helper";
 import {EventCard, EventCardLoading} from "../../molecules/EventCard/EventCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {Sidebar} from "../../molecules/Sidebar/Sidebar";
@@ -11,7 +11,7 @@ export const SidebarEvents = memo(() => {
     const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
         ["events"],
         eventsQuery,
-        queryConfig
+        QUERY_CONFIG
     );
 
     return (

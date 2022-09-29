@@ -9,9 +9,10 @@ import {
     createField,
     fieldsIsValid,
     fieldsStringify,
-    isValidEmail
+    Validation
 } from '../../assets/helper';
 import {addAlert} from '../alerts/alertsSlice';
+import {NUM} from '../../assets/constants';
 
 const initialState = {
     isSuccess: false,
@@ -194,30 +195,37 @@ export const registerFormSlice = createSlice({
 
             switch (name) {
                 case 'email': {
-                    field.value = value;
-                    field.isValid = isValidEmail(value);
+                    const validateObject = Validation.email(value);
+
+                    field.value = validateObject.value;
+                    field.isValid = validateObject.isValid;
                     break;
                 }
                 case 'code': {
-                    const cleanValue = value.replace(/[^a-z0-9]/gi, '');
-                    field.value = cleanValue;
-                    field.isValid = cleanValue.length === 6;
+                    const validateObject = Validation.code(value);
+
+                    field.value = validateObject.value;
+                    field.isValid = validateObject.isValid;
                     break;
                 }
                 case 'password': {
-                    field.value = value;
-                    field.isValid = value.length >= 4;
+                    const validateObject = Validation.password(value);
+
+                    field.value = validateObject.value;
+                    field.isValid = validateObject.isValid;
 
                     state.fields[currentScreen].passwordRepeat.isValid =
-                        value.length >= 4 &&
+                        value.length > NUM.password.minLength &&
                         state.fields[currentScreen].passwordRepeat.value ===
                             value;
                     break;
                 }
                 case 'passwordRepeat': {
-                    field.value = value;
+                    const validateObject = Validation.password(value);
+
+                    field.value = validateObject.value;
                     field.isValid =
-                        value.length >= 4 &&
+                        value.length > NUM.password.minLength &&
                         state.fields[currentScreen].password.value === value;
                     break;
                 }
@@ -271,6 +279,8 @@ export const registerFormSlice = createSlice({
     }
 });
 
-export const {registerFormInit, registerFormChangeField} =
-    registerFormSlice.actions;
+export const {
+    registerFormInit,
+    registerFormChangeField
+} = registerFormSlice.actions;
 export const registerFormReducer = registerFormSlice.reducer;

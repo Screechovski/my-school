@@ -1,17 +1,17 @@
-import React, {memo} from "react";
-import css from "./IndexEvents.module.sass";
-import {EventCard, EventCardLoading} from "../../molecules/EventCard/EventCard";
-import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
-import {getNumberArray, queryConfig} from "../../assets/helper";
-import {useQuery} from "@tanstack/react-query";
-import {eventsQuery} from "../../queryes/events";
-import {NUM} from "../../assets/constants";
+import React, {memo} from 'react';
+import css from './IndexEvents.module.sass';
+import {EventCard, EventCardLoading} from '../../molecules/EventCard/EventCard';
+import {ErrorLine} from '../../molecules/ErrorLine/ErrorLine';
+import {getNumberArray, QUERY_CONFIG} from '../../assets/helper';
+import {useQuery} from '@tanstack/react-query';
+import {NUM} from '../../assets/constants';
+import {getEvents} from '../../api/events';
 
 export const IndexEvents = memo(({}) => {
     const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
-        ["events"],
-        eventsQuery,
-        queryConfig
+        ['events'],
+        getEvents,
+        QUERY_CONFIG
     );
 
     if (isLoading) {

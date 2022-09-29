@@ -1,72 +1,100 @@
 import {Response} from 'express';
-import {error, HTTP_CODES, success} from '../assets/helper';
+import {error, success} from '../assets/helper';
 import {AnswerType, RequestWithBody} from '../types';
-import nodemailer from 'nodemailer';
 import {RegistrationUserBodyEmail} from '../models/registration/registration';
-import {createUserDBProxy, getUserByEmailDBProxy} from "../db/db";
+import {
+    createUserDBProxy,
+    getUserByEmailDBProxy,
+    getUserByIdDBProxy,
+    setUserTokenDBProxy
+} from '../db/db';
 import bcrypt from 'bcryptjs';
+import {HTTP_CODES} from '../assets/constants';
+import {validationResult} from 'express-validator';
+import {generateTokens} from '../assets/token';
 
-export const registration = (
+export const registration = async (
     req: RequestWithBody<RegistrationUserBodyEmail>,
     res: Response<AnswerType>
 ) => {
-    const {email} = req.body;
-
-    if (!email || !email.trim()) { // TODO
-        res.status(HTTP_CODES.BAD_REQUEST_400).json(error("'email' is empty"));
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.status(HTTP_CODES.BAD_REQUEST_400).json(
+            error('Ошибка при регистрации', errors)
+        );
         return;
     }
+    try {
+        const email = req.body.email;
+        const DBResponce: any = await getUserByEmailDBProxy(email);
 
-    getUserByEmailDBProxy(email)
-        .then((data: any) => {
-            if (data.length === 0) {
-                return res.status(HTTP_CODES.OK_200).json(success(null));
-            } else {
-                res.status(HTTP_CODES.BAD_REQUEST_400).json(error("Данный email уже зарегестрирован"));
-            }
-        })
-        .catch(error => {
-            console.warn({error})
-        })
+        if (DBResponce.length === 0) {
+            res.status(HTTP_CODES.OK_200).json(success(null));
+            return;
+        }
+        res.status(HTTP_CODES.BAD_REQUEST_400).json(
+            error('Данный email уже зарегестрирован')
+        );
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(
+            error('Ошибка сервера. Попробуй позже')
+        );
+    }
 };
 
 export const registrationConfirm = (
     req: RequestWithBody<{code: string}>,
-    res: Response<AnswerType | number>
+    res: Response<AnswerType>
 ) => {
-    const {code} = req.body;
-
-    if (!code || !code.trim()) {
-        res.status(HTTP_CODES.BAD_REQUEST_400).json(error("'code' is empty"));
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.status(HTTP_CODES.BAD_REQUEST_400).json(
+            error('Ошибка при регистрации', errors)
+        );
         return;
     }
-
-    if (code === 'a35y7u') {
-        res.status(HTTP_CODES.OK_200).json(success(null));
-    } else {
-        res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Неверный код'));
-    }
+    res.status(HTTP_CODES.OK_200).json(success(null));
 };
 
-export const registrationEnd = (
-    req: RequestWithBody<{email: string, password: string}>,
-    res: Response<AnswerType | number>
+export const registrationEnd = async (
+    req: RequestWithBody<{email: string; password: string}>,
+    res: Response<AnswerType>
 ) => {
-    const {email, password} = req.body;
-
-    if (!email || !email.trim() || !password || !password.trim()) { // TODO
-        res.status(HTTP_CODES.BAD_REQUEST_400).json(error("'email' or 'password' is empty"));
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.status(HTTP_CODES.BAD_REQUEST_400).json(
+            error('Ошибка при регистрации', errors)
+        );
         return;
     }
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
+    try {
+        const bodyEmail = req.body.email;
+        const bodyPassword = req.body.password;
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(bodyPassword, salt);
 
-    createUserDBProxy(email, hash)
-        .then(() => {
-            res.status(HTTP_CODES.OK_200).json(success("Пользователь успешно создан"));
-        })
-        .catch(e => {
-            res.status(HTTP_CODES.SERVER_ERROR_500).json(error("Ошибка сервера при создании пользователя"));
-            console.log(e);
-        })
+        const {insertId: createdUserId}: any = await createUserDBProxy(
+            bodyEmail,
+            hash
+        );
+        const [{id, role, email, active}]: any = await getUserByIdDBProxy(
+            createdUserId
+        );
+        const {accessToken, refreshToken} = generateTokens({
+            id,
+            role,
+            email,
+            active: !!active
+        });
+        await setUserTokenDBProxy(createdUserId, refreshToken);
+
+        res.cookie('refreshToken', refreshToken, {maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true});
+        res.status(HTTP_CODES.OK_200).json(success({ accessToken }));
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(
+            error('Ошибка сервера. Попробуй позже')
+        );
+    }
 };

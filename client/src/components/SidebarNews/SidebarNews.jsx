@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-import {getNumberArray, queryConfig} from "../../assets/helper";
+import {getNumberArray, QUERY_CONFIG} from "../../assets/helper";
 import {NewsCard, NewsCardLoading} from "../../molecules/NewsCard/NewsCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {Sidebar} from "../../molecules/Sidebar/Sidebar";
@@ -11,7 +11,7 @@ export const SidebarNews = memo(() => {
     const {isSuccess, data, isLoading, isError, error, refetch} = useQuery(
         ["news"],
         newsQuery,
-        queryConfig
+        QUERY_CONFIG
     );
 
     return (

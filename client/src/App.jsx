@@ -25,10 +25,10 @@ export const App = () => {
                 <Route exact path="/" element={<PageIndex />} />
                 <Route path="/news" element={<PageNews />} />
                 <Route path="/subjects" element={<PageSubjects />} />
-                <Route path="/educatorsController" element={<PageEducators />} />
+                <Route path="/educators" element={<PageEducators />} />
 
                 <Route path="/about" element={<span />} />
-                <Route path="/eventsController" element={<PageEvents />} />
+                <Route path="/events" element={<PageEvents />} />
 
                 <Route
                     path="/educator/:educatorId"
@@ -49,8 +49,8 @@ export const App = () => {
                 />
                 <Route path="/profile" element={<UserProfile />} />
             </Routes>
-            <AlertContainer />
             <Footer />
+            <AlertContainer />
         </BrowserRouter>
     );
 };

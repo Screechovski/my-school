@@ -1,91 +1,93 @@
 import {AnswerType, RequestWithBody} from '../types';
 import {Response} from 'express';
 import {changeUserPasswordDBProxy, getUserByEmailDBProxy} from '../db/db';
-import {error, HTTP_CODES, success} from '../assets/helper';
+import {error, success, Validation} from '../assets/helper';
 import bcrypt from 'bcryptjs';
+import {HTTP_CODES} from '../assets/constants';
 
-export const resetPassword = (
+export const resetPassword = async (
     req: RequestWithBody<{email: string}>,
     res: Response<AnswerType | number>
 ) => {
-    const {email} = req.body;
+    const email = req.body.email.trim();
 
-    if (!email || !email.trim()) {
-        // TODO
-        res.status(HTTP_CODES.BAD_REQUEST_400).json(
-            error("Проверьте правильность заполнения поля 'email'")
-        );
+    if (!Validation.email(email)) {
+        res.sendStatus(HTTP_CODES.BAD_REQUEST_400);
+        return;
     }
 
-    getUserByEmailDBProxy(email)
-        .then((data: any) => {
-            if (data.length === 0) {
-                res.status(HTTP_CODES.BAD_REQUEST_400).json(
-                    error('Пользователь с такой почтой не найден')
-                );
-                return;
-            }
-            res.status(HTTP_CODES.OK_200).json(
-                success(null, 'Сообщение с кодом отправленно на почту')
-            );
-        })
-        .catch((e) => {
-            console.warn(e);
-            res.status(HTTP_CODES.SERVER_ERROR_500).json(
-                error('Ошибка сервера при смене пароля')
-            );
-        });
+    try {
+        const DBResponce: any = await getUserByEmailDBProxy(email);
+
+        if (DBResponce.length === 0) {
+            res.sendStatus(HTTP_CODES.BAD_REQUEST_400);
+            return;
+        }
+        res.status(HTTP_CODES.OK_200).json(
+            success(null)
+        );
+    } catch (e) {
+        console.warn(e);
+        res.sendStatus(HTTP_CODES.SERVER_ERROR_500);
+    }
 };
 
-export const resetPasswordConfirm = (
+export const resetPasswordConfirm = async (
     req: RequestWithBody<{code: string}>,
     res: Response<AnswerType | number>
 ) => {
-    const {code} = req.body;
+    const code = req.body.code.trim();
 
-    if (!code || !code.trim() || code.length !== 6 || code !== 'a35y7u') {
-        res.status(HTTP_CODES.BAD_REQUEST_400).json(
-            error("Проверьте правильность заполнения поля 'Код'")
-        );
+    if (!Validation.code(code)) {
+        res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Проверьте поле code'));
+        return;
+    }
+    if (code !== 'a35y7u') {
+        res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Неверный код'));
         return;
     }
 
     res.status(HTTP_CODES.OK_200).json(success(null, 'Код введён верно'));
 };
 
-export const resetPasswordEnd = (
+export const resetPasswordEnd = async (
     req: RequestWithBody<{email: string; password: string}>,
-    res: Response<AnswerType | number>
+    res: Response<AnswerType>
 ) => {
-    const {email, password} = req.body;
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
+    const email = req.body.email.trim();
 
-    getUserByEmailDBProxy(email)
-        .then((data: any) => {
-            if (data.length === 0) {
-                res.status(HTTP_CODES.BAD_REQUEST_400).json(
-                    error('Пользователь с такой почтой не найден')
-                );
-                return;
-            }
-            if (bcrypt.compareSync(password, data[0].password)) {
-                res.status(HTTP_CODES.BAD_REQUEST_400).json(
-                    error('Вы вводите актуальный пароль')
-                );
-                return;
-            }
-            return changeUserPasswordDBProxy(email, hash);
-        })
-        .then((data) => {
-            res.status(HTTP_CODES.OK_200).json(
-                success('Пароль успешно изменён')
+    if (!Validation.email(email)) {
+        res.status(HTTP_CODES.BAD_REQUEST_400).json(
+            error("Проверьте правильность заполнения поля 'email'")
+        );
+        return;
+    }
+
+    try {
+        const DBResponce: any = await getUserByEmailDBProxy(email);
+        const password = req.body.password.trim();
+
+        if (DBResponce.length === 0) {
+            res.status(HTTP_CODES.BAD_REQUEST_400).json(
+                error('Пользователь с такой почтой не найден')
             );
-        })
-        .catch((e) => {
-            console.warn(e);
-            res.status(HTTP_CODES.SERVER_ERROR_500).json(
-                error('Ошибка сервера при смене пароля')
+            return;
+        }
+        if (bcrypt.compareSync(password, DBResponce[0].password)) {
+            res.status(HTTP_CODES.BAD_REQUEST_400).json(
+                error('Вы вводите актуальный пароль')
             );
-        });
+            return;
+        }
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(password, salt);
+        await changeUserPasswordDBProxy(email, hash);
+
+        res.status(HTTP_CODES.OK_200).json(success('Пароль успешно изменён'));
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(
+            error('Ошибка сервера. Попробуй позже')
+        );
+    }
 };

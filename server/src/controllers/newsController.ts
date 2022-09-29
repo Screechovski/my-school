@@ -6,8 +6,8 @@ import {
     RequestWithParamsAndBody
 } from '../types';
 import {CreatePostBodyModel} from '../models/news/CreatePostBodyModel';
-import {Express, Response} from 'express';
-import {error, HTTP_CODES, success} from '../assets/helper';
+import {Response} from 'express';
+import {error, success, Validation} from '../assets/helper';
 import {createNewsDBProxy, getAllNewsDBProxy, getNewsDBProxy} from '../db/db';
 import {DeletePostParamsModel} from '../models/news/DeletePostModel';
 import {ReadPostParamsModel} from '../models/news/ReadPostModel';
@@ -15,82 +15,81 @@ import {
     UpdatePostBodyModel,
     UpdatePostQueryModel
 } from '../models/news/UpdatePostModel';
+import {HTTP_CODES} from '../assets/constants';
 
-export const createNews = (
+export const createNews = async (
     req: RequestWithBody<CreatePostBodyModel>,
     res: Response<AnswerType>
 ) => {
-    const {title, message} = req.body;
+    try {
+        const title = req.body.title.trim();
+        const message = req.body.message.trim();
 
-    if (!title || !title.trim() || !message || !message.trim()) {
-        res.status(HTTP_CODES.BAD_REQUEST_400).json(
-            error("'title' or 'message' is empty")
-        );
-        return;
+        if (!Validation.news.title(title)) {
+            res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Проверьте поле title'));
+            return;
+        }
+        if (!Validation.news.message(message)) {
+            res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Проверьте поле message'));
+            return;
+        }
+
+        const DBResponce = await createNewsDBProxy(null, title, message);
+
+        res.status(HTTP_CODES.OK_200).json(success(DBResponce));
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
     }
-
-    createNewsDBProxy(null, title, message)
-        .then((data) => {
-            res.status(HTTP_CODES.OK_200).json(success(data));
-        })
-        .catch((error) => {
-            console.warn(error);
-            res.sendStatus(HTTP_CODES.SERVER_ERROR_500);
-        });
 };
 
 export const deleteNews = (
     req: RequestWithParams<DeletePostParamsModel>,
     res: Response<AnswerType>
 ) => {
-    const id = parseInt(req.params.id);
+    try {
+        const id = parseInt(req.params.id);
 
-    // if (!postsInstance.has(id)) {
-    //     res.status(HTTP_CODES.NOT_FOUND_404).json(
-    //         error('Новость не найдена')
-    //     );
-    //     return;
-    // }
-    //
-    // postsInstance.remove(id);
-
-    res.status(HTTP_CODES.OK_200).json(success(id));
+        res.status(HTTP_CODES.OK_200).json(success(id));
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
+    }
 };
 
-export const readNews = (
+export const readNews = async (
     req: RequestEmpty,
-    res: Response<AnswerType | number>
+    res: Response<AnswerType>
 ) => {
-    getAllNewsDBProxy()
-        .then((data) => {
-            res.status(HTTP_CODES.OK_200).json(success(data));
-        })
-        .catch((error) => {
-            console.warn(error);
-            res.sendStatus(HTTP_CODES.SERVER_ERROR_500);
-        });
+    try {
+        const DBResponce = await getAllNewsDBProxy();
+
+        res.status(HTTP_CODES.OK_200).json(success(DBResponce));
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
+    }
 };
 
-export const readSingleNews = (
+export const readSingleNews = async(
     req: RequestWithParams<ReadPostParamsModel>,
-    res: Response<AnswerType | number>
+    res: Response<AnswerType>
 ) => {
-    const id = parseInt(req.params.id);
+    try {
+        const id = parseInt(req.params.id);
+        const DBResponce = await getNewsDBProxy(id)
+        const cleanData = Array.isArray(DBResponce) ? DBResponce[0] : null;
 
-    getNewsDBProxy(id)
-        .then((data) => {
-            const cleanData = Array.isArray(data) ? data[0] : null;
-            res.status(HTTP_CODES.OK_200).json(success(cleanData));
-        })
-        .catch((error) => {
-            console.warn(error);
-            res.sendStatus(HTTP_CODES.SERVER_ERROR_500);
-        });
+        res.status(HTTP_CODES.OK_200).json(success(cleanData));
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
+    }
 };
 
 export const updateNews = (
     req: RequestWithParamsAndBody<UpdatePostQueryModel, UpdatePostBodyModel>,
-    res: Response<AnswerType | number>
+    res: Response<AnswerType>
 ) => {
     const id = parseInt(req.params.id);
     const {title, message} = req.body;

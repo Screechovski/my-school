@@ -1,6 +1,6 @@
 import React, {memo} from "react";
 import css from "./MainContentSubjects.module.sass";
-import {getNumberArray, queryConfig} from "../../assets/helper";
+import {getNumberArray, QUERY_CONFIG} from "../../assets/helper";
 import {
     SubjectCard,
     SubjectCardLoading
@@ -15,7 +15,7 @@ export const MainContentSubjects = memo(() => {
     const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
         ["subjects"],
         subjectsQuery,
-        queryConfig
+        QUERY_CONFIG
     );
 
     return (

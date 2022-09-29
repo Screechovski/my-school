@@ -1,24 +1,52 @@
-import {AnswerType} from '../types';
+import {AnswerType, AnswerTypeError, AnswerTypeSuccess} from '../types';
+import {VALIDATION_RULES} from './constants';
 
-export const HTTP_CODES = {
-    OK_200: 200,
-    CREATED_201: 201,
-    NO_CONTENT_204: 204,
+export const success = (data: any, message: string = 'Success'): AnswerTypeSuccess => ({
+    data,
+    message
+});
 
-    BAD_REQUEST_400: 400,
-    NOT_FOUND_404: 404,
+export const error = (message: string, errors: any = null): AnswerTypeError => ({
+    errors: ("errors" in (errors ?? {})) ? errors.errors : errors,
+    message
+});
 
-    SERVER_ERROR_500: 500
+export const Cleaner = {
+    password(value: string): string {
+        return value.replace(/[^a-z0-9]/gi, '');
+    },
+    code(value: string): string {
+        return value.replace(/[^a-z0-9]/gi, '');
+    }
 };
 
-export const success = (data: any, message = ''): AnswerType => ({
-    status: 'SUCCESS',
-    data: data,
-    message: message
-});
+export const Validation = {
+    email(email: string): Boolean {
+        const reg = new RegExp(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
 
-export const error = (message: string = ''): AnswerType => ({
-    status: 'ERROR',
-    data: null,
-    message: message
-});
+        return Array.isArray(email.toLowerCase().match(reg));
+    },
+    password(password: string): Boolean {
+        const valid =
+            password.length > VALIDATION_RULES.password.minLength &&
+            password.length < VALIDATION_RULES.password.maxLength;
+
+        return valid;
+    },
+    code(code: string): Boolean {
+        return code.length === VALIDATION_RULES.code.length;
+    },
+    news: {
+        title(title: string): Boolean {
+            return (
+                title.length > VALIDATION_RULES.news.title.minLength &&
+                title.length < VALIDATION_RULES.news.title.maxLength
+            );
+        },
+        message(message: string): Boolean {
+            return message.length < VALIDATION_RULES.news.message.maxLength;
+        }
+    }
+};

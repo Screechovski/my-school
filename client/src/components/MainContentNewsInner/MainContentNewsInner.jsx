@@ -5,14 +5,14 @@ import {ErrorLine} from '../../molecules/ErrorLine/ErrorLine';
 import {MainContent} from '../../molecules/MainContent/MainContent';
 import {useQuery} from '@tanstack/react-query';
 import {singleNewsQuery} from '../../queryes/news';
-import {queryConfig} from '../../assets/helper';
+import {QUERY_CONFIG} from '../../assets/helper';
 
 export const MainContentNewsInner = memo(() => {
     const {newsId} = useParams();
     const {isLoading, isSuccess, isError, data, error, refetch} = useQuery(
         ['news', newsId],
         singleNewsQuery(newsId),
-        queryConfig
+        QUERY_CONFIG
     );
 
     return (

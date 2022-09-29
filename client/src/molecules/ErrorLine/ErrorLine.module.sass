@@ -1,31 +1,21 @@
 .errorLine
-    display: flex
-    flex-direction: column
-    gap: 15px
-    padding: 10px
-    @apply rounded-medium
+    @apply rounded-medium flex flex-col gap-4 p-4 bg-red-100 w-fit border-1 border-red-500 border-solid
     &__header
         display: flex
         gap: 10px
         align-items: center
         p
-            line-height: 1em
+            @apply text-gray-600
     &__headerIcon
-        height: 20px
-        width: 20px
+        @apply h-5 w-5 fill-red-500
     &__headerButton
-        height: 20px
-        width: 20px
-        border: none
-        padding: 0
-        background-color: transparent
-        cursor: pointer
+        @apply h-5 w-5 border-none p-0 bg-transparent cursor-pointer fill-red-500
         transform-origin: center center
         transition: transform .2s
         &:hover
             transform: rotateZ(110deg)
     &__message
-        font-size: 14px
+        @apply text-gray-800
 
 .errorLineIcon
     height: 100%

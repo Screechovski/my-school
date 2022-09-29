@@ -2,17 +2,19 @@ import React, {memo} from 'react';
 import css from './IndexNews.module.sass';
 import {NewsCard, NewsCardLoading} from '../../molecules/NewsCard/NewsCard';
 import {ErrorLine} from '../../molecules/ErrorLine/ErrorLine';
-import {getNumberArray, queryConfig} from '../../assets/helper';
+import {getNumberArray, QUERY_CONFIG} from '../../assets/helper';
 import {useQuery} from '@tanstack/react-query';
-import {newsQuery} from '../../queryes/news';
 import {NUM} from '../../assets/constants';
+import {getNews} from '../../api/news';
 
 export const IndexNews = memo(() => {
     const {isSuccess, data, isLoading, error, refetch} = useQuery(
         ['news'],
-        newsQuery,
-        queryConfig
+        getNews,
+        QUERY_CONFIG
     );
+
+    console.log(data);
 
     if (!isLoading && !isSuccess && !error) {
         return <></>;
@@ -46,6 +48,7 @@ export const IndexNews = memo(() => {
         );
     }
     if (error) {
+        console.log(error);
         return <ErrorLine message={error.error} reload={refetch} />;
     }
     console.warn('Error IndexNews unknown state');

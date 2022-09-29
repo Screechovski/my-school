@@ -1,34 +1,39 @@
-import {Express, Response} from 'express';
+import {Response} from 'express';
 import {AnswerType, RequestEmpty, RequestWithParams} from '../types';
 import {getAllEventsDBProxy, getEventDBProxy} from '../db/db';
-import {HTTP_CODES, success} from '../assets/helper';
+import {error, success} from '../assets/helper';
+import {HTTP_CODES} from '../assets/constants';
 
-export const eventsController = (
+export const eventsController = async (
     req: RequestEmpty,
-    res: Response<AnswerType | number>
+    res: Response<AnswerType>
 ) => {
-    getAllEventsDBProxy()
-        .then((data) => {
-            res.status(HTTP_CODES.OK_200).json(success(data));
-        })
-        .catch((error) => {
-            console.warn(error);
-            res.sendStatus(HTTP_CODES.SERVER_ERROR_500);
-        });
+    try {
+        const DBResponce: any = await getAllEventsDBProxy();
+
+        res.status(HTTP_CODES.OK_200).json(success(DBResponce));
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
+    }
 };
 
-export const readSingleEvent = (
+export const readSingleEvent = async (
     req: RequestWithParams<{id: string}>,
-    res: Response<AnswerType | number>
+    res: Response<AnswerType>
 ) => {
-    const id = parseInt(req.params.id);
+    try {
+        const id = parseInt(req.params.id);
+        const DBResponce: any = await getEventDBProxy(id);
 
-    getEventDBProxy(id)
-        .then((data) => {
-            res.status(HTTP_CODES.OK_200).json(success(data));
-        })
-        .catch((error) => {
-            console.warn(error);
-            res.sendStatus(HTTP_CODES.SERVER_ERROR_500);
-        });
+        if (!Array.isArray(DBResponce)) {
+            res.sendStatus(HTTP_CODES.NOT_FOUND_404);
+            return;
+        }
+
+        res.status(HTTP_CODES.OK_200).json(success(DBResponce));
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
+    }
 };

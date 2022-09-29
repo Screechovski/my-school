@@ -8,14 +8,14 @@ import {MainContent} from "../../molecules/MainContent/MainContent";
 import {useParams} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
 import {educatorQuery} from "../../queryes/educators";
-import {queryConfig} from "../../assets/helper";
+import {QUERY_CONFIG} from "../../assets/helper";
 
 export const MainContentEducatorInner = memo(() => {
     const {educatorId} = useParams();
     const {isLoading, isSuccess, isError, data, error, refetch} = useQuery(
         ["educator", educatorId],
         educatorQuery(educatorId),
-        queryConfig
+        QUERY_CONFIG
     );
 
     return (

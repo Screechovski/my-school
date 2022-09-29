@@ -45,5 +45,12 @@ export const NUM = {
         sidebar: 4,
         indexPage: 10,
         count: 20
+    },
+    password: {
+        minLength: 6,
+        maxLength: 20
+    },
+    code: {
+        length: 6
     }
 };

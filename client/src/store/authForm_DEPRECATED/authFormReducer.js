@@ -1,5 +1,5 @@
 import {AUTH_FORM_AT} from "./authFormActionTypes";
-import {copyObject, fieldsIsValid, isValidEmail} from "../../assets/helper";
+import {copyObject, fieldsIsValid, Validation} from "../../assets/helper";
 
 const initialState = {
     isError: false,
@@ -54,10 +54,12 @@ export const authFormReducer = (state = initialState, action = {}) => {
 
             switch (name) {
                 case "email": {
+                    const validateObject = Validation.email(value);
+
                     fields[name] = {
                         ...fields[name],
-                        value,
-                        isValid: isValidEmail(value)
+                        value: validateObject.value,
+                        isValid: validateObject.isValid
                     };
                     break;
                 }

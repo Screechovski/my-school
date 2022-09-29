@@ -1,36 +1,41 @@
 import {AnswerType, RequestEmpty, RequestWithParams} from '../types';
 import {Response} from 'express';
 import {getAllEducatorsDBProxy, getEducatorDBProxy} from '../db/db';
-import {HTTP_CODES, success} from '../assets/helper';
+import {error, success} from '../assets/helper';
+import {HTTP_CODES} from '../assets/constants';
 
-export const readEducators = (
+export const readEducators = async (
     req: RequestEmpty,
-    res: Response<AnswerType | number>
+    res: Response<AnswerType>
 ) => {
-    getAllEducatorsDBProxy()
-        .then((data) => {
-            res.status(HTTP_CODES.OK_200).json(success(data));
-        })
-        .catch((error) => {
-            console.warn(error);
-            res.sendStatus(HTTP_CODES.SERVER_ERROR_500);
-        });
+    try {
+        const DBResponce = await getAllEducatorsDBProxy();
+
+        res.status(HTTP_CODES.OK_200).json(success(DBResponce));
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
+    }
 };
 
-export const readSingleEducator = (
+export const readSingleEducator = async (
     req: RequestWithParams<{id: string}>,
-    res: Response<AnswerType | number>
+    res: Response<AnswerType>
 ) => {
     const id = parseInt(req.params.id);
 
-    getEducatorDBProxy(id)
-        .then((data) => {
-            const cleanData = Array.isArray(data) ? data : null;
+    try {
+        const DBResponce = await getEducatorDBProxy(id);
 
-            res.status(HTTP_CODES.OK_200).json(success(cleanData));
-        })
-        .catch((error) => {
-            console.warn(error);
-            res.sendStatus(HTTP_CODES.SERVER_ERROR_500);
-        });
+        if (!Array.isArray(DBResponce)) {
+            res.status(HTTP_CODES.NOT_FOUND_404).json(
+                error('Запрашиваемые данные не найдены')
+            );
+            return;
+        }
+        res.status(HTTP_CODES.OK_200).json(success(DBResponce));
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
+    }
 };

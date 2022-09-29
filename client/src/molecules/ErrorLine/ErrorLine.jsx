@@ -1,7 +1,7 @@
-import React, {memo} from "react";
-import {ErrorSvg} from "@/svg/ErrorSvg";
-import css from "./ErrorLine.module.sass";
-import {ReloadSvg} from "../../svg/ReloadSvg";
+import React from 'react';
+import {ErrorSvg} from '@/svg/ErrorSvg';
+import {ReloadSvg} from '../../svg/ReloadSvg';
+import css from './ErrorLine.module.sass';
 
 export const ErrorLine = ({message, reload}) => {
     return (
@@ -19,7 +19,7 @@ export const ErrorLine = ({message, reload}) => {
                     <ReloadSvg cssClass={css.errorLineReload} />
                 </button>
             </div>
-            <p className={css.errorLine__text}>{message}</p>
+            {message && <p className={css.errorLine__text}>{message}</p>}
         </div>
     );
 };

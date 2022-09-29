@@ -23,10 +23,16 @@ import {
     registrationConfirm,
     registrationEnd
 } from '../controllers/registrationController';
-import {authorization} from "../controllers/authorizationController";
-import {resetPassword, resetPasswordConfirm, resetPasswordEnd} from "../controllers/resetPasswordController";
 // @ts-ignore
 export const router = new Router();
+import {check, body} from 'express-validator';
+import {VALIDATION_RULES} from '../assets/constants';
+import { authorization } from '../controllers/authorizationController';
+import { readUsers } from '../controllers/usersController';
+import { authMiddleware } from '../middleware/authMiddleware';
+import { roleMiddleware } from '../middleware/roleMiddleware';
+import { logout } from '../controllers/logoutController';
+import { refresh } from '../controllers/refreshController';
 
 /* NEWS */
 router.post('/news', createNews);
@@ -48,14 +54,53 @@ router.get('/educators', readEducators);
 router.get('/educator/:id', readSingleEducator);
 
 /* REGISTRATION */
-router.post('/registration', registration);
-router.post('/registration-confirm', registrationConfirm);
-router.post('/registration-end', registrationEnd);
+router.post(
+    '/registration',
+    [
+        body('email', 'Email не может быть пустым').notEmpty(),
+        body('email', 'Неверный email').isEmail()
+    ],
+    registration
+);
+router.post(
+    '/registration-confirm',
+    [
+        body('code', 'Поле code не может быть пустым').notEmpty(),
+        body('code', 'Неверный код').equals('a35y7u')
+    ],
+    registrationConfirm
+);
+router.post(
+    '/registration-end',
+    [
+        body('email', 'Email не может быть пустым').notEmpty(),
+        body('email', 'Неверный email').isEmail(),
+        body('password', 'Пароль не может быть пустым').notEmpty(),
+        body('password', 'Пароль должен быть от 6 до 20 символов').isLength({
+            min: VALIDATION_RULES.password.minLength,
+            max: VALIDATION_RULES.password.maxLength
+        })
+    ],
+    registrationEnd
+);
 
-/* AUTH */
-router.post('/auth', authorization);
+/* AUTHORIZATION */
+router.post(
+    '/authorization',
+    [
+        check('email', 'Email не может быть пустым').notEmpty(),
+        check('email', 'Неверный email').isEmail(),
+        check('password', 'Пароль не может быть пустым').notEmpty(),
+        check('password', 'Пароль должен быть от 6 до 20 символов').isLength({
+            min: VALIDATION_RULES.password.minLength,
+            max: VALIDATION_RULES.password.maxLength
+        })
+    ],
+    authorization
+);
 
-/* RESET PASSWORD */
-router.post('/reset-password', resetPassword);
-router.post('/reset-password-confirm', resetPasswordConfirm);
-router.post('/reset-password-end', resetPasswordEnd);
+router.get('/users', [authMiddleware], readUsers);//, roleMiddleware(['user'])], readUsers);
+
+router.get('/logout', [authMiddleware], logout);
+
+router.get('/refresh', refresh)

@@ -1,35 +1,44 @@
 import {AnswerType, RequestEmpty, RequestWithParams} from '../types';
 import {Response} from 'express';
 import {getAllSubjectsDBProxy, getSubjectDBProxy} from '../db/db';
-import {HTTP_CODES, success} from '../assets/helper';
+import {error, success} from '../assets/helper';
+import {HTTP_CODES} from '../assets/constants';
 
-export const subjectsController = (
+export const subjectsController = async (
     req: RequestEmpty,
-    res: Response<AnswerType | number>
+    res: Response<AnswerType>
 ) => {
-    getAllSubjectsDBProxy()
-        .then((data) => {
-            res.status(HTTP_CODES.OK_200).json(success(data));
-        })
-        .catch((error) => {
-            console.warn(error);
-            res.sendStatus(HTTP_CODES.SERVER_ERROR_500);
-        });
+    try {
+        const DBResponce = await getAllSubjectsDBProxy();
+
+        res.status(HTTP_CODES.OK_200).json(success(DBResponce));
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(
+            error('Ошибка сервера. Попробуй позже')
+        );
+    }
 };
 
-export const readSingleSubject = (
+export const readSingleSubject = async (
     req: RequestWithParams<{id: string}>,
-    res: Response<AnswerType | number>
+    res: Response<AnswerType>
 ) => {
     const id = parseInt(req.params.id);
+    try {
+        const DBResponce = await getSubjectDBProxy(id);
 
-    getSubjectDBProxy(id)
-        .then((data) => {
-            const cleanData = Array.isArray(data) ? data[0] : null;
-            res.status(HTTP_CODES.OK_200).json(success(cleanData));
-        })
-        .catch((error) => {
-            console.warn(error);
-            res.sendStatus(HTTP_CODES.SERVER_ERROR_500);
-        });
+        if (Array.isArray(DBResponce)) {
+            res.status(HTTP_CODES.OK_200).json(success(DBResponce[0]));
+            return;
+        }
+        res.status(HTTP_CODES.NOT_FOUND_404).json(
+            error('Запрашиваемые данные не найдены')
+        );
+    } catch (e) {
+        console.warn(e);
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(
+            error('Ошибка сервера. Попробуй позже')
+        );
+    }
 };

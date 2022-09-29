@@ -9,7 +9,10 @@ import {
     getAllEducators,
     getAllUsers,
     getEducator,
-    getUserByEmail
+    getUserByEmail,
+    getUserById,
+    getUserByToken,
+    setUserToken
 } from './modules/users';
 import {getSubjectsByUser, getUsersBySubject} from './modules/userSubject';
 
@@ -38,6 +41,9 @@ export const getUserByEmailDBProxy = getUserByEmail(connection);
 export const getAllEducatorsDBProxy = getAllEducators(connection);
 export const getEducatorDBProxy = getEducator(connection);
 export const createUserDBProxy = createUser(connection);
+export const setUserTokenDBProxy = setUserToken(connection);
+export const getUserByTokenDBProxy = getUserByToken(connection);
+export const getUserByIdDBProxy = getUserById(connection);
 export const changeUserPasswordDBProxy = changeUserPassword(connection);
 /* user_subject */
 export const getSubjectsByUserDBProxy = getSubjectsByUser(connection);

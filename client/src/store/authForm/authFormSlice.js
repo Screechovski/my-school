@@ -4,7 +4,7 @@ import {
     createField,
     fieldsIsValid,
     fieldsStringify,
-    isValidEmail
+    Validation
 } from '../../assets/helper';
 import {addAlert} from '../alerts/alertsSlice';
 import {authorization} from '../../api/auth';
@@ -81,13 +81,15 @@ export const authFormSlice = createSlice({
 
             switch (name) {
                 case 'email': {
-                    state.fields[name].value = value;
-                    state.fields[name].isValid = isValidEmail(value);
+                    const validateObject = Validation.email(value);
+                    state.fields[name].value = validateObject.value;
+                    state.fields[name].isValid = validateObject.isValid;
                     break;
                 }
                 case 'password': {
-                    state.fields[name].value = value;
-                    state.fields[name].isValid = value.length > 5;
+                    const validateObject = Validation.email(value);
+                    state.fields[name].value = validateObject.value;
+                    state.fields[name].isValid = validateObject.isValid;
                     break;
                 }
             }

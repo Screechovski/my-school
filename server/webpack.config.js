@@ -7,12 +7,12 @@ module.exports = {
         rules: [
             {
                 test: /\.m?js$/,
-                exclude: /node_modules/,
-                use: ['babel-loader']
+                use: ['babel-loader'],
+                exclude: /node_modules/
             },
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
+                use: ['babel-loader', 'ts-loader'],
                 exclude: /node_modules/
             }
         ]
@@ -21,7 +21,7 @@ module.exports = {
         extensions: ['.ts', '.js']
     },
     output: {
-        path: path.resolve(__dirname, '../public'),
+        path: path.resolve(__dirname, '../'),
         filename: 'server.js'
     },
     watch: true,

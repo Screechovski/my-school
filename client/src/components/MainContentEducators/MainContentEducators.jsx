@@ -1,6 +1,6 @@
 import React, {memo} from "react";
 import css from "./MainContentEducators.module.sass";
-import {getNumberArray, queryConfig} from "../../assets/helper";
+import {getNumberArray, QUERY_CONFIG} from "../../assets/helper";
 import {
     EducatorCard,
     EducatorCardLoading
@@ -14,7 +14,7 @@ export const MainContentEducators = memo(() => {
     const {isSuccess, data, isLoading, isError, error, refetch} = useQuery(
         ["educators"],
         educatorsQuery,
-        queryConfig
+        QUERY_CONFIG
     );
 
     return (
