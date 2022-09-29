@@ -1,11 +1,4 @@
-import {generatePost, generatePosts} from './generators/posts.js';
-import {generateReview, generateReviews} from './generators/reviews.js';
-import {generateEvent, generateEvents} from './generators/events.js';
-import {generateSubject, generateSubjects} from './generators/subjects.js';
-import {generateEducator, generateEducators} from './generators/educators.js';
 import {NUM} from './constants';
-
-const errorChanse = 0.1;
 
 export const hasInArray = (arr, item) => {
     for (let i = 0; i < arr.length; i++) {
@@ -20,150 +13,6 @@ export const getRandomBetween = (min, max) => {
     return Math.random() * (max - min) + min;
 };
 
-const randomDelay = () => {
-    return getRandomBetween(1, 1000);
-};
-
-const getIdAfter = (url, path) => {
-    const pathLength = path.length;
-    const rStart = url.indexOf(path);
-    const id = url
-        .substring(rStart + pathLength, rStart + pathLength + 2)
-        .replace('/', '');
-
-    return +id;
-};
-
-const include = (url, path) => url.indexOf(path) !== -1;
-
-const route = (data, resolve, reject) => {
-    setTimeout(() => {
-        if (Math.random() > errorChanse) {
-            resolve({
-                status: 'SUCCESS',
-                data
-            });
-        } else {
-            reject({
-                status: 'ERROR',
-                data: null,
-                error: 'Unknown error'
-            });
-        }
-    }, randomDelay());
-};
-
-export const myFetch = (url, options = {}) =>
-    new Promise((resolve, reject) => {
-        if (include(url, '/reviews/')) {
-            const id = getIdAfter(url, '/reviews/');
-
-            route(generateReview(id), resolve, reject);
-        } else if (include(url, '/reviews')) {
-            route(generateReviews(20), resolve, reject);
-        } else if (include(url, '/news/')) {
-            const id = getIdAfter(url, '/news/');
-
-            route(generatePost(id), resolve, reject);
-        } else if (include(url, '/news')) {
-            route(generatePosts(20), resolve, reject);
-        } else if (include(url, '/events/')) {
-            const id = getIdAfter(url, '/events/');
-
-            route(generateEvent(id), resolve, reject);
-        } else if (include(url, '/events')) {
-            route(generateEvents(20), resolve, reject);
-        } else if (include(url, '/subjects/')) {
-            const id = getIdAfter(url, '/subjects/');
-
-            route(generateSubject(id), resolve, reject);
-        } else if (include(url, '/subjects')) {
-            route(generateSubjects(), resolve, reject);
-        } else if (include(url, '/educators/')) {
-            const id = getIdAfter(url, '/educators/');
-
-            route(generateEducator(id), resolve, reject);
-        } else if (include(url, '/educators')) {
-            route(generateEducators(), resolve, reject);
-        } else if (include(url, '/create-user')) {
-            setTimeout(() => {
-                if (hasUser(options.body.email)) {
-                    reject({
-                        status: 'ERROR',
-                        data: null,
-                        error: 'Пользователь с такой почтой уже зарегистрирован'
-                    });
-                } else {
-                    resolve({
-                        status: 'SUCCESS',
-                        data: registerUser(options.body)
-                    });
-                }
-            }, randomDelay());
-        } else if (include(url, '/auth')) {
-            setTimeout(() => {
-                if (!hasUser(options.body.email)) {
-                    reject({
-                        status: 'ERROR',
-                        data: null,
-                        error: 'Пользователь с такой почтой не найден'
-                    });
-                }
-
-                if (
-                    getUser(options.body.email).password ===
-                    options.body.password
-                ) {
-                    authUser(options.body.email);
-                    resolve({
-                        status: 'SUCCESS',
-                        data: null
-                    });
-                } else {
-                    reject({
-                        status: 'ERROR',
-                        data: null,
-                        error: 'Неверный пароль'
-                    });
-                }
-            }, randomDelay());
-        } else if (include(url, '/check')) {
-            setTimeout(() => {
-                const isAuth = isAuthUser();
-                if (!!isAuth) {
-                    resolve({
-                        status: 'SUCCESS',
-                        data: getUser(isAuth)
-                    });
-                } else {
-                    reject({
-                        status: 'ERROR',
-                        data: null,
-                        error: 'Необходима авторизация'
-                    });
-                }
-            }, randomDelay());
-        } else if (include(url, '/logout')) {
-            UnauthUser();
-            resolve({
-                status: 'SUCCESS',
-                data: 1
-            });
-        } else {
-            setTimeout(
-                () =>
-                    reject({
-                        status: 'ERROR',
-                        data: null,
-                        error: '404 error'
-                    }),
-                randomDelay()
-            );
-        }
-    });
-
-export const serverLog = (...text) => console.log('SERVER: ', ...text);
-export const clientLog = (...text) => console.log('CLIENT: ', ...text);
 export const getNumberArray = (length) => {
     const res = [];
     for (let i = length; i > 0; i--) {
@@ -236,36 +85,6 @@ export const copyObject = (obj) => {
     return JSON.parse(JSON.stringify(obj));
 };
 
-const hasUser = (email) => {
-    return !!localStorage.getItem(`USER::${email}`);
-};
-
-const registerUser = (userData) => {
-    localStorage.setItem(`USER::${userData.email}`, JSON.stringify(userData));
-    return 1;
-};
-
-const getUser = (email = null) => {
-    if (email) {
-        return JSON.parse(localStorage.getItem(`USER::${email}`));
-    } else {
-        return -1;
-    }
-};
-const authUser = (email = null) => {
-    if (email) {
-        sessionStorage.setItem('AUTH', email);
-    }
-};
-
-const isAuthUser = () => {
-    return sessionStorage.getItem('AUTH');
-};
-
-const UnauthUser = () => {
-    return sessionStorage.removeItem('AUTH');
-};
-
 export const createField = ({
     name,
     headline,
@@ -326,25 +145,15 @@ class InvalidFieldsClass {
     }
 }
 
-export const smartFetch = (uri, options) => {
+export const smartFetch = async (uri, options) => {
     const url = `${location.origin}/api${uri}`;
-    return fetch(url, options).then((d) => d.json());
-};
+    const responce = await fetch(url, options);
 
-export const QUERY_CONFIG = {
-    refetchInterval: false,
-    refetchIntervalInBackground: false,
-    refetchOnMount: false,
-    refetchOnReconnect: false,
-    refetchOnWindowFocus: false,
-    retry: false,
-    retryOnMount: false,
-    retryDelay: false
+    return await responce.json();
 };
 
 export const prettyBackendDate = (dateString) => {
     const [date, time] = dateString.split('T');
-
     const [y, mm, d] = date.split('-');
     const [h, m] = time.split(':');
 

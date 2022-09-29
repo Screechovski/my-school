@@ -1,32 +1,32 @@
 export const CONSTANTS = {
     URLS: {
-        reviews: "https://6101a51049a5370017871243.mockapi.io/api/reviews",
-        posts: "https://6101a51049a5370017871243.mockapi.io/api/posts"
+        reviews: 'https://6101a51049a5370017871243.mockapi.io/api/reviews',
+        posts: 'https://6101a51049a5370017871243.mockapi.io/api/posts'
     },
     NAV_LINKS: {
         index: {
-            value: "Главная",
-            path: "/"
+            value: 'Главная',
+            path: '/'
         },
         about: {
-            value: "О школе",
-            path: "/about"
+            value: 'О школе',
+            path: '/about'
         },
         news: {
-            value: "Новости",
-            path: "/news"
+            value: 'Новости',
+            path: '/news'
         },
         events: {
-            value: "Мероприятия",
-            path: "/events"
+            value: 'Мероприятия',
+            path: '/events'
         },
         subjects: {
-            value: "Предметы",
-            path: "/subjects"
+            value: 'Предметы',
+            path: '/subjects'
         },
         educators: {
-            value: "Педагоги",
-            path: "/educators"
+            value: 'Педагоги',
+            path: '/educators'
         }
     }
 };
@@ -53,4 +53,15 @@ export const NUM = {
     code: {
         length: 6
     }
+};
+
+export const QUERY_CONFIG = {
+    refetchInterval: false,
+    refetchIntervalInBackground: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+    retry: false,
+    retryOnMount: false,
+    retryDelay: false
 };

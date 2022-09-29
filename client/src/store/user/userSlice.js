@@ -1,5 +1,5 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {myFetch} from "../../assets/helper";
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {smartFetch} from '../../assets/helper';
 
 const initialState = {
     data: null,
@@ -10,12 +10,12 @@ const initialState = {
 };
 
 export const userInit = createAsyncThunk(
-    "user/userInit",
+    'user/userInit',
     async (_, {rejectWithValue, fulfillWithValue}) => {
         try {
-            const data = await myFetch("/check");
+            const data = await smartFetch('/check');
 
-            if (data.status !== "SUCCESS") throw data;
+            if (data.status !== 'SUCCESS') throw data;
 
             return fulfillWithValue({data: data.data});
         } catch (error) {
@@ -26,7 +26,7 @@ export const userInit = createAsyncThunk(
 );
 
 export const userSlice = createSlice({
-    name: "user",
+    name: 'user',
     initialState,
     reducers: {},
     extraReducers: {

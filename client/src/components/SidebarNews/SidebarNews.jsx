@@ -1,16 +1,16 @@
 import React, {memo} from "react";
-import {getNumberArray, QUERY_CONFIG} from "../../assets/helper";
+import {getNumberArray} from "../../assets/helper";
 import {NewsCard, NewsCardLoading} from "../../molecules/NewsCard/NewsCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {Sidebar} from "../../molecules/Sidebar/Sidebar";
 import {useQuery} from "@tanstack/react-query";
-import {newsQuery} from "../../queryes/news";
-import {NUM} from "../../assets/constants";
+import {NUM, QUERY_CONFIG} from "../../assets/constants";
+import {getNews} from "../../api/news";
 
 export const SidebarNews = memo(() => {
     const {isSuccess, data, isLoading, isError, error, refetch} = useQuery(
         ["news"],
-        newsQuery,
+        getNews,
         QUERY_CONFIG
     );
 

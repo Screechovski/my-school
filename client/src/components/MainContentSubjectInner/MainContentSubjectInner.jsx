@@ -4,14 +4,14 @@ import {SubjectInner} from '../../molecules/SubjectInner/SubjectInner';
 import {ErrorLine} from '../../molecules/ErrorLine/ErrorLine';
 import {MainContent} from '../../molecules/MainContent/MainContent';
 import {useQuery} from '@tanstack/react-query';
-import {subjectQuery, subjectsQuery} from '../../queryes/subjects';
-import {QUERY_CONFIG} from '../../assets/helper';
+import {getSubject} from '../../api/subjects';
+import {QUERY_CONFIG} from '../../assets/constants';
 
 export const MainContentSubjectInner = memo(() => {
     const {subjectId} = useParams();
     const {isLoading, isSuccess, data, refetch, isError, error} = useQuery(
         ['subject', subjectId],
-        subjectQuery(subjectId),
+        getSubject(subjectId),
         QUERY_CONFIG
     );
 
@@ -34,12 +34,7 @@ export const MainContentSubjectInner = memo(() => {
                 />
             )}
 
-            {isError && (
-                <ErrorLine
-                    message={error.error}
-                    reload={refetch}
-                />
-            )}
+            {isError && <ErrorLine message={error.error} reload={refetch} />}
         </MainContent>
     );
 });

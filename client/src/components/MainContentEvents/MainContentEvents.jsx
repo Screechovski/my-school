@@ -1,17 +1,17 @@
-import React, {memo} from "react";
-import {MainContent} from "../../molecules/MainContent/MainContent";
-import css from "./MainContentEvents.module.sass";
-import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
-import {useQuery} from "@tanstack/react-query";
-import {eventsQuery} from "../../queryes/events";
-import {EventCard, EventCardLoading} from "../../molecules/EventCard/EventCard";
-import {getNumberArray, QUERY_CONFIG} from "../../assets/helper";
-import {NUM} from "../../assets/constants";
+import React, {memo} from 'react';
+import {MainContent} from '../../molecules/MainContent/MainContent';
+import css from './MainContentEvents.module.sass';
+import {ErrorLine} from '../../molecules/ErrorLine/ErrorLine';
+import {useQuery} from '@tanstack/react-query';
+import {EventCard, EventCardLoading} from '../../molecules/EventCard/EventCard';
+import {getNumberArray} from '../../assets/helper';
+import {NUM, QUERY_CONFIG} from '../../assets/constants';
+import {getEvents} from '../../api/events';
 
 export const MainContentEvents = memo(() => {
     const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
-        ["events"],
-        eventsQuery,
+        ['events'],
+        getEvents,
         QUERY_CONFIG
     );
 

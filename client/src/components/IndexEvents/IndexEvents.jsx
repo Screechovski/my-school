@@ -2,9 +2,9 @@ import React, {memo} from 'react';
 import css from './IndexEvents.module.sass';
 import {EventCard, EventCardLoading} from '../../molecules/EventCard/EventCard';
 import {ErrorLine} from '../../molecules/ErrorLine/ErrorLine';
-import {getNumberArray, QUERY_CONFIG} from '../../assets/helper';
+import {getNumberArray} from '../../assets/helper';
 import {useQuery} from '@tanstack/react-query';
-import {NUM} from '../../assets/constants';
+import {NUM, QUERY_CONFIG} from '../../assets/constants';
 import {getEvents} from '../../api/events';
 
 export const IndexEvents = memo(({}) => {

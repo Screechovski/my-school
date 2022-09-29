@@ -1,16 +1,16 @@
 import React, {memo} from "react";
-import {getNumberArray, QUERY_CONFIG} from "../../assets/helper";
+import {getNumberArray} from "../../assets/helper";
 import {EventCard, EventCardLoading} from "../../molecules/EventCard/EventCard";
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {Sidebar} from "../../molecules/Sidebar/Sidebar";
 import {useQuery} from "@tanstack/react-query";
-import {eventsQuery} from "../../queryes/events";
-import {NUM} from "../../assets/constants";
+import {NUM, QUERY_CONFIG} from "../../assets/constants";
+import {getEvents} from "../../api/events";
 
 export const SidebarEvents = memo(() => {
     const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
         ["events"],
-        eventsQuery,
+        getEvents,
         QUERY_CONFIG
     );
 

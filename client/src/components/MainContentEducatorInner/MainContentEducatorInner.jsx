@@ -1,20 +1,20 @@
-import React, {memo} from "react";
+import React, {memo} from 'react';
 import {
     EducatorInner,
     EducatorInnerLoading
-} from "../../molecules/EducatorInner/EducatorInner";
-import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
-import {MainContent} from "../../molecules/MainContent/MainContent";
-import {useParams} from "react-router-dom";
-import {useQuery} from "@tanstack/react-query";
-import {educatorQuery} from "../../queryes/educators";
-import {QUERY_CONFIG} from "../../assets/helper";
+} from '../../molecules/EducatorInner/EducatorInner';
+import {ErrorLine} from '../../molecules/ErrorLine/ErrorLine';
+import {MainContent} from '../../molecules/MainContent/MainContent';
+import {useParams} from 'react-router-dom';
+import {useQuery} from '@tanstack/react-query';
+import {getEducator} from '../../api/educators';
+import {QUERY_CONFIG} from '../../assets/constants';
 
 export const MainContentEducatorInner = memo(() => {
     const {educatorId} = useParams();
     const {isLoading, isSuccess, isError, data, error, refetch} = useQuery(
-        ["educator", educatorId],
-        educatorQuery(educatorId),
+        ['educator', educatorId],
+        getEducator(educatorId),
         QUERY_CONFIG
     );
 

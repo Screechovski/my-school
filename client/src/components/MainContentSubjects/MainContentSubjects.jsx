@@ -1,6 +1,6 @@
 import React, {memo} from "react";
 import css from "./MainContentSubjects.module.sass";
-import {getNumberArray, QUERY_CONFIG} from "../../assets/helper";
+import {getNumberArray} from "../../assets/helper";
 import {
     SubjectCard,
     SubjectCardLoading
@@ -8,13 +8,13 @@ import {
 import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
 import {MainContent} from "../../molecules/MainContent/MainContent";
 import {useQuery} from "@tanstack/react-query";
-import {subjectsQuery} from "../../queryes/subjects";
-import {NUM} from "../../assets/constants";
+import {NUM, QUERY_CONFIG} from "../../assets/constants";
+import {getSubjects} from "../../api/subjects";
 
 export const MainContentSubjects = memo(() => {
     const {isSuccess, isError, isLoading, data, error, refetch} = useQuery(
         ["subjects"],
-        subjectsQuery,
+        getSubjects,
         QUERY_CONFIG
     );
 

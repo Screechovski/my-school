@@ -1,19 +1,20 @@
-import React, {memo} from "react";
-import css from "./MainContentEducators.module.sass";
-import {getNumberArray, QUERY_CONFIG} from "../../assets/helper";
+import React, {memo} from 'react';
+import css from './MainContentEducators.module.sass';
+import {getNumberArray} from '../../assets/helper';
 import {
     EducatorCard,
     EducatorCardLoading
-} from "../../molecules/EducatorCard/EducatorCard";
-import {ErrorLine} from "../../molecules/ErrorLine/ErrorLine";
-import {MainContent} from "../../molecules/MainContent/MainContent";
-import {useQuery} from "@tanstack/react-query";
-import {educatorsQuery} from "../../queryes/educators";
+} from '../../molecules/EducatorCard/EducatorCard';
+import {ErrorLine} from '../../molecules/ErrorLine/ErrorLine';
+import {MainContent} from '../../molecules/MainContent/MainContent';
+import {useQuery} from '@tanstack/react-query';
+import {getEducators} from '../../api/educators';
+import {QUERY_CONFIG} from '../../assets/constants';
 
 export const MainContentEducators = memo(() => {
     const {isSuccess, data, isLoading, isError, error, refetch} = useQuery(
-        ["educators"],
-        educatorsQuery,
+        ['educators'],
+        getEducators,
         QUERY_CONFIG
     );
 
