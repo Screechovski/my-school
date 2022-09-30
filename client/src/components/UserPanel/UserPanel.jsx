@@ -1,18 +1,25 @@
-import React, {memo, useEffect} from "react";
-import {NavLink} from "react-router-dom";
-import css from "./UserPanel.module.sass";
-import {useDispatch, useSelector} from "react-redux";
-import {userInit} from "../../store/user/userSlice";
+import React, {memo, useEffect} from 'react';
+import {NavLink} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {Loader} from '../../molecules/CoolLoader/Loader';
+import {userInit} from '../../store/user/userSlice';
+import css from './UserPanel.module.sass';
 
 export const UserPanel = memo(() => {
     const dispatch = useDispatch();
-    const {isSubmit, data} = useSelector((state) => state.userReducer);
+    const {isLoading, data, isSuccess, isAuthorized} = useSelector(
+        (state) => state.userReducer
+    );
 
     useEffect(() => {
-        if (!isSubmit) dispatch(userInit());
+        dispatch(userInit());
     }, []);
 
-    if (!isSubmit && !data) {
+    if (isLoading) {
+        return <Loader cssClass={css.userPanelLoader} />;
+    }
+
+    if (isSuccess && !isAuthorized) {
         return (
             <NavLink className="link" to="/auth">
                 Войти
@@ -20,7 +27,7 @@ export const UserPanel = memo(() => {
         );
     }
 
-    if (!isSubmit && data) {
+    if (isSuccess && isAuthorized) {
         return (
             <NavLink className="link" to="/profile">
                 Профиль

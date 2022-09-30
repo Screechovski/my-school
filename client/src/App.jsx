@@ -1,21 +1,21 @@
-import React from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import "./App.sass";
-import {Header} from "./molecules/Header/Header";
-import {Footer} from "./molecules/Footer/Footer";
-import {PageIndex} from "./views/PageIndex/PageIndex";
-import {PageNews} from "./views/PageNews/PageNews";
-import {PageSubjects} from "./views/PageSubjects/PageSubjects";
-import {PageEducators} from "./views/PageEducators/PageEducators";
-import {PageEducatorInner} from "./views/PageEducatorInner/PageEducatorInner";
-import {PageNewsInner} from "./views/PageNewsInner/PageNewsInner";
-import {PageSubjectInner} from "./views/PageSubjectInner/PageSubjectInner";
-import {PageEvents} from "./views/PageEvents/PageEvents";
-import {PageAuthForm} from "./views/PageAuthForm/PageAuthForm";
-import {PageRegisterForm} from "./views/PageRegisterForm/PageRegisterForm";
-import {AlertContainer} from "./components/AlertContainer/AlertContainer";
-import {PageResetPasswordForm} from "./views/PageResetPasswordForm/PageResetPasswordForm";
-import {UserProfile} from "./components/UserProfile/UserProfile";
+import React from 'react';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import './App.sass';
+import {Header} from './molecules/Header/Header';
+import {Footer} from './molecules/Footer/Footer';
+import {PageIndex} from './views/PageIndex/PageIndex';
+import {PageNews} from './views/PageNews/PageNews';
+import {PageSubjects} from './views/PageSubjects/PageSubjects';
+import {PageEducators} from './views/PageEducators/PageEducators';
+import {PageEducatorInner} from './views/PageEducatorInner/PageEducatorInner';
+import {PageNewsInner} from './views/PageNewsInner/PageNewsInner';
+import {PageSubjectInner} from './views/PageSubjectInner/PageSubjectInner';
+import {PageEvents} from './views/PageEvents/PageEvents';
+import {PageAuthForm} from './views/PageAuthForm/PageAuthForm';
+import {PageRegisterForm} from './views/PageRegisterForm/PageRegisterForm';
+import {AlertContainer} from './components/AlertContainer/AlertContainer';
+import {PageResetPasswordForm} from './views/PageResetPasswordForm/PageResetPasswordForm';
+import {PageProfile} from './views/PageProfile/PageProfile';
 
 export const App = () => {
     return (
@@ -47,7 +47,7 @@ export const App = () => {
                     path="/reset-password"
                     element={<PageResetPasswordForm />}
                 />
-                <Route path="/profile" element={<UserProfile />} />
+                <Route path="/profile" element={<PageProfile />} />
             </Routes>
             <Footer />
             <AlertContainer />

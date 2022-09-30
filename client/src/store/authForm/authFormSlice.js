@@ -4,10 +4,13 @@ import {
     createField,
     fieldsIsValid,
     fieldsStringify,
-    Validation
+    Validation,
+    decodeToken,
+    Token
 } from '../../assets/helper';
 import {addAlert} from '../alerts/alertsSlice';
 import {authorization} from '../../api/auth';
+import {userSetUser} from '../user/userSlice';
 
 const initialState = {
     isSuccess: false,
@@ -51,8 +54,16 @@ export const authFormSubmitThunk = createAsyncThunk(
         try {
             const data = await authorization(fieldsStringify(fields));
 
-            if (data.status !== 'SUCCESS') throw data;
-
+            Token.set(data.data.accessToken);
+            const {id, email, role, active} = Token.decode(
+                data.data.accessToken
+            );
+            dispatch(
+                userSetUser({
+                    data: {id, email, role, active: !!active},
+                    isAuthorized: true
+                })
+            );
             dispatch(
                 addAlert({
                     type: 'success',
@@ -87,7 +98,7 @@ export const authFormSlice = createSlice({
                     break;
                 }
                 case 'password': {
-                    const validateObject = Validation.email(value);
+                    const validateObject = Validation.password(value);
                     state.fields[name].value = validateObject.value;
                     state.fields[name].isValid = validateObject.isValid;
                     break;

@@ -1,5 +1,5 @@
 import {HTTP_CODES} from '../assets/constants';
-import {error} from '../assets/helper';
+import {error, success} from '../assets/helper';
 import {AnswerType} from '../types';
 import {Response, Request} from 'express';
 import {decodAccessToken} from '../assets/token';
@@ -17,11 +17,14 @@ export const authMiddleware = (
     try {
         const token = req.headers.authorization?.split(' ')[1];
 
-        if (!token) throw 'token is undefined';
+        if (!token) {
+            res.status(HTTP_CODES.UNAUTHORIZED_401).json(error('Токен устарел'));
+            return;
+        };
 
         const decodeData = decodAccessToken(token);
         if (!decodeData) {
-            res.status(HTTP_CODES.ACCESS_DENIED).json(error('Токен устарел'));
+            res.status(HTTP_CODES.UNAUTHORIZED_401).json(error('Токен устарел'));
             return;
         }
 
@@ -30,6 +33,6 @@ export const authMiddleware = (
         next();
     } catch (e) {
         console.warn(e);
-        res.status(HTTP_CODES.ACCESS_DENIED).json(error('У вас нет доступа'));
+        res.status(HTTP_CODES.ACCESS_DENIED_403).json(error('У вас нет доступа'));
     }
 };

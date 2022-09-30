@@ -14,8 +14,16 @@ app.use(cookieParser());
 
 app.use('/api', router);
 
-app.get('/', (req: RequestEmpty, res) => {
-    res.sendFile(path.join(__dirname, '/public/build/index.html'));
+app.get('/*', (req: RequestEmpty, res) => {
+    try {
+        if (/\.(js|css|jpe?g|png|webp|json)$/i.test(req.originalUrl)) {
+            res.sendFile(path.join(__dirname, `/public${req.originalUrl}`));
+        } else {
+            res.sendFile(path.join(__dirname, '/public/build/index.html'));
+        }
+    } catch (error) {
+        res.sendFile(path.join(__dirname, '/public/build/index.html'));
+    }
 });
 
 const start = () => {

@@ -27,12 +27,13 @@ import {
 export const router = new Router();
 import {check, body} from 'express-validator';
 import {VALIDATION_RULES} from '../assets/constants';
-import { authorization } from '../controllers/authorizationController';
-import { readUsers } from '../controllers/usersController';
-import { authMiddleware } from '../middleware/authMiddleware';
-import { roleMiddleware } from '../middleware/roleMiddleware';
-import { logout } from '../controllers/logoutController';
-import { refresh } from '../controllers/refreshController';
+import {authorization} from '../controllers/authorizationController';
+import {readUsers} from '../controllers/usersController';
+import {authMiddleware} from '../middleware/authMiddleware';
+import {roleMiddleware} from '../middleware/roleMiddleware';
+import {logout} from '../controllers/logoutController';
+import {refresh} from '../controllers/refreshController';
+import {checkToken} from '../controllers/checkTokenController';
 
 /* NEWS */
 router.post('/news', createNews);
@@ -58,7 +59,7 @@ router.post(
     '/registration',
     [
         body('email', 'Email не может быть пустым').notEmpty(),
-        body('email', 'Неверный email').isEmail()
+        body('email', 'Неверный email').isEmail(),
     ],
     registration
 );
@@ -66,13 +67,18 @@ router.post(
     '/registration-confirm',
     [
         body('code', 'Поле code не может быть пустым').notEmpty(),
-        body('code', 'Неверный код').equals('a35y7u')
+        body('code', `Длина кода должна быть ${VALIDATION_RULES.code.length}`).isLength({max: VALIDATION_RULES.code.length, min: VALIDATION_RULES.code.length}),
+        body('email', 'Email не может быть пустым').notEmpty(),
+        body('email', 'Неверный email').isEmail(),
+        // body('code', 'Неверный код').equals('a35y7u'),
     ],
     registrationConfirm
 );
 router.post(
     '/registration-end',
     [
+        body('code', 'Поле code не может быть пустым').notEmpty(),
+        body('code', `Длина кода должна быть ${VALIDATION_RULES.code.length}`).isLength({max: VALIDATION_RULES.code.length, min: VALIDATION_RULES.code.length}),
         body('email', 'Email не может быть пустым').notEmpty(),
         body('email', 'Неверный email').isEmail(),
         body('password', 'Пароль не может быть пустым').notEmpty(),
@@ -99,8 +105,10 @@ router.post(
     authorization
 );
 
-router.get('/users', [authMiddleware], readUsers);//, roleMiddleware(['user'])], readUsers);
+router.get('/users', [authMiddleware], readUsers); //, roleMiddleware(['user'])], readUsers);
 
-router.get('/logout', [authMiddleware], logout);
+router.get('/logout', logout);
 
-router.get('/refresh', refresh)
+router.get('/refresh', refresh);
+
+router.get('/check-token', [authMiddleware], checkToken);

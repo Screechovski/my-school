@@ -13,13 +13,13 @@ export const roleMiddleware = (validRoles: string[] = []) => (
         if (req.user === undefined) throw 'req.user is undefinded';
         // @ts-ignore
         if (!validRoles.includes(req.user.role)) {
-            res.status(HTTP_CODES.ACCESS_DENIED).json(
+            res.status(HTTP_CODES.ACCESS_DENIED_403).json(
                 error('У вас нет доступа')
             );
         }
         next();
     } catch (e) {
         console.warn(e);
-        res.status(HTTP_CODES.ACCESS_DENIED).json(error('У вас нет доступа'));
+        res.status(HTTP_CODES.ACCESS_DENIED_403).json(error('У вас нет доступа'));
     }
 };

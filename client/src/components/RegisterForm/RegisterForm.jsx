@@ -38,8 +38,9 @@ export const RegisterForm = memo(() => {
                 break;
             case 'third':
                 dispatch(registerFormSubmitThunk()).then((data) => {
-                    if (data.type === 'registerForm/registerFormSubmitThunk/fulfilled')
-                        navigate('/auth');
+                    if (data.type === 'registerForm/registerFormSubmitThunk/fulfilled') {
+                        navigate('/profile');
+                    }
                 });
                 break;
             default:
@@ -73,7 +74,7 @@ export const RegisterForm = memo(() => {
                     </ul>
                     {isError && (
                         <p className="bg-red-200 border-2 border-red-600 px-3 py-2 rounded-small">
-                            {error}
+                            {Array.isArray(error) ? error.map((error,i) => <span key={i}>{error.msg}<br/></span>) : <span>{error}</span>}
                         </p>
                     )}
                     <Button

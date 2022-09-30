@@ -14,8 +14,6 @@ export const IndexNews = memo(() => {
         QUERY_CONFIG
     );
 
-    console.log(data);
-
     if (!isLoading && !isSuccess && !error) {
         return <></>;
     }
@@ -48,7 +46,6 @@ export const IndexNews = memo(() => {
         );
     }
     if (error) {
-        console.log(error);
         return <ErrorLine message={error.error} reload={refetch} />;
     }
     console.warn('Error IndexNews unknown state');

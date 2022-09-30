@@ -15,8 +15,6 @@ export const MainContentSubjectInner = memo(() => {
         QUERY_CONFIG
     );
 
-    console.log(isLoading, isSuccess, data, refetch, isError, error);
-
     return <></>;
 
     const title = isSuccess ? data.data.title : 'Предмет...';

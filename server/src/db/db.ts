@@ -1,4 +1,4 @@
-import mysql from 'mysql';
+import mysql, {MysqlError} from 'mysql';
 import {createNews, getAllNews, getNews} from './modules/news';
 import {getAllEvents, getEvent} from './modules/events';
 import {getAllSubjects, getSubject} from './modules/subjects';
@@ -22,7 +22,14 @@ const connection = mysql.createConnection({
     password: 'mysql',
     database: 'my_shcool_bd'
 });
-connection.connect();
+
+const dbConnectErrorHandle = (error: MysqlError) => {
+    if (error) {
+        connection.end();
+    }
+};
+
+connection.connect(dbConnectErrorHandle);
 
 /* news */
 export const getNewsDBProxy = getNews(connection);

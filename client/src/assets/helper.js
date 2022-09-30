@@ -1,5 +1,20 @@
 import {NUM} from './constants';
 
+export const Token = {
+    set(token) {
+        localStorage.setItem('accessToken', token);
+    },
+    get() {
+        return localStorage.getItem('accessToken');
+    },
+    decode(token) {
+        return JSON.parse(window.atob(token.split('.')[1]));
+    },
+    remove() {
+        localStorage.removeItem('accessToken');
+    }
+};
+
 export const hasInArray = (arr, item) => {
     for (let i = 0; i < arr.length; i++) {
         if (+arr[i] === +item) {
@@ -39,8 +54,8 @@ export const Validation = {
     password(password) {
         const cleanValue = password.replace(/[^a-z0-9]/gi, '');
         const isValid =
-            password.length > NUM.password.minLength &&
-            password.length < NUM.password.maxLength;
+            password.length >= NUM.password.minLength &&
+            password.length <= NUM.password.maxLength;
 
         return {
             isValid,
@@ -144,13 +159,6 @@ class InvalidFieldsClass {
         return this._fields[name].includes(value);
     }
 }
-
-export const smartFetch = async (uri, options) => {
-    const url = `${location.origin}/api${uri}`;
-    const responce = await fetch(url, options);
-
-    return await responce.json();
-};
 
 export const prettyBackendDate = (dateString) => {
     const [date, time] = dateString.split('T');

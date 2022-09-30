@@ -9,10 +9,12 @@ import {
     createField,
     fieldsIsValid,
     fieldsStringify,
-    Validation
+    Validation,
+    Token
 } from '../../assets/helper';
 import {addAlert} from '../alerts/alertsSlice';
 import {NUM} from '../../assets/constants';
+import {userSetUser} from '../user/userSlice';
 
 const initialState = {
     isSuccess: false,
@@ -54,7 +56,7 @@ const getFields = () => ({
 });
 
 export const registerFormSendEmailThunk = createAsyncThunk(
-    'registerFormSlice/registerFormSendEmailThunk',
+    'registerForm/registerFormSendEmailThunk',
     async (_, {dispatch, getState, rejectWithValue, fulfillWithValue}) => {
         const {
             registerFormReducer: {fields, currentScreen}
@@ -78,7 +80,7 @@ export const registerFormSendEmailThunk = createAsyncThunk(
                 fieldsStringify(fields[currentScreen])
             );
 
-            if (data.status !== 'SUCCESS') throw data;
+            if (data.status !== 200) throw data;
 
             dispatch(
                 addAlert({
@@ -90,14 +92,13 @@ export const registerFormSendEmailThunk = createAsyncThunk(
 
             return fulfillWithValue(null);
         } catch (error) {
-            console.warn(error);
-            return rejectWithValue(error);
+            return rejectWithValue({errors: error.errors});
         }
     }
 );
 
 export const registerFormSendCodeThunk = createAsyncThunk(
-    'registerFormSlice/registerFormSendCodeThunk',
+    'registerForm/registerFormSendCodeThunk',
     async (_, {dispatch, getState, rejectWithValue, fulfillWithValue}) => {
         const {
             registerFormReducer: {fields, currentScreen}
@@ -118,22 +119,23 @@ export const registerFormSendCodeThunk = createAsyncThunk(
 
         try {
             const data = await registrationSendCode(
-                fieldsStringify(fields[currentScreen])
+                fieldsStringify({
+                    ...fields.first,
+                    ...fields.second
+                })
             );
 
-            if (data.status !== 'SUCCESS') throw data;
+            if (data.status !== 200) throw data;
 
             return fulfillWithValue(null);
         } catch (error) {
-            console.warn(error);
-
             return rejectWithValue(error);
         }
     }
 );
 
 export const registerFormSubmitThunk = createAsyncThunk(
-    'registerFormSlice/registerFormSubmitThunk',
+    'registerForm/registerFormSubmitThunk',
     async (_, {dispatch, getState, rejectWithValue, fulfillWithValue}) => {
         const {
             registerFormReducer: {fields}
@@ -158,11 +160,23 @@ export const registerFormSubmitThunk = createAsyncThunk(
         try {
             const body = {
                 email: fields['first'].email.value,
+                code: fields['second'].code.value,
                 password: fields['third'].password.value
             };
             const data = await registrationSendUser(body);
 
-            if (data.status !== 'SUCCESS') throw data;
+            if (data.status !== 200) throw data;
+
+            Token.set(data.data.accessToken);
+            const {id, email, role, active} = Token.decode(
+                data.data.accessToken
+            );
+            dispatch(
+                userSetUser({
+                    data: {id, email, role, active: !!active},
+                    isAuthorized: true
+                })
+            );
 
             dispatch(
                 addAlert({
@@ -181,7 +195,7 @@ export const registerFormSubmitThunk = createAsyncThunk(
 );
 
 export const registerFormSlice = createSlice({
-    name: 'registerFormSlice',
+    name: 'registerForm',
     initialState,
     reducers: {
         registerFormInit(state, action) {
@@ -215,7 +229,7 @@ export const registerFormSlice = createSlice({
                     field.isValid = validateObject.isValid;
 
                     state.fields[currentScreen].passwordRepeat.isValid =
-                        value.length > NUM.password.minLength &&
+                        value.length >= NUM.password.minLength &&
                         state.fields[currentScreen].passwordRepeat.value ===
                             value;
                     break;
@@ -246,7 +260,7 @@ export const registerFormSlice = createSlice({
             .addCase(registerFormSendEmailThunk.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
-                state.error = action.payload.message;
+                state.error = action.payload.errors;
             })
             .addCase(registerFormSendCodeThunk.pending, (state, action) => {
                 state.error = null;
@@ -270,6 +284,8 @@ export const registerFormSlice = createSlice({
             .addCase(registerFormSubmitThunk.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.fields = getFields();
+                state.isSuccess = false;
+                state.currentScreen = 'first';
             })
             .addCase(registerFormSubmitThunk.rejected, (state, action) => {
                 state.isLoading = false;

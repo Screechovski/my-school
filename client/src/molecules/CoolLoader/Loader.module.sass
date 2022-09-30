@@ -9,6 +9,7 @@
     position: relative
     height: var(--loader-size)
     width: var(--loader-size)
+    @apply text-white
     &_colored
         .loader
             &__firstCircle
@@ -20,10 +21,9 @@
     &__firstCircle,
     &__secondCircle,
     &__thirdCircle
-        box-sizing: border-box
+        @apply absolute border-2 border-solid border-transparent border-t-inherit border-r-inherit box-border
         border-radius: 50%
         transform-origin: 50% 50%
-        @apply absolute border-2 border-solid border-transparent border-t-white border-r-white
     &__firstCircle
         animation: spin 2.5s linear infinite
         height: var(--loader-size)

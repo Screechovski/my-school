@@ -12,7 +12,7 @@ export const refresh = async (req: RequestEmpty, res: Response<AnswerType>) => {
 
         if (!decodedRefreshToken) {
             res.clearCookie('refreshToken');
-            res.status(HTTP_CODES.ACCESS_DENIED).json(
+            res.status(HTTP_CODES.ACCESS_DENIED_403).json(
                 error('Токен устарел, необходима авторизация')
             );
             return;

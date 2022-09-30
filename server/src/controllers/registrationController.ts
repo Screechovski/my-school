@@ -9,9 +9,44 @@ import {
     setUserTokenDBProxy
 } from '../db/db';
 import bcrypt from 'bcryptjs';
-import {HTTP_CODES} from '../assets/constants';
+import {HTTP_CODES, VALIDATION_RULES} from '../assets/constants';
 import {validationResult} from 'express-validator';
 import {generateTokens} from '../assets/token';
+import {v4} from 'uuid';
+
+class CurrentRegistrationUsers {
+    users : any = {};
+    add(email: string, id: string) {
+        if (email in this.users) throw Error('email already exist');
+        const code = v4().slice(0, VALIDATION_RULES.code.length);
+        this.users[email] = { id: id, code };
+        setTimeout(() => {
+            if (this.users[email]) {
+                delete this.users[email]
+            }
+        }, 1000 * 60 * 5)
+        return code;
+    }
+    isValid(email: string, id: string, code: string) {
+        if (!this.users[email]) {
+            return false;
+        }
+        if (this.users[email].id !== id) {
+            return false;
+        }
+        if (this.users[email].code !== code) {
+            return false;
+        }
+        return true
+    }
+    clean(email:string){
+        if (!!this.users[email]) {
+            delete this.users[email];
+        }
+    }
+}
+
+const currentRegistrationUsers = new CurrentRegistrationUsers();
 
 export const registration = async (
     req: RequestWithBody<RegistrationUserBodyEmail>,
@@ -25,10 +60,15 @@ export const registration = async (
         return;
     }
     try {
+        console.log(req.get('User-Agent'));
+
         const email = req.body.email;
         const DBResponce: any = await getUserByEmailDBProxy(email);
 
         if (DBResponce.length === 0) {
+            const code = currentRegistrationUsers.add(email, `${req.ip}_${req.get('User-Agent')}`);
+            console.log(code);
+            // TODO send code to email
             res.status(HTTP_CODES.OK_200).json(success(null));
             return;
         }
@@ -44,7 +84,7 @@ export const registration = async (
 };
 
 export const registrationConfirm = (
-    req: RequestWithBody<{code: string}>,
+    req: RequestWithBody<{code: string, email: string}>,
     res: Response<AnswerType>
 ) => {
     const errors = validationResult(req);
@@ -54,11 +94,18 @@ export const registrationConfirm = (
         );
         return;
     }
-    res.status(HTTP_CODES.OK_200).json(success(null));
+    const email = req.body.email;
+    const code = req.body.code;
+    if (currentRegistrationUsers.isValid(email, `${req.ip}_${req.get('User-Agent')}`, code)) {
+        currentRegistrationUsers.clean(email);
+        res.status(HTTP_CODES.OK_200).json(success(null));
+        return;
+    }
+    res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Неверный код или вы сменили устройство'));
 };
 
 export const registrationEnd = async (
-    req: RequestWithBody<{email: string; password: string}>,
+    req: RequestWithBody<{email: string; code: string, password: string}>,
     res: Response<AnswerType>
 ) => {
     const errors = validationResult(req);
@@ -70,6 +117,7 @@ export const registrationEnd = async (
     }
     try {
         const bodyEmail = req.body.email;
+        const bodyCode = req.body.code;
         const bodyPassword = req.body.password;
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(bodyPassword, salt);
@@ -89,8 +137,11 @@ export const registrationEnd = async (
         });
         await setUserTokenDBProxy(createdUserId, refreshToken);
 
-        res.cookie('refreshToken', refreshToken, {maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true});
-        res.status(HTTP_CODES.OK_200).json(success({ accessToken }));
+        res.cookie('refreshToken', refreshToken, {
+            maxAge: 1000 * 60 * 60 * 24 * 30,
+            httpOnly: true
+        });
+        res.status(HTTP_CODES.OK_200).json(success({accessToken}));
     } catch (e) {
         console.warn(e);
         res.status(HTTP_CODES.SERVER_ERROR_500).json(

@@ -1,11 +1,7 @@
 import axios from 'axios';
 import {store} from '../store/index';
 import {addAlert} from '../store/alerts/alertsSlice';
-
-let ACCESS_TOKEN = 'ASD$@^Y&W@$&U@WQ&';
-
-export const getAccessToken = () => ACCESS_TOKEN;
-export const setAccessToken = (val) => (ACCESS_TOKEN = val);
+import {Token} from '../assets/helper';
 
 export const instance = axios.create({
     baseURL: location.origin + '/api/',
@@ -17,28 +13,36 @@ instance.interceptors.response.use(
         status: response.status,
         ...response.data
     }),
-    (error) => {
-        store.dispatch(
-            addAlert({
-                type: 'error',
-                message: `${error.response.data}. Ошибка сервера`
-            })
-        );
-        throw error.response;
-    }
+    (error) => ({
+        status: error.response.status,
+        errors: [],
+        ...error.response.data
+    })
 );
 
 export const requestWithToken = async (url, options = {}) => {
-    let token = getAccessToken();
+    let token = Token.get();
 
     if (!('headers' in options)) options.headers = {};
 
-    if (token) options.headers.Authorization = token;
+    if (token) options.headers.Authorization = `Bearer ${token}`;
 
-    try {
-        const baseQueryResponse = await instance(url, options);
+    const baseQueryResponse = await instance(url, options);
+
+    if (baseQueryResponse.status === 200) {
         return baseQueryResponse;
-    } catch (error) {
-        const checkResponse = await instance.get();
     }
+
+    if (baseQueryResponse.status !== 401) {
+        return baseQueryResponse;
+    }
+
+    const refreshResponce = await instance.get('refresh');
+
+    if (refreshResponce.status === 200) {
+        Token.set(refreshResponce.data.accessToken);
+        return requestWithToken(url, options);
+    }
+
+    return refreshResponce;
 };
