@@ -1,6 +1,4 @@
 import axios from 'axios';
-import {store} from '../store/index';
-import {addAlert} from '../store/alerts/alertsSlice';
 import {Token} from '../assets/helper';
 
 export const instance = axios.create({
@@ -37,7 +35,7 @@ export const requestWithToken = async (url, options = {}) => {
         return baseQueryResponse;
     }
 
-    const refreshResponce = await instance.get('refresh');
+    const refreshResponce = await instance.get('/refresh');
 
     if (refreshResponce.status === 200) {
         Token.set(refreshResponce.data.accessToken);

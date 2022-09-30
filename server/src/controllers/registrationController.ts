@@ -12,14 +12,14 @@ import bcrypt from 'bcryptjs';
 import {HTTP_CODES, VALIDATION_RULES} from '../assets/constants';
 import {validationResult} from 'express-validator';
 import {generateTokens} from '../assets/token';
-import {v4} from 'uuid';
+import {v1} from 'uuid';
 
 class CurrentRegistrationUsers {
     users : any = {};
     add(email: string, id: string) {
         if (email in this.users) throw Error('email already exist');
-        const code = v4().slice(0, VALIDATION_RULES.code.length);
-        this.users[email] = { id: id, code };
+        const code = v1().slice(0, VALIDATION_RULES.code.length);
+        this.users[email] = { id, code };
         setTimeout(() => {
             if (this.users[email]) {
                 delete this.users[email]
@@ -60,14 +60,12 @@ export const registration = async (
         return;
     }
     try {
-        console.log(req.get('User-Agent'));
-
         const email = req.body.email;
         const DBResponce: any = await getUserByEmailDBProxy(email);
 
         if (DBResponce.length === 0) {
             const code = currentRegistrationUsers.add(email, `${req.ip}_${req.get('User-Agent')}`);
-            console.log(code);
+            console.log(code); // for prove account
             // TODO send code to email
             res.status(HTTP_CODES.OK_200).json(success(null));
             return;
@@ -97,11 +95,10 @@ export const registrationConfirm = (
     const email = req.body.email;
     const code = req.body.code;
     if (currentRegistrationUsers.isValid(email, `${req.ip}_${req.get('User-Agent')}`, code)) {
-        currentRegistrationUsers.clean(email);
         res.status(HTTP_CODES.OK_200).json(success(null));
         return;
     }
-    res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Неверный код или вы сменили устройство'));
+    res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Неверный код или вы сменили устройство. Начните регистрацию заново'));
 };
 
 export const registrationEnd = async (
@@ -121,6 +118,13 @@ export const registrationEnd = async (
         const bodyPassword = req.body.password;
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(bodyPassword, salt);
+
+        if (!currentRegistrationUsers.isValid(bodyEmail, `${req.ip}_${req.get('User-Agent')}`, bodyCode)) {
+            currentRegistrationUsers.clean(bodyEmail);
+            res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Неверный код или вы сменили устройство. Начните регистрацию заново'));
+            return;
+        }
+        currentRegistrationUsers.clean(bodyEmail);
 
         const {insertId: createdUserId}: any = await createUserDBProxy(
             bodyEmail,

@@ -5,7 +5,7 @@ import {
 } from '../controllers/eventsController';
 import {
     readSingleSubject,
-    subjectsController
+    readSubjects, readSubjectWithYears
 } from '../controllers/subjectsController';
 import {
     createNews,
@@ -23,8 +23,6 @@ import {
     registrationConfirm,
     registrationEnd
 } from '../controllers/registrationController';
-// @ts-ignore
-export const router = new Router();
 import {check, body} from 'express-validator';
 import {VALIDATION_RULES} from '../assets/constants';
 import {authorization} from '../controllers/authorizationController';
@@ -34,6 +32,8 @@ import {roleMiddleware} from '../middleware/roleMiddleware';
 import {logout} from '../controllers/logoutController';
 import {refresh} from '../controllers/refreshController';
 import {checkToken} from '../controllers/checkTokenController';
+// @ts-ignore
+export const router = new Router();
 
 /* NEWS */
 router.post('/news', createNews);
@@ -47,7 +47,7 @@ router.get('/events', eventsController);
 router.get('/event/:id', readSingleEvent);
 
 /* SUBJECTS */
-router.get('/subjects', subjectsController);
+router.get('/subjects', readSubjects);
 router.get('/subject/:id', readSingleSubject);
 
 /* EDUCATORS */
@@ -60,6 +60,7 @@ router.post(
     [
         body('email', 'Email не может быть пустым').notEmpty(),
         body('email', 'Неверный email').isEmail(),
+        body('deviceId', 'Не найден идентификатор устройства').notEmpty(),
     ],
     registration
 );
@@ -67,10 +68,16 @@ router.post(
     '/registration-confirm',
     [
         body('code', 'Поле code не может быть пустым').notEmpty(),
-        body('code', `Длина кода должна быть ${VALIDATION_RULES.code.length}`).isLength({max: VALIDATION_RULES.code.length, min: VALIDATION_RULES.code.length}),
+        body(
+            'code',
+            `Длина кода должна быть ${VALIDATION_RULES.code.length}`
+        ).isLength({
+            max: VALIDATION_RULES.code.length,
+            min: VALIDATION_RULES.code.length
+        }),
         body('email', 'Email не может быть пустым').notEmpty(),
         body('email', 'Неверный email').isEmail(),
-        // body('code', 'Неверный код').equals('a35y7u'),
+        body('deviceId', 'Не найден идентификатор устройства').notEmpty(),
     ],
     registrationConfirm
 );
@@ -78,14 +85,21 @@ router.post(
     '/registration-end',
     [
         body('code', 'Поле code не может быть пустым').notEmpty(),
-        body('code', `Длина кода должна быть ${VALIDATION_RULES.code.length}`).isLength({max: VALIDATION_RULES.code.length, min: VALIDATION_RULES.code.length}),
+        body(
+            'code',
+            `Длина кода должна быть ${VALIDATION_RULES.code.length}`
+        ).isLength({
+            max: VALIDATION_RULES.code.length,
+            min: VALIDATION_RULES.code.length
+        }),
         body('email', 'Email не может быть пустым').notEmpty(),
         body('email', 'Неверный email').isEmail(),
         body('password', 'Пароль не может быть пустым').notEmpty(),
         body('password', 'Пароль должен быть от 6 до 20 символов').isLength({
             min: VALIDATION_RULES.password.minLength,
             max: VALIDATION_RULES.password.maxLength
-        })
+        }),
+        body('deviceId', 'Не найден идентификатор устройства').notEmpty(),
     ],
     registrationEnd
 );
@@ -112,3 +126,15 @@ router.get('/logout', logout);
 router.get('/refresh', refresh);
 
 router.get('/check-token', [authMiddleware], checkToken);
+
+router.get(
+    '/profile/users',
+    [authMiddleware, roleMiddleware(['admin'])],
+    readUsers
+);
+
+router.get(
+    '/profile/subjects',
+    [authMiddleware, roleMiddleware(['admin'])],
+    readSubjectWithYears
+);

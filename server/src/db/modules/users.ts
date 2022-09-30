@@ -5,7 +5,7 @@ export const getAllUsers = (connection: Connection) => (): Promise<
     null | Object[] | MysqlError
 > =>
     new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM users', (error, result) => {
+        connection.query('SELECT * FROM users', (error, result: ViewUserModel[]) => {
             if (error) {
                 reject(error);
             } else {
@@ -56,11 +56,14 @@ export const getAllEducators = (connection: Connection) => (): Promise<
                     reject(error);
                 } else {
                     const shortName = (
-                        name: string,
-                        surname: string,
-                        patronymic: string
+                        name: string | null,
+                        surname: string | null,
+                        patronymic: string | null
                     ) => {
-                        return `${surname} ${name[0]}.${patronymic[0]}.`; // TODO исправить если нет отчества
+                        const stringName = name ? name[0] : '';
+                        const stringPatronymic = patronymic ? patronymic[0] : '';
+
+                        return `${surname} ${stringName}.${stringPatronymic}.`; // TODO исправить если нет отчества
                     };
 
                     resolve(
@@ -92,11 +95,14 @@ export const getEducator = (connection: Connection) => (
                     reject(error);
                 } else {
                     const shortName = (
-                        name: string,
-                        surname: string,
-                        patronymic: string
+                        name: string | null,
+                        surname: string | null,
+                        patronymic: string | null
                     ) => {
-                        return `${surname} ${name[0]}.${patronymic[0]}.`; // TODO исправить если нет отчества
+                        const stringName = name ? name[0] : '';
+                        const stringPatronymic = patronymic ? patronymic[0] : '';
+
+                        return `${surname} ${stringName}.${stringPatronymic}.`; // TODO исправить если нет отчества
                     };
 
                     resolve(

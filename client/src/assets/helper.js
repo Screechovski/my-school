@@ -1,13 +1,16 @@
 import {NUM} from './constants';
+import Fingerprint2 from '@fingerprintjs/fingerprintjs';
 
 export const Token = {
     set(token) {
+        if (!token) throw Error('Token is null');
         localStorage.setItem('accessToken', token);
     },
     get() {
         return localStorage.getItem('accessToken');
     },
     decode(token) {
+        if (!token) throw Error('Token is null');
         return JSON.parse(window.atob(token.split('.')[1]));
     },
     remove() {
@@ -141,24 +144,26 @@ export const emailFieldCreator = () =>
         type: 'input'
     });
 
-class InvalidFieldsClass {
-    constructor() {
-        this._fields = {};
-    }
-    add(name, value) {
-        if (name in this._fields) {
-            this._fields[name] = [value, ...this._fields[name]];
-        } else {
-            this._fields[name] = [value];
-        }
-    }
-    has(name, value) {
-        if (!(name in this._fields)) {
-            return false;
-        }
-        return this._fields[name].includes(value);
-    }
-}
+// class InvalidFieldsClass {
+//     constructor() {
+//         this._fields = {};
+//     }
+//     add(name, value) {
+//         if (name in this._fields) {
+//             this._fields[name] = [value, ...this._fields[name]];
+//         } else {
+//             this._fields[name] = [value];
+//         }
+//     }
+//     has(name, value) {
+//         if (!(name in this._fields)) {
+//             return false;
+//         }
+//         return this._fields[name].includes(value);
+//     }
+// }
+
+// export const invalidFields = new InvalidFieldsClass();
 
 export const prettyBackendDate = (dateString) => {
     const [date, time] = dateString.split('T');
@@ -168,4 +173,16 @@ export const prettyBackendDate = (dateString) => {
     return `${d}.${mm}.${y} ${h}:${m}`;
 };
 
-export const invalidFields = new InvalidFieldsClass();
+export const deviceId = new Promise((resolve) => {
+    const getFP = () => {
+        Fingerprint2.get((components) => {
+            const values = components.map((c) => c.value);
+            const fp = Fingerprint2.x64hash128(values.join(''), 31);
+            resolve(fp);
+        });
+    };
+
+    window.requestIdleCallback
+        ? requestIdleCallback(getFP)
+        : setTimeout(getFP, 500);
+});

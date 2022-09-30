@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {instance, requestWithToken} from '../../api/server';
+import {check} from '../../api/check';
+import {instance} from '../../api/server';
 import {Token} from '../../assets/helper';
 
 const initialState = {
@@ -15,31 +16,33 @@ export const userInit = createAsyncThunk(
     'user/userInit',
     async (_, {rejectWithValue, fulfillWithValue}) => {
         try {
-            const data = await requestWithToken('/check-token');
-            let userPayload = {};
-            console.log({data});
-
-            if (!data.data?.accessToken) {
-                const {id, email, rol, active} = Token.decode(Token.get());
-                userPayload = {id, email, rol, active: !!active};
-            } else {
-                Token.set(data.data.accessToken);
-                const {id, email, rol, active} = Token.decode(
-                    data.data.accessToken
-                );
-                userPayload = {id, email, rol, active: !!active};
-            }
+            const data = await check();
 
             if (data.status === 200) {
+                const {id, email, role, active} = Token.decode(Token.get());
                 return fulfillWithValue({
-                    data: userPayload,
+                    data: {id, email, role, active: !!active},
                     isAuthorized: true
                 });
             }
-            if (data.status === 403) {
+            if (data.status !== 401) {
+                throw data;
+            }
+            const refreshResponce = await instance.get('/refresh');
+            if (refreshResponce.status === 403) {
                 return fulfillWithValue({data: null, isAuthorized: false});
             }
-
+            if (refreshResponce.status === 200) {
+                Token.set(refreshResponce.data.accessToken);
+                const {id, email, role, active} = Token.decode(
+                    refreshResponce.data.accessToken
+                );
+                refreshResponce.data.accessToken;
+                return fulfillWithValue({
+                    data: {id, email, role, active: !!active},
+                    isAuthorized: true
+                });
+            }
             throw data;
         } catch (error) {
             console.warn(error);

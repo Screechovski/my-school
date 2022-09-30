@@ -9,13 +9,7 @@ export const getAllSubjects = (connection: Connection) => (): Promise<null | Obj
                 if (error) {
                     reject(error);
                 } else {
-                    resolve(
-                        result.map((subject: ViewSubjectModel) => ({
-                            id: subject.id,
-                            image: subject.image,
-                            title: subject.title
-                        }))
-                    );
+                    resolve(result);
                 }
             }
         );

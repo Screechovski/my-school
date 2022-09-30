@@ -15,6 +15,7 @@ import {
     setUserToken
 } from './modules/users';
 import {getSubjectsByUser, getUsersBySubject} from './modules/userSubject';
+import {getAllSubjectsWithYears} from "./modules/subjectsYears";
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -55,3 +56,5 @@ export const changeUserPasswordDBProxy = changeUserPassword(connection);
 /* user_subject */
 export const getSubjectsByUserDBProxy = getSubjectsByUser(connection);
 export const getUsersBySubjectDBProxy = getUsersBySubject(connection);
+/* subjects_year */
+export const getAllSubjectsWithYearsDBProxy = getAllSubjectsWithYears(connection);
