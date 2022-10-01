@@ -1,6 +1,6 @@
 import {Router} from 'express';
 import {
-    eventsController,
+    readEvents,
     readSingleEvent
 } from '../controllers/eventsController';
 import {
@@ -43,7 +43,7 @@ router.put('/news', updateNews);
 router.delete('/news/:id', deleteNews);
 
 /* EVENTS */
-router.get('/events', eventsController);
+router.get('/events', readEvents);
 router.get('/event/:id', readSingleEvent);
 
 /* SUBJECTS */
@@ -137,4 +137,10 @@ router.get(
     '/profile/subjects',
     [authMiddleware, roleMiddleware(['admin'])],
     readSubjectWithYears
+);
+
+router.get(
+    '/profile/educators',
+    [authMiddleware, roleMiddleware(['admin'])],
+    readEducators
 );

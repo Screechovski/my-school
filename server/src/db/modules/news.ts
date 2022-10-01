@@ -1,31 +1,10 @@
-import {connection, PromiseType} from '../db';
+import {DBInsert, DBSelect} from '../db';
 
-export const getNewsDBProxy = (id: number): Promise<PromiseType> =>
-    new Promise((resolve, reject) => {
-        connection.query(
-            'SELECT * FROM `posts` WHERE id = ?',
-            [id],
-            (error, result) => (!!error ? reject(error) : resolve(result))
-        );
-    });
+export const getAllNewsDBProxy = () =>
+    DBSelect('posts');
 
-export const getAllNewsDBProxy = (): Promise<PromiseType> =>
-    new Promise((resolve, reject) => {
-        connection.query(
-            'SELECT * FROM `posts`',
-            (error, result) => (!!error ? reject(error) : resolve(result))
-        );
-    });
+export const getNewsDBProxy = (id: number) =>
+    DBSelect('posts', {id});
 
-export const createNewsDBProxy = (
-    image: string | null,
-    title: string,
-    message: string
-): Promise<PromiseType> =>
-    new Promise((resolve, reject) => {
-        connection.query(
-            'INSERT INTO `posts` (`image`, `title`, `message`) VALUES (?,?,?)',
-            [image, title, message],
-            (error, result) => (!!error ? reject(error) : resolve(result))
-        );
-    });
+export const createNewsDBProxy = (image: string | null, title: string, message: string) =>
+    DBInsert('posts', {image, title, message});

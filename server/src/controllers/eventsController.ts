@@ -4,12 +4,12 @@ import {error, success} from '../assets/helper';
 import {HTTP_CODES} from '../assets/constants';
 import {getAllEventsDBProxy, getEventDBProxy} from '../db/modules/events';
 
-export const eventsController = async (
+export const readEvents = async (
     req: RequestEmpty,
     res: Response<AnswerType>
 ) => {
     try {
-        const DBResponce: any = await getAllEventsDBProxy();
+        const DBResponce = await getAllEventsDBProxy();
 
         res.status(HTTP_CODES.OK_200).json(success(DBResponce));
     } catch (e) {

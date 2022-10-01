@@ -1,5 +1,6 @@
 import {connection, PromiseType} from '../db';
 
+// TODO переделать на sql query
 export const getAllSubjectsWithYearsDBProxy = (): Promise<PromiseType> =>
     new Promise((resolve, reject) => {
         connection.query(

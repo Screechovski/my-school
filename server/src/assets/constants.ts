@@ -29,3 +29,12 @@ export const HTTP_CODES = {
 
     SERVER_ERROR_500: 500
 };
+
+export const USER_ROLES = {
+    EDUCATOR: 'educator',
+    USER: 'user',
+    STUDENT: 'student',
+    PARENT: 'parent',
+    OPERATOR: 'operator',
+    ADMIN: 'admin'
+}

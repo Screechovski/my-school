@@ -1,23 +1,7 @@
-import {connection, PromiseType} from '../db';
+import {DBSelect} from '../db';
 
-export const getSubjectsByUserDBProxy = (
-    userId: number
-): Promise<PromiseType> =>
-    new Promise((resolve, reject) => {
-        connection.query(
-            'SELECT * FROM `subject_user` WHERE user_id = ?',
-            [userId],
-            (error, result) => (!!error ? reject(error) : resolve(result))
-        );
-    });
+export const getSubjectsByUserDBProxy = (user_id: number) =>
+    DBSelect('subject_user', {user_id});
 
-export const getUsersBySubjectDBProxy = (
-    subjectId: number
-): Promise<PromiseType> =>
-    new Promise((resolve, reject) => {
-        connection.query(
-            'SELECT * FROM `subject_user` WHERE subject_id = ?',
-            [subjectId],
-            (error, result) => (!!error ? reject(error) : resolve(result))
-        );
-    });
+export const getUsersBySubjectDBProxy = (subject_id: number) =>
+    DBSelect('subject_user', {subject_id});
