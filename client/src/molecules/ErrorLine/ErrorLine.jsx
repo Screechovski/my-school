@@ -11,15 +11,21 @@ export const ErrorLine = ({message, reload}) => {
                     <ErrorSvg cssClass={css.errorLineIcon} />
                 </i>
                 <p>Произошла ошибка</p>
-                <button
-                    type="button"
-                    className={css.errorLine__headerButton}
-                    onClick={reload}
-                >
-                    <ReloadSvg cssClass={css.errorLineReload} />
-                </button>
+                {reload && (
+                    <button
+                        type="button"
+                        className={css.errorLine__headerButton}
+                        onClick={reload}
+                    >
+                        <ReloadSvg cssClass={css.errorLineReload} />
+                    </button>
+                )}
             </div>
             {message && <p className={css.errorLine__text}>{message}</p>}
         </div>
     );
+};
+
+ErrorLine.defaultProps = {
+    reload: null
 };

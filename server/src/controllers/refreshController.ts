@@ -2,17 +2,17 @@ import {Response} from 'express';
 import {AnswerType, RequestEmpty} from '../types';
 import {error, success} from '../assets/helper';
 import {HTTP_CODES} from '../assets/constants';
-import {decodRefreshToken, generateTokens} from '../assets/token';
 import {getUserByTokenDBProxy, setUserTokenDBProxy} from '../db/modules/users';
+import {Token} from '../assets/token';
 
 export const refresh = async (req: RequestEmpty, res: Response<AnswerType>) => {
     try {
         const {refreshToken} = req.cookies;
-        const decodedRefreshToken = decodRefreshToken(refreshToken);
+        const decodedRefreshToken = Token.decodeRefresh(refreshToken);
 
         if (!decodedRefreshToken) {
             res.clearCookie('refreshToken');
-            res.status(HTTP_CODES.ACCESS_DENIED_403).json(
+            res.status(HTTP_CODES.UNAUTHORIZED_401).json(
                 error('Токен устарел, необходима авторизация')
             );
             return;
@@ -28,8 +28,11 @@ export const refresh = async (req: RequestEmpty, res: Response<AnswerType>) => {
         }
 
         const {id, email, active, role} = DBResponce[0];
-        const tokens = generateTokens({id, email, active, role});
-        res.cookie('refreshToken', tokens.refreshToken);
+        const tokens = Token.generate({id, email, active, role});
+        res.cookie('refreshToken', tokens.refreshToken, {
+            maxAge: 1000 * 60 * 60 * 24 * 30,
+            httpOnly: true
+        });
         await setUserTokenDBProxy(id, tokens.refreshToken);
         res.status(HTTP_CODES.OK_200).json(
             success({accessToken: tokens.accessToken})

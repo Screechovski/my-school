@@ -6,7 +6,7 @@ const initialState = {
         personal: {
             name: 'personal',
             label: 'Персональные данные',
-            roles: ['admin']
+            roles: ['user', 'operator', 'admin']
         },
         users: {
             name: 'users',

@@ -1,11 +1,9 @@
 import {Router} from 'express';
-import {
-    readEvents,
-    readSingleEvent
-} from '../controllers/eventsController';
+import {readEvents, readSingleEvent} from '../controllers/eventsController';
 import {
     readSingleSubject,
-    readSubjects, readSubjectWithYears
+    readSubjects,
+    readSubjectWithYears
 } from '../controllers/subjectsController';
 import {
     createNews,
@@ -23,15 +21,16 @@ import {
     registrationConfirm,
     registrationEnd
 } from '../controllers/registrationController';
-import {check, body} from 'express-validator';
-import {VALIDATION_RULES} from '../assets/constants';
+import {body} from 'express-validator';
+import {USER_ROLES, VALIDATION_RULES} from '../assets/constants';
 import {authorization} from '../controllers/authorizationController';
-import {readUsers} from '../controllers/usersController';
+import {readUsers, updateUser} from '../controllers/usersController';
 import {authMiddleware} from '../middleware/authMiddleware';
 import {roleMiddleware} from '../middleware/roleMiddleware';
 import {logout} from '../controllers/logoutController';
 import {refresh} from '../controllers/refreshController';
 import {checkToken} from '../controllers/checkTokenController';
+import {readConstantsUserRoles} from '../controllers/constantsController';
 // @ts-ignore
 export const router = new Router();
 
@@ -60,7 +59,7 @@ router.post(
     [
         body('email', 'Email не может быть пустым').notEmpty(),
         body('email', 'Неверный email').isEmail(),
-        body('deviceId', 'Не найден идентификатор устройства').notEmpty(),
+        body('deviceId', 'Не найден идентификатор устройства').notEmpty()
     ],
     registration
 );
@@ -77,7 +76,7 @@ router.post(
         }),
         body('email', 'Email не может быть пустым').notEmpty(),
         body('email', 'Неверный email').isEmail(),
-        body('deviceId', 'Не найден идентификатор устройства').notEmpty(),
+        body('deviceId', 'Не найден идентификатор устройства').notEmpty()
     ],
     registrationConfirm
 );
@@ -99,7 +98,7 @@ router.post(
             min: VALIDATION_RULES.password.minLength,
             max: VALIDATION_RULES.password.maxLength
         }),
-        body('deviceId', 'Не найден идентификатор устройства').notEmpty(),
+        body('deviceId', 'Не найден идентификатор устройства').notEmpty()
     ],
     registrationEnd
 );
@@ -108,10 +107,10 @@ router.post(
 router.post(
     '/authorization',
     [
-        check('email', 'Email не может быть пустым').notEmpty(),
-        check('email', 'Неверный email').isEmail(),
-        check('password', 'Пароль не может быть пустым').notEmpty(),
-        check('password', 'Пароль должен быть от 6 до 20 символов').isLength({
+        body('email', 'Email не может быть пустым').notEmpty(),
+        body('email', 'Неверный email').isEmail(),
+        body('password', 'Пароль не может быть пустым').notEmpty(),
+        body('password', 'Пароль должен быть от 6 до 20 символов').isLength({
             min: VALIDATION_RULES.password.minLength,
             max: VALIDATION_RULES.password.maxLength
         })
@@ -133,6 +132,19 @@ router.get(
     readUsers
 );
 
+router.patch(
+    '/profile/user/:id',
+    [
+        authMiddleware,
+        roleMiddleware(['admin']),
+        body('role', 'Параметр role не передан').notEmpty(),
+        body('role', 'Неверная параметр role').isIn(Object.values(USER_ROLES)),
+        body('active', 'Параметр active не передан').notEmpty(),
+        body('active', 'Неверная параметр active').isBoolean()
+    ],
+    updateUser
+);
+
 router.get(
     '/profile/subjects',
     [authMiddleware, roleMiddleware(['admin'])],
@@ -143,4 +155,10 @@ router.get(
     '/profile/educators',
     [authMiddleware, roleMiddleware(['admin'])],
     readEducators
+);
+
+router.get(
+    '/constants/user-roles',
+    [authMiddleware, roleMiddleware(['operator', 'admin'])],
+    readConstantsUserRoles
 );

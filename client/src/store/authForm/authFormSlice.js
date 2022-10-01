@@ -5,7 +5,6 @@ import {
     fieldsIsValid,
     fieldsStringify,
     Validation,
-    decodeToken,
     Token
 } from '../../assets/helper';
 import {addAlert} from '../alerts/alertsSlice';
@@ -83,7 +82,7 @@ export const authFormSlice = createSlice({
     name: 'authFormSlice',
     initialState,
     reducers: {
-        authFormInit(state, action) {
+        authFormInit(state) {
             state.fields = getFields();
             state.isSuccess = true;
         },
@@ -109,12 +108,12 @@ export const authFormSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(authFormSubmitThunk.pending, (state, action) => {
+        builder.addCase(authFormSubmitThunk.pending, (state) => {
             state.isLoading = true;
             state.isError = false;
             state.error = null;
         });
-        builder.addCase(authFormSubmitThunk.fulfilled, (state, action) => {
+        builder.addCase(authFormSubmitThunk.fulfilled, (state) => {
             state.isLoading = false;
             state.fields = getFields();
         });

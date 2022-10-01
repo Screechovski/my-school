@@ -1,14 +1,15 @@
-import {useQuery} from "@tanstack/react-query";
-import {QUERY_CONFIG} from "../../assets/constants";
-import {Loader} from "../../molecules/CoolLoader/Loader";
-import React from "react";
-import css from "./ProfileSubjects.module.sass";
-import {getSubjects} from "../../api/profile";
-import {ProfileSubjectItem} from "./ProfileSubjectItem";
+import React from 'react';
+import {useQuery} from '@tanstack/react-query';
+import {QUERY_CONFIG} from '../../assets/constants';
+import {Loader} from '../../molecules/CoolLoader/Loader';
+import {getSubjects} from '../../api/profile';
+import {ProfileSubjectItem} from '../../molecules/ProfileSubjectItem/ProfileSubjectItem';
+
+import css from './ProfileSubjects.module.sass';
 
 export const ProfileSubjects = () => {
     const {isLoading, isSuccess, data} = useQuery(
-        ["profile-subjects"],
+        ['profile-subjects'],
         getSubjects,
         QUERY_CONFIG
     );
@@ -16,7 +17,7 @@ export const ProfileSubjects = () => {
     if (isLoading) {
         return (
             <div className="p-6 flex items-center justify-center">
-                <Loader/>
+                <Loader />
             </div>
         );
     }

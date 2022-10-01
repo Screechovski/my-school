@@ -2,6 +2,7 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {check} from '../../api/check';
 import {instance} from '../../api/server';
 import {Token} from '../../assets/helper';
+import {changeTab} from '../profile/profileSlice';
 
 const initialState = {
     data: null,
@@ -16,47 +17,22 @@ export const userInit = createAsyncThunk(
     'user/userInit',
     async (_, {rejectWithValue, fulfillWithValue}) => {
         try {
-            const data = await check();
+            await check();
 
-            if (data.status === 200) {
-                const {id, email, role, active} = Token.decode(Token.get());
-                return fulfillWithValue({
-                    data: {id, email, role, active: !!active},
-                    isAuthorized: true
-                });
-            }
-            if (data.status !== 401) {
-                throw data;
-            }
-            const refreshResponce = await instance.get('/refresh');
-            if (refreshResponce.status === 403) {
-                return fulfillWithValue({data: null, isAuthorized: false});
-            }
-            if (refreshResponce.status === 200) {
-                Token.set(refreshResponce.data.accessToken);
-                const {id, email, role, active} = Token.decode(
-                    refreshResponce.data.accessToken
-                );
-                refreshResponce.data.accessToken;
-                return fulfillWithValue({
-                    data: {id, email, role, active: !!active},
-                    isAuthorized: true
-                });
-            }
-            throw data;
+            return fulfillWithValue(Token.decode(Token.get()));
         } catch (error) {
-            console.warn(error);
-            return rejectWithValue({error: error.error});
+            return rejectWithValue(error.data);
         }
     }
 );
 
 export const userLogout = createAsyncThunk(
     'user/userLogout',
-    async (_, {rejectWithValue, fulfillWithValue}) => {
+    async (_, {rejectWithValue, fulfillWithValue, dispatch}) => {
         try {
             const data = await instance.get('/logout');
             Token.remove();
+            dispatch(changeTab({tab: 'personal'}));
             return fulfillWithValue(data);
         } catch (e) {
             return rejectWithValue(e);
@@ -76,26 +52,25 @@ export const userSlice = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(userInit.pending, (state, action) => {
+            .addCase(userInit.pending, (state) => {
                 state.isLoading = true;
-                state.isError = false;
-                state.error = null;
             })
             .addCase(userInit.fulfilled, (state, action) => {
+                const {id, email, active, role} = action.payload;
                 state.isLoading = false;
                 state.isSuccess = true;
-                state.data = action.payload.data;
-                state.isAuthorized = action.payload.isAuthorized;
+                state.isAuthorized = true;
+                state.data = {id, email, active, role};
             })
-            .addCase(userInit.rejected, (state, action) => {
+            .addCase(userInit.rejected, (state) => {
                 state.isLoading = false;
-                state.isError = true;
-                console.log('TODO ACTION', action); // need add error
+                state.isSuccess = true;
+                state.isAuthorized = false;
             })
-            .addCase(userLogout.pending, (state, action) => {
+            .addCase(userLogout.pending, (state) => {
                 state.isSubmit = false;
             })
-            .addCase(userLogout.fulfilled, (state, action) => {
+            .addCase(userLogout.fulfilled, (state) => {
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.data = null;

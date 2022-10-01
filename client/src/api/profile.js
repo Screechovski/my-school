@@ -1,13 +1,17 @@
-import {requestWithToken} from './server';
+import {instance} from './server';
 
 export const getUsers = () => {
-    return requestWithToken('/profile/users');
+    return instance.get('/profile/users');
+};
+
+export const saveUser = (userId, data) => {
+    return instance.patch('/profile/user/' + userId, data);
 };
 
 export const getSubjects = () => {
-    return requestWithToken('/profile/subjects');
+    return instance.get('/profile/subjects');
 };
 
 export const getEducators = () => {
-    return requestWithToken('/profile/educators');
+    return instance.get('/profile/educators');
 };

@@ -2,14 +2,14 @@ import {Response} from 'express';
 import {AnswerType, RequestEmpty} from '../types';
 import {error, success} from '../assets/helper';
 import {HTTP_CODES} from '../assets/constants';
-import {decodRefreshToken} from '../assets/token';
-import { setUserTokenDBProxy } from '../db/modules/users';
+import {setUserTokenDBProxy} from '../db/modules/users';
+import {Token} from '../assets/token';
 
 export const logout = async (req: RequestEmpty, res: Response<AnswerType>) => {
     try {
         const {refreshToken} = req.cookies;
         // @ts-ignore
-        const {id} = decodRefreshToken(refreshToken);
+        const {id} = Token.decodeRefresh(refreshToken);
 
         await setUserTokenDBProxy(id, null);
         res.clearCookie('refreshToken');

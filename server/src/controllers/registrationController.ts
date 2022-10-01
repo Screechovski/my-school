@@ -4,7 +4,6 @@ import {AnswerType, RequestWithBody} from '../types';
 import bcrypt from 'bcryptjs';
 import {HTTP_CODES, VALIDATION_RULES} from '../assets/constants';
 import {validationResult} from 'express-validator';
-import {generateTokens} from '../assets/token';
 import {v1} from 'uuid';
 import {
     createUserDBProxy,
@@ -12,7 +11,8 @@ import {
     getUserByIdDBProxy,
     setUserTokenDBProxy
 } from '../db/modules/users';
-import { RegistrationUserBodyEmail } from '../models/trash';
+import {RegistrationUserBodyEmail} from '../models/trash';
+import {Token} from '../assets/token';
 
 class CurrentRegistrationUsers {
     users: any = {};
@@ -156,7 +156,7 @@ export const registrationEnd = async (
         const [{id, role, email, active}]: any = await getUserByIdDBProxy(
             createdUserId
         );
-        const {accessToken, refreshToken} = generateTokens({
+        const {accessToken, refreshToken} = Token.generate({
             id,
             role,
             email,

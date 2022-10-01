@@ -1,12 +1,12 @@
 import {AnswerType, RequestWithBody} from '../types';
 import {Response} from 'express';
-import {Cleaner, error, success, Validation} from '../assets/helper';
+import {error, success} from '../assets/helper';
 import bcrypt from 'bcryptjs';
 import {HTTP_CODES} from '../assets/constants';
 import {validationResult} from 'express-validator';
-import {generateTokens} from '../assets/token';
 import {getUserByEmailDBProxy, setUserTokenDBProxy} from '../db/modules/users';
-import { AuthorizationUserBodyData } from '../models/trash';
+import {AuthorizationUserBodyData} from '../models/trash';
+import {Token} from '../assets/token';
 
 export const authorization = async (
     req: RequestWithBody<AuthorizationUserBodyData>,
@@ -40,7 +40,7 @@ export const authorization = async (
             return;
         }
 
-        const {accessToken, refreshToken} = generateTokens({
+        const {accessToken, refreshToken} = Token.generate({
             id,
             role,
             email,
@@ -49,7 +49,7 @@ export const authorization = async (
         await setUserTokenDBProxy(id, refreshToken);
 
         res.cookie('refreshToken', refreshToken, {
-            maxAge: 1000 * 60 * 60 * 24 * 30,
+            maxAge: 1000 * 60 * 60 * 24, // * 30,
             httpOnly: true
         });
         res.status(HTTP_CODES.OK_200).json(success({accessToken}));

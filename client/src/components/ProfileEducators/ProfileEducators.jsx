@@ -6,7 +6,7 @@ import {getEducators} from '../../api/profile';
 
 // TODO вынести запрос в container
 export const ProfileEducators = () => {
-    const {isLoading, isSuccess, data} = useQuery(
+    const {isLoading, isSuccess} = useQuery(
         ['profile-educators'],
         getEducators,
         QUERY_CONFIG
@@ -21,13 +21,7 @@ export const ProfileEducators = () => {
     }
 
     if (isSuccess) {
-        return (
-            <ul className={css.profileUser}>
-                {data.data.map((user) => (
-                    <li className={css.profileUser__item} key={user.id}></li>
-                ))}
-            </ul>
-        );
+        return <ul></ul>;
     }
 
     return <span></span>;

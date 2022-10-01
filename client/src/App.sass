@@ -8,19 +8,20 @@
     grid-template-rows: auto 1fr auto
     min-height: 100vh
     box-sizing: border-box
-    @apply grid gap-small p-small bg-slate-100
+    @apply grid gap-small p-small
 
 html
     scrollbar-width: none
     font-family: 'Andika', sans-serif
     &::-webkit-scrollbar
-        width: 0px
+        width: 0
 
 body
     font-size: 16px
     scrollbar-width: none
+    @apply bg-slate-100
     &::-webkit-scrollbar
-        width: 0px
+        width: 0
     *
         font-family: inherit
 
@@ -51,7 +52,7 @@ body
         background-color: rgba(94,94,94, 1)
         height: 100%
         width: 100%
-        inset: 0%
+        inset: 0
         animation: loadingAfter 2s infinite
     & > *
         display: none
@@ -103,3 +104,7 @@ body
     @apply text-blue-400 underline
     &:hover
         @apply no-underline
+
+.hr
+    height: 1px
+    @apply block w-full bg-gray-100 shadow-none

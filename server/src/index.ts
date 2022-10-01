@@ -26,14 +26,4 @@ app.get('/*', (req: RequestEmpty, res) => {
     }
 });
 
-const start = () => {
-    try {
-        app.listen(port, () =>
-            console.log(`Example app listening on port ${port}`)
-        );
-    } catch (e) {
-        console.warn(e);
-    }
-};
-
-start();
+app.listen(port, () => console.log(`Example app listening on port ${port}`));

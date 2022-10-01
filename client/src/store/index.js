@@ -7,6 +7,7 @@ import {registerFormReducer} from './registerForm/registerFormSlice';
 import {userReducer} from './user/userSlice';
 import {resetPasswordFormReducer} from './resetPasswordForm/resetPasswordFormSlice';
 import {profileReducer} from './profile/profileSlice';
+import {profileUsersReducer} from './profileUsers/profileUsersSlice';
 
 const reducers = combineReducers({
     registerFormReducer,
@@ -14,7 +15,8 @@ const reducers = combineReducers({
     authFormReducer,
     userReducer,
     resetPasswordFormReducer,
-    profileReducer
+    profileReducer,
+    profileUsersReducer
 });
 
 export const store = configureStore({
