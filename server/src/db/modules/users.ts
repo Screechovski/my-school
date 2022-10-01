@@ -1,211 +1,100 @@
-import {Connection, MysqlError} from 'mysql';
-import {ViewUserModel} from '../../models/users/ViewUserModel';
+import {MysqlError} from 'mysql';
+import {DBUsersModel} from '../../models/trash';
+import {connection} from '../db';
 
-export const getAllUsers = (connection: Connection) => (): Promise<
-    null | Object[] | MysqlError
-> =>
-    new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM users', (error, result: ViewUserModel[]) => {
-            if (error) {
-                reject(error);
-            } else {
-                resolve(result);
-            }
-        });
-    });
+type PromiseType = DBUsersModel[] | MysqlError | null;
 
-export const getActiveUsers = (connection: Connection) => (): Promise<
-    null | Object[] | MysqlError
-> =>
+export const getAllUsersDBProxy = (): Promise<PromiseType> =>
     new Promise((resolve, reject) => {
-        connection.query(
-            'SELECT * FROM users WHERE active = 1',
-            (error, result) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(result);
-                }
-            }
+        connection.query('SELECT * FROM users', (error, result) =>
+            !!error ? reject(error) : resolve(result)
         );
     });
 
-export const getUserByEmail = (connection: Connection) => (email: string) =>
+export const getActiveUsersDBProxy = (): Promise<PromiseType> =>
+    new Promise((resolve, reject) => {
+        connection.query(
+            'SELECT * FROM users WHERE active = 1',
+            (error, result) => (!!error ? reject(error) : resolve(result))
+        );
+    });
+
+export const getUserByEmailDBProxy = (email: string): Promise<PromiseType> =>
     new Promise((resolve, reject) => {
         connection.query(
             'SELECT * FROM users WHERE email = ?',
             [email],
-            (error, result) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(result);
-                }
-            }
+            (error, result) => (!!error ? reject(error) : resolve(result))
         );
     });
 
-export const getAllEducators = (connection: Connection) => (): Promise<
-    null | Object[] | MysqlError
-> =>
+export const getAllEducatorsDBProxy = (): Promise<PromiseType> =>
     new Promise((resolve, reject) => {
         connection.query(
-            'SELECT * FROM users WHERE role = "teacher" AND active = 1',
-            (error, result) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    const shortName = (
-                        name: string | null,
-                        surname: string | null,
-                        patronymic: string | null
-                    ) => {
-                        const stringName = name ? name[0] : '';
-                        const stringPatronymic = patronymic ? patronymic[0] : '';
-
-                        return `${surname} ${stringName}.${stringPatronymic}.`; // TODO исправить если нет отчества
-                    };
-
-                    resolve(
-                        result.map((educator: ViewUserModel) => ({
-                            id: educator.id,
-                            image: educator.image,
-                            name: shortName(
-                                educator.name,
-                                educator.surname,
-                                educator.patronymic
-                            ),
-                            email: educator.email
-                        }))
-                    );
-                }
-            }
+            'SELECT * FROM users WHERE role = "educator" AND active = 1',
+            (error, result) => (!!error ? reject(error) : resolve(result))
         );
     });
 
-export const getEducator = (connection: Connection) => (
-    id: number
-): Promise<null | Object[] | MysqlError> =>
+export const getEducatorDBProxy = (id: number): Promise<PromiseType> =>
     new Promise((resolve, reject) => {
         connection.query(
-            'SELECT * FROM users WHERE role = "teacher" AND active = 1 AND id = ?',
+            'SELECT * FROM users WHERE role = "educator" AND active = 1 AND id = ?',
             [id],
-            (error, result) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    const shortName = (
-                        name: string | null,
-                        surname: string | null,
-                        patronymic: string | null
-                    ) => {
-                        const stringName = name ? name[0] : '';
-                        const stringPatronymic = patronymic ? patronymic[0] : '';
-
-                        return `${surname} ${stringName}.${stringPatronymic}.`; // TODO исправить если нет отчества
-                    };
-
-                    resolve(
-                        result.map((educator: ViewUserModel) => ({
-                            id: educator.id,
-                            image: educator.image,
-                            name: shortName(
-                                educator.name,
-                                educator.surname,
-                                educator.patronymic
-                            ),
-                            email: educator.email
-                        }))
-                    );
-                }
-            }
+            (error, result) => (!!error ? reject(error) : resolve(result))
         );
     });
 
-export const getUserById = (connection: Connection) => (
-    id: number
-): Promise<null | Object[] | MysqlError> =>
+export const getUserByIdDBProxy = (id: number): Promise<PromiseType> =>
     new Promise((resolve, reject) => {
         connection.query(
             'SELECT * FROM users WHERE id = ?',
             [id],
-            (error, result) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(result);
-                }
-            }
+            (error, result) => (!!error ? reject(error) : resolve(result))
         );
     });
 
-export const createUser = (connection: Connection) => (
+export const createUserDBProxy = (
     email: string,
     password: string
-): Promise<null | Object[] | MysqlError> =>
+): Promise<PromiseType> =>
     new Promise((resolve, reject) => {
         connection.query(
             'INSERT INTO `users` (`email`, `password`) VALUES (?, ?)',
             [email, password],
-            (error, result) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(result);
-                }
-            }
+            (error, result) => (!!error ? reject(error) : resolve(result))
         );
     });
 
-export const setUserToken = (connection: Connection) => (
+export const setUserTokenDBProxy = (
     userId: string,
     refreshToken: string | null
-): Promise<null | Object[] | MysqlError> =>
+): Promise<PromiseType> =>
     new Promise((resolve, reject) => {
         connection.query(
             'UPDATE `users` SET `refresh_token` = ? WHERE `users`.`id` = ?',
             [refreshToken, userId],
-            (error, result) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(result);
-                }
-            }
+            (error, result) => (!!error ? reject(error) : resolve(result))
         );
     });
 
-export const getUserByToken = (connection: Connection) => (
-    token: string
-): Promise<null | Object[] | MysqlError> =>
+export const getUserByTokenDBProxy = (token: string): Promise<PromiseType> =>
     new Promise((resolve, reject) => {
         connection.query(
             'SELECT * from `users` WHERE `users`.`refresh_token` = ?',
             [token],
-            (error, result) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(result);
-                }
-            }
+            (error, result) => (!!error ? reject(error) : resolve(result))
         );
     });
 
-export const changeUserPassword = (connection: Connection) => (
+export const changeUserPasswordDBProxy = (
     email: string,
     password: string
-): Promise<null | Object[] | MysqlError> =>
+): Promise<PromiseType> =>
     new Promise((resolve, reject) => {
         connection.query(
             'UPDATE `users` SET `password` = ? WHERE `users`.`email` = ?',
             [password, email],
-            (error, result) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(result);
-                }
-            }
+            (error, result) => (!!error ? reject(error) : resolve(result))
         );
     });

@@ -5,17 +5,15 @@ import {
     RequestWithParams,
     RequestWithParamsAndBody
 } from '../types';
-import {CreatePostBodyModel} from '../models/news/CreatePostBodyModel';
 import {Response} from 'express';
 import {error, success, Validation} from '../assets/helper';
-import {createNewsDBProxy, getAllNewsDBProxy, getNewsDBProxy} from '../db/db';
-import {DeletePostParamsModel} from '../models/news/DeletePostModel';
-import {ReadPostParamsModel} from '../models/news/ReadPostModel';
-import {
-    UpdatePostBodyModel,
-    UpdatePostQueryModel
-} from '../models/news/UpdatePostModel';
 import {HTTP_CODES} from '../assets/constants';
+import {
+    createNewsDBProxy,
+    getAllNewsDBProxy,
+    getNewsDBProxy
+} from '../db/modules/news';
+import { CreatePostBodyModel, DeletePostParamsModel, ReadPostParamsModel, UpdatePostBodyModel, UpdatePostQueryModel } from '../models/trash';
 
 export const createNews = async (
     req: RequestWithBody<CreatePostBodyModel>,
@@ -26,11 +24,15 @@ export const createNews = async (
         const message = req.body.message.trim();
 
         if (!Validation.news.title(title)) {
-            res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Проверьте поле title'));
+            res.status(HTTP_CODES.BAD_REQUEST_400).json(
+                error('Проверьте поле title')
+            );
             return;
         }
         if (!Validation.news.message(message)) {
-            res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Проверьте поле message'));
+            res.status(HTTP_CODES.BAD_REQUEST_400).json(
+                error('Проверьте поле message')
+            );
             return;
         }
 
@@ -39,7 +41,9 @@ export const createNews = async (
         res.status(HTTP_CODES.OK_200).json(success(DBResponce));
     } catch (e) {
         console.warn(e);
-        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(
+            error('Ошибка сервера. Попробуй позже')
+        );
     }
 };
 
@@ -53,7 +57,9 @@ export const deleteNews = (
         res.status(HTTP_CODES.OK_200).json(success(id));
     } catch (e) {
         console.warn(e);
-        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(
+            error('Ошибка сервера. Попробуй позже')
+        );
     }
 };
 
@@ -67,23 +73,27 @@ export const readNews = async (
         res.status(HTTP_CODES.OK_200).json(success(DBResponce));
     } catch (e) {
         console.warn(e);
-        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(
+            error('Ошибка сервера. Попробуй позже')
+        );
     }
 };
 
-export const readSingleNews = async(
+export const readSingleNews = async (
     req: RequestWithParams<ReadPostParamsModel>,
     res: Response<AnswerType>
 ) => {
     try {
         const id = parseInt(req.params.id);
-        const DBResponce = await getNewsDBProxy(id)
+        const DBResponce = await getNewsDBProxy(id);
         const cleanData = Array.isArray(DBResponce) ? DBResponce[0] : null;
 
         res.status(HTTP_CODES.OK_200).json(success(cleanData));
     } catch (e) {
         console.warn(e);
-        res.status(HTTP_CODES.SERVER_ERROR_500).json(error('Ошибка сервера. Попробуй позже'))
+        res.status(HTTP_CODES.SERVER_ERROR_500).json(
+            error('Ошибка сервера. Попробуй позже')
+        );
     }
 };
 

@@ -1,12 +1,12 @@
 import {AnswerType, RequestWithBody} from '../types';
 import {Response} from 'express';
 import {Cleaner, error, success, Validation} from '../assets/helper';
-import {getUserByEmailDBProxy, setUserTokenDBProxy} from '../db/db';
-import {AuthorizationUserBodyData} from '../models/authorization/authorization';
 import bcrypt from 'bcryptjs';
 import {HTTP_CODES} from '../assets/constants';
 import {validationResult} from 'express-validator';
 import {generateTokens} from '../assets/token';
+import {getUserByEmailDBProxy, setUserTokenDBProxy} from '../db/modules/users';
+import { AuthorizationUserBodyData } from '../models/trash';
 
 export const authorization = async (
     req: RequestWithBody<AuthorizationUserBodyData>,

@@ -1,33 +1,23 @@
-import {Connection, MysqlError} from 'mysql';
+import {connection, PromiseType} from '../db';
 
-export const getSubjectsByUser =
-    (connection: Connection) =>
-    (userId: number): Promise<null | Object[] | MysqlError> =>
-        new Promise((resolve, reject) => {
-            connection.query(
-                'SELECT * FROM `subject_user` WHERE user_id = ' + userId,
-                (error, result) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        resolve(result);
-                    }
-                }
-            );
-        });
+export const getSubjectsByUserDBProxy = (
+    userId: number
+): Promise<PromiseType> =>
+    new Promise((resolve, reject) => {
+        connection.query(
+            'SELECT * FROM `subject_user` WHERE user_id = ?',
+            [userId],
+            (error, result) => (!!error ? reject(error) : resolve(result))
+        );
+    });
 
-export const getUsersBySubject =
-    (connection: Connection) =>
-    (subjectId: number): Promise<null | Object[] | MysqlError> =>
-        new Promise((resolve, reject) => {
-            connection.query(
-                'SELECT * FROM `subject_user` WHERE subject_id = ' + subjectId,
-                (error, result) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        resolve(result);
-                    }
-                }
-            );
-        });
+export const getUsersBySubjectDBProxy = (
+    subjectId: number
+): Promise<PromiseType> =>
+    new Promise((resolve, reject) => {
+        connection.query(
+            'SELECT * FROM `subject_user` WHERE subject_id = ?',
+            [subjectId],
+            (error, result) => (!!error ? reject(error) : resolve(result))
+        );
+    });

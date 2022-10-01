@@ -1,9 +1,12 @@
 import {AnswerType, RequestWithBody} from '../types';
 import {Response} from 'express';
-import {changeUserPasswordDBProxy, getUserByEmailDBProxy} from '../db/db';
 import {error, success, Validation} from '../assets/helper';
 import bcrypt from 'bcryptjs';
 import {HTTP_CODES} from '../assets/constants';
+import {
+    changeUserPasswordDBProxy,
+    getUserByEmailDBProxy
+} from '../db/modules/users';
 
 export const resetPassword = async (
     req: RequestWithBody<{email: string}>,
@@ -23,9 +26,7 @@ export const resetPassword = async (
             res.sendStatus(HTTP_CODES.BAD_REQUEST_400);
             return;
         }
-        res.status(HTTP_CODES.OK_200).json(
-            success(null)
-        );
+        res.status(HTTP_CODES.OK_200).json(success(null));
     } catch (e) {
         console.warn(e);
         res.sendStatus(HTTP_CODES.SERVER_ERROR_500);
@@ -39,7 +40,9 @@ export const resetPasswordConfirm = async (
     const code = req.body.code.trim();
 
     if (!Validation.code(code)) {
-        res.status(HTTP_CODES.BAD_REQUEST_400).json(error('Проверьте поле code'));
+        res.status(HTTP_CODES.BAD_REQUEST_400).json(
+            error('Проверьте поле code')
+        );
         return;
     }
     if (code !== 'a35y7u') {

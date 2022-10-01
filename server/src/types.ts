@@ -14,3 +14,14 @@ export type AnswerTypeError = {
     message: string;
 };
 export type AnswerType = AnswerTypeSuccess | AnswerTypeError;
+
+export type AnswerSuccess<T> = {
+    data: T;
+    message: string;
+}
+export type AnswerError<T> = {
+    validationErrors?: any;
+    error: T;
+    message: string;
+}
+export type Answer<S,E> = AnswerSuccess<S> | AnswerError<E>;

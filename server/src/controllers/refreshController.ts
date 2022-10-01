@@ -1,9 +1,9 @@
 import {Response} from 'express';
 import {AnswerType, RequestEmpty} from '../types';
-import {getUserByTokenDBProxy, setUserTokenDBProxy} from '../db/db';
 import {error, success} from '../assets/helper';
 import {HTTP_CODES} from '../assets/constants';
 import {decodRefreshToken, generateTokens} from '../assets/token';
+import {getUserByTokenDBProxy, setUserTokenDBProxy} from '../db/modules/users';
 
 export const refresh = async (req: RequestEmpty, res: Response<AnswerType>) => {
     try {
@@ -21,7 +21,9 @@ export const refresh = async (req: RequestEmpty, res: Response<AnswerType>) => {
 
         if (DBResponce.length === 0) {
             res.clearCookie('refreshToken');
-            res.status(HTTP_CODES.NOT_FOUND_404).json(error('Пользователь не найден'));
+            res.status(HTTP_CODES.NOT_FOUND_404).json(
+                error('Пользователь не найден')
+            );
             return;
         }
 
@@ -29,7 +31,9 @@ export const refresh = async (req: RequestEmpty, res: Response<AnswerType>) => {
         const tokens = generateTokens({id, email, active, role});
         res.cookie('refreshToken', tokens.refreshToken);
         await setUserTokenDBProxy(id, tokens.refreshToken);
-        res.status(HTTP_CODES.OK_200).json(success({accessToken: tokens.accessToken}));
+        res.status(HTTP_CODES.OK_200).json(
+            success({accessToken: tokens.accessToken})
+        );
     } catch (e) {
         console.warn(e);
         res.status(HTTP_CODES.SERVER_ERROR_500).json(

@@ -1,16 +1,15 @@
 import {AnswerType, RequestEmpty, RequestWithParams} from '../types';
 import {Response} from 'express';
-import {
-    getAllSubjectsDBProxy,
-    getAllSubjectsWithYearsDBProxy,
-    getSubjectDBProxy
-} from '../db/db';
 import {error, success} from '../assets/helper';
 import {HTTP_CODES} from '../assets/constants';
-import {DBSubjectModel} from '../models/subjects/DBSubjectModel';
-import {ViewSubjectModel} from '../models/subjects/ViewSubjectModel';
-import {DBSubjectYearsModel} from '../models/subjectsYears/DBSubjectYearsModel';
-import {ViewSubjectYearsModel} from '../models/subjectsYears/ViewSubjectYearsModel';
+import {getAllSubjectsDBProxy, getSubjectDBProxy} from '../db/modules/subjects';
+import {getAllSubjectsWithYearsDBProxy} from '../db/modules/subjectsYears';
+import {
+    DBSubjectModel,
+    DBSubjectYearsModel,
+    ViewSubjectModel,
+    ViewSubjectYearsModel
+} from '../models/trash';
 
 export const readSubjects = async (
     req: RequestEmpty,
@@ -67,8 +66,7 @@ export const readSubjectWithYears = async (
 ) => {
     try {
         // @ts-ignore
-        const DBResponce: DBSubjectYearsModel[] =
-            await getAllSubjectsWithYearsDBProxy();
+        const DBResponce: DBSubjectYearsModel[] = await getAllSubjectsWithYearsDBProxy();
         const cleanData: ViewSubjectYearsModel[] = DBResponce.map(
             (subject: DBSubjectYearsModel) => ({
                 id: subject.id,

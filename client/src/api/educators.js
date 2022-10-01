@@ -5,7 +5,7 @@ export const getEducators = () => {
 };
 
 export const getEducator = (id) => () => {
-    return instance.get(`/educators/${id}`);
+    return instance.get(`/educator/${id}`);
 };
 
 // export const refresh

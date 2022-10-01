@@ -1,9 +1,9 @@
 import {Response} from 'express';
 import {AnswerType, RequestEmpty} from '../types';
-import {setUserTokenDBProxy} from '../db/db';
 import {error, success} from '../assets/helper';
 import {HTTP_CODES} from '../assets/constants';
 import {decodRefreshToken} from '../assets/token';
+import { setUserTokenDBProxy } from '../db/modules/users';
 
 export const logout = async (req: RequestEmpty, res: Response<AnswerType>) => {
     try {
